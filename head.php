@@ -6,47 +6,47 @@
     <link rel="shortcut icon" type="image/x-icon" href="resource/img/logo/opc.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link rel="stylesheet" href="Resource/css/color.css">
-    <link rel="stylesheet" href="Resource/css/loading.css">
-    <link rel="stylesheet" href="Resource/css/main.css">
-    <link rel="stylesheet" href="Resource/css/icon.css">
-    <link rel="stylesheet" href="Resource/css/section.css">
-    <link rel="stylesheet" href="Resource/css/header.css">
-    <link rel="stylesheet" href="Resource/css/menu.css">
-    <link rel="stylesheet" href="Resource/css/nav.css">
+    <link rel="stylesheet" href="resource/css/color.css">
+    <link rel="stylesheet" href="resource/css/loading.css">
+    <link rel="stylesheet" href="resource/css/main.css">
+    <link rel="stylesheet" href="resource/css/icon.css">
+    <link rel="stylesheet" href="resource/css/section.css">
+    <link rel="stylesheet" href="resource/css/header.css">
+    <link rel="stylesheet" href="resource/css/menu.css">
+    <link rel="stylesheet" href="resource/css/nav.css">
 
-    <link rel="stylesheet" href="Resource/css/alert.css">
-    <link rel="stylesheet" href="Resource/css/form.css">
-    <link rel="stylesheet" href="Resource/css/input.css">
-    <link rel="stylesheet" href="Resource/css/button.css">
-    <link rel="stylesheet" href="Resource/css/search.css">
-    <link rel="stylesheet" href="Resource/css/profile.css">
-    <link rel="stylesheet" href="Resource/css/account.css">
-    <link rel="stylesheet" href="Resource/css/aside.css">
-    <link rel="stylesheet" href="Resource/css/gallery.css">
-    <link rel="stylesheet" href="Resource/css/read.css">
-    <link rel="stylesheet" href="Resource/css/dash.css">
+    <link rel="stylesheet" href="resource/css/alert.css">
+    <link rel="stylesheet" href="resource/css/form.css">
+    <link rel="stylesheet" href="resource/css/input.css">
+    <link rel="stylesheet" href="resource/css/button.css">
+    <link rel="stylesheet" href="resource/css/search.css">
+    <link rel="stylesheet" href="resource/css/profile.css">
+    <link rel="stylesheet" href="resource/css/account.css">
+    <link rel="stylesheet" href="resource/css/aside.css">
+    <link rel="stylesheet" href="resource/css/gallery.css">
+    <link rel="stylesheet" href="resource/css/read.css">
+    <link rel="stylesheet" href="resource/css/dash.css">
 
-    <script src="Resource/js/form/CheckIns.js"></script>
-    <script src="Resource/js/form/CheckFaculty.js"></script>
-    <script src="Resource/js/form/CheckDept.js"></script>
-    <script src="Resource/js/form/CheckMajor.js"></script>
-    <script src="Resource/js/form/CheckProjectType.js"></script>
-    <script src="Resource/js/form/CheckProject.js"></script>
-    <script src="Resource/js/form/CheckSign.js"></script>
-    <script src="Resource/js/form/CheckUser.js"></script>
-    <script src="Resource/js/form/CheckRequest.js"></script>
+    <script src="resource/js/form/CheckIns.js"></script>
+    <script src="resource/js/form/CheckFaculty.js"></script>
+    <script src="resource/js/form/CheckDept.js"></script>
+    <script src="resource/js/form/CheckMajor.js"></script>
+    <script src="resource/js/form/CheckProjectType.js"></script>
+    <script src="resource/js/form/CheckProject.js"></script>
+    <script src="resource/js/form/CheckSign.js"></script>
+    <script src="resource/js/form/CheckUser.js"></script>
+    <script src="resource/js/form/CheckRequest.js"></script>
 
-    <script src="Resource/js/input/CheckInput.js"></script>
+    <script src="resource/js/input/CheckInput.js"></script>
 
-    <script src="Resource/js/other/Theme.js"></script>
-    <script src="Resource/js/other/Alert.js"></script>
+    <script src="resource/js/other/Theme.js"></script>
+    <script src="resource/js/other/Alert.js"></script>
 
-    <script src="Resource/js/select/CheckSelect.js"></script>
+    <script src="resource/js/select/CheckSelect.js"></script>
 
-    <script src="Resource/js/CheckVerify.js"></script>
-    <script src="Resource/js/VerifyAutoFocus.js"></script>
-    <script src="Resource/js/VisibilityChange.js"></script>
+    <script src="resource/js/CheckVerify.js"></script>
+    <script src="resource/js/VerifyAutoFocus.js"></script>
+    <script src="resource/js/VisibilityChange.js"></script>
 
-    <script src="Resource/js/language/lang.js"></script>
+    <script src="resource/js/language/lang.js"></script>
 </head>
