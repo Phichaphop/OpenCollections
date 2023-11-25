@@ -1,0 +1,126 @@
+.btn-pr {
+  height: auto;
+  width: 100%;
+  padding: 15px;
+  border: 0px solid var(--body-l2--);
+  border-radius: 120px;
+  background: var(--main-l1--);
+  cursor: pointer;
+  color: var(--alway-white--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+}
+
+.btn-pr:hover {
+  box-shadow: rgba(0, 81, 161, 0.2) 0px 8px 24px;
+  background: var(--main-l2--);
+}
+
+.btn-se {
+  height: auto;
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--main-l1--);
+  border-radius: 120px;
+  background: none;
+  cursor: pointer;
+  color: var(--main-l1--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+}
+
+.btn-se:hover {
+  color: var(--main-l3--);
+}
+
+.btn-te {
+  height: auto;
+  width: 100%;
+  padding: 15px;
+  border: 0px solid var(--main-l1--);
+  border-radius: 120px;
+  background: var(--body-l1--);
+  cursor: pointer;
+  color: var(--main-l1--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-te:hover {
+  text-decoration: underline;
+}
+
+.btn-normal-pr {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: auto;
+  width: auto;
+  padding: 10px 15px;
+  border: 0px solid var(--body-l2--);
+  border-radius: 120px;
+  background: var(--main-l1--);
+  cursor: pointer;
+  color: var(--alway-white--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+}
+
+.btn-normal-pr .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.btn-normal-pr:hover {
+  box-shadow: rgba(0, 81, 161, 0.2) 0px 8px 24px;
+  background: var(--main-l2--);
+}
+
+.btn-normal-se {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: auto;
+  width: auto;
+  padding: 10px 15px;
+  border: 1px solid var(--main-l1--);
+  border-radius: 120px;
+  background: var(--body-l1--);
+  cursor: pointer;
+  color: var(--main-l1--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-normal-se .material-symbols-outlined {
+  color: var(--main-l1--);
+}
+
+.btn-normal-se:hover {
+  color: var(--main-l3--);
+}
+
+.btn-del {
+  height: auto;
+  width: 100%;
+  padding: 15px;
+  border: 0px solid var(--body-l2--);
+  border-radius: 120px;
+  background: var(--red-l1--);
+  cursor: pointer;
+  color: var(--alway-white--);
+  transition: 0.2s;
+  text-align: center;
+  font-size: 15px;
+}
+
+.btn-del:hover {
+  box-shadow: rgba(0, 81, 161, 0.2) 0px 8px 24px;
+  background: var(--red-l2--);
+}

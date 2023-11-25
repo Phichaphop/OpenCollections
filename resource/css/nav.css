@@ -1,0 +1,142 @@
+/* The side navigation menu */
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  width: auto;
+  margin: auto;
+  padding: 10px;
+  border-radius: 60px;
+  background: var(--main-l1--);
+  transition: 0.5s;
+
+  /*position: -webkit-sticky; /* Safari */
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-content-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0px 10px;
+  height: auto;
+  width: auto;
+  transition: 0.5s;
+  border-radius: 60px;
+  background: var(--body-l1--);
+}
+
+.nav-icon-active {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: auto;
+  border-radius: 120px;
+  transition: 0.5s;
+}
+
+.nav-icon-active:hover {
+  background: var(--body-l2--);
+}
+
+.nav-logo-active {
+  display: flex;
+  height: auto;
+  width: 24px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.nav-text-active {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: 0 5;
+  border-radius: 120px;
+  transition: 0.5s;
+  color: var(--main-l1--);
+}
+
+/*--------------------passive--------------------*/
+.nav-content-passive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0px 10px;
+  height: auto;
+  width: auto;
+  transition: 0.5s;
+  border-radius: 60px;
+  background: var(--main-l1--);
+}
+
+.nav-icon-passive {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  border-radius: 120px;
+  transition: 0.5s;
+}
+
+.nav-icon-passive:hover {
+  background: var(--body-l1--);
+}
+
+.nav-icon-passive:hover .nav-logo-passive {
+  color: var(--main-l1--);
+}
+
+.nav-icon-passive .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.nav-profile-icon {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: auto;
+  border-radius: 120px;
+  transition: 0.5s;
+}
+
+.nav-profile {
+  height: 34px;
+  width: 34px;
+  border-radius: 60px;
+}
+
+.nav-logo-passive {
+  display: flex;
+  height: auto;
+  width: 24px;
+  margin: auto;
+  cursor: pointer;
+  color: var(--alway-white--);
+  transition: 0.5s;
+}
+
+.nav-text-passive {
+  display: none;
+}

@@ -1,0 +1,104 @@
+.input {
+  padding: 15px;
+  border: 1px solid var(--body-l3--);
+  border-radius: 120px;
+  background: var(--body-l1--);
+}
+
+.input:focus {
+  transition: 1s;
+  border: 1.5px solid var(--main-l1--);
+}
+
+.label {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+  padding:  0px 5px;
+  transition: 0.5s;
+}
+
+.input:valid ~ .label,
+.input:focus ~ .label {
+  top: -12px;
+  left: 30px;
+  background: var(--body-l1--);
+}
+
+.label-fix {
+  position: absolute;
+  top: -12px;
+  left: 30px;
+  padding:  0px 5px;
+  background: var(--body-l1--);
+}
+
+.eye {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  margin: auto;
+  padding: 10px;
+  border-radius: 60px;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.eye:hover  {
+  background: var(--body-l2--);
+}
+
+.validation-message {
+  color: var(--red-l1--);
+}
+
+.verify-input {
+  height: 100%;
+  width: 100%;
+  padding: auto;
+  font-size: 30px;
+  text-align: center;
+  border: 1px solid var(--body-l3--);
+  background: var(--body-l1--);
+}
+
+#PreviewPic {
+  max-height: 200px;
+  height: auto;
+  min-height: 200px;
+  max-width: 200px;
+  min-width: 200px;
+  margin: auto;
+  border-radius: 1000px;
+  border: none;
+}
+
+.longtext {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  resize: none;
+}
+
+input[type="file"]::file-selector-button {
+  padding: 5px 10px;
+  border: none;
+  background: none;
+  transition: 1s;
+  border-radius: 30px;
+  border: none;
+  color: var(--text-l1--);
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--main-l1--);
+  color: var(--alway-white--);
+}

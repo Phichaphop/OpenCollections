@@ -1,0 +1,37 @@
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 200,
+    'GRAD' 500,
+    'opsz' 100
+  }
+  
+  .icon {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    align-content: center;
+    text-align: center;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border-radius: 60px;
+    transition: 1s;
+  }
+  
+  .icon:hover {
+    background: var(--body-l2--);
+  }
+  
+  .icon .material-symbols-outlined{
+    display: flex;
+    height: auto;
+    width: 24px;
+    margin: auto;
+    cursor: pointer;
+  }
+  
+  .text-link {
+    cursor: pointer;
+    color: var(--main-l1--);
+  }

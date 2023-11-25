@@ -1,0 +1,123 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1180px) {
+  .profile {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .profile {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  height: auto;
+  width: auto;
+}
+
+.card {
+  /*position: relative;*/
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  gap: 10px;
+  height: auto;
+  width: 100%;
+  padding: 30px 40px;
+  border-radius: 20px;
+  /*background: rgb(0, 71, 102);*/
+  background: linear-gradient(
+    32deg,
+    rgba(0, 71, 102, 1) 0%,
+    rgba(0, 107, 153, 1) 50%,
+    rgba(0, 118, 168, 1) 100%
+  );
+  box-shadow: var(--shadow--) 0px 8px 24px;
+}
+
+@media only screen and (max-width: 1180px) {
+  /*.card {
+    flex-direction: row;
+  }*/
+}
+
+@media only screen and (max-width: 425px) {
+  .card {
+    flex-direction: row;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+.card-group {
+  /*position: relative;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.card-content {
+  /*position: relative;*/
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+
+@media only screen and (max-width: 1180px) {
+  /*.card-group {
+    
+  }*/
+}
+
+@media only screen and (max-width: 425px) {
+  .card-group {
+    align-items: flex-start;
+  }
+  .card-content {
+    text-align: left;
+  }
+}
+
+.card-content .material-symbols-outlined {
+  font-size: 100px;
+  color: var(--alway-white--);
+}
+
+.card-profile {
+  height: 100px;
+  width: 100px;
+  border-radius: 120px;
+}
+
+.card-qrcode {
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--alway-white--);
+  color: #ffffff00;
+}
+
+.card-menu {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

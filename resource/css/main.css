@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Prompt", sans-serif;
+  box-sizing: border-box;
+  color: var(--text-l1--);
+  text-decoration: none;
+  outline: none;
+  transition: 0.5s;
+}
+
+body {
+  background: var(--body-l1--);
+}
+
+/*-------------------- container --------------------*/
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh;
+  max-width: 100vw;
+  background: var(--body-l1--);
+}

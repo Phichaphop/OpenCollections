@@ -1,0 +1,65 @@
+<?php require_once 'Backend/DBSession.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<?php
+include 'head.php';
+?>
+
+<body>
+    <?php include 'components/loading/loading.php'; ?>
+
+    <div class="container">
+        <?php include 'components/view/header.php'; ?>
+        <section>
+
+            <?php
+            $name = $_GET['name'] ?? '';
+            $type = $_GET['type'] ?? '';
+            $data = SearchProjectApprove($name, $type, $conn);
+            include 'Backend/Other/GetPage.php';
+            ?>
+
+            <?php include 'components/input/search/search.php'; ?>
+            <?php include 'components/view/aside.php'; ?>
+            <?php include 'components/view/alert.php'; ?>
+
+            <div class="gallery">
+
+                <?php if (!$data) { ?>
+                    <div class="gallery-group">
+                        <div class="gallery-icon">
+                            <?php include 'components/icon/project.php'; ?>
+                            <h4><?= $no_data ?></h4>
+                        </div>
+                    </div>
+                    <?php } else {
+
+                    foreach ($currentPageData as $row) { ?>
+
+                        <div class="gallery-group" onclick="window.location='frm_read.php?project=<?= $row['id'] ?>'">
+                            <div class="gallery-cover">
+                                <div class="gallery-cover-content">
+                                    <img class="gallery-pic" src="./Backend/Picture/ins_logo/<?= $row['pic'] ?>">
+                                    <p class="gallery-cover-text"><?= $row['type'] ?></p>
+                                </div>
+                                <div class="gallery-cover-content">
+                                    <p class="gallery-cover-text"><?= $row['ins'] ?></p>
+                                </div>
+                            </div>
+                            <div class="gallery-content">
+                                <h4><?= $row['title'] ?></h4>
+                                <p><?= $author ?> : <a class="text-link"><?= GetNameAuthorByID($row['author'], $conn) ?></a></p>
+                                <p><?= $release ?> : <a class="text-link"><?= DateFormat($row['date']) ?></a></p>
+                            </div>
+                        </div>
+
+                <?php }
+                } ?>
+                <?php include 'components/view/menu_page.php'; ?>
+            </div>
+        </section>
+        <?php include 'components/view/nav.php'; ?>
+    </div>
+</body>
+
+</html>

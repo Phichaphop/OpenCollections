@@ -1,0 +1,1 @@
+<span class="material-symbols-outlined">add_photo_alternate</span>

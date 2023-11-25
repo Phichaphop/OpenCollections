@@ -1,0 +1,146 @@
+.frm-read {
+  display: flex;
+  flex-direction: row; /*old column*/
+  gap: 10px; /*old 20px*/
+  margin: auto;
+  padding: 10px; /*old 20px*/
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: var(--body-l1--);
+  /*box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;*/
+}
+
+.frm-read-title-top {
+  display: flex;
+  flex-direction: row; /*old column*/
+  gap: 10px; /*old 20px*/
+  margin: auto;
+  padding: 10px; /*old 20px*/
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  background: var(--body-l1--);
+  /*box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;*/
+}
+
+.frm-read-group {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  justify-content: stretch;
+  gap: 10px;
+  max-width: 100%;
+  width: 100%; /*auto*/
+}
+
+.read-content-pic {
+  display: flex;
+  padding: 30px;
+  background: var(--body-l2--);
+}
+
+.read-pic {
+  margin: auto;
+}
+
+.frm-read-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid var(--body-l3--);
+  word-break: break-all;
+  cursor: pointer;
+}
+
+.frm-read-content h4 {
+  color: var(--main-l1--);
+}
+
+.row {
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.project-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0 auto;
+  padding: 25px 10px;
+  max-height: 100%;
+  height: auto;
+  min-height: 500px;
+  max-width: 100%;
+  width: 40%;
+  min-width: 330px;
+  border-radius: 20px;
+  background: linear-gradient(
+    32deg,
+    rgba(0, 71, 102, 1) 0%,
+    rgba(0, 107, 153, 1) 50%,
+    rgba(0, 118, 168, 1) 100%
+  );
+  box-shadow: var(--shadow--) 0px 8px 24px;
+}
+
+.project-cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cover-pic {
+  height: 60px;
+  width: 60px;
+}
+
+.cover-text {
+  font-size: large;
+  color: var(--alway-white--);
+}
+
+#title-top {
+  display: none;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .frm-read {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    /*box-shadow: none;*/
+  }
+  .project-cover {
+    width: 60%;
+  }
+  #title-top {
+    display: block;
+  }
+  #title-detail {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .frm-read {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    box-shadow: none;
+  }
+  #title-top {
+    display: block;
+  }
+  #title-detail {
+    display: none;
+  }
+}

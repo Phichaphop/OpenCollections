@@ -1,0 +1,100 @@
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: auto;
+  width: 40%;
+  margin: auto;
+  padding: 10px;
+  background: var(--body-l1--);
+}
+
+@media only screen and (max-width: 1180px) {
+  .account {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .account {
+    width: 100%;
+  }
+}
+
+.account-profile {
+  position: relative;
+  max-height: 156px;
+  height: auto;
+  min-height: 140px;
+  max-width: 156px;
+  width: auto;
+  min-width: 140px;
+  margin: auto;
+  padding: 8px;
+  border-radius: 1000px;
+  background: var(--body-l2--);
+  box-shadow: var(--shadow--) 0px 1px 24px;
+}
+
+.account-profile:hover {
+  background: var(--body-l3--);
+}
+
+.account-pic {
+  height: 140px;
+  width: 140px;
+  border-radius: 1000px;
+}
+
+.account-profile .account-icon {
+  position: absolute;
+  right: 5px;
+  top: 100px;
+  bottom: auto;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  border-radius: 120px;
+  background: var(--body-l2--);
+}
+
+.account-profile .account-icon {
+  position: absolute;
+  right: 5px;
+  top: 110px;
+  bottom: auto;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: auto;
+  width: auto;
+  padding: 5px;
+  border-radius: 120px;
+  background: var(--body-l2--);
+}
+
+.account-profile .account-icon:hover {
+  background: var(--body-l3--);
+}
+
+.account-profile .account-icon .material-symbols-outlined {
+  color: var(--alway-black--);
+}
+
+.account-profile .account-icon:hover .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.account-profile .account-logo {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  font-size: 120px;
+}

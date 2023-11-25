@@ -1,0 +1,1 @@
+<span id="theme-icon" class="material-symbols-outlined" class="">nightlight</span>

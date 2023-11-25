@@ -1,0 +1,21 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-icon {
+  padding: 40px;
+  border-radius: 120px;
+}
+
+.loading-icon:hover {
+  transition: 1s;
+  background: var(--body-l2--);
+}
+
+.loading-logo {
+  height: 80px;
+  width: 80px;
+}
