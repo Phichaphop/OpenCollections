@@ -11,7 +11,7 @@
 }
 
 .loading-icon:hover {
-  transition: 1s;
+  
   background: var(--body-l2--);
 }
 

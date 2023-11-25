@@ -6,7 +6,7 @@
 }
 
 .input:focus {
-  transition: 1s;
+  
   border: 1.5px solid var(--main-l1--);
 }
 
@@ -48,7 +48,7 @@
   margin: auto;
   padding: 10px;
   border-radius: 60px;
-  transition: 1s;
+  
   cursor: pointer;
 }
 
@@ -82,7 +82,7 @@ input[type="file"]::file-selector-button {
   padding: 5px 10px;
   border: none;
   background: none;
-  transition: 1s;
+  
   border-radius: 30px;
   border: none;
   color: var(--text-l1--);

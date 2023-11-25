@@ -1,37 +1,89 @@
+.icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+}
+
+.icon:hover {
+  background: var(--body-l2--);
+}
+
 .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 200,
-    'GRAD' 500,
-    'opsz' 100
-  }
-  
-  .icon {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    align-content: center;
-    text-align: center;
-    height: auto;
-    width: auto;
-    padding: 10px;
-    border-radius: 60px;
-    transition: 1s;
-  }
-  
-  .icon:hover {
-    background: var(--body-l2--);
-  }
-  
-  .icon .material-symbols-outlined{
-    display: flex;
-    height: auto;
-    width: 24px;
-    margin: auto;
-    cursor: pointer;
-  }
-  
-  .text-link {
-    cursor: pointer;
-    color: var(--main-l1--);
-  }
+  margin: auto;
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 500, "opsz" 100;
+}
+
+.icon-main {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+  background: var(--main-l1--);
+}
+
+.icon-main:hover {
+  background: var(--main-l2--);
+}
+
+.icon-main .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.icon-green {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+  background: var(--green-l1--);
+}
+
+.icon-green:hover {
+  background: var(--green-l2--);
+}
+
+.icon-green .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.icon-orange {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+  background: var(--orange-l1--);
+}
+
+.icon-orange:hover {
+  background: var(--orange-l2--);
+}
+
+.icon-orange .material-symbols-outlined {
+  color: var(--alway-white--);
+}
+
+.icon-red {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+  background: var(--red-l1--);
+}
+
+.icon-red:hover {
+  background: var(--red-l2--);
+}
+
+.icon-red .material-symbols-outlined {
+  color: var(--alway-white--);
+}

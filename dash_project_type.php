@@ -16,7 +16,7 @@
 
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -34,7 +34,7 @@
                         <h1><?= $project_type_dashboard ?></h1>
                     </div>
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon">
                             <?php include 'components/icon/project_type.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -51,11 +51,13 @@
 
                     <?php if (!$data) { ?>
                         <div class="menu-group">
-                            <div class="menu-icon">
-                                <?php include 'components/icon/project_type.php'; ?>
-                            </div>
                             <div class="menu-content">
-                                <h4><?= $no_data ?></h4>
+                                <div class="icon">
+                                    <?php include 'components/icon/project_type.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $no_data ?></h4>
+                                </div>
                             </div>
                         </div>
                         <?php } else {
@@ -63,18 +65,22 @@
                         foreach ($currentPageData as $row) { ?>
 
                             <div class="menu-group">
-                                <div class="menu-icon">
-                                    <?php include 'components/icon/project_type.php'; ?>
+                                <div class="menu-content">
+                                    <div class="icon">
+                                        <?php include 'components/icon/project_type.php'; ?>
+                                    </div>
+                                    <div class="menu-title">
+                                        <h4><?= $row['type'] ?></h4>
+                                        <p class="menu-sub-title"><?= CountProjectInProjectType($row['id'], $conn) ?> Project</p>
+                                    </div>
                                 </div>
                                 <div class="menu-content">
-                                    <h4><?= $row['type'] ?></h4>
-                                    <p><?= CountProjectInProjectType($row['id'], $conn) ?> Project</p>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_project.php?delete&project_type=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/delete.php'; ?>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_project.php?update&project_type=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_project.php?delete&project_type=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/delete.php'; ?>
+                                    </div>
+                                    <div class="icon" onclick="window.location='frm_project.php?update&project_type=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/edit.php'; ?>
+                                    </div>
                                 </div>
                             </div>
                     <?php }

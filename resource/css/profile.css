@@ -12,12 +12,12 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 10px;
+  margin-top: 60px;
   height: auto;
   width: auto;
 }
 
 .card {
-  /*position: relative;*/
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
@@ -26,18 +26,16 @@
   width: 100%;
   padding: 30px 40px;
   border-radius: 20px;
-  /*background: rgb(0, 71, 102);*/
   background: linear-gradient(
     32deg,
     rgba(0, 71, 102, 1) 0%,
     rgba(0, 107, 153, 1) 50%,
     rgba(0, 118, 168, 1) 100%
   );
-  box-shadow: var(--shadow--) 0px 8px 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-group {
-  /*position: relative;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,7 +47,6 @@
 }
 
 .card-content {
-  /*position: relative;*/
   text-align: center;
   height: auto;
   width: auto;
@@ -95,6 +92,9 @@
     flex-direction: row;
     height: auto;
     padding: 20px;
+  }
+  .card-container {
+    margin-top: auto;
   }
   .card-group {
     align-items: flex-start;

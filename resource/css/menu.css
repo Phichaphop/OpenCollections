@@ -8,17 +8,6 @@
   margin: auto;
 }
 
-.menu-title {
-  display: flex;
-  flex-direction: column;
-  align-content: stretch;
-  height: auto;
-  width: auto;
-  margin: 10px auto;
-  text-align: center;
-  padding: 5px auto;
-}
-
 @media only screen and (max-width: 1180px) {
   .menu-title {
     text-align: left;
@@ -46,51 +35,7 @@
 }
 
 .menu-group:hover {
-  
   background: var(--body-l3--);
-}
-
-.bg-red {
-  background: var(--red-l1--);
-}
-
-.bg-red:hover {
-  
-  background: var(--red-l2--);
-}
-
-.bg-red .menu-content h4,
-.bg-red .menu-content p {
-  color: var(--alway-white--);
-}
-
-.bg-red .menu-icon .material-symbols-outlined {
-  margin: auto;
-  padding: auto;
-  color: var(--alway-white--);
-  font-size: 40px;
-}
-
-.menu-icon {
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-  align-content: center;
-  text-align: center;
-  height: 48px;
-  width: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 120px;
-  transition: 1s;
-  /*background: var(--main-l1--);*/
-}
-
-.menu-icon .material-symbols-outlined {
-  margin: auto;
-  padding: auto;
-  color: var(--main-l1--);
-  font-size: 40px;
 }
 
 .menu-pic {
@@ -104,40 +49,29 @@
   width: 52px;
   min-width: 52px;
   border-radius: 120px;
-  transition: 1s;
   background: var(--main-l1--);
   font-size: 60px;
 }
 
 .menu-content {
-  margin: auto;
-  flex: 1;
-}
-
-.menu-next {
   display: flex;
-  justify-content: stretch;
-  align-items: stretch;
-  align-content: center;
-  text-align: center;
-  height: 48px; /*auto*/
-  width: 48px; /*auto*/
-  margin: auto;
-  padding: auto;
-  border-radius: 120px;
+  flex-direction: row;
+  gap: 10px;
 }
 
-.menu-next:hover {
-  background: var(--body-l2--);
+.menu-title {
+  margin: auto;
+  text-align: left;
 }
 
-.menu-next .material-symbols-outlined {
-  display: flex;
-  height: auto;
-  width: 24px;
+.menu-sub-title {
   margin: auto;
-  cursor: pointer;
-  color: var(--text-l1--);
+  font-size: small;
+  text-align: left;
+}
+
+.menu-content .icon .material-symbols-outlined {
+  color: var(--main-l1--);
 }
 
 .menu-page {

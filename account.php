@@ -13,10 +13,10 @@
         <?php require_once 'components/layout/header.php'; ?>
 
         <section>
-            
+
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -44,44 +44,78 @@
 
                     <div class="menu-group" onclick="window.location='frm_user.php?update&username&user=<?= $user['id']; ?>'">
                         <div class="menu-content">
-                            <h4><?= $username ?></h4>
-                            <p><?= $user['username'] ?></p>
+                            <div class="icon">
+                                <?php include 'components/icon/user.php'; ?>
+                            </div>
+                            <div class="menu-title">
+                                <h4><?= $username ?></h4>
+                                <p class="menu-sub-title"><?= $user['username'] ?></p>
+                            </div>
                         </div>
-                        <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                        <div class="menu-content">
+                            <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                        </div>
                     </div>
 
                     <div class="menu-group" onclick="window.location='frm_user.php?update&pass&user=<?= $user['id']; ?>'">
                         <div class="menu-content">
-                            <h4><?= $password ?></h4>
-                            <p>***********</p>
+                            <div class="icon">
+                                <?php include 'components/icon/pass.php'; ?>
+                            </div>
+                            <div class="menu-title">
+                                <h4><?= $password ?></h4>
+                                <p class="menu-sub-title">***********</p>
+                            </div>
                         </div>
-                        <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                        <div class="menu-content">
+                            <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                        </div>
                     </div>
 
                     <div class="menu-group" onclick="window.location='frm_user.php?update&email&user=<?= $user['id']; ?>'">
-
                         <div class="menu-content">
-                            <h4><?= $email ?></h4>
-                            <p><?= $user['email'] ?></p>
+                            <div class="icon">
+                                <?php include 'components/icon/email.php'; ?>
+                            </div>
+                            <div class="menu-title">
+                                <h4><?= $email ?></h4>
+                                <p class="menu-sub-title"><?= $user['email'] ?></p>
+                            </div>
                         </div>
-                        <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                        <div class="menu-content">
+                            <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                        </div>
                     </div>
 
                     <div class="menu-group" onclick="window.location='frm_user.php?update&tel&user=<?= $user['id']; ?>'">
                         <div class="menu-content">
-                            <h4><?= $tel ?></h4>
-                            <p><?= $user['tel'] ?></p>
+                            <div class="icon">
+                                <?php include 'components/icon/phone.php'; ?>
+                            </div>
+                            <div class="menu-title">
+                                <h4><?= $tel ?></h4>
+                                <p class="menu-sub-title"><?= $user['tel'] ?></p>
+                            </div>
                         </div>
-                        <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                        <div class="menu-content">
+                            <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                        </div>
                     </div>
 
                     <?php if (isset($_SESSION['admin'])) { ?>
                         <div class="menu-group" onclick="window.location='frm_user.php?update&role&user=<?= $user['id']; ?>'">
                             <div class="menu-content">
-                                <h4><?= $role ?></h4>
-                                <p><?= $user['role'] ?></p>
+                                <div class="icon">
+                                    <?php include 'components/icon/user_role.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $role ?></h4>
+                                    <p class="menu-sub-title"><?= $user['role'] ?></p>
+                                </div>
                             </div>
-                            <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                            <div class="menu-content">
+                                <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                            </div>
                         </div>
                     <?php  } ?>
 
@@ -89,10 +123,17 @@
 
                         <div class="menu-group bg-red" onclick="window.location='frm_user.php?delete&user=<?= $user['id']; ?>'">
                             <div class="menu-content">
-                                <h4><?= $delete_account ?></h4>
-                                <p><?= $you_ll_lose_your_information ?></p>
+                                <div class="icon">
+                                    <?php include 'components/icon/delete.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $delete_account ?></h4>
+                                    <p class="menu-sub-title"><?= $you_ll_lose_your_information ?></p>
+                                </div>
                             </div>
-                            <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
+                            <div class="menu-content">
+                                <div class="icon"><?php include 'components/icon/next.php'; ?></div>
+                            </div>
                         </div>
 
                     <?php  } ?>

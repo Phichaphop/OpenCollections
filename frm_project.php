@@ -29,14 +29,14 @@
                     $submit = "insert_project";
                 }
                 /*if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['project'])) {
-    $data = GetProjectByID($_GET['project'], $conn);
-    $_SESSION['project_id'] = $data['id'];
+                    $data = GetProjectByID($_GET['project'], $conn);
+                    $_SESSION['project_id'] = $data['id'];
 
-    $title = "Update Project Cover";
-    $action = "Backend/DBProject.php";
-    $btn_id = "Update";
-    $submit = "update_project_cover";
-}*/
+                    $title = "Update Project Cover";
+                    $action = "Backend/DBProject.php";
+                    $btn_id = "Update";
+                    $submit = "update_project_cover";
+                }*/
                 if (isset($_GET['update']) && isset($_GET['detail']) && isset($_GET['project'])) {
                     $data = GetProjectDataByID($_GET['project'], $conn);
                     $_SESSION['project_id'] = $data['id'];

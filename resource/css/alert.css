@@ -14,7 +14,7 @@
 }
 
 #alert:hover {
-  transition: 1s;
+  
   background: var(--body-l3--);
 }
 
@@ -28,7 +28,7 @@
   width: 48px;
   padding: 12px;
   border-radius: 120px;
-  transition: 1s;
+  
   background: var(--green-l1--);
 }
 
@@ -54,7 +54,7 @@
 }
 
 #Close:hover {
-  transition: 1s;
+  
   opacity: 1;
 }
 
@@ -117,7 +117,7 @@
   width: 48px;
   padding: 12px;
   border-radius: 120px;
-  transition: 1s;
+  
   background: var(--orange-l1--);
 }
 
@@ -180,7 +180,7 @@
   width: 48px;
   padding: 12px;
   border-radius: 120px;
-  transition: 1s;
+  
   background: var(--red-l1--);
 }
 

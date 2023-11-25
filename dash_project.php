@@ -16,7 +16,7 @@
 
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -50,7 +50,7 @@
                         <h1><?= $project_dashboard ?></h1>
                     </div>
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon">
                             <?php include 'components/icon/project.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon-main">
                             <?php include 'components/icon/draft.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon-orange">
                             <?php include 'components/icon/wait.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon-green">
                             <?php include 'components/icon/approve.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon-red">
                             <?php include 'components/icon/not_approve.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -107,11 +107,13 @@
                     </div>
                     <?php if (!$data) { ?>
                         <div class="menu-group">
-                            <div class="menu-icon">
-                                <?php include 'components/icon/project.php'; ?>
-                            </div>
                             <div class="menu-content">
-                                <h4><?= $no_data ?></h4>
+                                <div class="icon">
+                                    <?php include 'components/icon/project.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $no_data ?></h4>
+                                </div>
                             </div>
                         </div>
                         <?php } else {
@@ -119,17 +121,39 @@
                         foreach ($currentPageData as $row) { ?>
 
                             <div class="menu-group" onclick="window.location='frm_read.php?project=<?= $row['id'] ?>'">
+                                <div class="menu-content">
 
-                                <div class="menu-icon">
-                                    <?php include 'components/icon/project.php'; ?>
+                                    <?php if ($row['status'] == "1") { ?>
+                                        <div class="icon-main">
+                                            <?php include 'components/icon/draft.php'; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($row['status'] == "2") { ?>
+                                        <div class="icon-orange">
+                                            <?php include 'components/icon/wait.php'; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($row['status'] == "3") { ?>
+                                        <div class="icon-green">
+                                            <?php include 'components/icon/approve.php'; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($row['status'] == "4") { ?>
+                                        <div class="icon-red">
+                                            <?php include 'components/icon/not_approve.php'; ?>
+                                        </div>
+                                    <?php } ?>
+
+                                    <div class="menu-title">
+                                        <h4><?= $row['title'] ?></h4>
+                                        <p class="menu-sub-title"><?= GetNameStatusByID($row['status'], $conn) ?></p>
+                                    </div>
                                 </div>
 
                                 <div class="menu-content">
-                                    <h4><?= $row['title'] ?></h4>
-                                    <p><?= GetNameStatusByID($row['status'], $conn) ?></p>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_project.php?update&project=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_project.php?update&project=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/edit.php'; ?>
+                                    </div>
                                 </div>
                             </div>
 

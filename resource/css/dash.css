@@ -1,144 +1,105 @@
 .dash {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
-    margin: auto;
-  }
-  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+
+.dash-title {
+  display: none;
+  flex-direction: column;
+  align-content: stretch;
+  height: auto;
+  width: auto;
+  margin: 10px auto;
+  text-align: center;
+  padding: 5px auto;
+}
+
+@media only screen and (max-width: 1180px) {
   .dash-title {
-    display: none;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .dash {
     flex-direction: column;
-    align-content: stretch;
-    height: auto;
-    width: auto;
-    margin: 10px auto;
+  }
+  .dash-title {
+    display: flex;
     text-align: center;
-    padding: 5px auto;
   }
-  
-  @media only screen and (max-width: 1180px) {
-    .dash-title {
-      text-align: left;
-    }
-  }
-  
-  @media only screen and (max-width: 425px) {
-    .dash {
-      flex-direction: column;
-    }
-    .dash-title {
-      display: flex;
-      text-align: center;
-    }
-  }
-  
-  .dash-group {
-    display: flex;
-    flex-direction: row;
-    align-content: stretch;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    height: auto;
-    width: auto;
-    padding: 10px 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-  
-  .dash-group:hover {
-    
-    background: var(--body-l3--);
-  }
-  
-  .bg-red{
-    background: var(--red-l1--);
-  }
-  
-  .bg-red:hover {
-    
-    background: var(--red-l2--);
-  }
-  
-  .bg-red .dash-content h4, .bg-red .dash-content p{
-    color: var(--alway-white--);
-  }
-  
-  .bg-red .dash-icon .material-symbols-outlined {
-    margin: auto;
-    padding: auto;
-    color: var(--alway-white--);
-    font-size: 40px;
-  }
-  
-  .dash-icon {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    align-content: center;
-    text-align: center;
-    height: 48px;
-    width: 48px;
-    margin: auto;
-    padding: auto;
-    border-radius: 120px;
-    transition: 1s;
-    /*background: var(--main-l1--);*/
-  }
-  
-  .dash-icon .material-symbols-outlined {
-    margin: auto;
-    padding: auto;
-    color: var(--main-l1--);
-    font-size: 40px;
-  }
-  
-  .dash-pic {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    align-content: center;
-    text-align: center;
-    height: 52px;
-    min-width: 52px;
-    border-radius: 120px;
-    transition: 1s;
-    background: var(--main-l1--);
-    font-size: 60px;
-  }
-  
-  .dash-content {
-    margin: auto;
-    flex: 1;
-  }
-  
-  .dash-next {
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-    align-content: center;
-    text-align: center;
-    height: 48px; /*auto*/
-    width: 48px; /*auto*/
-    margin: auto;
-    padding: auto;
-    border-radius: 120px;
-  }
-  
-  .dash-next:hover {
-    background: var(--body-l2--);
-  }
-  
-  .dash-next .material-symbols-outlined {
-    display: flex;
-    height: auto;
-    width: 24px;
-    margin: auto;
-    cursor: pointer;
-    color: var(--text-l1--);
-  }
+}
+
+.dash-group {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  height: auto;
+  width: auto;
+  padding: 10px 15px;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.dash-group:hover {
+  background: var(--body-l3--);
+}
+
+.dash-pic {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 120px;
+
+  background: var(--main-l1--);
+  font-size: 60px;
+}
+
+.dash-content {
+  margin: auto;
+  flex: 1;
+}
+
+.dash-group .icon .material-symbols-outlined {
+  color: var(--main-l1--);
+}
+
+.dash-next {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  align-content: center;
+  text-align: center;
+  height: 48px; /*auto*/
+  width: 48px; /*auto*/
+  margin: auto;
+  padding: auto;
+  border-radius: 120px;
+}
+
+.dash-next:hover {
+  background: var(--body-l2--);
+}
+
+.dash-next .material-symbols-outlined {
+  display: flex;
+  height: auto;
+  width: 24px;
+  margin: auto;
+  cursor: pointer;
+  color: var(--text-l1--);
+}

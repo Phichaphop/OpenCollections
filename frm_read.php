@@ -86,7 +86,7 @@
                             if (isset($_SESSION['login'])) {
                                 $favorite = CheckFavorite($_GET['project'], $MyID, $conn);
                                 if (!$favorite) {
-                                    $favorite_text = $favorite;
+                                    $favorite_text = $addfavorite;
                                     $favorite_icon = "font-variation-settings:'FILL' 0;";
                                 } else {
                                     $favorite_text = $unfavorite;

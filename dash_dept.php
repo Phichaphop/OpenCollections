@@ -13,10 +13,10 @@
         <?php require_once 'components/layout/header.php'; ?>
 
         <section>
-            
+
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -35,7 +35,7 @@
                         <h1><?= $department_dashboard ?></h1>
                     </div>
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon">
                             <?php include 'components/icon/dept.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -52,11 +52,13 @@
 
                     <?php if (!$data) { ?>
                         <div class="menu-group">
-                            <div class="menu-icon">
-                                <?php include 'components/icon/dept.php'; ?>
-                            </div>
                             <div class="menu-content">
-                                <h4><?= $no_data ?></h4>
+                                <div class="icon">
+                                    <?php include 'components/icon/dept.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $no_data ?></h4>
+                                </div>
                             </div>
                         </div>
                         <?php } else {
@@ -64,18 +66,22 @@
                         foreach ($data as $row) { ?>
 
                             <div class="menu-group">
-                                <div class="menu-icon">
-                                    <?php include 'components/icon/dept.php'; ?>
+                                <div class="menu-content">
+                                    <div class="icon">
+                                        <?php include 'components/icon/dept.php'; ?>
+                                    </div>
+                                    <div class="menu-title">
+                                        <h4><?= $row['dept'] ?> at <?= GetNameFacultyByID($row['faculty'], $conn) ?></h4>
+                                        <p class="menu-sub-title">in <?= GetNameInsByFacultyID($row['faculty'], $conn) ?> <?= CountMajorInDept($row['id'], $conn) ?> Major</p>
+                                    </div>
                                 </div>
                                 <div class="menu-content">
-                                    <h4><?= $row['dept'] ?> at <?= GetNameFacultyByID($row['faculty'], $conn) ?></h4>
-                                    <p>in <?= GetNameInsByFacultyID($row['faculty'], $conn) ?> <?= CountMajorInDept($row['id'], $conn) ?> Major</p>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_dept.php?delete&dept=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/delete.php'; ?>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_dept.php?update&dept=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_dept.php?delete&dept=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/delete.php'; ?>
+                                    </div>
+                                    <div class="icon" onclick="window.location='frm_dept.php?update&dept=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/edit.php'; ?>
+                                    </div>
                                 </div>
                             </div>
                     <?php }

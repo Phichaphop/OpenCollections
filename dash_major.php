@@ -16,7 +16,7 @@
 
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -35,7 +35,7 @@
                         <h1><?= $major_dashboard ?></h1>
                     </div>
                     <div class="dash-group">
-                        <div class="dash-icon">
+                        <div class="icon">
                             <?php include 'components/icon/major.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -52,11 +52,13 @@
 
                     <?php if (!$data) { ?>
                         <div class="menu-group">
-                            <div class="menu-icon">
-                                <?php include 'components/icon/major.php'; ?>
-                            </div>
                             <div class="menu-content">
-                                <h4><?= $no_data ?></h4>
+                                <div class="icon">
+                                    <?php include 'components/icon/major.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $no_data ?></h4>
+                                </div>
                             </div>
                         </div>
                         <?php } else {
@@ -64,18 +66,22 @@
                         foreach ($currentPageData as $row) { ?>
 
                             <div class="menu-group">
-                                <div class="menu-icon">
-                                    <?php include 'components/icon/major.php'; ?>
+                                <div class="menu-content">
+                                    <div class="icon">
+                                        <?php include 'components/icon/major.php'; ?>
+                                    </div>
+                                    <div class="menu-title">
+                                        <h4><?= $row['major'] ?> / <?= $row['degree'] ?> at <?= GetNameDeptByID($row['dept'], $conn) ?></h4>
+                                        <p class="menu-sub-title">in <?= GetNameInsByDeptID($row['dept'], $conn) ?> has <?= CountProjectInMajor($row['id'], $conn) ?> Project</p>
+                                    </div>
                                 </div>
                                 <div class="menu-content">
-                                    <h4><?= $row['major'] ?> / <?= $row['degree'] ?> at <?= GetNameDeptByID($row['dept'], $conn) ?></h4>
-                                    <p>in <?= GetNameInsByDeptID($row['dept'], $conn) ?> has <?= CountProjectInMajor($row['id'], $conn) ?> Project</p>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_major.php?delete&major=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/delete.php'; ?>
-                                </div>
-                                <div class="menu-next" onclick="window.location='frm_major.php?update&major=<?= $row['id'] ?>'">
-                                    <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_major.php?delete&major=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/delete.php'; ?>
+                                    </div>
+                                    <div class="icon" onclick="window.location='frm_major.php?update&major=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/edit.php'; ?>
+                                    </div>
                                 </div>
                             </div>
 

@@ -5,6 +5,7 @@
         $abstract = "บทคัดย่อ";
         $access = "ยอมรับ";
         $account = "บัญชี";
+        $addfavorite = "เพิ่มเข้ารายการโปรด";
         $admin = "ผู้ดูแล";
         $advisor = "ที่ปรึกษา";
         $approve = "อนุมัติ";
@@ -188,6 +189,7 @@
         $abstract = "Abstract";
         $access = "Access";
         $account = "Account";
+        $addfavorite = "Favorite";
         $admin = "Admin";
         $advisor = "Advisor";
         $approve = "Approve";
