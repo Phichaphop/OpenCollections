@@ -90,6 +90,7 @@
         $my_favorite = "รายการโปรดของฉัน.";
         $my_project = "โครงงานของฉัน";
         $name = "ชื่อ";
+        $new_password = "รหัสผ่านใหม่";
         $no_data = "ไม่มีข้อมูล";
         $normal_user = "ผู้ใช้ทั่วไป";
         $not_approve = "ไม่อนุมัติ";
@@ -99,6 +100,7 @@
         $open_collections = "Open Collections";
         $other = "อื่น ๆ";
         $password = "รหัสผ่าน";
+        $please_sign_in = "กรุณาเข้าสู่ระบบ";
         $please_select_advisor = "กรุณาเลือกผู้เขียน";
         $please_select_dept = "กรุณาเลือกแผนกวิชา";
         $please_select_faculty = "กรุณาเลือกคณะ";
@@ -139,7 +141,7 @@
         $request_menu_detail = "จัดการรายการแจ้งปัญหาทั้งหมด";
         $request_user = "แจ้งปัญหาทั้งหมด";
         $reset_your_password = "รีเซ็ตรหัสผ่านของคุณ";
-        $reset_your_password_detail = "ป้อนที่อยู่อีเมลของคุณแล้วเราจะส่งคำแนะนำในการรีเซ็ตรหัสผ่านไปให้คุณ";
+        $reset_your_password_detail = "กรอกที่อยู่อีเมลของคุณ ทางเราจะดำเนินการส่งคำแนะนำในการรีเซ็ตรหัสผ่านไปให้คุณ";
         $role = "บทบาท";
         $search_some_thing = "ค้นหาบางสิ่ง...";
         $sent = "ขออนุมัติเผยแพร่โครงงาน";
@@ -175,6 +177,7 @@
         $username_email = "ชื่อผู้ใช้ / อีเมล์";
         $verification = "การยืนยันตัวตน";
         $verification_detail = "กรุณาตรวจสอบกล่องข้อความในบัญชีอีเมล์ของท่าน";
+        $verify = "รหัสยืนยัน";
         $verify_email = "ยืนยันอีเมล์";
         $view = "อ่าน";
         $wait = "รออนุมัติ";
@@ -271,6 +274,7 @@
         $my_favorite = "My favorite.";
         $my_project = "My Project";
         $name = "Name";
+        $new_password = "New Password";
         $no_data = "No Data";
         $normal_user = "Normal User";
         $not_approve = "Not";
@@ -280,6 +284,7 @@
         $open_collections = "Open Collections";
         $other = "Other";
         $password = "Password";
+        $please_sign_in = "Please sign in.";
         $please_select_advisor = "Please select Advisor";
         $please_select_dept = "Please select Department";
         $please_select_faculty = "Please select Faculty";
@@ -356,6 +361,7 @@
         $username_email = "Username / Email";
         $verification = "Verification";
         $verification_detail = "Please check your email.";
+        $verify = "Verify Code";
         $verify_email = "Verify Email";
         $view = "View";
         $wait = "Wait";

@@ -27,7 +27,7 @@
 
     $conn = DBConnect();
     $page = basename($_SERVER['PHP_SELF'], ".php");
-    $public_page = array("DBM", "index", "frm_read","DBDownload","signin", "signup", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail", "ResetPass");
+    $public_page = array("DBM", "index", "frm_read","DBDownload","sign", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail");
     $private_page = array("");
     
     if (in_array($page, $public_page)) {
@@ -42,8 +42,8 @@
             $MyID = $_SESSION['login'];
             echo "<script>" . " var MyID = '" . $MyID . "' </script>";
         } else {
-            $_SESSION['error'] = "Please sign in.";
-            header("location: signin.php");
+            $_SESSION['error'] = "$please_sign_in";
+            header("location: sign.php?signin");
         }
     }
 

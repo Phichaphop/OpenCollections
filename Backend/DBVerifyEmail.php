@@ -28,8 +28,8 @@ if (isset($_POST['update_email'])) {
 
 function VerifyEmail($header, $email) {
     try {
-        $template = file_get_contents('../Resource/component/email/tmp_email_verify.php');
-        $style = file_get_contents('../Resource/css/tmp_email.css');
+        $template = file_get_contents('../components/email/tmp_email_verify.php');
+        $style = file_get_contents('../resource/css/tmp_email.css');
         $verify = sprintf("%06d", rand(0, 999999));
         $name = "Open Collections";
         $email = $email;
@@ -77,7 +77,7 @@ function VerifyEmail($header, $email) {
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../signup.php';</script>";
+        echo "<script>window.location.href='../sign.php?signup';</script>";
     }
 }
 ?>

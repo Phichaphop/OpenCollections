@@ -18,7 +18,7 @@ function SignUp($username, $pass, $email, $tel, $role, $conn)
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $_SESSION['error'] = "This user is already in the system.";
-            echo "<script>window.location.href='../signin.php';</script>";
+            echo "<script>window.location.href='../sign.php?signin';</script>";
         } else if (!isset($_SESSION['error'])) {
             $passHash = password_hash($pass, PASSWORD_DEFAULT);
             $stmt = $conn->prepare("INSERT INTO user (id, username, password, email, tel, role)
@@ -36,14 +36,14 @@ function SignUp($username, $pass, $email, $tel, $role, $conn)
             unset($_SESSION['admin']);
             unset($_SESSION['VerifyCode']);
             $_SESSION['success'] = "Sign up complete.";
-            echo "<script>window.location.href='../signin.php';</script>";
+            echo "<script>window.location.href='../sign.php?signin';</script>";
         } else {
             $_SESSION['error'] = "something went wrong Please contact the administrator for correction.";
-            echo "<script>window.location.href='../signup.php';</script>";
+            echo "<script>window.location.href='../sign.php?signup';</script>";
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../signup.php';</script>";
+        echo "<script>window.location.href='../sign.php?signup';</script>";
     }
 }
 
@@ -79,19 +79,19 @@ function SignIn($username, $pass, $conn)
                     }
                 } else {
                     $_SESSION['error'] = 'Password is incorrect.';
-                    echo "<script>window.location.href='../signin.php';</script>";
+                    echo "<script>window.location.href='../sign.php?signin';</script>";
                 }
             } else {
                 $_SESSION['error'] = 'Invalid email.';
-                echo "<script>window.location.href='../signin.php';</script>";
+                echo "<script>window.location.href='../sign.php?signin';</script>";
             }
         } else {
             $_SESSION['error'] = "This user does not exist.";
-            echo "<script>window.location.href='../signin.php';</script>";
+            echo "<script>window.location.href='../sign.php?signin';</script>";
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../signin.php';</script>";
+        echo "<script>window.location.href='../sign.php?signin';</script>";
     }
 }
 
@@ -115,13 +115,25 @@ function ResetPass($email, $NewPass, $conn)
             $stmt->execute();
             unset($_SESSION['email']);
             $_SESSION['success'] = "Password updated complete.";
-            echo "<script>window.location.href='../signin.php';</script>";
+            echo "<script>window.location.href='../sign.php?signin';</script>";
         } else {
             $_SESSION['error'] = "This user does not exist.";
-            echo "<script>window.location.href='../signin.php';</script>";
+            echo "<script>window.location.href='../sign.php?signin';</script>";
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../signin.php';</script>";
+        echo "<script>window.location.href='../sign.php?signin';</script>";
     }
 }
+
+if (isset($_GET['signout'])) {
+    SignOut();
+}
+function SignOut()
+{
+    session_start();
+    session_destroy();
+    $_SESSION['success'] = "Logout";
+    echo "<script>window.location.href='../index.php';</script>";
+}
+?>

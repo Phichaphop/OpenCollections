@@ -79,6 +79,8 @@ include 'head.php';
                             </div>
                         <?php  } ?>
 
+                        <?php if (isset($_SESSION['admin'])) { ?>
+
                         <div class="menu-group bg-red" onclick="window.location='frm_user.php?delete&user=<?= $user['id']; ?>'">
                             <div class="menu-content">
                                 <h4><?= $delete_account ?></h4>
@@ -86,6 +88,8 @@ include 'head.php';
                             </div>
                             <div class="menu-next"><?php include 'components/icon/next.php'; ?></div>
                         </div>
+
+                        <?php  } ?>
 
                     </div>
 

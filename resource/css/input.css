@@ -60,16 +60,6 @@
   color: var(--red-l1--);
 }
 
-.verify-input {
-  height: 100%;
-  width: 100%;
-  padding: auto;
-  font-size: 30px;
-  text-align: center;
-  border: 1px solid var(--body-l3--);
-  background: var(--body-l1--);
-}
-
 #PreviewPic {
   max-height: 200px;
   height: auto;

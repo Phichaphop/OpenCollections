@@ -51,7 +51,7 @@
             <?php include 'components/icon/next.php'; ?>
         </div>
     </div>
-    <div class="menu-group" onclick="window.location='Backend/DBSignOut.php?SignOut'">
+    <div class="menu-group" onclick="window.location='Backend/DBSign.php?signout'">
         <div class="menu-icon">
             <?php include 'components/icon/logout.php'; ?>
         </div>

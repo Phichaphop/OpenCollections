@@ -62,7 +62,6 @@
   height: auto;
   width: 100%;
   gap: 10px;
-  /*background: var(--red-l3--);*/
 }
 
 .form-input {
@@ -94,5 +93,8 @@
   }
   .form-sub {
     width: 100%;
+  }
+  .form-group {
+    flex-wrap: wrap;
   }
 }

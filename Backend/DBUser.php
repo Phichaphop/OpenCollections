@@ -135,7 +135,7 @@
             if ($MyID != $user_id) {
                 echo "<script>window.location.href='../account.php?user_id=$user_id';</script>";
             } else {
-                echo "<script>window.location.href='DBSignOut.php?SignOut';</script>";
+                echo "<script>window.location.href='DBSign.php?signout';</script>";
             }
 
         } catch (PDOException $e) {
@@ -162,7 +162,7 @@
             if ($MyID != $user_id) {
                 echo "<script>window.location.href='../account.php?user_id=$user_id';</script>";
             } else {
-                echo "<script>window.location.href='DBSignOut.php?SignOut';</script>";
+                echo "<script>window.location.href='DBSign.php?signout';</script>";
             }
 
         } catch (PDOException $e) {
@@ -336,7 +336,7 @@
             if ($MyID == $user_id) {
                 unset($_SESSION['user_id']);
                 $_SESSION['success'] = "Delete user complease.";
-                echo "<script>window.location.href='DBSignOut.php?SignOut';</script>";
+                echo "<script>window.location.href='DBSign.php?signout';</script>";
             } else {
                 unset($_SESSION['user_id']);
                 $_SESSION['success'] = "Delete user complease.";
