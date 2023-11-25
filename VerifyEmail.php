@@ -23,11 +23,11 @@ echo "<script>" . " var VerifyCode = '" . $VerifyCode . "' </script>";
 <body>
     <?php include 'components/loading/loading.php'; ?>
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
             <div class="section-group">
                 <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
-                    <?php include 'components/view/alert.php'; ?>
+                    <?php include 'components/layout/alert.php'; ?>
                     <div class="form-head">
                         <h1><?= $verification ?></h1>
                         <p><?= $verification_detail ?><br>
@@ -45,7 +45,7 @@ echo "<script>" . " var VerifyCode = '" . $VerifyCode . "' </script>";
                 </form>
             </div>
         </section>
-        <?php include 'components/view/nav.php'; ?>
+        <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 

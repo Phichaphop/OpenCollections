@@ -36,7 +36,7 @@
         <?php } else { ?>
             <div id="ProfileIcon" class="header-icon">
                 <div class="icon">
-                    <span class="material-symbols-outlined" class="" onclick="window.location='signin.php'">login</span>
+                    <span class="material-symbols-outlined" class="" onclick="window.location='sign.php?signin'">login</span>
                 </div>
             </div>
         <?php } ?>

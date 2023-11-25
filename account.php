@@ -8,11 +8,11 @@ include 'head.php';
 <body>
     <?php include 'components/loading/loading.php'; ?>
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
             <div class="section-group">
                 <div class="menu">
-                    <?php include 'components/view/alert.php'; ?>
+                    <?php include 'components/layout/alert.php'; ?>
 
                     <div class="menu-title">
                         <h1><?= $your_account ?></h1>
@@ -92,7 +92,7 @@ include 'head.php';
                 </div>
             </div>
         </section>
-        <?php require_once 'components/view/nav.php'; ?>
+        <?php require_once 'components/layout/nav.php'; ?>
     </div>
 </body>
 

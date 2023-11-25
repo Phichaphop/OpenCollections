@@ -9,7 +9,7 @@ include 'head.php';
     <?php include 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
 
             <?php
@@ -35,8 +35,8 @@ include 'head.php';
             ?>
 
             <?php include 'components/input/search/search.php'; ?>
-            <?php include 'components/view/aside.php'; ?>
-            <?php include 'components/view/alert.php'; ?>
+            <?php include 'components/layout/aside.php'; ?>
+            <?php include 'components/layout/alert.php'; ?>
 
             <div class="dash">
                 <div class="dash-title">
@@ -126,11 +126,11 @@ include 'head.php';
 
                 <?php }
                 } ?>
-                <?php include 'components/view/menu_page.php'; ?>
+                <?php include 'components/layout/menu_page.php'; ?>
             </div>
     </div>
     </section>
-    <?php include 'components/view/nav.php'; ?>
+    <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 

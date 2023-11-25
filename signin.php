@@ -1,18 +1,24 @@
 <?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'head.php';
-?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+
             <div class="section-group">
-                <?php include 'components/view/alert.php'; ?>
+
+                <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
 
                 <form class="form" action="Backend/DBSign.php" method="post" enctype="multipart/form-data" autocomplete="off">
                     <div class="form-head">
@@ -35,10 +41,16 @@ include 'head.php';
                     </script>
                 </form>
 
+                <!-- End Content here -->
+
             </div>
+
         </section>
-        <?php include 'components/view/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

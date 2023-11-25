@@ -12,7 +12,7 @@ include 'head.php';
         <section>
 
             <div class="section-group">
-                <?php include 'components/view/alert.php'; ?>
+                <?php include 'components/layout/alert.php'; ?>
 
                 <div class="menu">
 

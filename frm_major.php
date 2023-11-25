@@ -33,10 +33,10 @@ if (isset($_GET['delete']) && isset($_GET['major'])) {
     <?php include 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
             <div class="section-group">
-                <?php include 'components/view/alert.php'; ?>
+                <?php include 'components/layout/alert.php'; ?>
 
                 <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 
@@ -83,7 +83,7 @@ if (isset($_GET['delete']) && isset($_GET['major'])) {
                 </form>
             </div>
         </section>
-        <?php include 'components/view/nav.php'; ?>
+        <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 

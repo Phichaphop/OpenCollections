@@ -9,7 +9,7 @@ include 'head.php';
     <?php include 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
             <div class="section-group">
                 <div class="form">
@@ -47,7 +47,7 @@ include 'head.php';
                 </div>
             </div>
         </section>
-        <?php include 'components/view/nav.php'; ?>
+        <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 

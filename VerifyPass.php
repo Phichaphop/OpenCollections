@@ -23,7 +23,7 @@ if (isset($_GET['project'])) {
 <body>
     <?php include 'components/loading/loading.php'; ?>
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
             <div class="section-group">
                 <form class="form" action="Backend/DBVerifyPass.php" method="post" enctype="multipart/form-data" autocomplete="off">
@@ -43,7 +43,7 @@ if (isset($_GET['project'])) {
                 </form>
             </div>
         </section>
-        <?php include 'components/view/nav.php'; ?>
+        <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 

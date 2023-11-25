@@ -101,7 +101,7 @@ if ($page == "index") {
             <p class="<?= $home_text ?>"><?= $home ?></p>
         </div>
 
-        <div class="<?= $signin_content ?>" onclick="window.location='signin.php'">
+        <div class="<?= $signin_content ?>" onclick="window.location='sign.php?signin'">
             <div class="<?= $signin_icon ?>">
                 <span class="material-symbols-outlined <?= $signin_logo ?>">login</span>
             </div>

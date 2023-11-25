@@ -8,9 +8,9 @@ include 'head.php';
 <body>
     <?php include 'components/loading/loading.php'; ?>
     <div class="container">
-        <?php include 'components/view/header.php'; ?>
+        <?php include 'components/layout/header.php'; ?>
         <section>
-            <?php include 'components/view/alert.php'; ?>
+            <?php include 'components/layout/alert.php'; ?>
 
             <div class="section-read">
 
@@ -167,7 +167,7 @@ include 'head.php';
             </div>
     </div>
     </section>
-    <?php include 'components/view/nav.php'; ?>
+    <?php include 'components/layout/nav.php'; ?>
     </div>
 </body>
 
