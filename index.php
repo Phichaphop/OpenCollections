@@ -1,29 +1,34 @@
 <?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'head.php';
-?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
 
-            <?php
-            $name = $_GET['name'] ?? '';
-            $type = $_GET['type'] ?? '';
-            $data = SearchProjectApprove($name, $type, $conn);
-            include 'Backend/Other/GetPage.php';
-            ?>
+            <?php require_once 'components/layout/alert.php'; ?>
 
-            <?php include 'components/input/search/search.php'; ?>
-            <?php include 'components/layout/aside.php'; ?>
-            <?php include 'components/layout/alert.php'; ?>
+            <!-- Content here -->
 
             <div class="gallery">
+
+                <?php
+                $name = $_GET['name'] ?? '';
+                $type = $_GET['type'] ?? '';
+                $data = SearchProjectApprove($name, $type, $conn);
+                include 'Backend/Other/GetPage.php';
+                ?>
+
+                <?php include 'components/input/search/search.php'; ?>
+                <?php include 'components/layout/aside.php'; ?>
 
                 <?php if (!$data) { ?>
                     <div class="gallery-group">
@@ -39,7 +44,7 @@ include 'head.php';
                         <div class="gallery-group" onclick="window.location='frm_read.php?project=<?= $row['id'] ?>'">
                             <div class="gallery-cover">
                                 <div class="gallery-cover-content">
-                                    <img class="gallery-pic" src="./Backend/Picture/ins_logo/<?= $row['pic'] ?>">
+                                    <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['pic'] ?>">
                                     <p class="gallery-cover-text"><?= $row['type'] ?></p>
                                 </div>
                                 <div class="gallery-cover-content">
@@ -57,9 +62,15 @@ include 'head.php';
                 } ?>
                 <?php include 'components/layout/menu_page.php'; ?>
             </div>
+
+            <!-- End Content here -->
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

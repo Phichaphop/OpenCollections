@@ -8,7 +8,7 @@ nav {
   padding: 10px;
   border-radius: 60px;
   background: var(--main-l1--);
-  transition: 0.5s;
+  
 
   /*position: -webkit-sticky; /* Safari */
   position: fixed;
@@ -25,7 +25,7 @@ nav {
   padding: 0px 10px;
   height: auto;
   width: auto;
-  transition: 0.5s;
+  
   border-radius: 60px;
   background: var(--body-l1--);
 }
@@ -40,7 +40,7 @@ nav {
   width: auto;
   padding: auto;
   border-radius: 120px;
-  transition: 0.5s;
+  
 }
 
 .nav-icon-active:hover {
@@ -65,7 +65,7 @@ nav {
   width: auto;
   padding: 0 5;
   border-radius: 120px;
-  transition: 0.5s;
+  
   color: var(--main-l1--);
 }
 
@@ -78,7 +78,7 @@ nav {
   padding: 0px 10px;
   height: auto;
   width: auto;
-  transition: 0.5s;
+  
   border-radius: 60px;
   background: var(--main-l1--);
 }
@@ -93,7 +93,7 @@ nav {
   width: auto;
   padding: 10px;
   border-radius: 120px;
-  transition: 0.5s;
+  
 }
 
 .nav-icon-passive:hover {
@@ -118,7 +118,7 @@ nav {
   width: auto;
   padding: auto;
   border-radius: 120px;
-  transition: 0.5s;
+  
 }
 
 .nav-profile {
@@ -134,7 +134,7 @@ nav {
   margin: auto;
   cursor: pointer;
   color: var(--alway-white--);
-  transition: 0.5s;
+  
 }
 
 .nav-text-passive {

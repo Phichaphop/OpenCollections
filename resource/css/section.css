@@ -18,9 +18,18 @@ section {
   align-items: stretch;
   gap: 20px 0px;
   height: auto;
-  width: auto;
-  max-width: 40%;
-  min-width: 40%;
+  width: 60%;
+  margin: auto;
+  background: var(--body-l1--);
+}
+
+.section-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 20px 0px;
+  height: auto;
+  width: 40%;
   margin: auto;
   background: var(--body-l1--);
 }
@@ -52,16 +61,24 @@ section {
 @media only screen and (max-width: 1400px) {
   .section-group {
     max-width: 100%;
-    width: 80%;
+    width: 90%;
+  }
+  .section-form {
+    max-width: 100%;
+    width: 90%;
   }
   .section-read {
     max-width: 100%;
-    width: 80%;
+    width: 90%;
   }
 }
 
 @media only screen and (max-width: 425px) {
   .section-group {
+    max-width: 100%;
+    width: 100%;
+  }
+  .section-form {
     max-width: 100%;
     width: 100%;
   }

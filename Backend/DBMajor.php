@@ -8,7 +8,7 @@
         $extension = explode('.', $pic['name']);
         $fileActExt = strtolower(end($extension));
         $fileNew = rand() . "." . $fileActExt;
-        $filePath = 'Picture/ins_logo/' . $fileNew;
+        $filePath = '../resource/img/ins_logo/' . $fileNew;
         InsertIns($name, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
     }
 
@@ -58,7 +58,7 @@
         $extension = explode('.', $pic['name']);
         $fileActExt = strtolower(end($extension));
         $fileNew = rand() . "." . $fileActExt;
-        $filePath = 'Picture/ins_logo/' . $fileNew;
+        $filePath = '../resource/img/ins_logo/' . $fileNew;
         CheckDelPicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
     }
 
@@ -69,7 +69,7 @@
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($data['pic'] != "") {
-                $old_image_path = 'Picture/ins_logo/' . $data['pic'];
+                $old_image_path = '../resource/img/ins_logo/' . $data['pic'];
                 if (file_exists($old_image_path)) {
                     unlink($old_image_path);
                     UpdatePicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
@@ -150,7 +150,7 @@
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($data['pic'] != "") {
-                $old_image_path = 'Picture/ins_logo/' . $data['pic'];
+                $old_image_path = '../resource/img/ins_logo/' . $data['pic'];
                 if (file_exists($old_image_path)) {
                     unlink($old_image_path);
                     DelIns($id, $conn);

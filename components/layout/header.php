@@ -28,7 +28,7 @@
         <?php if (isset($_SESSION['login'])) { ?>
             <div class="header-icon">
                 <?php if (UserPic($_SESSION['login']) != "") { ?>
-                    <img class="header-profile" src="./Backend/Picture/profile/<?= UserPic($_SESSION['login']); ?>" onclick="window.location='profile.php'">
+                    <img class="header-profile" src="resource/img/profile/<?= UserPic($_SESSION['login']); ?>" onclick="window.location='profile.php'">
                 <?php } else { ?>
                     <span class="material-symbols-outlined" class="" onclick="window.location='profile.php'">account_circle</span>
                 <?php } ?>

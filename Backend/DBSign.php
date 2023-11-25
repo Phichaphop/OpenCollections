@@ -131,9 +131,7 @@ if (isset($_GET['signout'])) {
 }
 function SignOut()
 {
-    session_start();
     session_destroy();
-    $_SESSION['success'] = "Logout";
     echo "<script>window.location.href='../index.php';</script>";
 }
 ?>

@@ -68,7 +68,7 @@ if ($page == "index") {
 
         <?php if (isset($_SESSION['admin']) /*|| isset($_SESSION['officer'])*/) { ?>
 
-            <div class="<?= $setting_content ?>" onclick="window.location='setting.php'">
+            <div class="<?= $setting_content ?>" onclick="window.location='App.php?setting'">
                 <div class="<?= $setting_icon ?>">
                     <span class="material-symbols-outlined <?= $setting_logo ?>">settings</span>
                 </div>
@@ -81,7 +81,7 @@ if ($page == "index") {
 
             <?php if (UserPic($_SESSION['login']) != "") { ?>
                 <div class="nav-profile-icon">
-                    <img class="nav-profile" src="./Backend/Picture/profile/<?= UserPic($_SESSION['login']); ?>" onclick="window.location='profile.php'">
+                    <img class="nav-profile" src="resource/img/profile/<?= UserPic($_SESSION['login']); ?>" onclick="window.location='profile.php'">
                 </div>
             <?php } else { ?>
                 <div class="<?= $profile_icon ?>">

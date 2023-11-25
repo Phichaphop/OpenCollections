@@ -1,17 +1,26 @@
 <?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'head.php';
-?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+
             <div class="section-group">
+
+                <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
+
+
                 <div class="form">
                     <h1><?= $policy_title ?></h1>
 
@@ -45,10 +54,17 @@ include 'head.php';
 
                     <div class="btn-pr" onclick="window.location='signup.php'"><?= $back_to_signup ?></div>
                 </div>
+
+                <!-- End Content here -->
+
             </div>
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

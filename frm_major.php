@@ -1,42 +1,51 @@
-<?php
-require_once 'Backend/DBSession.php';
-if (isset($_GET['insert']) && isset($_GET['major'])) {
-    $title = $create_major;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Insert";
-    $btn_text = $insert;
-    $submit = "insert_major";
-}
-if (isset($_GET['update']) && isset($_GET['major'])) {
-    $data = GetMajorByID($_GET['major'], $conn);
-    $_SESSION['major_id'] = $_GET['major'];
-    $title = $update_major;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Update";
-    $btn_text = $update;
-    $submit = "update_major";
-}
-if (isset($_GET['delete']) && isset($_GET['major'])) {
-    $title = $delete_major;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Delete";
-    $btn_text = $delete;
-    $submit = "delete_major";
-    $_SESSION['major_id'] = $_GET['major'];
-}
-?>
+<?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.php'; ?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+
             <div class="section-group">
-                <?php include 'components/layout/alert.php'; ?>
+
+            <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
+
+                <?php
+                if (isset($_GET['insert']) && isset($_GET['major'])) {
+                    $title = $create_major;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Insert";
+                    $btn_text = $insert;
+                    $submit = "insert_major";
+                }
+                if (isset($_GET['update']) && isset($_GET['major'])) {
+                    $data = GetMajorByID($_GET['major'], $conn);
+                    $_SESSION['major_id'] = $_GET['major'];
+                    $title = $update_major;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Update";
+                    $btn_text = $update;
+                    $submit = "update_major";
+                }
+                if (isset($_GET['delete']) && isset($_GET['major'])) {
+                    $title = $delete_major;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Delete";
+                    $btn_text = $delete;
+                    $submit = "delete_major";
+                    $_SESSION['major_id'] = $_GET['major'];
+                }
+                ?>
 
                 <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 
@@ -81,10 +90,17 @@ if (isset($_GET['delete']) && isset($_GET['major'])) {
                     </div>
 
                 </form>
+
+                <!-- End Content here -->
+
             </div>
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

@@ -33,7 +33,7 @@
   padding: 8px;
   border-radius: 1000px;
   background: var(--body-l2--);
-  box-shadow: var(--shadow--) 0px 1px 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .account-profile:hover {

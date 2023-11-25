@@ -5,8 +5,9 @@
   align-content: stretch;
   gap: 10px;
   height: auto;
-  width: 100%;
+  width: 95%;
   margin: auto;
+  margin-top: 20px;
   background: var(--body-l1--);
 }
 
@@ -93,6 +94,9 @@
 }
 
 @media only screen and (max-width: 425px) {
+  .gallery {
+    width: 100%;
+  }
   .gallery-group {
     width: 180px;
   }

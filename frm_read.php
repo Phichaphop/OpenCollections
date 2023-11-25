@@ -1,18 +1,24 @@
 <?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'head.php';
-?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
+
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
-            <?php include 'components/layout/alert.php'; ?>
 
             <div class="section-read">
+
+            <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
 
                 <?php if (isset($_GET['project'])) { ?>
                     <?php $data = GetProjectByID($_GET['project'], $conn); ?>
@@ -31,7 +37,7 @@ include 'head.php';
                             <div class="project-cover">
 
                                 <div class="project-cover-content">
-                                    <img class="cover-pic" src="./Backend/Picture/ins_logo/<?= $data['pic'] ?>">
+                                    <img class="cover-pic" src="resource/img/ins_logo/<?= $data['pic'] ?>">
                                     <p class="cover-text"><?= $data['title'] ?></p>
                                 </div>
                                 <div class="project-cover-content">
@@ -45,10 +51,10 @@ include 'head.php';
                         <div class="frm-read-group">
 
 
-                                <div class="frm-read-content" id="title-detail">
-                                    <p><?= $data['type'] ?> / <?= $release_date ?> <?= DateFormat($data['date']) ?></p>
-                                    <h1><?= $data['title'] ?></h1>
-                                </div>
+                            <div class="frm-read-content" id="title-detail">
+                                <p><?= $data['type'] ?> / <?= $release_date ?> <?= DateFormat($data['date']) ?></p>
+                                <h1><?= $data['title'] ?></h1>
+                            </div>
 
 
                             <div class="frm-read-content">
@@ -113,7 +119,7 @@ include 'head.php';
                                     <?php include 'components/icon/download.php'; ?>
                                     <?= $download ?>
                                 </div>
-                                <a class="btn-normal-se" href="Backend/Document/<?= $data['file'] ?>" target="_blank" ?>
+                                <a class="btn-normal-se" href="resource/doc/<?= $data['file'] ?>" target="_blank" ?>
                                     <?php include 'components/icon/View.php'; ?>
                                     <?= $view ?>
                                 </a>
@@ -161,14 +167,18 @@ include 'head.php';
                         </div>
                     <?php } ?>
 
-
-
                 <?php } ?>
+
+                <!-- End Content here -->
+
             </div>
+
+        </section>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
-    </section>
-    <?php include 'components/layout/nav.php'; ?>
-    </div>
+
 </body>
 
 </html>

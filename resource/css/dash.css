@@ -1,6 +1,7 @@
 .dash {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
     height: auto;
     width: 100%;
@@ -46,12 +47,12 @@
     width: auto;
     padding: 10px 15px;
     border-radius: 15px;
-    box-shadow: var(--shadow--) 0px 1px 24px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     cursor: pointer;
   }
   
   .dash-group:hover {
-    transition: 0.5s;
+    
     background: var(--body-l3--);
   }
   
@@ -60,7 +61,7 @@
   }
   
   .bg-red:hover {
-    transition: 0.5s;
+    
     background: var(--red-l2--);
   }
   

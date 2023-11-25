@@ -87,7 +87,7 @@ if (isset($_POST['insert_project'])) {
     $file_extension = explode('.', $file['name']);
     $file_fileActExt = strtolower(end($file_extension));
     $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = 'Document/' . $file_fileNew;
+    $file_filePath = '../resource/doc/' . $file_fileNew;
     InsertProject($file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $title, $author, $advisor, $project_type, $major, $abstract, $date, $status, $conn);
 }
 
@@ -226,7 +226,7 @@ if (isset($_POST['update_project_file'])) {
     $file_extension = explode('.', $file['name']);
     $file_fileActExt = strtolower(end($file_extension));
     $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = 'document/' . $file_fileNew;
+    $file_filePath = '../resource/doc/' . $file_fileNew;
     UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn);
 }
 
@@ -238,7 +238,7 @@ function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_file
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $old_image_path = 'document/' . $data['file'];
+            $old_image_path = '../resource/doc/' . $data['file'];
             file_exists($old_image_path);
             unlink($old_image_path);
             if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
@@ -279,7 +279,7 @@ function DeleteProject($id, $conn)
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $old_file_path = 'document/' . $data['file'];
+        $old_file_path = '../resource/doc/' . $data['file'];
         file_exists($old_file_path);
         unlink($old_file_path);
         try {

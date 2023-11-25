@@ -1,16 +1,24 @@
 <?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'head.php';
-?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+            
+            <div class="section-group">
+
+            <?php require_once 'components/layout/alert.php'; ?>
+
+            <!-- Content here -->
 
             <?php
             if (isset($_SESSION['admin'])) {
@@ -25,7 +33,6 @@ include 'head.php';
 
             <?php include 'components/input/search/search.php'; ?>
             <?php include 'components/layout/aside.php'; ?>
-            <?php include 'components/layout/alert.php'; ?>
 
             <div class="dash">
                 <div class="dash-title">
@@ -82,9 +89,17 @@ include 'head.php';
                 } ?>
                 <?php include 'components/layout/menu_page.php'; ?>
             </div>
+
+            <!-- End Content here -->
+
+            </div>
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

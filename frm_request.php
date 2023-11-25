@@ -1,36 +1,45 @@
-<?php
-require_once 'Backend/DBSession.php';
-if (isset($_GET['insert']) && isset($_GET['request'])) {
-    $title = $create_request;
-    $action = "Backend/DBRequest.php";
-    $btn_id = "Insert";
-    $btn_text = $insert;
-    $submit = "insert_request";
-}
-if (isset($_GET['detail']) && isset($_GET['request'])) {
-    $data = GetRequestByID($_GET['request'], $conn);
-}
-if (isset($_GET['delete']) && isset($_GET['request'])) {
-    $title = $delete_request;
-    $action = "Backend/DBRequest.php";
-    $btn_id = "Delete";
-    $btn_text = $delete;
-    $submit = "delete_request";
-    $_SESSION['request_id'] = $_GET['request'];
-}
-?>
+<?php require_once 'Backend/DBSession.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.php'; ?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+
             <div class="section-group">
-                <?php include 'components/layout/alert.php'; ?>
+
+                <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
+
+                <?php
+                if (isset($_GET['insert']) && isset($_GET['request'])) {
+                    $title = $create_request;
+                    $action = "Backend/DBRequest.php";
+                    $btn_id = "Insert";
+                    $btn_text = $insert;
+                    $submit = "insert_request";
+                }
+                if (isset($_GET['detail']) && isset($_GET['request'])) {
+                    $data = GetRequestByID($_GET['request'], $conn);
+                }
+                if (isset($_GET['delete']) && isset($_GET['request'])) {
+                    $title = $delete_request;
+                    $action = "Backend/DBRequest.php";
+                    $btn_id = "Delete";
+                    $btn_text = $delete;
+                    $submit = "delete_request";
+                    $_SESSION['request_id'] = $_GET['request'];
+                }
+                ?>
 
                 <?php if (isset($_GET['detail'])) { ?>
 
@@ -92,10 +101,16 @@ if (isset($_GET['delete']) && isset($_GET['request'])) {
 
                 <?php } ?>
 
+                <!-- End Content here -->
+
             </div>
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

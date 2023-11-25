@@ -14,7 +14,7 @@
 
         <section>
 
-            <div class="section-group">
+            <div class="section-form">
 
                 <?php require_once 'components/layout/alert.php'; ?>
 
@@ -120,8 +120,6 @@
 
 
                 <?php } ?>
-
-
 
                 <!-- End Content here -->
 

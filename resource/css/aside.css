@@ -29,7 +29,7 @@ aside {
 }
 
 .aside-group:hover {
-  transition: 0.5s;
+  
   background: var(--main-l2--);
 }
 

@@ -203,7 +203,7 @@
         $extension = explode('.', $pic['name']);
         $fileActExt = strtolower(end($extension));
         $fileNew = rand() . "." . $fileActExt;
-        $filePath = 'Picture/profile/' . $fileNew;
+        $filePath = '../resource/img/profile/' . $fileNew;
         UpdateUserPicture($user_id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
     }
 
@@ -214,7 +214,7 @@
                 $stmt->bindParam(":id", $user_id);
                 $stmt->execute();
                 $data = $stmt->fetch(PDO::FETCH_ASSOC);
-                $old_image_path = 'Picture/profile/' . $data['pic'];
+                $old_image_path = '../resource/img/profile/' . $data['pic'];
                 if (file_exists($old_image_path)) {
                     unlink($old_image_path);
                     if (move_uploaded_file($pic['tmp_name'], $filePath)) {
@@ -319,7 +319,7 @@
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
         
             if ($data != "") {
-                $old_image_path = 'picture/profile/' . $data['pic'];
+                $old_image_path = '../resource/img/profile/' . $data['pic'];
                 unlink($old_image_path);
             } 
 

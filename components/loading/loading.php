@@ -1,7 +1,7 @@
 <div id="loading" class="loading-container">
 
     <div class="loading-icon">
-        <img class="loading-logo" src="Backend/Picture/logo/logo.png">
+        <img class="loading-logo" src="resource/img/logo/opc.png">
     </div>
 
     <script>

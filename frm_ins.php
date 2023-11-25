@@ -1,57 +1,66 @@
-<?php
-require_once 'Backend/DBSession.php';
-if (isset($_GET['insert']) && isset($_GET['ins'])) {
-    $title = $create_institute;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Insert";
-    $btn_text = $insert;
-    $submit = "insert_ins";
-}
-if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['ins'])) {
-    $data = GetInsByID($_GET['ins'], $conn);
-    $_SESSION['ins_id'] = $_GET['ins'];
+<?php require_once 'Backend/DBSession.php'; ?>
 
-    $title = $update_institute;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Update";
-    $btn_text = $update;
-    $submit = "update_pic_ins";
-}
-if (isset($_GET['update']) && isset($_GET['detail']) && isset($_GET['ins'])) {
-    $data = GetInsByID($_GET['ins'], $conn);
-    $_SESSION['ins_id'] = $_GET['ins'];
-
-    $title = $update_institute;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Update";
-    $btn_text = $delete;
-    $submit = "update_detail_ins";
-}
-if (isset($_GET['delete']) && isset($_GET['ins'])) {
-    $title = $delete_institute;
-    $action = "Backend/DBMajor.php";
-    $btn_id = "Delete";
-    $btn_text = "";
-    $submit = "delete_ins";
-    $_SESSION['ins_id'] = $_GET['ins'];
-}
-if (isset($_GET['read']) && isset($_GET['ins'])) {
-    $data = GetInsByID($_GET['ins'], $conn);
-    $ins_path = "ins_logo";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'head.php'; ?>
+<?php require_once 'head.php'; ?>
 
 <body>
-    <?php include 'components/loading/loading.php'; ?>
+
+    <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
-        <?php include 'components/layout/header.php'; ?>
+
+        <?php require_once 'components/layout/header.php'; ?>
+
         <section>
+
             <div class="section-group">
-                <?php include 'components/layout/alert.php'; ?>
+
+            <?php require_once 'components/layout/alert.php'; ?>
+
+                <!-- Content here -->
+
+                <?php
+                if (isset($_GET['insert']) && isset($_GET['ins'])) {
+                    $title = $create_institute;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Insert";
+                    $btn_text = $insert;
+                    $submit = "insert_ins";
+                }
+                if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['ins'])) {
+                    $data = GetInsByID($_GET['ins'], $conn);
+                    $_SESSION['ins_id'] = $_GET['ins'];
+
+                    $title = $update_institute;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Update";
+                    $btn_text = $update;
+                    $submit = "update_pic_ins";
+                }
+                if (isset($_GET['update']) && isset($_GET['detail']) && isset($_GET['ins'])) {
+                    $data = GetInsByID($_GET['ins'], $conn);
+                    $_SESSION['ins_id'] = $_GET['ins'];
+
+                    $title = $update_institute;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Update";
+                    $btn_text = $delete;
+                    $submit = "update_detail_ins";
+                }
+                if (isset($_GET['delete']) && isset($_GET['ins'])) {
+                    $title = $delete_institute;
+                    $action = "Backend/DBMajor.php";
+                    $btn_id = "Delete";
+                    $btn_text = "";
+                    $submit = "delete_ins";
+                    $_SESSION['ins_id'] = $_GET['ins'];
+                }
+                if (isset($_GET['read']) && isset($_GET['ins'])) {
+                    $data = GetInsByID($_GET['ins'], $conn);
+                    $ins_path = "ins_logo";
+                }
+                ?>
 
                 <?php if (isset($_GET['read'])) { ?>
 
@@ -70,7 +79,7 @@ if (isset($_GET['read']) && isset($_GET['ins'])) {
                                         <?php include 'components/icon/add_pic.php'; ?>
                                     </div>
                                 <?php } else { ?>
-                                    <img class="read-pic" id="PreviewPic" src="./Backend/Picture/<?= $ins_path ?>/<?= $data['pic'] ?>">
+                                    <img class="read-pic" id="PreviewPic" src="resource/img/<?= $ins_path ?>/<?= $data['pic'] ?>">
                                 <?php } ?>
                             </div>
                         </div>
@@ -151,10 +160,16 @@ if (isset($_GET['read']) && isset($_GET['ins'])) {
 
                 <?php } ?>
 
+                <!-- End Content here -->
+
             </div>
+
         </section>
-        <?php include 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/nav.php'; ?>
+
     </div>
+
 </body>
 
 </html>

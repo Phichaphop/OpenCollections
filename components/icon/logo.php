@@ -1,1 +1,1 @@
-<img class="material-symbols-outlined" src="Backend/Picture/logo/logo.png">
+<img class="material-symbols-outlined" src="resource/img/logo/opc.png">

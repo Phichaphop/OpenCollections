@@ -10,7 +10,7 @@ if (isset($_GET['insert'])) {
 
 <div class="form-group">
     <?php if ($data != "") {?>
-        <img id="PreviewPic" src="./Backend/Picture/profile/<?= $data ?> ">
+        <img id="PreviewPic" src="resource/img/profile/<?= $data ?> ">
     <?php } else { ?>
         <img id="PreviewPic">
     <?php } ?>
