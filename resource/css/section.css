@@ -18,17 +18,6 @@ section {
   align-items: stretch;
   gap: 20px 0px;
   height: auto;
-  width: 60%;
-  margin: auto;
-  background: var(--body-l1--);
-}
-
-.section-form {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 20px 0px;
-  height: auto;
   width: 40%;
   margin: auto;
   background: var(--body-l1--);

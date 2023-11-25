@@ -14,7 +14,7 @@
 
         <section>
 
-            <div class="section-form">
+            <div class="section-group">
 
                 <?php require_once 'components/layout/alert.php'; ?>
 
