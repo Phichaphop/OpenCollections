@@ -1,7 +1,7 @@
 <header id="header">
 
     <div class="header-group">
-        <div class="header-content" onclick="window.location='index.php'">
+        <div class="header-content" onclick="toggleSide()">
             <div class="header-icon">
                 <?php include 'components/icon/logo.php' ?>
             </div>

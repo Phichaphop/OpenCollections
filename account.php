@@ -10,6 +10,8 @@
 
     <div class="container">
 
+        <?php include "components/layout/side.php" ?>
+
         <?php require_once 'components/layout/header.php'; ?>
 
         <section>

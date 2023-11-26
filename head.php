@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="resource/css/header.css">
     <link rel="stylesheet" href="resource/css/menu.css">
     <link rel="stylesheet" href="resource/css/nav.css">
+    <link rel="stylesheet" href="resource/css/side.css">
 
     <link rel="stylesheet" href="resource/css/alert.css">
     <link rel="stylesheet" href="resource/css/form.css">
@@ -41,6 +42,7 @@
 
     <script src="resource/js/other/Theme.js"></script>
     <script src="resource/js/other/Alert.js"></script>
+    <script src="resource/js/side.js"></script>
 
     <script src="resource/js/select/CheckSelect.js"></script>
 

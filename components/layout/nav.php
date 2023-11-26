@@ -26,7 +26,7 @@ if ($page == "index") {
     $home_icon = "nav-icon-active";
     $home_logo = "nav-logo-active";
     $home_text = "nav-text-active";
-} else if ($page == "setting") {
+} else if ($page == "App" && isset($_GET["setting"])) {
     $setting_content = "nav-content-active";
     $setting_icon = "nav-icon-active";
     $setting_logo = "nav-logo-active";
@@ -72,7 +72,7 @@ if ($page == "index") {
                 <div class="<?= $setting_icon ?>">
                     <span class="material-symbols-outlined <?= $setting_logo ?>">settings</span>
                 </div>
-                <p class="<?= $setting_text ?>">Settings</p>
+                <p class="<?= $setting_text ?>"><?= $setting ?></p>
             </div>
 
         <?php } ?>

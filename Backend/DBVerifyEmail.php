@@ -9,24 +9,45 @@ if (isset($_POST['signup'])) {
     $_SESSION['pass'] = $_POST['pass'];
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['tel'] = $_POST['tel'];
-    VerifyEmail($header, $email);
+    CheckEmail($header, $email, $conn, $email_not_found_in_the_system);
 }
 
 if (isset($_POST['forget_pass'])) {
     $header = "Reset Your Password";
     $email = $_POST['email'];
     $_SESSION['email'] = $_POST['email'];
-    VerifyEmail($header, $email);
+    CheckEmail($header, $email, $conn, $email_not_found_in_the_system);
 }
 
 if (isset($_POST['update_email'])) {
     $header = "Email Verification Code";
     $email = $_POST['email'];
     $_SESSION['email'] = $_POST['email'];
-    VerifyEmail($header, $email);
+    CheckEmail($header, $email, $conn, $email_not_found_in_the_system);
 }
 
-function VerifyEmail($header, $email) {
+function CheckEmail($header, $email, $conn, $email_not_found_in_the_system)
+{
+    try {
+        $stmt = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+
+        if (!$result) {
+            $_SESSION['error'] = $email_not_found_in_the_system;
+            echo "<script>window.location.href='../sign.php?forget_pass';</script>";
+        } else {
+            VerifyEmail($header, $email);
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $e->getMessage();
+        echo "<script>window.location.href='../sign.php?forget_pass';</script>";
+    }
+}
+
+function VerifyEmail($header, $email)
+{
     try {
         $template = file_get_contents('../components/email/tmp_email_verify.php');
         $style = file_get_contents('../resource/css/tmp_email.css');
@@ -80,4 +101,3 @@ function VerifyEmail($header, $email) {
         echo "<script>window.location.href='../sign.php?signup';</script>";
     }
 }
-?>

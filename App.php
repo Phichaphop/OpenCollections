@@ -9,6 +9,8 @@
     <?php require_once 'components/loading/loading.php'; ?>
 
     <div class="container">
+        
+        <?php include "components/layout/side.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 

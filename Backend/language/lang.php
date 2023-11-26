@@ -66,6 +66,7 @@
         $edit_project_detail = "แก้ไขรายละเอียดโครงงาน";
         $edit_project_file = "แก้ไขไฟล์โครงงาน";
         $email = "อีเมล์";
+        $email_not_found_in_the_system = "ไม่มีผู้ใช้อีเมล์นี้ในระบบ";
         $faculty = "คณะ";
         $faculty_dashboard = "แดชคณะ";
         $faculty_label = "คณะ";
@@ -146,6 +147,7 @@
         $role = "บทบาท";
         $search_some_thing = "ค้นหาบางสิ่ง...";
         $sent = "ขออนุมัติเผยแพร่โครงงาน";
+        $setting = "ตั้งค่า";
         $sign_in = "เข้าสู่ระบบ";
         $sign_out = "ออกจากระบบ";
         $sign_out_your_account = "ออกจากระบบบัญชีของฉัน";
@@ -251,6 +253,7 @@
         $edit_project_detail = "Edit Project Detail";
         $edit_project_file = "Edit File";
         $email = "Email";
+        $email_not_found_in_the_system = "Email not found in the system.";
         $faculty = "Faculty";
         $faculty_dashboard = "Faculty Dashboard";
         $faculty_label = "Faculty";
@@ -330,6 +333,7 @@
         $reset_your_password_detail = "Enter your email address and we will send you instructions to reset your password.";
         $role = "Role";
         $search_some_thing = "Search some thing...";
+        $setting = "Setting";
         $sent = "Sent";
         $sign_in = "Sign In";
         $sign_out = "Sign Out";
