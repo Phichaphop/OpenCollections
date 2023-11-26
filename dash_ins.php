@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="menu-title">
                                         <h4><?= $row['ins'] ?></h4>
-                                        <p class="menu-sub-title"><?= CountFacultyInIns($row['id'], $conn) ?> Faculty</p>
+                                        <p class="menu-sub-title"><?= CountFacultyInIns($row['id'], $conn) ?> <?= $faculty ?></p>
                                     </div>
                                 </div>
                                 <div class="menu-content">

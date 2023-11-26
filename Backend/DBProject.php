@@ -77,21 +77,15 @@ if (isset($_POST['insert_project'])) {
     $title = $_POST['title'];
     $author = $_POST['author'];
     $advisor = $_POST['advisor'];
+    $approver = $_POST['approver'];
     $project_type = $_POST['project_type'];
     $major = $_POST['major'];
     $abstract = $_POST['abstract'];
     $date = $_POST['date'];
-
-    $file = $_FILES['file'];
-    $file_allow = array('pdf');
-    $file_extension = explode('.', $file['name']);
-    $file_fileActExt = strtolower(end($file_extension));
-    $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = '../resource/doc/' . $file_fileNew;
-    InsertProject($file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $title, $author, $advisor, $project_type, $major, $abstract, $date, $status, $conn);
+    InsertProject($title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $status, $conn);
 }
 
-function InsertProject($file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $title, $author, $advisor, $project_type, $major, $abstract, $date, $status, $conn)
+function InsertProject($title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $status, $conn)
 {
     try {
         $stmt = $conn->prepare("SELECT title FROM project WHERE title = :title");
@@ -101,35 +95,21 @@ function InsertProject($file, $file_allow, $file_fileActExt, $file_fileNew, $fil
             $_SESSION['error'] = "This Project is already in the system.";
             echo "<script>window.location.href='../dash_project.php';</script>";
         } else {
-            if (in_array($file_fileActExt, $file_allow)) {
-                if ($file['size'] > 0 && $file['error'] == 0) {
-                    if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
-                        $stmt = $conn->prepare("INSERT INTO project (id, title, author, advisor, type, major, abstract, date, file, status)
-                                        VALUES(NULL, :title, :author, :advisor, :type, :major, :abstract, :date, :file, :status)");
-                        $stmt->bindParam(":title", $title);
-                        $stmt->bindParam(":author", $author);
-                        $stmt->bindParam(":advisor", $advisor);
-                        $stmt->bindParam(":type", $project_type);
-                        $stmt->bindParam(":major", $major);
-                        $stmt->bindParam(":abstract", $abstract);
-                        $stmt->bindParam(":date", $date);
-                        $stmt->bindParam(":file", $file_fileNew);
-                        $stmt->bindParam(":status", $status);
-                        $stmt->execute();
-                        $_SESSION['success'] = "Create project type complete.";
-                        echo "<script>window.location.href='../dash_project.php';</script>";
-                    } else {
-                        $_SESSION['error'] = "Can't upload file.";
-                        echo "<script>window.location.href='../dash_project.php';</script>";
-                    }
-                } else {
-                    $_SESSION['error'] = "Can't upload file. (file size > 0)";
-                    echo "<script>window.location.href='../dash_project.php';</script>";
-                }
-            } else {
-                $_SESSION['error'] = "Can't upload file. (only pdf.)";
-                echo "<script>window.location.href='../dash_project.php';</script>";
-            }
+
+            $stmt = $conn->prepare("INSERT INTO project (id, title, author, advisor, type, major, abstract, date, approver, status)
+                                        VALUES(NULL, :title, :author, :advisor, :type, :major, :abstract, :date, :approver, :status)");
+            $stmt->bindParam(":title", $title);
+            $stmt->bindParam(":author", $author);
+            $stmt->bindParam(":advisor", $advisor);
+            $stmt->bindParam(":approver", $approver);
+            $stmt->bindParam(":type", $project_type);
+            $stmt->bindParam(":major", $major);
+            $stmt->bindParam(":abstract", $abstract);
+            $stmt->bindParam(":date", $date);
+            $stmt->bindParam(":status", $status);
+            $stmt->execute();
+            $_SESSION['success'] = "Create project type complete.";
+            echo "<script>window.location.href='../dash_project.php';</script>";
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
@@ -137,53 +117,49 @@ function InsertProject($file, $file_allow, $file_fileActExt, $file_fileNew, $fil
     }
 }
 
-/*if (isset($_POST['update_project_cover'])) {
+if (isset($_POST['update_project_cover'])) {
     $id = $_SESSION['project_id'];
     $pic = $_FILES['pic'];
     $allow = array('jpg', 'jpeg', 'png');
-    $extension = explode('.', $pic['name']);
-    $fileActExt = strtolower(end($extension));
+    $fileActExt = strtolower(pathinfo($pic['name'], PATHINFO_EXTENSION));
     $fileNew = rand() . "." . $fileActExt;
-    $filePath = 'picture/project/' . $fileNew;
+    $filePath = '../resource/img/project/' . $fileNew;
+
     UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
 }
 
 function UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn)
 {
-    if (in_array($fileActExt, $allow)) {
-        if ($pic['size'] > 0 && $pic['error'] == 0) {
-            $stmt = $conn->prepare("SELECT pic FROM project WHERE id = :id");
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $old_image_path = 'picture/project/' . $data['pic'];
-            file_exists($old_image_path);
-            unlink($old_image_path);
-            if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                try {
-                    $stmt = $conn->prepare("UPDATE project SET pic=:pic WHERE id=:id");
-                    $stmt->bindParam(":id", $id);
-                    $stmt->bindParam("pic", $fileNew);
-                    $stmt->execute();
-                    $_SESSION['success'] = "Project cover updated complete.";
-                    echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
-                } catch (PDOException $e) {
-                    $_SESSION['error'] = $e->getMessage();
-                    echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
-                }
-            } else {
-                $_SESSION['error'] = "Can't update project cover.";
-                echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+    if (in_array($fileActExt, $allow) && $pic['size'] > 0 && $pic['error'] == 0) {
+        $stmt = $conn->prepare("SELECT pic FROM project WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data && file_exists('../resource/img/project/' . $data['pic'])) {
+            unlink('../resource/img/project/' . $data['pic']);
+        }
+
+        if (move_uploaded_file($pic['tmp_name'], $filePath)) {
+            try {
+                $stmt = $conn->prepare("UPDATE project SET pic=:pic WHERE id=:id");
+                $stmt->bindParam(":id", $id);
+                $stmt->bindParam(":pic", $fileNew);
+                $stmt->execute();
+                $_SESSION['success'] = "Project cover updated successfully.";
+            } catch (PDOException $e) {
+                $_SESSION['error'] = $e->getMessage();
             }
         } else {
-            $_SESSION['error'] = "Can't update project cover.";
-            echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+            $_SESSION['error'] = "Failed to update project cover.";
         }
     } else {
-        $_SESSION['error'] = "Can't upload file (only png, jpg, jpeg)";
-        echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+        $_SESSION['error'] = "Can't upload file (only png, jpg, jpeg).";
     }
-}*/
+
+    header("Location: ../frm_project.php?read&project=$id");
+    exit;
+}
 
 if (isset($_POST['update_project'])) {
     $id = $_SESSION['project_id'];
@@ -212,10 +188,10 @@ function UpdateProjectDetail($id, $title, $author, $advisor, $project_type, $maj
         $stmt->execute();
         unset($_SESSION['project_id']);
         $_SESSION['success'] = "Project updated complete.";
-        echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+        echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+        echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
     }
 }
 
@@ -223,48 +199,44 @@ if (isset($_POST['update_project_file'])) {
     $id = $_SESSION['project_id'];
     $file = $_FILES['file'];
     $file_allow = array('pdf');
-    $file_extension = explode('.', $file['name']);
-    $file_fileActExt = strtolower(end($file_extension));
+    $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
     $file_filePath = '../resource/doc/' . $file_fileNew;
+
     UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn);
 }
 
 function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn)
 {
-    if (in_array($file_fileActExt, $file_allow)) {
-        if ($file['size'] > 0 && $file['error'] == 0) {
-            $stmt = $conn->prepare("SELECT file FROM project WHERE id = :id");
-            $stmt->bindParam(":id", $id);
-            $stmt->execute();
-            $data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $old_image_path = '../resource/doc/' . $data['file'];
-            file_exists($old_image_path);
-            unlink($old_image_path);
-            if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
-                try {
-                    $stmt = $conn->prepare("UPDATE project SET file=:file WHERE id=:id");
-                    $stmt->bindParam(":id", $id);
-                    $stmt->bindParam("file", $file_fileNew);
-                    $stmt->execute();
-                    $_SESSION['success'] = "Project file updated complete.";
-                    echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
-                } catch (PDOException $e) {
-                    $_SESSION['error'] = $e->getMessage();
-                    echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
-                }
-            } else {
-                $_SESSION['error'] = "Can't update project file.";
-                echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+    if (in_array($file_fileActExt, $file_allow) && $file['size'] > 0 && $file['error'] == 0) {
+        $stmt = $conn->prepare("SELECT file FROM project WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data && file_exists('../resource/doc/' . $data['file'])) {
+            unlink('../resource/doc/' . $data['file']);
+        }
+
+        if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
+            try {
+                $stmt = $conn->prepare("UPDATE project SET file=:file WHERE id=:id");
+                $stmt->bindParam(":id", $id);
+                $stmt->bindParam(":file", $file_fileNew);
+                $stmt->execute();
+                $_SESSION['success'] = "Project file updated successfully.";
+            } catch (PDOException $e) {
+                $_SESSION['error'] = $e->getMessage();
             }
         } else {
-            $_SESSION['error'] = "Can't upload file.";
-            echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+            $_SESSION['error'] = "Failed to update project file.";
         }
     } else {
-        $_SESSION['error'] = "Can't upload file (only pdf.)";
-        echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+        $_SESSION['error'] = "Can't upload file (only pdf).";
     }
+
+    header("Location: ../frm_project.php?read&project=$id");
+    exit;
 }
 
 if (isset($_GET['DeleteProject'])) {
@@ -298,4 +270,3 @@ function DeleteProject($id, $conn)
         echo "<script>window.location.href='../dash_project.php';</script>";
     }
 }
-?>

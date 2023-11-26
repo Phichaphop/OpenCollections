@@ -12,15 +12,22 @@
         return $data;
     }
 
+    function CountPublisher($conn) {
+        $stmt = $conn->prepare("SELECT id FROM user WHERE role = '2'");
+        $stmt->execute();
+        $data = $stmt->rowCount();
+        return $data;
+    }
+
     function CountOfficer($conn) {
-        $stmt = $conn->query("SELECT id FROM user WHERE role = '2'");
+        $stmt = $conn->query("SELECT id FROM user WHERE role = '3'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
 
     function CountNormalUser($conn) {
-        $stmt = $conn->query("SELECT id FROM user WHERE role = '3'");
+        $stmt = $conn->query("SELECT id FROM user WHERE role = '4'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;

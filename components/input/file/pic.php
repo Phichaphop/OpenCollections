@@ -3,7 +3,11 @@ if (isset($_GET['insert'])) {
     $value = "";
 } else if (isset($_GET['update']) && isset($_GET['ins'])) {
     $value = $data['pic'];
-    $path = "ins_logo";
+    $path = "resource/img/ins_logo/";
+    echo "<script>" . " var DataPic = '" . $value . "'" . "</script>";
+} else if (isset($_GET['update']) && isset($_GET['project'])) {
+    $value = $data['pic'];
+    $path = "resource/img/project/";
     echo "<script>" . " var DataPic = '" . $value . "'" . "</script>";
 } else {
     $value = "";
@@ -12,7 +16,7 @@ if (isset($_GET['insert'])) {
 
 <div class="form-group">
     <?php if ($value != "") { ?>
-        <img id="PreviewPic" src="./Backend/Picture/<?= $path ?>/<?= $value ?>">
+        <img id="PreviewPic" src="<?= $path ?><?= $value ?>">
     <?php } else { ?>
         <img id="PreviewPic">
     <?php } ?>
@@ -24,4 +28,3 @@ if (isset($_GET['insert'])) {
         <p id="MsgPic" class="validation-message"></p>
     </div>
 </div>
-

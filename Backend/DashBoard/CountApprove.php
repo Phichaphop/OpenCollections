@@ -31,31 +31,31 @@
     }
 
     function CountMyApprove($id, $conn) {
-        $stmt = $conn->query("SELECT id FROM project WHERE advisor = '$id' AND status = '1' OR status = '2' OR status = '3' OR status = '4'");
+        $stmt = $conn->query("SELECT id FROM project WHERE approver = '$id' AND status = '1' OR status = '2' OR status = '3' OR status = '4'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
     function CountMyApproveDraft($id, $conn) {
-        $stmt = $conn->query("SELECT id FROM project WHERE advisor = '$id' OR status = '1'");
+        $stmt = $conn->query("SELECT id FROM project WHERE approver = '$id' OR status = '1'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
     function CountMyApproveWait($id, $conn) {
-        $stmt = $conn->query("SELECT id FROM project WHERE advisor = '$id' OR status = '2'");
+        $stmt = $conn->query("SELECT id FROM project WHERE approver = '$id' OR status = '2'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
     function CountMyApproveApprove($id, $conn) {
-        $stmt = $conn->query("SELECT id FROM project WHERE advisor = '$id' OR status = '3'");
+        $stmt = $conn->query("SELECT id FROM project WHERE approver = '$id' OR status = '3'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
     function CountMyApproveNot($id, $conn) {
-        $stmt = $conn->query("SELECT id FROM project WHERE advisor = '$id' OR status = '4'");
+        $stmt = $conn->query("SELECT id FROM project WHERE approver = '$id' OR status = '4'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;

@@ -1,50 +1,30 @@
 function CheckInsertProject() {
   var Title = document.getElementById("Title");
   var Author = document.getElementById("Author");
+  var Advisor = document.getElementById("Advisor");
+  var Approver = document.getElementById("Approver");
   var ProjectType = document.getElementById("ProjectType");
   var Major = document.getElementById("Major");
   var Abstract = document.getElementById("Abstract");
   var DDate = document.getElementById("Date");
-  var ProjectFile = document.getElementById("ProjectFile");
   var Draft = document.getElementById("Draft");
-  
-    if (Title.value != "") {
-      if (Author.value != "") {
-        if (ProjectType.value != "") {
-          if (Major.value != "") {
-            if (Abstract.value != "") {
-              if (DDate.value != "") {
-                if (ProjectFile.files.length > 0) {
-                  Draft.disabled = false;
-                  Draft.classList = "btn-pr";
-                } else {
-                  Draft.disabled = true;
-                  Draft.classList = "btn-se";
-                }
-              } else {
-                Draft.disabled = true;
-                Draft.classList = "btn-se";
-              }
-            } else {
-              Draft.disabled = true;
-              Draft.classList = "btn-se";
-            }
-          } else {
-            Draft.disabled = true;
-            Draft.classList = "btn-se";
-          }
-        } else {
-          Draft.disabled = true;
-          Draft.classList = "btn-se";
-        }
-      } else {
-        Draft.disabled = true;
-        Draft.classList = "btn-se";
-      }
-    } else {
-      Draft.disabled = true;
-      Draft.classList = "btn-se";
-    }
+
+  if (
+    Title.value &&
+    Author.value &&
+    Advisor.value &&
+    Approver.value &&
+    ProjectType.value &&
+    Major.value &&
+    Abstract.value &&
+    DDate.value
+  ) {
+    Draft.disabled = false;
+    Draft.classList = "btn-pr";
+  } else {
+    Draft.disabled = true;
+    Draft.classList = "btn-se";
+  }
 }
 
 function CheckUpdateProjectCover() {
@@ -71,6 +51,7 @@ function CheckUpdateProjectFile() {
     Update.classList = "btn-se";
   }
 }
+
 function CheckUpdateProjectDetail() {
   var Title = document.getElementById("Title");
   var Author = document.getElementById("Author");

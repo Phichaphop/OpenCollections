@@ -73,8 +73,9 @@
                                         <?php include 'components/icon/major.php'; ?>
                                     </div>
                                     <div class="menu-title">
-                                        <h4><?= $row['major'] ?> / <?= $row['degree'] ?> at <?= GetNameDeptByID($row['dept'], $conn) ?></h4>
-                                        <p class="menu-sub-title">in <?= GetNameInsByDeptID($row['dept'], $conn) ?> has <?= CountProjectInMajor($row['id'], $conn) ?> Project</p>
+                                        <h4><?= $row['major'] ?> / <?= $row['degree'] ?></h4>
+                                        <p class="menu-sub-title"><?= $at ?> <?= GetNameDeptByID($row['dept'], $conn) ?></p>
+                                        <p class="menu-sub-title"><?= $in ?> <?= GetNameInsByDeptID($row['dept'], $conn) ?> <?= $has ?> <?= CountProjectInMajor($row['id'], $conn) ?> <?= $project ?></p>
                                     </div>
                                 </div>
                                 <div class="menu-content">

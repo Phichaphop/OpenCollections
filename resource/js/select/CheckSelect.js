@@ -37,6 +37,16 @@ function CheckSelectDept() {
       MsgAdvisor.innerHTML = "Please enter advisor.";
     }
   }
+
+  function CheckSelectApprover() {
+    var Approver = document.getElementById("Approver");
+    var MsgApprover = document.getElementById("MsgApprover");
+    if (Approver.value != "") {
+      MsgApprover.innerHTML = "";
+    } else {
+      MsgApprover.innerHTML = "Please enter Approver.";
+    }
+  }
   
   function CheckSelectProjectType() {
     var ProjectType = document.getElementById("ProjectType");

@@ -44,7 +44,7 @@
 
                     foreach ($currentPageData as $row) { ?>
 
-                        <div class="gallery-group" onclick="window.location='frm_read.php?project=<?= $row['id'] ?>'">
+                        <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['id'] ?>'">
                             <div class="gallery-cover">
                                 <div class="gallery-cover-content">
                                     <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['pic'] ?>">

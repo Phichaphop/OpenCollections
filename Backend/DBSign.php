@@ -69,6 +69,10 @@ function SignIn($username, $pass, $conn)
                         $_SESSION['login'] = $data['id'];
                         echo "<script>window.location.href='../index.php';</script>";
                     } else if ($data['role'] == '2') {
+                        $_SESSION['publisher'] = $data['id'];
+                        $_SESSION['login'] = $data['id'];
+                        echo "<script>window.location.href='../index.php';</script>";
+                    } else if ($data['role'] == '3') {
                         $_SESSION['officer'] = $data['id'];
                         $_SESSION['login'] = $data['id'];
                         echo "<script>window.location.href='../index.php';</script>";
@@ -127,10 +131,6 @@ function ResetPass($email, $NewPass, $conn)
 }
 
 if (isset($_GET['signout'])) {
-    SignOut();
-}
-function SignOut()
-{
     session_destroy();
     echo "<script>window.location.href='../index.php';</script>";
 }

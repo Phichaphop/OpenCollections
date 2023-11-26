@@ -73,8 +73,9 @@
                                         <?php include 'components/icon/faculty.php'; ?>
                                     </div>
                                     <div class="menu-title">
-                                        <h4><?= $row['faculty'] ?> at <?= GetNameInsByID($row['ins'], $conn) ?></h4>
-                                        <p class="menu-sub-title"><?= CountDeptInFaculty($row['id'], $conn) ?> Dept</p>
+                                        <h4><?= $row['faculty'] ?></h4>
+                                        <p class="menu-sub-title"><?= $at ?> <?= GetNameInsByID($row['ins'], $conn) ?></p>
+                                        <p class="menu-sub-title"><?= CountDeptInFaculty($row['id'], $conn) ?> <?= $department ?></p>
                                     </div>
                                 </div>
                                 <div class="menu-content">

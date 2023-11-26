@@ -31,8 +31,11 @@
             SetUser("SSKTC", "123456789Iv", "SSKTC@gmail.com", "0123456789", "2", $conn);
             SetUser("SVC", "123456789Iv", "SVC@gmail.com", "0123456789", "2", $conn);
 
-            SetUser("Phichaphop.b", "486795132Pb", "phichaphop.b@gmail.com", "0123456789", "3", $conn);
             SetUser("Tester", "123456789Iv", "Tester@gmail.com", "0123456789", "3", $conn);
+            SetUser("Tester2", "123456789Iv", "Tester2@gmail.com", "0123456789", "3", $conn);
+            SetUser("Tester3", "123456789Iv", "Tester3@gmail.com", "0123456789", "3", $conn);
+            
+            SetUser("Phichaphop.b", "486795132Pb", "phichaphop.b@gmail.com", "0123456789", "4", $conn);
 
             $_SESSION['success'] = "Setup success!.";
             header("location: ../../Setup.php");

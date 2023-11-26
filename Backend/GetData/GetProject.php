@@ -6,13 +6,6 @@
         return $GetProjectData;
     }
 
-    /*function GetProjectByID($id, $conn) {
-        $stmt = $conn->query("SELECT * FROM project WHERE id = $id");
-        $stmt->execute();
-        $GetProjectByName = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $GetProjectByName;
-    }*/
-
     function GetProjectEx($id, $conn) {
         $stmt = $conn->query("SELECT id, type FROM project WHERE id <> $id");
         $stmt->execute();
@@ -92,13 +85,14 @@
 
     function GetProjectByID($id, $conn) {
         $stmt = $conn->prepare("SELECT project.id, project.title, project.author as author_id, 
-        author.username as author, advisor.username as advisor,
-        project_type.type as type, major.major, project.abstract,
+        author.username as author, advisor.username as advisor, approver.username as approver,
+        project_type.type as type, major.major, project.abstract, project.pic,
         project.date, project.file, project.status as status, project.note, project.created_at, project.updated_at,
         ins.ins, ins.pic 
         FROM project 
         INNER JOIN user as author on project.author = author.id
         INNER JOIN user as advisor on project.advisor = advisor.id
+        INNER JOIN user as approver on project.approver = approver.id
         INNER JOIN project_type on project.type = project_type.id
         INNER JOIN project_status on project.status = project_status.id
         INNER JOIN major on project.major = major.id
@@ -112,10 +106,39 @@
         return $data;
     }
 
+    function GetProjectPicByID($id, $conn) {
+        $stmt = $conn->prepare("SELECT id, pic FROM project WHERE id = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     function GetProjectDataByID($id, $conn) {
         $stmt = $conn->query("SELECT * FROM project WHERE id = $id");
         $stmt->execute();
         $GetProjectByName = $stmt->fetch(PDO::FETCH_ASSOC);
         return $GetProjectByName;
+    }
+
+    function GetApprover($conn) {
+        $stmt = $conn->query("SELECT id, username FROM user WHERE role = '1' OR role = '3'");
+        $stmt->execute();
+        $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    function GetApproverByID($id, $conn) {
+        $stmt = $conn->query("SELECT id, username FROM user WHERE id = $id");
+        $stmt->execute();
+        $data= $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    function GetApproverEx($id, $conn) {
+        $stmt = $conn->query("SELECT id, username FROM user WHERE id <> $id");
+        $stmt->execute();
+        $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
     }
 ?>

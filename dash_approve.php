@@ -30,14 +30,17 @@
                     $wait_num = CountTotalApproveWait($conn);
                     $approve_num = CountTotalApproveApprove($conn);
                     $not_num = CountTotalApproveNot($conn);
-                } else {
+                } else if (isset($_SESSION['publisher'])) {
                     $id = $MyID;
                     $total = CountMyApprove($MyID, $conn);
                     $draft_num = CountMyApproveDraft($MyID, $conn);
                     $wait_num = CountMyApproveWait($MyID, $conn);
                     $approve_num = CountMyApproveApprove($MyID, $conn);
                     $not_num = CountMyApproveNot($MyID, $conn);
+                } else { 
+                    
                 }
+
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
                 $data = SearchProjectWait($name, $type, $id, $conn);
@@ -122,7 +125,7 @@
 
                         foreach ($currentPageData as $row) { ?>
 
-                            <div class="menu-group" onclick="window.location='frm_read.php?project=<?= $row['id'] ?>'">
+                            <div class="menu-group" onclick="window.location='frm_project.php?read&project=<?= $row['id'] ?>'">
                                 <div class="menu-content">
 
                                     <?php if ($row['status'] == "1") { ?>

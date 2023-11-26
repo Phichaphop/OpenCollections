@@ -2,6 +2,12 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $at = "ที่";
+        $in = "ใน";
+        $has = "มี";
+        $edit_project_pic = "แก้ไขรูปภาพ";
+        $update_project_cover = "แก้ไขภาพหน้าปก";
+        $publisher = "ผู้อนุมัติ";
         $abstract = "บทคัดย่อ";
         $access = "ยอมรับ";
         $account = "บัญชี";
@@ -13,6 +19,7 @@
         $approve_list = "รายการอนุมัติ";
         $approve_menu_detail = "รายการขออนุมัติโครงงาน";
         $approve_requests = "คำขออนุมัติโครงงาน";
+        $approver = "ผู้อนุมัติ";
         $author = "ผู้เขียน";
         $back = "ย้อนกลับ";
         $back_to_sign_in = "กลับไปหน้าลงทะเบียน?";
@@ -37,9 +44,9 @@
         $dash_department = "แดชแผนกวิชา";
         $dash_faculty = "แดชคณะ";
         $dash_institute = "แดชสถานศึกษา";
-        $dash_major = "แดชเอก";
-        $dash_project = "แดชโปรเจค";
-        $dash_project_type = "แดชประเภทโปรเจค";
+        $dash_major = "แดชสาขาวิชา";
+        $dash_project = "แดชโครงงาน";
+        $dash_project_type = "แดชประเภทโครงงาน";
         $dash_request = "แดชแจ้งปัญหา";
         $dash_user = "แดชผู้ใช้";
         $degree = "วุฒิการศึกษา";
@@ -84,10 +91,10 @@
         $last_update = "แก้ไขล่าสุด";
         $login = "เข้าระบบ";
         $major = "สาขาวิชา";
-        $major_and_degree = "สาขาวิชาและ วุฒิการซึกษา";
-        $major_and_degree_menu_detail = "จัดการรายการสาขาวิชาและ วุฒิการซึกษาทั้งหมด";
-        $major_dashboard = "แดชเอก";
-        $major_list = "รายชื่อเอก";
+        $major_and_degree = "สาขาวิชาและ วุฒิการศึกษา";
+        $major_and_degree_menu_detail = "จัดการรายการสาขาวิชาและ วุฒิการศึกษาทั้งหมด";
+        $major_dashboard = "แดชสาขาวิชา";
+        $major_list = "รายชื่อสาขาวิชา";
         $management_your_project = "จัดการรายการโครงงานของฉัน";
         $my_favorite = "รายการโปรดของฉัน.";
         $my_project = "โครงงานของฉัน";
@@ -103,7 +110,8 @@
         $other = "อื่น ๆ";
         $password = "รหัสผ่าน";
         $please_sign_in = "กรุณาเข้าสู่ระบบ";
-        $please_select_advisor = "กรุณาเลือกผู้เขียน";
+        $please_select_advisor = "กรุณาเลือกที่ปรึกษา";
+        $please_select_approver = "กรุณาเลือกผู้อนุมัติ";
         $please_select_dept = "กรุณาเลือกแผนกวิชา";
         $please_select_faculty = "กรุณาเลือกคณะ";
         $please_select_ins = "กรุณาเลือกสถานศึกษา";
@@ -126,14 +134,14 @@
         $policy_sub = "โดยเข้าถึงและใช้งานระบบ Open Collections (ต่อไปนี้จะเรียกว่า 'ระบบ') ซึ่งจัดทำโดย [ชื่อบริษัท/หน่วยงาน] (ต่อไปนี้จะเรียกว่า 'ผู้ให้บริการ') ผู้ใช้งาน (ต่อไปนี้จะเรียกว่า 'ผู้ใช้') ต้องทำการยินยอมและปฏิบัติตามข้อตกลงดังต่อไปนี้:";
         $policy_title = "ข้อตกลงการใช้งานระบบ Open Collections";
         $profile_picture = "ภาพโปรไฟล์";
-        $project = "โปรเจค";
-        $project_dashboard = "แดชโปรเจค";
-        $project_list = "รายการโปรเจค";
+        $project = "โครงงาน";
+        $project_dashboard = "แดชโครงงาน";
+        $project_list = "รายการโครงงาน";
         $project_menu_detail = "จัดการรายการโครงงานทั้งหมด";
         $project_type = "ประเภทโครงงาน";
-        $project_type = "ประเภทโปรเจค";
-        $project_type_dashboard = "แดชประเภทโปรเจค";
-        $project_type_list = "รายการประเภทโปรเจค";
+        $project_type = "ประเภทโครงงาน";
+        $project_type_dashboard = "แดชประเภทโครงงาน";
+        $project_type_list = "รายการประเภทโครงงาน";
         $project_type_menu_detail = "จัดการรายการประเภทโครงงานทั้งหมด";
         $release = "เผยแพร่";
         $release_date = "วันที่เผยแพร่";
@@ -186,8 +194,14 @@
         $wait = "รออนุมัติ";
         $welcome_back = "ยินดีต้อนรับกลับมา";
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
-        $your_account = "บัญชีของคุณ";
+        $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $at = "at";
+        $in = "in";
+        $has = "has";
+        $edit_project_pic = "Edit Project Picture";
+        $update_project_cover = "Update Project Cover.";
+        $publisher = "Publisher";
         $abstract = "Abstract";
         $access = "Access";
         $account = "Account";
@@ -199,6 +213,7 @@
         $approve_list = "Approve List";
         $approve_menu_detail = "approve requests.";
         $approve_requests = "approve requests.";
+        $approver = "Approver";
         $author = "Author";
         $back = "Back";
         $back_to_sign_in = "Back to sign in?";
@@ -291,6 +306,7 @@
         $password = "Password";
         $please_sign_in = "Please sign in.";
         $please_select_advisor = "Please select Advisor";
+        $please_select_approver = "Please select Approver.";
         $please_select_dept = "Please select Department";
         $please_select_faculty = "Please select Faculty";
         $please_select_ins = "Please select Institute";
@@ -373,6 +389,6 @@
         $wait = "Wait";
         $welcome_back = "Welcome back";
         $you_ll_lose_your_information = "You'll lose your, information.";
-        $your_account = "Your Account";
+        $your_account = "Account";
     }
 ?>

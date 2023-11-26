@@ -58,6 +58,16 @@
 
                     <div class="dash-group">
                         <div class="icon">
+                            <?php include 'components/icon/publisher.php'; ?>
+                        </div>
+                        <div class="dash-content">
+                            <h4><?= $publisher ?></h4>
+                            <p><?= CountPublisher($conn) ?> <?= $account ?></p>
+                        </div>
+                    </div>
+
+                    <div class="dash-group">
+                        <div class="icon">
                             <?php include 'components/icon/officer.php'; ?>
                         </div>
                         <div class="dash-content">

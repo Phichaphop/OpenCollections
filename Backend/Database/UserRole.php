@@ -15,8 +15,8 @@
             $conn->exec($sql);
             
             SetUserRole($conn, "Admin");
-            SetUserRole($conn, "Officer");
             SetUserRole($conn, "Publisher");
+            SetUserRole($conn, "Officer");
             SetUserRole($conn, "User");
 
             $_SESSION['success'] = "Create table success!.";

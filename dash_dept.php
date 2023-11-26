@@ -73,8 +73,9 @@
                                         <?php include 'components/icon/dept.php'; ?>
                                     </div>
                                     <div class="menu-title">
-                                        <h4><?= $row['dept'] ?> at <?= GetNameFacultyByID($row['faculty'], $conn) ?></h4>
-                                        <p class="menu-sub-title">in <?= GetNameInsByFacultyID($row['faculty'], $conn) ?> <?= CountMajorInDept($row['id'], $conn) ?> Major</p>
+                                        <h4><?= $row['dept'] ?></h4>
+                                        <p class="menu-sub-title"><?= $at ?> <?= GetNameFacultyByID($row['faculty'], $conn) ?></p>
+                                        <p class="menu-sub-title"><?= $in ?> <?= GetNameInsByFacultyID($row['faculty'], $conn) ?> <?= CountMajorInDept($row['id'], $conn) ?> Major</p>
                                     </div>
                                 </div>
                                 <div class="menu-content">

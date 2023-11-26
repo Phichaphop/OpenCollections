@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="menu-title">
                                         <h4><?= $row['type'] ?></h4>
-                                        <p class="menu-sub-title"><?= CountProjectInProjectType($row['id'], $conn) ?> Project</p>
+                                        <p class="menu-sub-title"><?= CountProjectInProjectType($row['id'], $conn) ?> <?= $project ?></p>
                                     </div>
                                 </div>
                                 <div class="menu-content">

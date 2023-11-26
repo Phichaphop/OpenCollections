@@ -9,15 +9,29 @@ if (isset($_GET['draft'])) {
 
 function SentDraftProject($id, $status, $conn) {
     try {
-        $stmt = $conn->prepare("UPDATE project SET status=:status WHERE id=:id");
-        $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":status", $status);
-        $stmt->execute();
-        $_SESSION['success'] = "Sent draft project success!.";
-        echo "<script>window.location.href='../dash_project.php';</script>";
+        $fileStmt = $conn->prepare("SELECT file FROM project WHERE id=:id");
+        $fileStmt->bindParam(":id", $id);
+        $fileStmt->execute();
+        $data = $fileStmt->fetch(PDO::FETCH_ASSOC);
+
+        if (empty($data['file'])) {
+            $_SESSION['error'] = "Please upload a file.";
+            header("Location: ../frm_project.php?read&project=$id");
+            exit;
+        } else {
+            $updateStmt = $conn->prepare("UPDATE project SET status=:status WHERE id=:id");
+            $updateStmt->bindParam(":id", $id);
+            $updateStmt->bindParam(":status", $status);
+            $updateStmt->execute();
+            $_SESSION['success'] = "Sent draft project successfully.";
+            header("Location: ../dash_project.php");
+            exit;
+        }
+
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../dash_project.php';</script>";
+        header("Location: ../dash_project.php");
+        exit;
     }
 }
 

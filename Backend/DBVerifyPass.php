@@ -65,11 +65,11 @@
                 echo "<script>window.location.href='DBProject.php?DeleteProject';</script>";
             } else {
                 $_SESSION['error'] = "Password is incorrect.";
-                echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+                echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
             }
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            echo "<script>window.location.href='../frm_read.php?project=$id';</script>";
+            echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
         }
     }
 ?>

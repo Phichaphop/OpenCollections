@@ -3,7 +3,7 @@
         <h1>Project</h1>
     </div>
 
-    <?php if (isset($_SESSION['admin']) || isset($_SESSION['officer'])) { ?>
+    <?php if (isset($_SESSION['admin']) || isset($_SESSION['publisher'])) { ?>
         <div class="menu-group" onclick="window.location='dash_approve.php'">
             <div class="menu-content">
                 <div class="icon">
