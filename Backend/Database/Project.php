@@ -17,6 +17,7 @@
                     abstract LONGTEXT,
                     date DATE DEFAULT CURRENT_DATE,
                     file LONGTEXT,
+                    approver INT(11) UNSIGNED NOT NULL,
                     status INT(11) UNSIGNED NULL,
                     note VARCHAR(100) NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -27,10 +28,10 @@
                 )";
             $conn->exec($sql);
             $_SESSION['success'] = "Setup success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -44,10 +45,10 @@
             $sql = "DROP TABLE $table";
             $conn->exec($sql);
             $_SESSION['success'] = "Delete table success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 ?>

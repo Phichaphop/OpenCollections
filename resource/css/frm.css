@@ -5,9 +5,7 @@
   align-content: stretch;
   gap: 20px;
   height: auto;
-  max-width: 100%;
-  width: auto;
-  min-width: 100%;
+  width: 100%;
   padding: 30px;
   border-radius: 20px;
 }

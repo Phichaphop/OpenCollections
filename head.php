@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="resource/css/side.css">
 
     <link rel="stylesheet" href="resource/css/alert.css">
-    <link rel="stylesheet" href="resource/css/form.css">
+    <link rel="stylesheet" href="resource/css/frm.css">
     <link rel="stylesheet" href="resource/css/input.css">
     <link rel="stylesheet" href="resource/css/button.css">
     <link rel="stylesheet" href="resource/css/search.css">

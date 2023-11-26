@@ -18,7 +18,7 @@
 
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -77,7 +77,7 @@
                         <div class="frm-read-group">
                             <div class="read-content-pic">
                                 <?php if (!$data['pic']) { ?>
-                                    <div onclick="window.location='frm_ins.php?update&pic&ins=<?= $_GET['ins'] ?>'">
+                                    <div class="icon" onclick="window.location='frm_ins.php?update&pic&ins=<?= $_GET['ins'] ?>'">
                                         <?php include 'components/icon/add_pic.php'; ?>
                                     </div>
                                 <?php } else { ?>

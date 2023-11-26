@@ -1,6 +1,6 @@
 <?php
     function CountTotalIns($conn) {
-        $stmt = $conn->query("SELECT id FROM institute");
+        $stmt = $conn->query("SELECT id FROM ins");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;

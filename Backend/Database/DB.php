@@ -11,10 +11,10 @@
             $sql = "CREATE DATABASE $dbname";
             $conn->exec($sql);
             $_SESSION['success'] = "Setup database success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -27,10 +27,10 @@
             $sql = "DROP DATABASE $dbname";
             $conn->exec($sql);
             $_SESSION['success'] = "Delete database success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 ?>

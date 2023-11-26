@@ -1,6 +1,6 @@
 <?php
     function GetDeptData($conn) {
-        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, institute.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN institute ON faculty.ins = institute.id");
+        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, ins.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id");
         $stmt->execute();
         $GetDeptData = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $GetDeptData;
@@ -12,13 +12,13 @@
         return GetDeptByID($data['dept'], $conn);
     }
     function GetDeptByID($dept, $conn) {
-        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, institute.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN institute ON faculty.ins = institute.id WHERE dept.id = $dept");
+        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, ins.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id WHERE dept.id = $dept");
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;
     }
     function GetDeptEx($dept, $conn) {
-        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, institute.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN institute ON faculty.ins = institute.id WHERE dept.id <> $dept");
+        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, ins.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id WHERE dept.id <> $dept");
         $stmt->execute();
         $GetDeptEx = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $GetDeptEx;
@@ -30,7 +30,7 @@
         return $data['dept'];
     }
     function SelectDeptEx($id, $faculty, $conn) {
-        $stmt = $conn->query("SELECT dept.id, dept.dept ,faculty.faculty, institute.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN institute ON faculty.ins = institute.id WHERE dept.id <> $id AND dept.faculty = '$faculty'");
+        $stmt = $conn->query("SELECT dept.id, dept.dept ,faculty.faculty, ins.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id WHERE dept.id <> $id AND dept.faculty = '$faculty'");
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;

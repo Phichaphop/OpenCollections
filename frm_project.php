@@ -24,7 +24,7 @@
 
                 <?php
                 if (isset($_GET['insert']) && isset($_GET['project'])) {
-                    $title = $create_project;
+                    $frm_title = $create_project;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Draft";
                     $btn_text = $draft;
@@ -34,7 +34,7 @@
                     $data = GetProjectByID($_GET['project'], $conn);
                     $_SESSION['project_id'] = $data['id'];
 
-                    $title = "Update Project Cover";
+                    $frm_title = "Update Project Cover";
                     $action = "Backend/DBProject.php";
                     $btn_id = "Update";
                     $submit = "update_project_cover";
@@ -43,7 +43,7 @@
                     $data = GetProjectDataByID($_GET['project'], $conn);
                     $_SESSION['project_id'] = $data['id'];
 
-                    $title = $update_project;
+                    $frm_title = $update_project;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Update";
                     $btn_text = $update;
@@ -53,7 +53,7 @@
                     $data = GetProjectByID($_GET['project'], $conn);
                     $_SESSION['project_id'] = $data['id'];
 
-                    $title = $update_project_file;
+                    $frm_title = $update_project_file;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Update";
                     $btn_text = $update;
@@ -63,7 +63,7 @@
                     $data = GetProjectByID($_GET['project'], $conn);
                     $_SESSION['project_id'] = $data['id'];
 
-                    $title = $not_approve_detail;
+                    $frm_title = $not_approve_detail;
                     $action = "Backend/DBApprove.php";
                     $btn_id = "Update";
                     $btn_text = $update;
@@ -71,7 +71,7 @@
                 }
 
                 if (isset($_GET['insert']) && isset($_GET['project_type'])) {
-                    $title = $create_project_type;
+                    $frm_title = $create_project_type;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Insert";
                     $btn_text = $insert;
@@ -81,14 +81,14 @@
                     $data = GetProjectTypeByID($_GET['project_type'], $conn);
                     $_SESSION['project_type_id'] = $data['id'];
 
-                    $title = $update_project_type;
+                    $frm_title = $update_project_type;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_project_type";
                 }
                 if (isset($_GET['delete']) && isset($_GET['project_type'])) {
-                    $title = $delete_project_type;
+                    $frm_title = $delete_project_type;
                     $action = "Backend/DBProject.php";
                     $btn_id = "Delete";
                     $btn_text = $delete;
@@ -100,7 +100,7 @@
                 <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 
                     <div class="form-head">
-                        <h1><?= $title ?></h1>
+                        <h1><?= $frm_title ?></h1>
                     </div>
 
                     <?php if (isset($_GET['insert']) && isset($_GET['project'])) { ?>

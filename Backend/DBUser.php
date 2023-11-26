@@ -54,7 +54,7 @@
             $stmt->bindParam(":ins", $ins);
             $stmt->execute();
             unset($_SESSION['user_id']);
-            $_SESSION['success'] = "Institute updated complease.";
+            $_SESSION['success'] = "ins updated complease.";
             echo "<script>window.location.href='../account.php?user_id=$user_id';</script>";
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();

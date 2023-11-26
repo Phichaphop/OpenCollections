@@ -80,11 +80,11 @@
         $stmt = $conn->prepare("SELECT project.id, project.title, project.author,
         project.advisor,project.type, project.major, project.abstract, project.date,
         project.file, project.status, project.note, project.created_at, project.updated_at,
-        institute.ins, institute.pic FROM project 
+        ins.ins, ins.pic FROM project 
         INNER JOIN major on project.major = major.id
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN institute on faculty.ins = institute.id");
+        INNER JOIN ins on faculty.ins = ins.id");
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data;
@@ -95,7 +95,7 @@
         author.username as author, advisor.username as advisor,
         project_type.type as type, major.major, project.abstract,
         project.date, project.file, project.status as status, project.note, project.created_at, project.updated_at,
-        institute.ins, institute.pic 
+        ins.ins, ins.pic 
         FROM project 
         INNER JOIN user as author on project.author = author.id
         INNER JOIN user as advisor on project.advisor = advisor.id
@@ -104,7 +104,7 @@
         INNER JOIN major on project.major = major.id
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN institute on faculty.ins = institute.id
+        INNER JOIN ins on faculty.ins = ins.id
         WHERE project.id = :id");
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();

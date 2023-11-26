@@ -14,22 +14,22 @@
 
     function InsertIns($name, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT ins FROM institute WHERE ins = :ins");
+            $stmt = $conn->prepare("SELECT ins FROM ins WHERE ins = :ins");
             $stmt->bindParam(":ins", $name);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
-                $_SESSION['error'] = "This institute is already in the system.";
+                $_SESSION['error'] = "This ins is already in the system.";
                 echo "<script>window.location.href='../dash_ins.php';</script>";
             } else {
                 if (in_array($fileActExt, $allow)) {
                     if ($pic['size'] > 0 && $pic['error'] == 0) {
                         if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                                $stmt = $conn->prepare("INSERT INTO institute (id, ins, pic)
+                                $stmt = $conn->prepare("INSERT INTO ins (id, ins, pic)
                                                         VALUES(NULL, :ins, :pic)");
                                 $stmt->bindParam(":ins", $name);
                                 $stmt->bindParam("pic", $fileNew);
                                 $stmt->execute();
-                                $_SESSION['success'] = "Create institute success!.";
+                                $_SESSION['success'] = "Create ins success!.";
                                 echo "<script>window.location.href='../dash_ins.php';</script>";
                         } else {
                             $_SESSION['warning'] = "This path not found.";
@@ -64,7 +64,7 @@
 
     function CheckDelPicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT pic FROM institute WHERE id = :id");
+            $stmt = $conn->prepare("SELECT pic FROM ins WHERE id = :id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -91,11 +91,11 @@
             if (in_array($fileActExt, $allow)) {
                 if ($pic['size'] > 0 && $pic['error'] == 0) {
                     if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                            $stmt = $conn->prepare("UPDATE institute SET pic=:pic WHERE id=:id");
+                            $stmt = $conn->prepare("UPDATE ins SET pic=:pic WHERE id=:id");
                             $stmt->bindParam("id", $id);
                             $stmt->bindParam("pic", $fileNew);
                             $stmt->execute();
-                            $_SESSION['success'] = "Update institute success!.";
+                            $_SESSION['success'] = "Update ins success!.";
                             echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
                     } else {
                         $_SESSION['warning'] = "This path not found.";
@@ -124,7 +124,7 @@
 
     function UpdateDetailIns($id, $name, $conn) {
         try {
-            $stmt = $conn->prepare("UPDATE institute SET ins=:ins WHERE id=:id");
+            $stmt = $conn->prepare("UPDATE ins SET ins=:ins WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->bindParam(":ins", $name);
             $stmt->execute();
@@ -145,7 +145,7 @@
     
     function DelPicIns($id, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT pic FROM institute WHERE id = :id");
+            $stmt = $conn->prepare("SELECT pic FROM ins WHERE id = :id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -169,7 +169,7 @@
 
     function DelIns($id, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM institute WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM ins WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $_SESSION['success'] = "Delete ins successfully.";

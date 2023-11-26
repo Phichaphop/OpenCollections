@@ -112,96 +112,93 @@
                 }
                 ?>
 
-                <div class="section-group">
+                <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
 
-                    <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
+                    <div class="form-head">
+                        <h1><?= $title ?></h1>
+                    </div>
 
-                        <div class="form-head">
-                            <h1><?= $title ?></h1>
-                        </div>
+                    <?php if (isset($_GET['update']) && isset($_GET['pic'])) { ?>
+                        <?php include 'components/input/user/pic.php'; ?>
+                        <script>
+                            document.getElementById("Pic").addEventListener("change", CheckUpdatePicture)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['pic'])) { ?>
-                            <?php include 'components/input/user/pic.php'; ?>
-                            <script>
-                                document.getElementById("Pic").addEventListener("change", CheckUpdatePicture)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['update']) && isset($_GET['username'])) { ?>
+                        <?php include 'components/input/user/username.php'; ?>
+                        <script>
+                            document.getElementById("Username").addEventListener("keyup", CheckUpdateUser)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['username'])) { ?>
-                            <?php include 'components/input/user/username.php'; ?>
-                            <script>
-                                document.getElementById("Username").addEventListener("keyup", CheckUpdateUser)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['update']) && isset($_GET['pass']) && isset($_SESSION['admin'])) { ?>
+                        <?php include 'components/input/user/pass.php'; ?>
+                        <script>
+                            document.getElementById("Pass").addEventListener("keyup", CheckUpdatePassFromAdmin)
+                        </script>
+                    <?php } else if (isset($_GET['update']) && isset($_GET['pass'])) { ?>
+                        <?php include 'components/input/user/pass.php'; ?>
+                        <?php include 'components/input/user/new_pass.php'; ?>
+                        <?php include 'components/input/user/confirm_pass.php'; ?>
+                        <script>
+                            document.getElementById("Pass").addEventListener("keyup", CheckUpdatePass)
+                            document.getElementById("NewPass").addEventListener("keyup", CheckUpdatePass)
+                            document.getElementById("ConfirmPass").addEventListener("keyup", CheckUpdatePass)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['pass']) && isset($_SESSION['admin'])) { ?>
-                            <?php include 'components/input/user/pass.php'; ?>
-                            <script>
-                                document.getElementById("Pass").addEventListener("keyup", CheckUpdatePassFromAdmin)
-                            </script>
-                        <?php } else if (isset($_GET['update']) && isset($_GET['pass'])) { ?>
-                            <?php include 'components/input/user/pass.php'; ?>
-                            <?php include 'components/input/user/new_pass.php'; ?>
-                            <?php include 'components/input/user/confirm_pass.php'; ?>
-                            <script>
-                                document.getElementById("Pass").addEventListener("keyup", CheckUpdatePass)
-                                document.getElementById("NewPass").addEventListener("keyup", CheckUpdatePass)
-                                document.getElementById("ConfirmPass").addEventListener("keyup", CheckUpdatePass)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['update']) && isset($_GET['tel'])) { ?>
+                        <?php include 'components/input/user/tel.php'; ?>
+                        <script>
+                            document.getElementById("Tel").addEventListener("keyup", CheckUpdateTel)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['tel'])) { ?>
-                            <?php include 'components/input/user/tel.php'; ?>
-                            <script>
-                                document.getElementById("Tel").addEventListener("keyup", CheckUpdateTel)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['update']) && isset($_GET['role'])) { ?>
+                        <?php include 'components/input/user/role.php'; ?>
+                        <script>
+                            document.getElementById("Role").addEventListener("change", CheckUpdateRole)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['role'])) { ?>
-                            <?php include 'components/input/user/role.php'; ?>
-                            <script>
-                                document.getElementById("Role").addEventListener("change", CheckUpdateRole)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['update']) && isset($_GET['email'])) { ?>
+                        <?php include 'components/input/user/email.php'; ?>
+                        <script>
+                            document.getElementById("Email").addEventListener("keyup", CheckUpdateEmail)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['update']) && isset($_GET['email'])) { ?>
-                            <?php include 'components/input/user/email.php'; ?>
-                            <script>
-                                document.getElementById("Email").addEventListener("keyup", CheckUpdateEmail)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['insert']) && isset($_GET['user'])) { ?>
+                        <?php include 'components/input/user/username.php'; ?>
+                        <?php include 'components/input/user/pass.php'; ?>
+                        <?php include 'components/input/user/email.php'; ?>
+                        <?php include 'components/input/user/tel.php'; ?>
+                        <?php include 'components/input/user/role.php'; ?>
+                        <script>
+                            document.getElementById("Username").addEventListener("keyup", CheckInsertUser)
+                            document.getElementById("Pass").addEventListener("keyup", CheckInsertUser)
+                            document.getElementById("Email").addEventListener("keyup", CheckInsertUser)
+                            document.getElementById("Tel").addEventListener("keyup", CheckInsertUser)
+                            document.getElementById("Role").addEventListener("change", CheckInsertUser)
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['insert']) && isset($_GET['user'])) { ?>
-                            <?php include 'components/input/user/username.php'; ?>
-                            <?php include 'components/input/user/pass.php'; ?>
-                            <?php include 'components/input/user/email.php'; ?>
-                            <?php include 'components/input/user/tel.php'; ?>
-                            <?php include 'components/input/user/role.php'; ?>
-                            <script>
-                                document.getElementById("Username").addEventListener("keyup", CheckInsertUser)
-                                document.getElementById("Pass").addEventListener("keyup", CheckInsertUser)
-                                document.getElementById("Email").addEventListener("keyup", CheckInsertUser)
-                                document.getElementById("Tel").addEventListener("keyup", CheckInsertUser)
-                                document.getElementById("Role").addEventListener("change", CheckInsertUser)
-                            </script>
-                        <?php } ?>
+                    <?php if (isset($_GET['delete']) && isset($_GET['user'])) { ?>
+                        <script>
+                            window.onload = function() {
+                                document.getElementById("Delete").disabled = false
+                                document.getElementById("Delete").classList = "btn-pr";
+                            }
+                        </script>
+                    <?php } ?>
 
-                        <?php if (isset($_GET['delete']) && isset($_GET['user'])) { ?>
-                            <script>
-                                window.onload = function() {
-                                    document.getElementById("Delete").disabled = false
-                                    document.getElementById("Delete").classList = "btn-pr";
-                                }
-                            </script>
-                        <?php } ?>
+                    <div class="form-group">
+                        <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                        <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                    </div>
 
-                        <div class="form-group">
-                            <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
-                            <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
-                        </div>
-
-                    </form>
-                </div>
+                </form>
 
                 <!-- End Content here -->
 

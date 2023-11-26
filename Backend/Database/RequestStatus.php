@@ -19,10 +19,10 @@
             SetupRStatus($conn, "Fixed");
             SetupRStatus($conn, "Cancel");
             $_SESSION['success'] = "Create request status table complete!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -33,10 +33,9 @@
             $stmt->bindParam(":status", $status);
             $stmt->execute();
             $_SESSION['success'] = "Insert request status complete!.";
-            header("location: ../../DBM.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -50,10 +49,10 @@
             $sql = "DROP TABLE $table";
             $conn->exec($sql);
             $_SESSION['success'] = "Delete request status table complete!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 ?>

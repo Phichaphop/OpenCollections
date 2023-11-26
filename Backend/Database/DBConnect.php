@@ -1,5 +1,6 @@
 <?php
     function DBConnect() {
+        
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -11,6 +12,7 @@
         $password = "486795132#Op";
         $dbname = "id20961732_opc";
         */
+        
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

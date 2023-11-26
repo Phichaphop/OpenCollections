@@ -36,8 +36,22 @@
 
 .read-content-pic {
   display: flex;
+  justify-content: center;
   padding: 30px;
   background: var(--body-l2--);
+}
+
+.read-content-pic .icon {
+  
+}
+
+.read-content-pic .icon:hover{
+  background: var(--main-l1--);
+}
+
+
+.read-content-pic .icon:hover .material-symbols-outlined {
+  color: var(--alway-white--);
 }
 
 .read-pic {

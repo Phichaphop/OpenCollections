@@ -13,14 +13,17 @@
                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                     )";
             $conn->exec($sql);
-            $_SESSION['success'] = "Create table success!.";
-            header("location: ../../DBM.php");
+            
             SetUserRole($conn, "Admin");
             SetUserRole($conn, "Officer");
+            SetUserRole($conn, "Publisher");
             SetUserRole($conn, "User");
+
+            $_SESSION['success'] = "Create table success!.";
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -30,11 +33,9 @@
                                             VALUES(:role)");
             $stmt->bindParam(":role", $role);
             $stmt->execute();
-            $_SESSION['success'] = "Setup success!.";
-            header("location: ../../DBM.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -48,10 +49,10 @@
             $sql = "DROP TABLE $table";
             $conn->exec($sql);
             $_SESSION['success'] = "Delete table success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 ?>

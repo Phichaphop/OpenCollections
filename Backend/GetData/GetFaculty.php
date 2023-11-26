@@ -1,6 +1,6 @@
 <?php
     function GetFacultyData($conn) {
-        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, institute.ins FROM faculty INNER JOIN institute on faculty.ins=institute.id");
+        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins FROM faculty INNER JOIN ins on faculty.ins=ins.id");
         $stmt->execute();
         $GetFacultyData = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $GetFacultyData;
@@ -14,14 +14,14 @@
     }
 
     function GetFacultyByID($id, $conn) {
-        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, institute.ins, institute.id AS ins_id FROM faculty INNER JOIN institute on faculty.ins=institute.id WHERE faculty.id = $id");
+        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins, ins.id AS ins_id FROM faculty INNER JOIN ins on faculty.ins=ins.id WHERE faculty.id = $id");
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;
     }
 
     function GetFacultyEx($id, $conn) {
-        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, institute.ins FROM faculty INNER JOIN institute on faculty.ins=institute.id WHERE faculty.id <> $id");
+        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins FROM faculty INNER JOIN ins on faculty.ins=ins.id WHERE faculty.id <> $id");
         $stmt->execute();
         $GetFacultyEx = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $GetFacultyEx;
@@ -35,7 +35,7 @@
     }
 
     function SelectFacultyEx($id, $ins, $conn) {
-        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, institute.ins FROM faculty INNER JOIN institute on faculty.ins=institute.id WHERE faculty.id <> $id AND faculty.ins = '$ins'");
+        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins FROM faculty INNER JOIN ins on faculty.ins=ins.id WHERE faculty.id <> $id AND faculty.ins = '$ins'");
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;

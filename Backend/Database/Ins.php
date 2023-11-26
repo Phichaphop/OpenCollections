@@ -18,15 +18,15 @@
             SetupIns($conn, "Ubon Ratchathani Technical College");
             SetupIns($conn, "Ubon Ratchathani Vocational College");
             SetupIns($conn, "Det Udom Technical College");
-            SetupIns($conn, "Amnat Charoen Technical College)");
-            SetupIns($conn, "Yasothon Technical College)");
+            SetupIns($conn, "Amnat Charoen Technical College");
+            SetupIns($conn, "Yasothon Technical College");
             SetupIns($conn, "Sisaket Technical College");
             SetupIns($conn, "Sisaket Vocational College");
             $_SESSION['success'] = "Setup success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -38,7 +38,7 @@
             $stmt->execute();
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 
@@ -52,10 +52,10 @@
             $sql = "DROP TABLE $table";
             $conn->exec($sql);
             $_SESSION['success'] = "Delete table success!.";
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         } catch (PDOException $e) {
             $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../DBM.php");
+            header("location: ../../Setup.php");
         }
     }
 ?>

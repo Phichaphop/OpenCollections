@@ -14,7 +14,7 @@
   }
 
     function SearchIns($name, $conn) {
-        $query = "SELECT * FROM institute WHERE 1=1";
+        $query = "SELECT * FROM ins WHERE 1=1";
         if (!empty($name)) {
             $query .= " AND (id LIKE '%" . $name . "%' OR ins LIKE '%" . $name . "%')";
         }
@@ -107,13 +107,13 @@
     function SearchProjectApprove($name, $type, $conn) {
         $query = "SELECT project.id, project.title, project.author,
         project.advisor, project_type.type as type, project.major, project.abstract, project.date,
-        project.file, project.status, project.note, project.created_at, project.updated_at,
-        institute.ins, institute.pic FROM project 
+        project.file, project.status, project.note, project.approver, project.created_at, project.updated_at,
+        ins.ins, ins.pic FROM project 
         INNER JOIN project_type on project.type = project_type.id
         INNER JOIN major on project.major = major.id
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN institute on faculty.ins = institute.id
+        INNER JOIN ins on faculty.ins = ins.id
         WHERE 1=1 AND status = '3'";
         if (!empty($name)) {
             $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
@@ -129,14 +129,14 @@
     function SearchFavorite($name, $MyID, $conn) {
         $query = "SELECT favorite.project, project.id, project.title, 
         project.author, project_type.type as type, project.major, project.date,
-        institute.ins, institute.pic
+        ins.ins, ins.pic
         FROM favorite 
         INNER JOIN project on favorite.project = project.id
         INNER JOIN project_type on project.type = project_type.id
         INNER JOIN major on project.major = major.id
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN institute on faculty.ins = institute.id
+        INNER JOIN ins on faculty.ins = ins.id
         WHERE favorite.user = $MyID";
         if (!empty($name)) {
             $query .= " AND (project.title LIKE '%" . $name . "%')";
