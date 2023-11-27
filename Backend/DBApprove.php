@@ -16,7 +16,7 @@ function SentDraftProject($id, $status, $conn) {
 
         if (empty($data['file'])) {
             $_SESSION['error'] = "Please upload a file.";
-            header("Location: ../frm_project.php?read&project=$id");
+            echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
             exit;
         } else {
             $updateStmt = $conn->prepare("UPDATE project SET status=:status WHERE id=:id");
@@ -24,13 +24,13 @@ function SentDraftProject($id, $status, $conn) {
             $updateStmt->bindParam(":status", $status);
             $updateStmt->execute();
             $_SESSION['success'] = "Sent draft project successfully.";
-            header("Location: ../dash_project.php");
+            echo "<script>window.location.href='../dash_project.php';</script>";
             exit;
         }
 
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        header("Location: ../dash_project.php");
+        echo "<script>window.location.href='../dash_project.php';</script>";
         exit;
     }
 }

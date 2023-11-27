@@ -235,7 +235,7 @@ if (isset($_POST['update_user_pic'])) {
         $_SESSION['error'] = $e->getMessage();
     }
 
-    header("Location: ../account.php?user_id=$id");
+    echo "<script>window.location.href='../account.php?user_id=$id';</script>";
     exit;
 }
 

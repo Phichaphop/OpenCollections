@@ -43,7 +43,7 @@
             echo "<script>" . " var MyID = '" . $MyID . "' </script>";
         } else {
             $_SESSION['error'] = "$please_sign_in";
-            header("location: sign.php?signin");
+            echo "<script>window.location.href='sign.php?signin';</script>";
         }
     }
 
