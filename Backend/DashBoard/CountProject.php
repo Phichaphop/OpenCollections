@@ -17,20 +17,26 @@
         $data = $stmt->rowCount();
         return $data;
     }
-    function CountMyProjectWait($id, $conn) {
+    function CountMyProjectWaitVerifi($id, $conn) {
         $stmt = $conn->query("SELECT id FROM project WHERE author = '$id' AND status = '2'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
-    function CountMyProjectApprove($id, $conn) {
+    function CountMyProjectWait($id, $conn) {
         $stmt = $conn->query("SELECT id FROM project WHERE author = '$id' AND status = '3'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;
     }
-    function CountMyProjectNot($id, $conn) {
+    function CountMyProjectApprove($id, $conn) {
         $stmt = $conn->query("SELECT id FROM project WHERE author = '$id' AND status = '4'");
+        $stmt->execute();
+        $data = $stmt->rowCount();
+        return $data;
+    }
+    function CountMyProjectNot($id, $conn) {
+        $stmt = $conn->query("SELECT id FROM project WHERE author = '$id' AND status = '5'");
         $stmt->execute();
         $data = $stmt->rowCount();
         return $data;

@@ -86,9 +86,9 @@
     function GetProjectByID($id, $conn) {
         $stmt = $conn->prepare("SELECT project.id, project.title, project.author as author_id, 
         author.username as author, advisor.username as advisor, approver.username as approver,
-        project_type.type as type, major.major, project.abstract, project.pic,
+        project_type.type as type, major.major, project.abstract, project.pic as cover,
         project.date, project.file, project.status as status, project.note, project.created_at, project.updated_at,
-        ins.ins, ins.pic 
+        ins.ins, ins.pic as ins_pic
         FROM project 
         INNER JOIN user as author on project.author = author.id
         INNER JOIN user as advisor on project.advisor = advisor.id

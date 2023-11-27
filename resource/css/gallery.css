@@ -61,6 +61,19 @@
   );
 }
 
+.gallery-cover-pic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: auto;
+  min-height: 250px;
+  max-width: 100%;
+  width: 100%;
+  min-width: 80%;
+  border-radius: 15px;
+}
+
 .gallery-cover-content {
   display: flex;
   flex-direction: column;

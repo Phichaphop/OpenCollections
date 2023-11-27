@@ -2,6 +2,7 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $wait_verify = "รอตรวจสอบ";
         $at = "ที่";
         $in = "ใน";
         $has = "มี";
@@ -196,6 +197,7 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $wait_verify = "Wait Verification";
         $at = "at";
         $in = "in";
         $has = "has";

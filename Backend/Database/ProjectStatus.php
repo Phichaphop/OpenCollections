@@ -15,6 +15,7 @@
                 )";
             $conn->exec($sql);
             SetupStatus($conn, $table, "Draft");
+            SetupStatus($conn, $table, "Wait Verification");
             SetupStatus($conn, $table, "Wait Approve");
             SetupStatus($conn, $table, "Approve");
             SetupStatus($conn, $table, "Not Approve");

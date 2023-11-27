@@ -22,27 +22,45 @@
 
                 <!-- Content here -->
 
+
+
                 <?php
-                if (isset($_SESSION['admin'])) {
-                    $id = "";
-                    $total_num = CountTotalProject($conn);
-                    $draft_num = CountTotalApproveDraft($conn);
-                    $wait_num = CountTotalApproveWait($conn);
-                    $approve_num = CountTotalApproveApprove($conn);
-                    $not_num = CountTotalApproveNot($conn);
-                } else {
-                    $id = $MyID;
-                    $total_num = CountMyProject($id, $conn);
-                    $draft_num = CountMyProjectDraft($MyID, $conn);
-                    $wait_num = CountMyProjectWait($MyID, $conn);
-                    $approve_num = CountMyProjectApprove($MyID, $conn);
-                    $not_num = CountMyProjectNot($MyID, $conn);
-                }
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
-                $data = SearchProject($name, $type, $id, $conn);
-                include 'Backend/Other/GetPage.php';
                 ?>
+                <?php
+                if (isset($_SESSION['admin'])) {
+                    $total_num = CountTotalApprove("", $conn);
+                    $draft_num = CountTotalApprove("1", $conn);
+                    $verify_num = CountTotalApprove("2", $conn);
+                    $wait_num = CountTotalApprove("3", $conn);
+                    $approve_num = CountTotalApprove("4", $conn);
+                    $not_num = CountTotalApprove("5", $conn);
+                    $data = SearchProject($name, $type, "", "approver", "", "1", $conn);
+                } else {
+                    if (isset($_SESSION['publisher'])) {
+                        $person = "approver";
+                        $status = "3";
+                    }
+                    if (isset($_SESSION['officer'])) {
+                        $person = "advisor";
+                        $status = "2";
+                    }
+                    if (isset($_SESSION['user'])) {
+                        $person = "author";
+                        $status = "";
+                    }
+                    $total_num = CountProject($_SESSION['login'], $person, "", $conn);
+                    $draft_num = CountProject($_SESSION['login'], $person, "1", $conn);
+                    $verify_num = CountProject($_SESSION['login'], $person, "2", $conn);
+                    $wait_num = CountProject($_SESSION['login'], $person, "3", $conn);
+                    $approve_num = CountProject($_SESSION['login'], $person, "4", $conn);
+                    $not_num = CountProject($_SESSION['login'], $person, "5", $conn);
+                    $data = SearchMyProject($name, $type, $_SESSION['login'], $conn);
+                } ?>
+
+                <?php include 'Backend/Other/GetPage.php'; ?>
+
 
                 <?php include 'components/input/search/search.php'; ?>
                 <?php include 'components/layout/aside.php'; ?>
@@ -62,12 +80,22 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="icon-main">
+                        <div class="icon-body">
                             <?php include 'components/icon/draft.php'; ?>
                         </div>
                         <div class="dash-content">
                             <h4><?= $draft ?></h4>
                             <p><?= $draft_num ?> <?= $project ?></p>
+                        </div>
+                    </div>
+
+                    <div class="dash-group">
+                        <div class="icon-main">
+                            <?php include 'components/icon/verify.php'; ?>
+                        </div>
+                        <div class="dash-content">
+                            <h4><?= $wait_verify ?></h4>
+                            <p><?= $verify_num ?> <?= $project ?></p>
                         </div>
                     </div>
 
@@ -131,16 +159,21 @@
                                         </div>
                                     <?php } ?>
                                     <?php if ($row['status'] == "2") { ?>
+                                        <div class="icon-body">
+                                            <?php include 'components/icon/verify.php'; ?>
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($row['status'] == "3") { ?>
                                         <div class="icon-orange">
                                             <?php include 'components/icon/wait.php'; ?>
                                         </div>
                                     <?php } ?>
-                                    <?php if ($row['status'] == "3") { ?>
+                                    <?php if ($row['status'] == "4") { ?>
                                         <div class="icon-green">
                                             <?php include 'components/icon/approve.php'; ?>
                                         </div>
                                     <?php } ?>
-                                    <?php if ($row['status'] == "4") { ?>
+                                    <?php if ($row['status'] == "5") { ?>
                                         <div class="icon-red">
                                             <?php include 'components/icon/not_approve.php'; ?>
                                         </div>

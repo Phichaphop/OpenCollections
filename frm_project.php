@@ -23,7 +23,7 @@
                 <!-- Content here -->
 
                 <?php if (isset($_GET['read'])) { ?>
-                    
+
                     <?php if (isset($_GET['project'])) { ?>
                         <?php $data = GetProjectByID($_GET['project'], $conn); ?>
 
@@ -38,21 +38,23 @@
 
                             <div class="frm-read-group">
 
-                                <div class="project-cover">
-
-                                    <div class="project-cover-content">
-                                        <?php if (!$data['pic']) { ?>
-                                            <img class="cover-pic" src="resource/img/logo/opc.png">
-                                        <?php } else { ?>
-                                            <img class="cover-pic" src="resource/img/ins_logo/<?= $data['pic'] ?>">
-                                        <?php } ?>
-                                        <p class="cover-text"><?= $data['title'] ?></p>
+                                <?php if (!$data['cover']) { ?>
+                                    <div class="project-cover">
+                                        <div class="project-cover-content">
+                                            <?php if (!$data['ins_pic']) { ?>
+                                                <img class="cover-pic" src="resource/img/logo/opc.png">
+                                            <?php } else { ?>
+                                                <img class="cover-pic" src="resource/img/ins_logo/<?= $data['ins_pic'] ?>">
+                                            <?php } ?>
+                                            <p class="cover-text"><?= $data['title'] ?></p>
+                                        </div>
+                                        <div class="project-cover-content">
+                                            <p class="cover-text"><?= $data['ins'] ?></p>
+                                        </div>
                                     </div>
-                                    <div class="project-cover-content">
-                                        <p class="cover-text"><?= $data['ins'] ?></p>
-                                    </div>
-
-                                </div>
+                                <?php } else { ?>
+                                    <img class="project-cover-pic" src="resource/img/project/<?= $data['cover'] ?>">
+                                <?php } ?>
 
                             </div>
 
@@ -139,8 +141,12 @@
                         </div>
 
 
-                        <?php if (($data['author'] == isset($_SESSION['login'])) && ($data['status'] == "1" || $data['status'] == "4")) { ?>
+                        <?php if (($data['author'] == isset($_SESSION['login'])) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                             <div class="frm-read">
+                                <div class="frm-read-content">
+                                    <h4><?= $approver ?></h4>
+                                    <p><?= $data['approver'] ?></p>
+                                </div>
                                 <div class="frm-read-content">
                                     <h4><?= $status ?></h4>
                                     <p><?= GetNameProjectStatusByID($data['status'], $conn) ?></p>
@@ -160,7 +166,15 @@
                             </div>
                         <?php } ?>
 
-                        <?php if ((isset($_SESSION['admin']) || isset($_SESSION['publisher']) == $data['approver']) && $data['status'] == "2") { ?>
+                        <?php if ((isset($_SESSION['admin']) || isset($_SESSION['officer'] ) == $data['advisor']) && $data['status'] == "2") { ?>
+                            <div class="frm-read">
+                                <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>"><?= $not_approve ?></div>
+                                <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
+                                <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
+                            </div>
+                        <?php } ?>
+
+                        <?php if ((isset($_SESSION['admin']) || isset($_SESSION['publisher'] ) == $data['approver']) && $data['status'] == "3") { ?>
                             <div class="frm-read">
                                 <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>&cancel'"><?= $not_approve ?></div>
                                 <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
@@ -168,7 +182,7 @@
                             </div>
                         <?php } ?>
 
-                        <?php if (isset($_SESSION['admin']) && $data['status'] == "3") { ?>
+                        <?php if (isset($_SESSION['admin']) && $data['status'] == "4") { ?>
                             <div class="frm-read">
                                 <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $update ?></div>
                                 <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>

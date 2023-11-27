@@ -87,3 +87,21 @@
 .icon-red .material-symbols-outlined {
   color: var(--alway-white--);
 }
+
+.icon-body {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  padding: auto;
+  border-radius: 360px;
+  background: var(--body-l2--);
+}
+
+.icon-body:hover {
+  background: var(--body-l3--);
+}
+
+.icon-body .material-symbols-outlined {
+  color: var(--main-l1--);
+}

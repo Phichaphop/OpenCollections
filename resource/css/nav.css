@@ -28,6 +28,8 @@ nav {
   
   border-radius: 60px;
   background: var(--body-l1--);
+
+  text-wrap: nowrap;
 }
 
 .nav-icon-active {

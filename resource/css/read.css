@@ -96,7 +96,23 @@
     rgba(0, 107, 153, 1) 50%,
     rgba(0, 118, 168, 1) 100%
   );
-  box-shadow: var(--shadow--) 0px 8px 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-cover-pic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0 auto;
+  max-height: 100%;
+  height: auto;
+  min-height: 500px;
+  max-width: 100%;
+  width: 40%;
+  min-width: 330px;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .project-cover-content {
