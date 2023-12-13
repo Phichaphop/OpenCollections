@@ -16,13 +16,13 @@
 
         <section>
 
-            <div class="section-group">
-
                 <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
                 <?php if (isset($_GET['read'])) { ?>
+
+                    <div class="section-read">
 
                     <?php if (isset($_GET['project'])) { ?>
                         <?php $data = GetProjectByID($_GET['project'], $conn); ?>
@@ -192,9 +192,13 @@
 
                     <?php } ?>
 
+                    </div>
+
                 <?php } ?>
 
                 <?php if (isset($_GET['insert']) || isset($_GET['update']) || isset($_GET['delete'])) { ?>
+
+                    <div class="section-group">
 
                     <?php
                     if (isset($_GET['insert']) && isset($_GET['project'])) {
@@ -374,11 +378,11 @@
 
                     </form>
 
+                    </div>
+
                 <?php } ?>
 
                 <!-- End Content here -->
-
-            </div>
 
         </section>
 
