@@ -35,7 +35,7 @@
     }
 
     function GetAdvisor($conn) {
-        $stmt = $conn->query("SELECT id, username FROM user WHERE role = '1' OR role = '2'");
+        $stmt = $conn->query("SELECT id, username FROM user WHERE role = '1' OR role = '3'");
         $stmt->execute();
         $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
@@ -122,7 +122,7 @@
     }
 
     function GetApprover($conn) {
-        $stmt = $conn->query("SELECT id, username FROM user WHERE role = '1' OR role = '3'");
+        $stmt = $conn->query("SELECT id, username FROM user WHERE role = '1' OR role = '2'");
         $stmt->execute();
         $data= $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
