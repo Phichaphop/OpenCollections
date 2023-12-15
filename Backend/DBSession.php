@@ -27,7 +27,7 @@
 
     $conn = DBConnect();
     $page = basename($_SERVER['PHP_SELF'], ".php");
-    $public_page = array("Setup", "index", "frm_read","DBDownload","sign", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail");
+    $public_page = array("Setup", "index", "frm_project","DBDownload","sign", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail");
     $private_page = array("");
     
     if (in_array($page, $public_page)) {
