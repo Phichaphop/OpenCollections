@@ -24,13 +24,13 @@ function SentDraftProject($id, $status, $conn) {
             $updateStmt->bindParam(":status", $status);
             $updateStmt->execute();
             $_SESSION['success'] = "Sent draft project successfully.";
-            echo "<script>window.location.href='../dash_project.php';</script>";
+            echo "<script>window.location.href='../dash_approve.php';</script>";
             exit;
         }
 
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../dash_project.php';</script>";
+        echo "<script>window.location.href='../dash_approve.php';</script>";
         exit;
     }
 }

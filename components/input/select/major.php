@@ -6,7 +6,7 @@ if (isset($_GET['insert'])) {
     $valueEx = GetMajorEx($value['major'], $conn);
     echo "<script>" . " var DataMajor = '" . $value['id'] . "'" . "</script>";
 } else {
-    $value = "";
+    $value = GetMajorData($conn);
 }
 ?>
 
@@ -16,15 +16,15 @@ if (isset($_GET['insert'])) {
 
             <?php if (isset($_GET['update']) && isset($_GET['project'])) { ?>
 
-                <option value="<?= $value['id'] ?>"><?= $value['major'] ?> in <?= $value['dept'] ?> / <?= $value['faculty'] ?> at <?= $value['ins'] ?></option>
+                <option value="<?= $value['id'] ?>"><?= $row['major'] ?> / <?= $value['degree'] ?> in <?= $value['dept'] ?> / <?= $value['faculty'] ?> at <?= $value['ins'] ?></option>
 
                 <?php foreach ($valueEx as $valueExRow) { ?>
-                    <option value="<?= $valueExRow['id'] ?>"><?= $valueExRow['major'] ?> in <?= $valueExRow['dept'] ?> / <?= $valueExRow['faculty'] ?> at <?= $valueExRow['ins'] ?></option>
+                    <option value="<?= $valueExRow['id'] ?>"><?= $row['major'] ?> / <?= $valueExRow['degree'] ?> in <?= $valueExRow['dept'] ?> / <?= $valueExRow['faculty'] ?> at <?= $valueExRow['ins'] ?></option>
                 <?php }
             } else { ?>
                 <option value=""><?= $please_select_major ?></option>
                 <?php foreach ($value  as $row) { ?>
-                    <option value="<?= $row['id'] ?>"><?= $row['major'] ?> in <?= $row['dept'] ?> / <?= $row['faculty'] ?> at <?= $row['ins'] ?></option>
+                    <option value="<?= $row['id'] ?>"><?= $row['major'] ?> / <?= $row['degree'] ?> in <?= $row['dept'] ?> / <?= $row['faculty'] ?> at <?= $row['ins'] ?></option>
             <?php }
             }  ?>
 

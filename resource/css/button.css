@@ -7,7 +7,6 @@
   background: var(--main-l1--);
   cursor: pointer;
   color: var(--alway-white--);
-  transition: 0.2s;
   text-align: center;
   font-size: 15px;
 }
@@ -26,7 +25,6 @@
   background: none;
   cursor: pointer;
   color: var(--main-l1--);
-  transition: 0.2s;
   text-align: center;
   font-size: 15px;
 }
@@ -44,7 +42,6 @@
   background: var(--body-l1--);
   cursor: pointer;
   color: var(--main-l1--);
-  transition: 0.2s;
   text-align: center;
   font-size: 15px;
   font-weight: bold;
@@ -66,7 +63,7 @@
   background: var(--main-l1--);
   cursor: pointer;
   color: var(--alway-white--);
-  transition: 0.2s;
+  
   text-align: center;
   font-size: 15px;
 }
@@ -92,7 +89,6 @@
   background: var(--body-l1--);
   cursor: pointer;
   color: var(--main-l1--);
-  transition: 0.2s;
   text-align: center;
   font-size: 15px;
   font-weight: bold;
@@ -115,7 +111,6 @@
   background: var(--red-l1--);
   cursor: pointer;
   color: var(--alway-white--);
-  transition: 0.2s;
   text-align: center;
   font-size: 15px;
 }

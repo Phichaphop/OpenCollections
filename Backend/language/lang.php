@@ -2,6 +2,8 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $dash_approve = "แดชอนุมัติ";
+        $pdf_only = "(เฉพาะ PDF)";
         $wait_verify = "รอตรวจสอบ";
         $at = "ที่";
         $in = "ใน";
@@ -25,7 +27,7 @@
         $back = "ย้อนกลับ";
         $back_to_sign_in = "กลับไปหน้าลงทะเบียน?";
         $back_to_signup = "กลับไปยังหน้าสมัครสมาชิก";
-        $cancel = "ยกเลิก";
+        $cancel = "ย้อนกลับ";
         $confirm_password = "ยืนยันรหัสผ่าน";
         $contact_us = "ติดต่อเรา";
         $contact_us_detail = "แจ้งปัญหาการใช้งาน";
@@ -197,6 +199,8 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $dash_approve = "Dash Approve";
+        $pdf_only = "(PDF Only.)";
         $wait_verify = "Wait Verification";
         $at = "at";
         $in = "in";
@@ -220,7 +224,7 @@
         $back = "Back";
         $back_to_sign_in = "Back to sign in?";
         $back_to_signup = "Back to signup";
-        $cancel = "Cancel";
+        $cancel = "Back";
         $confirm_password = "Confirm Password";
         $contact_us = "Contact Us";
         $contact_us_detail = "Contact Us.";

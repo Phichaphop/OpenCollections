@@ -8,7 +8,7 @@ function SearchUser($name, $type, $conn)
     if (!empty($type)) {
         $query .= " AND role = '" . $type . "'";
     }
-
+    
     $stmt = $conn->prepare($query);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -90,7 +90,8 @@ function SearchFavorite($name, $MyID, $conn)
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
         INNER JOIN ins on faculty.ins = ins.id
-        WHERE favorite.user = $MyID";
+        WHERE favorite.user = $MyID
+        ORDER BY favorite.created_at DESC";
     if (!empty($name)) {
         $query .= " AND (project.title LIKE '%" . $name . "%')";
     }
@@ -135,7 +136,7 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
         $conditions[] = "type = :type";
     }
 
-    $query = "SELECT * FROM project";
+    $query = "SELECT * FROM project ORDER BY created_at DESC";
 
     if (!empty($conditions)) {
         $query .= " WHERE " . implode(" AND ", $conditions);
@@ -164,7 +165,7 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
 
 function SearchMyProject($name, $type, $user, $conn)
 {
-    $query = "SELECT * FROM project WHERE 1=1";
+    $query = "SELECT * FROM project WHERE 1=1 ORDER BY created_at DESC";
     if (!empty($name)) {
         $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
     }
@@ -191,7 +192,8 @@ function SearchProjectApprove($name, $type, $conn)
         INNER JOIN dept on major.dept = dept.id
         INNER JOIN faculty on dept.faculty = faculty.id
         INNER JOIN ins on faculty.ins = ins.id
-        WHERE 1=1 AND status = '4'";
+        WHERE 1=1 AND status = '4'
+        ORDER BY project.updated_at DESC";
     if (!empty($name)) {
         $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
     }

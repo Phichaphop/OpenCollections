@@ -10,19 +10,18 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php require_once "components/layout/side.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
         <section>
 
+            <!-- Content here -->
+
+            <?php if (isset($_GET['read'])) { ?>
+
+                <div class="section-read">
                 <?php require_once 'components/layout/alert.php'; ?>
-
-                <!-- Content here -->
-
-                <?php if (isset($_GET['read'])) { ?>
-
-                    <div class="section-read">
 
                     <?php if (isset($_GET['project'])) { ?>
                         <?php $data = GetProjectByID($_GET['project'], $conn); ?>
@@ -60,12 +59,10 @@
 
                             <div class="frm-read-group">
 
-
                                 <div class="frm-read-content" id="title-detail">
                                     <p><?= $data['type'] ?> / <?= $release_date ?> <?= DateFormat($data['date']) ?></p>
                                     <h1><?= $data['title'] ?></h1>
                                 </div>
-
 
                                 <div class="frm-read-content">
                                     <h4><?= $title ?></h4>
@@ -126,11 +123,11 @@
                                     <?php } ?>
 
                                     <div class="btn-normal-se" onclick="window.location='Backend/DBDownload.php?file=<?= $data['file'] ?>'">
-                                        <?php include 'components/icon/download.php'; ?>
+                                        <?php require_once 'components/icon/download.php'; ?>
                                         <?= $download ?>
                                     </div>
                                     <a class="btn-normal-se" href="resource/doc/<?= $data['file'] ?>" target="_blank" ?>
-                                        <?php include 'components/icon/View.php'; ?>
+                                        <?php require_once 'components/icon/View.php'; ?>
                                         <?= $view ?>
                                     </a>
 
@@ -139,7 +136,6 @@
                             </div>
 
                         </div>
-
 
                         <?php if (($data['author'] == isset($_SESSION['login'])) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                             <div class="frm-read">
@@ -151,54 +147,66 @@
                                     <h4><?= $status ?></h4>
                                     <p><?= GetNameProjectStatusByID($data['status'], $conn) ?></p>
                                 </div>
+                            </div>
+                            <div class="frm-read">
                                 <div class="frm-read-content">
                                     <h4><?= $note ?></h4>
                                     <p><?= $data['note'] ?></p>
                                 </div>
                             </div>
-                            <div class="frm-read">
-                                <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?draft&project=<?= $_GET['project'] ?>'"><?= $sent ?></div>
-                                <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $edit_project_detail ?></div>
-                                <div class="btn-se" onclick="window.location='frm_project.php?update&file&project=<?= $_GET['project'] ?>'"><?= $edit_project_file ?></div>
-                                <div class="btn-se" onclick="window.location='frm_project.php?update&pic&project=<?= $_GET['project'] ?>'"><?= $edit_project_pic ?></div>
-                                <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
-                                <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
-                            </div>
                         <?php } ?>
 
-                        <?php if ((isset($_SESSION['admin']) || isset($_SESSION['officer'] ) == $data['advisor']) && $data['status'] == "2") { ?>
-                            <div class="frm-read">
-                                <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>"><?= $not_approve ?></div>
-                                <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
-                                <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
-                            </div>
-                        <?php } ?>
+                        <div class="frm-control">
 
-                        <?php if ((isset($_SESSION['admin']) || isset($_SESSION['publisher'] ) == $data['approver']) && $data['status'] == "3") { ?>
-                            <div class="frm-read">
-                                <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>&cancel'"><?= $not_approve ?></div>
-                                <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
-                                <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
-                            </div>
-                        <?php } ?>
+                            <?php if (($data['author'] == isset($_SESSION['login'])) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
+                                <div class="frm-control-group">
+                                    <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?draft&project=<?= $_GET['project'] ?>'"><?= $sent ?></div>
+                                    <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
+                                    <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
+                                </div>
+                                <div class="frm-control-group">
+                                    <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $edit_project_detail ?></div>
+                                    <div class="btn-se" onclick="window.location='frm_project.php?update&file&project=<?= $_GET['project'] ?>'"><?= $edit_project_file ?> <?= $pdf_only ?></div>
+                                    <div class="btn-se" onclick="window.location='frm_project.php?update&pic&project=<?= $_GET['project'] ?>'"><?= $edit_project_pic ?></div>
+                                </div>
+                            <?php } ?>
 
-                        <?php if (isset($_SESSION['admin']) && $data['status'] == "4") { ?>
-                            <div class="frm-read">
-                                <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $update ?></div>
-                                <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
-                                <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
-                            </div>
-                        <?php } ?>
+                            <?php if ((isset($_SESSION['admin']) || isset($_SESSION['officer']) == $data['advisor']) && $data['status'] == "2") { ?>
+                                <div class="frm-control-group">
+                                    <a class="btn-del" href="frm_project.php?update&cancel&project=<?= $_GET['project'] ?>"><?= $not_approve ?></a>
+                                    <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
+                                    <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
+                                </div>
+                            <?php } ?>
+
+                            <?php if ((isset($_SESSION['admin']) || isset($_SESSION['publisher']) == $data['approver']) && $data['status'] == "3") { ?>
+                                <div class="frm-control-group">
+                                    <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>&cancel'"><?= $not_approve ?></div>
+                                    <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
+                                    <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
+                                </div>
+                            <?php } ?>
+
+                            <?php if (isset($_SESSION['admin']) && $data['status'] == "4") { ?>
+                                <div class="frm-control-group">
+                                    <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $update ?></div>
+                                    <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
+                                    <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
+                                </div>
+                            <?php } ?>
+
+                        </div>
 
                     <?php } ?>
 
-                    </div>
+                </div>
 
-                <?php } ?>
+            <?php } ?>
 
-                <?php if (isset($_GET['insert']) || isset($_GET['update']) || isset($_GET['delete'])) { ?>
+            <?php if (isset($_GET['insert']) || isset($_GET['update']) || isset($_GET['delete'])) { ?>
 
-                    <div class="section-group">
+                <div class="section-group">
+                <?php require_once 'components/layout/alert.php'; ?>
 
                     <?php
                     if (isset($_GET['insert']) && isset($_GET['project'])) {
@@ -286,14 +294,14 @@
                         <?php if (isset($_GET['insert']) && isset($_GET['project'])) { ?>
 
 
-                            <?php include 'components/input/project/title.php'; ?>
-                            <?php include 'components/input/project/author.php'; ?>
-                            <?php include 'components/input/project/advisor.php'; ?>
-                            <?php include 'components/input/select/approver.php'; ?>
-                            <?php include 'components/input/project/project_type.php'; ?>
-                            <?php include 'components/input/select/major.php'; ?>
-                            <?php include 'components/input/project/date.php'; ?>
-                            <?php include 'components/input/project/abstract.php'; ?>
+                            <?php require_once 'components/input/project/title.php'; ?>
+                            <?php require_once 'components/input/project/author.php'; ?>
+                            <?php require_once 'components/input/project/advisor.php'; ?>
+                            <?php require_once 'components/input/select/approver.php'; ?>
+                            <?php require_once 'components/input/project/project_type.php'; ?>
+                            <?php require_once 'components/input/select/major.php'; ?>
+                            <?php require_once 'components/input/project/date.php'; ?>
+                            <?php require_once 'components/input/project/abstract.php'; ?>
 
 
                             <script>
@@ -309,13 +317,13 @@
                         <?php } ?>
 
                         <?php if (isset($_GET['update']) && isset($_GET['detail']) && isset($_GET['project'])) { ?>
-                            <?php include 'components/input/project/title.php'; ?>
-                            <?php include 'components/input/project/author.php'; ?>
-                            <?php include 'components/input/project/advisor.php'; ?>
-                            <?php include 'components/input/project/project_type.php'; ?>
-                            <?php include 'components/input/select/major.php'; ?>
-                            <?php include 'components/input/project/abstract.php'; ?>
-                            <?php include 'components/input/project/date.php'; ?>
+                            <?php require_once 'components/input/project/title.php'; ?>
+                            <?php require_once 'components/input/project/author.php'; ?>
+                            <?php require_once 'components/input/project/advisor.php'; ?>
+                            <?php require_once 'components/input/project/project_type.php'; ?>
+                            <?php require_once 'components/input/select/major.php'; ?>
+                            <?php require_once 'components/input/project/abstract.php'; ?>
+                            <?php require_once 'components/input/project/date.php'; ?>
                             <script>
                                 document.getElementById("Title").addEventListener("keyup", CheckUpdateProjectDetail)
                                 document.getElementById("Author").addEventListener("change", CheckUpdateProjectDetail)
@@ -328,35 +336,35 @@
                         <?php } ?>
 
                         <?php if (isset($_GET['update']) && isset($_GET['file']) && isset($_GET['project'])) { ?>
-                            <?php include 'components/input/project/file.php'; ?>
+                            <?php require_once 'components/input/project/file.php'; ?>
                             <script>
                                 document.getElementById("ProjectFile").addEventListener("change", CheckUpdateProjectFile)
                             </script>
                         <?php } ?>
 
                         <?php if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['project'])) { ?>
-                            <?php include 'components/input/file/pic.php'; ?>
+                            <?php require_once 'components/input/file/pic.php'; ?>
                             <script>
                                 document.getElementById("Pic").addEventListener("change", CheckUpdateProjectCover)
                             </script>
                         <?php } ?>
 
                         <?php if (isset($_GET['update']) && isset($_GET['cancel']) && isset($_GET['project'])) { ?>
-                            <?php include 'components/input/project/note.php'; ?>
+                            <?php require_once 'components/input/project/note.php'; ?>
                             <script>
                                 document.getElementById("Note").addEventListener("keyup", CheckUpdateProjectNote)
                             </script>
                         <?php } ?>
 
                         <?php if (isset($_GET['insert']) && isset($_GET['project_type'])) { ?>
-                            <?php include 'components/input/text/name.php'; ?>
+                            <?php require_once 'components/input/text/name.php'; ?>
                             <script>
                                 document.getElementById("Name").addEventListener("keyup", CheckInsertProjectType)
                             </script>
                         <?php } ?>
 
                         <?php if (isset($_GET['update']) && isset($_GET['project_type'])) { ?>
-                            <?php include 'components/input/text/name.php'; ?>
+                            <?php require_once 'components/input/text/name.php'; ?>
                             <script>
                                 document.getElementById("Name").addEventListener("keyup", CheckUpdateProjectType)
                             </script>
@@ -378,11 +386,11 @@
 
                     </form>
 
-                    </div>
+                </div>
 
-                <?php } ?>
+            <?php } ?>
 
-                <!-- End Content here -->
+            <!-- End Content here -->
 
         </section>
 

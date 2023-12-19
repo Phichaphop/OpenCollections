@@ -17,6 +17,7 @@
     $aside_create_project_type  = "pass";
     $aside_project = "pass";
     $aside_create_project  = "pass";
+    $aside_dash_approve = "pass";
     if ($page == "index") {
         $aside_index = "act";
     }
@@ -70,6 +71,9 @@
     }
     if ($page == "frm_project") {
         $aside_create_project  = "act";
+    }
+    if ($page == "dash_approve") {
+        $aside_dash_approve = "act";
     }
 ?>
 
@@ -196,10 +200,16 @@
         </div>
     <?php } ?>
 
-    <?php if ($page == "dash_project") { ?>
+    <?php if ($page == "dash_project" || $page == "dash_approve"){ ?>
         <div class="aside-group <?= $aside_project ?>" onclick="window.location='dash_project.php'">
             <div class="aside-content">
                 <p><?= $dash_project ?></p>
+            </div>
+        </div>
+
+        <div class="aside-group <?= $aside_dash_approve ?>" onclick="window.location='dash_approve.php?insert&project'">
+            <div class="aside-content">
+                <p><?= $dash_approve ?></p>
             </div>
         </div>
 

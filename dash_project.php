@@ -21,9 +21,7 @@
                 <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
-
-
-
+                
                 <?php
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
@@ -154,12 +152,12 @@
                                 <div class="menu-content">
 
                                     <?php if ($row['status'] == "1") { ?>
-                                        <div class="icon-main">
+                                        <div class="icon-body">
                                             <?php include 'components/icon/draft.php'; ?>
                                         </div>
                                     <?php } ?>
                                     <?php if ($row['status'] == "2") { ?>
-                                        <div class="icon-body">
+                                        <div class="icon-main">
                                             <?php include 'components/icon/verify.php'; ?>
                                         </div>
                                     <?php } ?>

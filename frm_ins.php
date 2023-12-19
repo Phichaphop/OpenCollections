@@ -104,11 +104,13 @@
                         </div>
                     </div>
 
-                    <div class="frm-read">
-                        <div class="btn-se" onclick="window.location='frm_ins.php?update&pic&ins=<?= $_GET['ins'] ?>'"><?= $edit_picture ?></div>
-                        <div class="btn-se" onclick="window.location='frm_ins.php?update&detail&ins=<?= $_GET['ins'] ?>'"><?= $edit_detail ?></div>
-                        <div class="btn-del" onclick="window.location='frm_ins.php?delete&ins=<?= $_GET['ins'] ?>'"><?= $delete ?></div>
-                        <div class="btn-pr" onclick="window.location='dash_ins.php'"><?= $back ?></div>
+                    <div class="frm-control">
+                        <div class="frm-control-group">
+                            <div class="btn-se" onclick="window.location='frm_ins.php?update&pic&ins=<?= $_GET['ins'] ?>'"><?= $edit_picture ?></div>
+                            <div class="btn-se" onclick="window.location='frm_ins.php?update&detail&ins=<?= $_GET['ins'] ?>'"><?= $edit_detail ?></div>
+                            <div class="btn-del" onclick="window.location='frm_ins.php?delete&ins=<?= $_GET['ins'] ?>'"><?= $delete ?></div>
+                            <div class="btn-pr" onclick="window.location='dash_ins.php'"><?= $back ?></div>
+                        </div>
                     </div>
 
                 <?php } ?>
