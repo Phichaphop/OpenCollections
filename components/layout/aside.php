@@ -200,7 +200,22 @@
         </div>
     <?php } ?>
 
-    <?php if ($page == "dash_project" || $page == "dash_approve"){ ?>
+    <?php if ($page == "dash_project"){ ?>
+        <div class="aside-group <?= $aside_project ?>" onclick="window.location='dash_project.php'">
+            <div class="aside-content">
+                <p><?= $dash_project ?></p>
+            </div>
+        </div>
+
+        <div class="aside-group <?= $aside_create_project ?>" onclick="window.location='frm_project.php?insert&project'">
+            <div class="aside-content">
+                <p><?= $create ?></p>
+            </div>
+        </div>
+
+    <?php } ?>
+
+    <?php if ($page == "dash_approve"){ ?>
         <div class="aside-group <?= $aside_project ?>" onclick="window.location='dash_project.php'">
             <div class="aside-content">
                 <p><?= $dash_project ?></p>

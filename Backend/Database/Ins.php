@@ -14,7 +14,7 @@
                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                     )";
             $conn->exec($sql);
-            SetupIns($conn, "Vocational Education Institute, Section 4");
+            SetupIns($conn, "Institute of Vocational education : Northeastern Region 4");
             SetupIns($conn, "Ubon Ratchathani Technical College");
             SetupIns($conn, "Ubon Ratchathani Vocational College");
             SetupIns($conn, "Det Udom Technical College");

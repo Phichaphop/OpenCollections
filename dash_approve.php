@@ -35,13 +35,17 @@
                     $approve_num = CountTotalApprove("4", $conn);
                     $not_num = CountTotalApprove("5", $conn);
                     $data = SearchProject($name, $type, "", "approver", "", "1", $conn);
-                } else if (isset($_SESSION['publisher']) || isset($_SESSION['officer'])) {
+                } else if (isset($_SESSION['publisher']) || isset($_SESSION['officer']) || isset($_SESSION['user'])) {
                     if (isset($_SESSION['officer'])) {
                         $person = "advisor";
                         $status = "2";
                     } else {
                         $person = "approver";
                         $status = "3";
+                    }
+                    if (isset($_SESSION['user'])) {
+                        $person = "author";
+                        $status = "";
                     }
                     $total = CountProject($_SESSION['login'], $person, "", $conn);
                     $draft_num = CountProject($_SESSION['login'], $person, "1", $conn);

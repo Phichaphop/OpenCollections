@@ -8,13 +8,13 @@
             $conn->exec("USE $dbname");
             $sql = "CREATE TABLE request (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    title VARCHAR(50) NOT NULL,
+                    title VARCHAR(100) NOT NULL,
                     detail LONGTEXT NOT NULL,
                     user INT(11) UNSIGNED NOT NULL,
-                    status INT(11) UNSIGNED NOT NULL,
+                    /*status INT(11) UNSIGNED NOT NULL,*/
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                    FOREIGN KEY (status) REFERENCES request_status(id)
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
+                    FOREIGN KEY (status) REFERENCES request_status(id)*/
                 )";
             $conn->exec($sql);
             $_SESSION['success'] = "Create request table success!.";

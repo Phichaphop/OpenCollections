@@ -2,6 +2,7 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $this_email_address_is_already = "มีอีเมล์นี้ในระบบแล้ว";
         $dash_approve = "แดชอนุมัติ";
         $pdf_only = "(เฉพาะ PDF)";
         $wait_verify = "รอตรวจสอบ";
@@ -199,6 +200,7 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $this_email_address_is_already = "This email address is already.";
         $dash_approve = "Dash Approve";
         $pdf_only = "(PDF Only.)";
         $wait_verify = "Wait Verification";

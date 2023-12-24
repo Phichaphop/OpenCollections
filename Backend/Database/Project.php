@@ -9,7 +9,7 @@
             $conn->exec("USE $dbname");
             $sql = "CREATE TABLE $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    title VARCHAR(50) NOT NULL,
+                    title VARCHAR(100) NOT NULL,
                     author INT(11) UNSIGNED NOT NULL,
                     advisor INT(11) UNSIGNED NOT NULL,
                     type INT(11) UNSIGNED NOT NULL,

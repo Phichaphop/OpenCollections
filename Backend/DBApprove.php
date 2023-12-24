@@ -24,7 +24,11 @@ function SentDraftProject($id, $status, $conn) {
             $updateStmt->bindParam(":status", $status);
             $updateStmt->execute();
             $_SESSION['success'] = "Sent draft project successfully.";
-            echo "<script>window.location.href='../dash_approve.php';</script>";
+            if (isset($_SESSION['user'])) {
+                echo "<script>window.location.href='../dash_project.php';</script>";
+            } else {
+                echo "<script>window.location.href='../dash_approve.php';</script>";
+            }
             exit;
         }
 

@@ -8,7 +8,7 @@ function SearchUser($name, $type, $conn)
     if (!empty($type)) {
         $query .= " AND role = '" . $type . "'";
     }
-    
+
     $stmt = $conn->prepare($query);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -136,11 +136,13 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
         $conditions[] = "type = :type";
     }
 
-    $query = "SELECT * FROM project ORDER BY created_at DESC";
+    $query = "SELECT * FROM project";
 
     if (!empty($conditions)) {
         $query .= " WHERE " . implode(" AND ", $conditions);
     }
+
+    $query .= " ORDER BY created_at DESC";
 
     $stmt = $conn->prepare($query);
 
@@ -163,9 +165,10 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
+
 function SearchMyProject($name, $type, $user, $conn)
 {
-    $query = "SELECT * FROM project WHERE 1=1 ORDER BY created_at DESC";
+    $query = "SELECT * FROM project WHERE 1=1";
     if (!empty($name)) {
         $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
     }
@@ -175,6 +178,9 @@ function SearchMyProject($name, $type, $user, $conn)
     if (!empty($user)) {
         $query .= " AND author = '" . $user . "'";
     }
+
+    $query .= " ORDER BY created_at DESC";
+
     $stmt = $conn->prepare($query);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -204,4 +210,3 @@ function SearchProjectApprove($name, $type, $conn)
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-?>

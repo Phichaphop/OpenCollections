@@ -63,7 +63,7 @@
 
                     <div class="frm-read">
                         <div class="btn-del" onclick="window.location='frm_request.php?delete&request=<?= $_GET['request'] ?>'"><?= $delete ?></div>
-                        <div class="btn-pr" onclick="window.location='dash_ins.php'"><?= $bank ?></div>
+                        <div class="btn-pr" onclick="window.location='dash_ins.php'"><?= $cancel ?></div>
                     </div>
 
                 <?php } ?>

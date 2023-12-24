@@ -6,7 +6,7 @@ if (isset($_POST['signup'])) {
     $pass = $_SESSION['pass'];
     $email = $_SESSION['email'];
     $tel = $_SESSION['tel'];
-    $role = 3;
+    $role = 4;
     SignUp($username, $pass, $email, $tel, $role, $conn);
 }
 

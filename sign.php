@@ -111,7 +111,7 @@
                             <button id="ResetPass" class="btn-se" name="reset_pass" type="submit" disabled><?= $reset_your_password ?></button>
                         </div>
                         <div class="form-group">
-                            <a class="btn-te" href="signin.php"><?= $back_to_sign_in ?></a>
+                            <a class="btn-te" href="sign.php?signin"><?= $back_to_sign_in ?></a>
                         </div>
                     </form>
 
