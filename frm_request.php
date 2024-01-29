@@ -61,9 +61,11 @@
                         </div>
                     </div>
 
-                    <div class="frm-read">
-                        <div class="btn-del" onclick="window.location='frm_request.php?delete&request=<?= $_GET['request'] ?>'"><?= $delete ?></div>
-                        <div class="btn-pr" onclick="window.location='dash_ins.php'"><?= $cancel ?></div>
+                    <div class="frm-control">
+                        <div class="frm-control-group">
+                            <div class="btn-del" onclick="window.location='frm_request.php?delete&request=<?= $_GET['request'] ?>'"><?= $delete ?></div>
+                            <div class="btn-pr" onclick="history.back()"><?= $cancel ?></div>
+                        </div>
                     </div>
 
                 <?php } ?>
@@ -94,9 +96,11 @@
                             </script>
                         <?php } ?>
 
-                        <div class="form-group">
-                            <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
-                            <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                        <div class="frm-control">
+                            <div class="frm-control-group">
+                                <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                                <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                            </div>
                         </div>
 
                     </form>

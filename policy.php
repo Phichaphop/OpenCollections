@@ -54,7 +54,7 @@
 
                     <p><?= $policy_end ?></p>
 
-                    <div class="btn-pr" onclick="window.location='signup.php'"><?= $back_to_signup ?></div>
+                    <div class="btn-pr" onclick="window.location='sign.php?signup'"><?= $back_to_signup ?></div>
                 </div>
 
                 <!-- End Content here -->
