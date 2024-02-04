@@ -4,7 +4,7 @@ require_once 'DBSession.php';
 if (isset($_POST['insert_manual'])) {
     $title = $_POST['title'];
     $file = $_FILES['file'];
-    $file_allow = array('pdf');
+    $file_allow = array('pdf, doc, docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
     $file_filePath = '../resource/manual/' . $file_fileNew;
@@ -35,7 +35,7 @@ function InsertManual($title, $file, $file_allow, $file_fileActExt, $file_fileNe
                     echo "<script>window.location.href='../dash_manual.php';</script>";
                 }
             } else {
-                $_SESSION['error'] = "Can't upload file (only pdf).";
+                $_SESSION['error'] = "Can't upload file (only pdf, doc, docx).";
                 echo "<script>window.location.href='../dash_manual.php';</script>";
             }
         }
@@ -70,7 +70,7 @@ function UpdateManualDetail($id, $title, $conn)
 if (isset($_POST['update_file_manual'])) {
     $id = $_SESSION['manual_id'];
     $file = $_FILES['file'];
-    $file_allow = array('pdf');
+    $file_allow = array('pdf, doc, docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
     $file_filePath = '../resource/manual/' . $file_fileNew;
@@ -104,7 +104,7 @@ function UpdateManualFile($id, $file, $file_allow, $file_fileActExt, $file_fileN
             $_SESSION['error'] = "Failed to update manual file.";
         }
     } else {
-        $_SESSION['error'] = "Can't upload file (only pdf).";
+        $_SESSION['error'] = "Can't upload file (only pdf, doc, docx).";
     }
 
     echo "<script>window.location.href='../frm_manual.php?read&manual=$id';</script>";
