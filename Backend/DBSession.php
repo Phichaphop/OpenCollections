@@ -14,6 +14,7 @@
     require_once 'GetData/GetProject.php';
     require_once 'GetData/GetProjectStatus.php';
     require_once 'GetData/GetProjectType.php';
+    require_once 'GetData/GetManual.php';
     require_once 'DashBoard/CountUser.php';
     require_once 'DashBoard/CountRequest.php';
     require_once 'DashBoard/CountIns.php';
@@ -27,7 +28,7 @@
 
     $conn = DBConnect();
     $page = basename($_SERVER['PHP_SELF'], ".php");
-    $public_page = array("Setup", "index", "frm_project","DBDownload","sign", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail");
+    $public_page = array("Setup", "index", "frm_project","DBDownload","sign", "policy", "DBSign", "DBVerifyEmail", "VerifyEmail", "dash_manual");
     $private_page = array("");
     
     if (in_array($page, $public_page)) {

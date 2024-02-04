@@ -210,3 +210,15 @@ function SearchProjectApprove($name, $type, $conn)
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function SearchManual($name, $user, $conn)
+{
+    $query = "SELECT * FROM manual WHERE 1=1";
+    if (!empty($name)) {
+        $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
+    }
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+?>

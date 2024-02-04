@@ -123,7 +123,7 @@
 
                                     <?php } ?>
 
-                                    <div class="btn-normal-se" onclick="window.location='Backend/DBDownload.php?file=<?= $data['file'] ?>'">
+                                    <div class="btn-normal-se" onclick="window.location='Backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
                                         <?php require_once 'components/icon/download.php'; ?>
                                         <?= $download ?>
                                     </div>
@@ -156,8 +156,6 @@
                                 </div>
                             </div>
                         <?php } ?>
-
-
 
                         <?php if (($data['author'] == isset($_SESSION['login'])) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                             <div class="frm-control">

@@ -18,6 +18,8 @@
     $aside_project = "pass";
     $aside_create_project  = "pass";
     $aside_dash_approve = "pass";
+    $aside_create_manual  = "pass";
+    $aside_dash_manual = "pass";
     if ($page == "index") {
         $aside_index = "act";
     }
@@ -229,6 +231,21 @@
         </div>
 
         <div class="aside-group <?= $aside_create_project ?>" onclick="window.location='frm_project.php?insert&project'">
+            <div class="aside-content">
+                <p><?= $create ?></p>
+            </div>
+        </div>
+
+    <?php } ?>
+
+    <?php if ($page == "dash_manual" && isset($_SESSION['admin'])){ ?>
+        <div class="aside-group <?= $aside_manual ?>" onclick="window.location='dash_manual.php'">
+            <div class="aside-content">
+                <p><?= $dash_manual ?></p>
+            </div>
+        </div>
+
+        <div class="aside-group <?= $aside_create_manual ?>" onclick="window.location='frm_manual.php?insert&manual'">
             <div class="aside-content">
                 <p><?= $create ?></p>
             </div>

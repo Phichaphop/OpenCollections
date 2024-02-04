@@ -30,9 +30,9 @@
 }
 
 .theme-dark {
-  --body-l1--: hsl(0, 0%, 12%);
-  --body-l2--: hsl(0, 0%, 10%);
-  --body-l3--: hsl(0, 0%, 8%);
+  --body-l1--: hsl(220, 15%, 16%);
+  --body-l2--: hsl(220, 15%, 13%);
+  --body-l3--: hsl(220, 15%, 10%);
 
   --text-l1--: #FFFFFF;
   --text-l2--: hsl(220, 20%, 90%);

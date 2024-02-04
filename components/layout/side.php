@@ -12,6 +12,8 @@
         <a href="dash_request.php"><?= $request ?></a>
     <?php } ?>
 
+    <a href="dash_manual.php"><?= $manual ?></a>
+
     <?php if (isset($_SESSION['admin'])) { ?>
         <a href="App.php?setting"><?= $setting ?></a>
     <?php } ?>

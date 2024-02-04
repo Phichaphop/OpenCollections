@@ -355,6 +355,29 @@
                             </div>
                         </div>
 
+                        <div class="menu-group">
+                            <div class="menu-content">
+                                <div class="icon">
+                                    <?php include 'components/icon/doc.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4>Manual Table</h4>
+                                </div>
+                            </div>
+                            <div class="menu-content">
+                                <?php if ($check_manual != "error") { ?>
+                                    <div class="icon" onclick="window.location='Backend/Database/DatabaseSetup.php?DelManualTable'">
+                                        <?php include 'components/icon/delete.php'; ?>
+                                    </div>
+                                <?php } ?>
+                                <?php if ($check_manual == "error") { ?>
+                                    <div class="icon" onclick="window.location='Backend/Database/DatabaseSetup.php?CreManualTable'">
+                                        <?php include 'components/icon/next.php'; ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+
                     <?php } ?>
 
                 </div>

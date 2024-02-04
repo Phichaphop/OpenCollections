@@ -27,6 +27,7 @@ if ($conn != "error") {
     $check_request_status = CheckTable("request_status", $conn);
     $check_request = CheckTable("request", $conn);
     $check_counter = CheckTable("counter", $conn);
+    $check_manual = CheckTable("manual", $conn);
 }
 
 function DBConnect($servername, $username, $password, $dbname)
@@ -78,4 +79,6 @@ require_once "Request.php";
 
 require_once "Approve.php";
 require_once "Counter.php";
+
+require_once "Manual.php";
 ?>

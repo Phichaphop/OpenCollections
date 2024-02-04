@@ -90,6 +90,18 @@ function CheckInputProjectFile() {
   }
 }
 
+function CheckInputFile() {
+  var File = document.getElementById("File");
+  var Insert = document.getElementById("Insert");
+  if (File.files.length > 0) {
+    Insert.disabled = false;
+    Insert.classList = "btn-pr";
+  } else {
+    Insert.disabled = true;
+    Insert.classList = "btn-se";
+  }
+}
+
 function CheckInputProjectPicture() {
   var ProjectPicture = document.getElementById("ProjectPicture");
   var Insert = document.getElementById("Insert");

@@ -4,9 +4,8 @@
   gap: 30px;
   margin: auto;
   padding: 10px; /*old 20px*/
-  width: 100%;
   max-width: 100%;
-  border-radius: 10px;
+  width: 100%;
   background: var(--body-l1--);
   /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
 }
@@ -178,7 +177,7 @@
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 450px) {
   .frm-read {
     flex-direction: column;
     max-width: 100%;
@@ -190,6 +189,9 @@
   }
   #title-detail {
     display: none;
+  }
+  .project-cover {
+    min-width: 100%;
   }
   .frm-control {
     background: none;

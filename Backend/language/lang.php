@@ -2,6 +2,13 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $delete_manual = "ลบเอกสาร";
+        $edit_file = "แก้ไขไฟล์";
+        $manual = "แบบฟอร์มและคู่มือ";
+        $dash_manual = "แดชแบบฟอร์มและคู่มือ";
+        $manual_list = "รายการแบบฟอร์มและคู่มือ";
+        $create_manual = "เพิ่มเอกสาร";
+        $update_manual = "แก้ไขเอกสาร";
         $this_email_address_is_already = "มีอีเมล์นี้ในระบบแล้ว";
         $dash_approve = "แดชอนุมัติ";
         $pdf_only = "(เฉพาะ PDF)";
@@ -200,6 +207,12 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $delete_manual = "Delete Manual";
+        $edit_file = "Update File";
+        $manual = "Manual";
+        $dash_manual = "Dash Manual";
+        $manual_list = "List Manual";
+        $update_manual = "Update Manual";
         $this_email_address_is_already = "This email address is already.";
         $dash_approve = "Dash Approve";
         $pdf_only = "(PDF Only.)";

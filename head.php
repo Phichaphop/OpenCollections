@@ -37,6 +37,7 @@
     <script src="resource/js/form/CheckSign.js"></script>
     <script src="resource/js/form/CheckUser.js"></script>
     <script src="resource/js/form/CheckRequest.js"></script>
+    <script src="resource/js/form/CheckManual.js"></script>
 
     <script src="resource/js/input/CheckInput.js"></script>
 
