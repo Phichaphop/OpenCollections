@@ -4,7 +4,7 @@ require_once 'DBSession.php';
 if (isset($_POST['insert_manual'])) {
     $title = $_POST['title'];
     $file = $_FILES['file'];
-    $file_allow = array('pdf, doc, docx');
+    $file_allow = array('pdf', 'doc', 'docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
     $file_filePath = '../resource/manual/' . $file_fileNew;
@@ -70,7 +70,7 @@ function UpdateManualDetail($id, $title, $conn)
 if (isset($_POST['update_file_manual'])) {
     $id = $_SESSION['manual_id'];
     $file = $_FILES['file'];
-    $file_allow = array('pdf, doc, docx');
+    $file_allow = array('pdf', 'doc', 'docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
     $file_filePath = '../resource/manual/' . $file_fileNew;
