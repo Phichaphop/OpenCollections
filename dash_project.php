@@ -25,6 +25,7 @@
                 <?php
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
+                $major = $_GET['major'] ?? '';
                 ?>
                 <?php
                 if (isset($_SESSION['admin'])) {
@@ -34,7 +35,7 @@
                     $wait_num = CountTotalApprove("3", $conn);
                     $approve_num = CountTotalApprove("4", $conn);
                     $not_num = CountTotalApprove("5", $conn);
-                    $data = SearchProject($name, $type, "", "approver", "", "1", $conn);
+                    $data = SearchProject($name, $type, $major, "", "approver", "", "1", $conn);
                 } else {
                     if (isset($_SESSION['publisher'])) {
                         $person = "approver";
@@ -54,7 +55,7 @@
                     $wait_num = CountProject($_SESSION['login'], $person, "3", $conn);
                     $approve_num = CountProject($_SESSION['login'], $person, "4", $conn);
                     $not_num = CountProject($_SESSION['login'], $person, "5", $conn);
-                    $data = SearchMyProject($name, $type, $_SESSION['login'], $conn);
+                    $data = SearchMyProject($name, $type, $major, $_SESSION['login'], $conn);
                 } ?>
 
                 <?php include 'Backend/Other/GetPage.php'; ?>

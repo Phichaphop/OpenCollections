@@ -11,7 +11,7 @@ if (isset($_GET['insert'])) {
 
 <div class="form-group">
     <div class="form-input">
-        <input id="Note" name="Note" class="input" type="text" minlength="1" maxlength="100" value="<?= $value ?>" required="required" onkeyup="CheckInputNote()">
+        <textarea id="Note" name="Note" class="input longtext" rows="10%" maxlength="10000" required="required" onkeyup="CheckInputNote()"><?= $value ?></textarea>
         <span class="label"><?= $note ?></span>
         <p id="MsgNote" class="validation-message"></p>
     </div>

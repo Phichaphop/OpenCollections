@@ -26,6 +26,7 @@
 
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
+                $major = $_GET['major'] ?? '';
 
                 if (isset($_SESSION['admin'])) {
                     $total = CountTotalApprove("", $conn);
@@ -34,16 +35,15 @@
                     $wait_num = CountTotalApprove("3", $conn);
                     $approve_num = CountTotalApprove("4", $conn);
                     $not_num = CountTotalApprove("5", $conn);
-                    $data = SearchProject($name, $type, "", "approver", "", "1", $conn);
+                    $data = SearchProject($name, $type, $major, "", "approver", "", "1", $conn);
                 } else if (isset($_SESSION['publisher']) || isset($_SESSION['officer']) || isset($_SESSION['user'])) {
                     if (isset($_SESSION['officer'])) {
                         $person = "advisor";
                         $status = "2";
-                    } else {
+                    } else if (isset($_SESSION['publisher'])) {
                         $person = "approver";
                         $status = "3";
-                    }
-                    if (isset($_SESSION['user'])) {
+                    } else if (isset($_SESSION['user'])) {
                         $person = "author";
                         $status = "";
                     }
@@ -53,7 +53,7 @@
                     $wait_num = CountProject($_SESSION['login'], $person, "3", $conn);
                     $approve_num = CountProject($_SESSION['login'], $person, "4", $conn);
                     $not_num = CountProject($_SESSION['login'], $person, "5", $conn);
-                    $data = SearchProject($name, $type, $_SESSION['login'], $person, $status, "", $conn);
+                    $data = SearchProject($name, $type, $major, $_SESSION['login'], $person, $status, "", $conn);
                 }
 
                 include 'Backend/Other/GetPage.php';

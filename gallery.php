@@ -20,14 +20,14 @@
 
             <!-- Content here -->
 
+        
             <div class="gallery">
-
 
                 <?php
                 $name = $_GET['name'] ?? '';
                 $type = $_GET['type'] ?? '';
                 $major = $_GET['major'] ?? '';
-                $data = SearchFavorite($name, $type, $major, $MyID, $conn);
+                $data = SearchProjectApprove($name, $type, $major, $conn);
                 include 'Backend/Other/GetPage.php';
                 ?>
 
@@ -37,7 +37,7 @@
                 <?php if (!$data) { ?>
                     <div class="gallery-group">
                         <div class="gallery-icon">
-                            <?php include 'components/icon/favorite.php'; ?>
+                            <?php include 'components/icon/project.php'; ?>
                             <h4><?= $no_data ?></h4>
                         </div>
                     </div>
@@ -45,24 +45,21 @@
 
                     foreach ($currentPageData as $row) { ?>
 
-                        <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['id'] ?>'">
+                        <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['project_id'] ?>'">
                             
                             <?php if (!$row['cover']) { ?>
-
                                 <div class="gallery-cover">
-                                <div class="gallery-cover-content">
-                                    <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
-                                    <p class="gallery-cover-text"><?= $row['type'] ?></p>
+                                    <div class="gallery-cover-content">
+                                        <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
+                                        <p class="gallery-cover-text"><?= $row['type'] ?></p>
+                                    </div>
+                                    <div class="gallery-cover-content">
+                                        <p class="gallery-cover-text"><?= $row['ins'] ?></p>
+                                    </div>
                                 </div>
-                                <div class="gallery-cover-content">
-                                    <p class="gallery-cover-text"><?= $row['ins'] ?></p>
-                                </div>
-                            </div>
-
                             <?php } else { ?>
                                 <img class="gallery-cover-pic" src="resource/img/project/<?= $row['cover'] ?>">
                             <?php } ?>
-                            
 
                             <div class="gallery-content">
                                 <h4><?= $row['title'] ?></h4>

@@ -84,26 +84,34 @@
     }
 
     function GetProjectByID($id, $conn) {
-        $stmt = $conn->prepare("SELECT project.id, project.title, project.author as author_id, 
-        author.username as author, advisor.username as advisor, approver.username as approver,
-        project_type.type as type, major.major, project.abstract, project.pic as cover,
-        project.date, project.file, project.status as status, project.note, project.created_at, project.updated_at,
-        ins.ins, ins.pic as ins_pic
-        FROM project 
-        INNER JOIN user as author on project.author = author.id
-        INNER JOIN user as advisor on project.advisor = advisor.id
-        INNER JOIN user as approver on project.approver = approver.id
-        INNER JOIN project_type on project.type = project_type.id
-        INNER JOIN project_status on project.status = project_status.id
-        INNER JOIN major on project.major = major.id
-        INNER JOIN dept on major.dept = dept.id
-        INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN ins on faculty.ins = ins.id
-        WHERE project.id = :id");
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $data;
+        try {
+            $stmt = $conn->prepare("SELECT project.id, project.title, project.author as author_id, 
+            author.username as author, advisor.username as advisor, advisor.id as advisor_id, approver.username as approver,
+            project_type.type as type, major.major, project.abstract, project.pic as cover,
+            project.date, project.file, project.status as status, project.note, project.created_at, project.updated_at,
+            ins.ins, ins.pic as ins_pic
+            FROM project 
+            INNER JOIN user as author on project.author = author.id
+            INNER JOIN user as advisor on project.advisor = advisor.id
+            INNER JOIN user as approver on project.approver = approver.id
+            INNER JOIN project_type on project.type = project_type.id
+            INNER JOIN project_status on project.status = project_status.id
+            INNER JOIN major on project.major = major.id
+            INNER JOIN dept on major.dept = dept.id
+            INNER JOIN faculty on dept.faculty = faculty.id
+            INNER JOIN ins on faculty.ins = ins.id
+            WHERE project.id = :id");
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+            if(empty($data)) {
+                return "No project found with ID: $id";
+            } else {
+                return $data;
+            }
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
     }
 
     function GetProjectPicByID($id, $conn) {

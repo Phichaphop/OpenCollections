@@ -2,16 +2,19 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: stretch;
   gap: 10px;
+  
   height: auto;
   width: 95%;
+  
   margin: auto;
   margin-top: 20px;
+  
   background: var(--body-l1--);
 }
 
 .gallery-group {
+  
   display: flex;
   flex-direction: column;
   align-content: flex-start;
@@ -21,7 +24,6 @@
   width: 200px;
   padding: 10px;
   background: var(--body-l1--);
-  /*border: 1px solid var(--body-l2--);*/
 }
 
 .gallery-group:hover {
@@ -44,7 +46,7 @@
 .gallery-cover {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: center;
   padding: 25px 10px;
   height: auto;
@@ -64,7 +66,7 @@
 .gallery-cover-pic {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   text-align: center;
   height: auto;
   min-height: 250px;
@@ -96,11 +98,25 @@
 
 @media only screen and (max-width: 1400px) {
   .gallery {
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-content: flex-start;
   }
   .gallery-group {
-    flex-grow: 1;
-    max-width: 180px;
+    max-width: 200px;
+  }
+  .gallery-content h4 {
+    font-size: small;
+  }
+  .gallery-content p {
+    font-size: small;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .gallery {
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
   }
   .gallery-content h4 {
     font-size: small;
@@ -111,37 +127,25 @@
 }
 
 @media only screen and (max-width: 430px) {
-  .gallery {
-    width: 100%;
-  }
   .gallery-group {
     max-width: 180px;
-    width: 180px;
-  }
-  .gallery-content h4 {
-    font-size: small;
-  }
-  .gallery-content p {
-    font-size: small;
   }
 }
 
 @media only screen and (max-width: 380px) {
   .gallery-group {
-    width: 100%;
+    max-width: 160px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .gallery-group {
+    max-width: 145px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .gallery-group {
     max-width: 100%;
   }
-  .gallery-cover {
-    height: 400px;
-  }
-  .gallery-content h4 {
-    font-size: larger;
-  }
-  .gallery-content p {
-    font-size: medium;
-  }
-  .gallery-cover-text {
-    color: var(--alway-white--);
-    font-size: large;
-}
 }

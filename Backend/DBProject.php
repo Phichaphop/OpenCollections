@@ -166,21 +166,23 @@ if (isset($_POST['update_project'])) {
     $title = $_POST['title'];
     $author = $_POST['author'];
     $advisor = $_POST['advisor'];
+    $approver = $_POST['approver'];
     $project_type = $_POST['project_type'];
     $major = $_POST['major'];
     $abstract = $_POST['abstract'];
     $date = $_POST['date'];
-    UpdateProjectDetail($id, $title, $author, $advisor, $project_type, $major, $abstract, $date, $conn);
+    UpdateProjectDetail($id, $title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $conn);
 }
 
-function UpdateProjectDetail($id, $title, $author, $advisor, $project_type, $major, $abstract, $date, $conn)
+function UpdateProjectDetail($id, $title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE project SET title=:title, author=:author, advisor=:advisor, type=:type, major=:major, abstract=:abstract, date=:date WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE project SET title=:title, author=:author, advisor=:advisor, approver=:approver, type=:type, major=:major, abstract=:abstract, date=:date WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":title", $title);
         $stmt->bindParam(":author", $author);
         $stmt->bindParam(":advisor", $advisor);
+        $stmt->bindParam(":approver", $approver);
         $stmt->bindParam(":type", $project_type);
         $stmt->bindParam(":major", $major);
         $stmt->bindParam(":abstract", $abstract);

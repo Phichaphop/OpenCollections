@@ -1,16 +1,33 @@
 <?php
+    
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $index = "หน้าหลัก";
+        $policy = "ข้อตกลงการใช้งาน";
+        $profile = "โปรไฟล์";
+        $Setup = "ตั้งค่า";
+        $VerifyEmail = "ยืนยันอีเมล์";
+        $VerifyPass = "ยืนยันรหัสผ่าน";
+        $frm_dept = "ข้อมูลแผนกวิชา";
+        $frm_faculty = "ข้อมูลคณะ";
+        $frm_ins = "ข้อมูลสถานศึกษา";
+        $frm_major = "ข้อมูลสาขาวิชา";
+        $frm_manual = "ข้อมูลเอกสารแบบฟอร์ม";
+        $frm_project = "ข้อมูลโครงงาน";
+        $frm_request = "ข้อมูลการแจ้งปัญหา";
+        $frm_user = "ข้อมูลผู้ใช้";
+        $dash_favorite = "รายการโปรด";
+        $setting = "ตั้งค่า";
         $delete_manual = "ลบเอกสาร";
         $edit_file = "แก้ไขไฟล์";
         $manual = "แบบฟอร์มและคู่มือ";
-        $dash_manual = "แดชแบบฟอร์มและคู่มือ";
+        $dash_manual = "แดชบอร์ดแบบฟอร์มและคู่มือ";
         $manual_list = "รายการแบบฟอร์มและคู่มือ";
         $create_manual = "เพิ่มเอกสาร";
         $update_manual = "แก้ไขเอกสาร";
         $this_email_address_is_already = "มีอีเมล์นี้ในระบบแล้ว";
-        $dash_approve = "แดชอนุมัติ";
+        $dash_approve = "แดชบอร์ดอนุมัติ";
         $pdf_only = "(เฉพาะ PDF)";
         $wait_verify = "รอตรวจสอบ";
         $at = "ที่";
@@ -26,7 +43,7 @@
         $admin = "ผู้ดูแล";
         $advisor = "ที่ปรึกษา";
         $approve = "อนุมัติ";
-        $approve_dashboard = "แดชอนุมัติ";
+        $approve_dashboard = "แดชบอร์ดอนุมัติ";
         $approve_list = "รายการอนุมัติ";
         $approve_menu_detail = "รายการขออนุมัติโครงงาน";
         $approve_requests = "คำขออนุมัติโครงงาน";
@@ -52,14 +69,14 @@
         $create_project = "สร้างโครงงาน";
         $create_project_type = "สร้างประเภทโครงงาน";
         $create_request = "แจ้งปัญหา";
-        $dash_department = "แดชแผนกวิชา";
-        $dash_faculty = "แดชคณะ";
-        $dash_institute = "แดชสถานศึกษา";
-        $dash_major = "แดชสาขาวิชา";
-        $dash_project = "แดชโครงงาน";
-        $dash_project_type = "แดชประเภทโครงงาน";
-        $dash_request = "แดชแจ้งปัญหา";
-        $dash_user = "แดชผู้ใช้";
+        $dash_department = "แดชบอร์ดแผนกวิชา";
+        $dash_faculty = "แดชบอร์ดคณะ";
+        $dash_institute = "แดชบอร์ดสถานศึกษา";
+        $dash_major = "แดชบอร์ดสาขาวิชา";
+        $dash_project = "แดชบอร์ดโครงงาน";
+        $dash_project_type = "แดชบอร์ดประเภทโครงงาน";
+        $dash_request = "แดชบอร์ดแจ้งปัญหา";
+        $dash_user = "แดชบอร์ดผู้ใช้";
         $degree = "วุฒิการศึกษา";
         $delete = "ลบ";
         $delete_account = "ลบบัญชี";
@@ -71,7 +88,7 @@
         $delete_project_type = "ลบประเภทโครงงาน";
         $delete_request = "ลบรายการแจ้งปัญหา";
         $department = "แผนกวิชา";
-        $department_dashboard = "แดชแผนกวิชา";
+        $department_dashboard = "แดชบอร์ดแผนกวิชา";
         $department_list = "รายการแผนกวิชา";
         $department_menu_detail = "จัดการรายการแผนกวิชาทั้งหมด";
         $dept = "แผนกวิชา";
@@ -86,7 +103,7 @@
         $email = "อีเมล์";
         $email_not_found_in_the_system = "ไม่มีผู้ใช้อีเมล์นี้ในระบบ";
         $faculty = "คณะ";
-        $faculty_dashboard = "แดชคณะ";
+        $faculty_dashboard = "แดชบอร์ดคณะ";
         $faculty_label = "คณะ";
         $faculty_list = "รายชื่อคณะ";
         $faculty_menu_detail = "จัดการรายการคณะทั้งหมด";
@@ -96,7 +113,7 @@
         $home = "หน้าหลัก";
         $insert = "สร้าง";
         $institute = "สถานศึกษา";
-        $institute_dashboard = "แดชสถานศึกษา";
+        $institute_dashboard = "แดชบอร์ดสถานศึกษา";
         $institute_list = "รายชื่อสถานศึกษา";
         $institute_menu_detail = "จัดการรายการสถานศึกษาทั้งหมด";
         $last_update = "แก้ไขล่าสุด";
@@ -104,7 +121,7 @@
         $major = "สาขาวิชา";
         $major_and_degree = "สาขาวิชาและ วุฒิการศึกษา";
         $major_and_degree_menu_detail = "จัดการรายการสาขาวิชาและ วุฒิการศึกษาทั้งหมด";
-        $major_dashboard = "แดชสาขาวิชา";
+        $major_dashboard = "แดชบอร์ดสาขาวิชา";
         $major_list = "รายชื่อสาขาวิชา";
         $management_your_project = "จัดการรายการโครงงานของฉัน";
         $my_favorite = "รายการโปรดของฉัน.";
@@ -146,18 +163,18 @@
         $policy_title = "ข้อตกลงการใช้งานระบบ Open Collections";
         $profile_picture = "ภาพโปรไฟล์";
         $project = "โครงงาน";
-        $project_dashboard = "แดชโครงงาน";
+        $project_dashboard = "แดชบอร์ดโครงงาน";
         $project_list = "รายการโครงงาน";
         $project_menu_detail = "จัดการรายการโครงงานทั้งหมด";
         $project_type = "ประเภทโครงงาน";
         $project_type = "ประเภทโครงงาน";
-        $project_type_dashboard = "แดชประเภทโครงงาน";
+        $project_type_dashboard = "แดชบอร์ดประเภทโครงงาน";
         $project_type_list = "รายการประเภทโครงงาน";
         $project_type_menu_detail = "จัดการรายการประเภทโครงงานทั้งหมด";
         $release = "เผยแพร่";
         $release_date = "วันที่เผยแพร่";
         $request = "แจ้งปัญหา";
-        $request_dashboard = "แดชแจ้งปัญหา";
+        $request_dashboard = "แดชบอร์ดแจ้งปัญหา";
         $request_list = "รายการแจ้งปัญหา";
         $request_menu_detail = "จัดการรายการแจ้งปัญหาทั้งหมด";
         $request_user = "แจ้งปัญหาทั้งหมด";
@@ -192,7 +209,7 @@
         $update_tel = "แก้ไขเบอร์โทรศัพท์";
         $update_username = "แก้ไขชื่อผู้ใช้";
         $user = "ผู้ใช้";
-        $user_dashboard = "แดชผู้ใช้";
+        $user_dashboard = "แดชบอร์ดผู้ใช้";
         $user_list = "รายชื่อผู้ใช้";
         $user_menu_detail = "จัดการรายการผู้ใช้ทั้งหมด";
         $username = "ชื่อผู้ใช้";
@@ -203,10 +220,26 @@
         $verify_email = "ยืนยันอีเมล์";
         $view = "อ่าน";
         $wait = "รออนุมัติ";
-        $welcome_back = "ยินดีต้อนรับกลับมา";
+        $welcome_back = "เข้าสู่ระบบ";
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $index = "Home";
+        $policy = "Policy";
+        $profile = "Profile";
+        $Setup = "Setup";
+        $VerifyEmail = "Verify Email";
+        $VerifyPass = "Verify Password";
+        $frm_dept = "Department";
+        $frm_faculty = "facultyะ";
+        $frm_ins = "Institute";
+        $frm_major = "Major";
+        $frm_manual = "Manual";
+        $frm_project = "Project";
+        $frm_request = "Request";
+        $frm_user = "User";
+        $dash_favorite = "Dash Favorite";
+        $setting = "Setting";
         $delete_manual = "Delete Manual";
         $edit_file = "Update File";
         $manual = "Manual";
@@ -408,7 +441,7 @@
         $verify_email = "Verify Email";
         $view = "View";
         $wait = "Wait";
-        $welcome_back = "Welcome back";
+        $welcome_back = "Login";
         $you_ll_lose_your_information = "You'll lose your, information.";
         $your_account = "Account";
     }

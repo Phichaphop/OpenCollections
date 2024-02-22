@@ -8,14 +8,7 @@
         <select name="type" class="search-select">
             <option value="">All</option>
 
-            <?php if ($page == "index") {
-                $TypeData = GetProjectTypeData($conn);
-                foreach ($TypeData  as $TypeDataRow) { ?>
-                    <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>
-            <?php }
-            } ?>
-
-            <?php if ($page == "dash_favorite") {
+            <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") {
                 $TypeData = GetProjectTypeData($conn);
                 foreach ($TypeData  as $TypeDataRow) { ?>
                     <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>
@@ -44,7 +37,7 @@
                 foreach ($FacultyData  as $FacultyDataRow) { ?>
                     <option value="<?= $FacultyDataRow['id'] ?>"><?= $FacultyDataRow['faculty'] ?></option>
             <?php }
-            } ?>
+            } ?>s
 
             <?php if ($page == "dash_major") {
                 $DeptData = GetDeptData($conn);
@@ -53,25 +46,29 @@
             <?php }
             } ?>
 
-            <?php if ($page == "dash_project") {
-                $TypeData = GetProjectTypeData($conn);
-                foreach ($TypeData  as $TypeDataRow) { ?>
-                    <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>
-            <?php }
-            } ?>
-
-            <?php if ($page == "dash_approve") {
-                $TypeData = GetProjectTypeData($conn);
-                foreach ($TypeData  as $TypeDataRow) { ?>
-                    <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>
-            <?php }
-            } ?>
-
             <?php if ($page == "dash_request") { ?>
             <?php } ?>
 
         </select>
     </div>
+
+    <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") { ?>
+
+        <div class="search-icon">
+            <?php include 'components/icon/major.php'; ?>
+            <select name="major" class="search-select">
+                <option value="">All</option>
+
+                <?php
+                $MajorData = GetMajorData($conn);
+                foreach ($MajorData  as $MajorDataRow) { ?>
+                    <option value="<?= $MajorDataRow['id'] ?>"><?= $MajorDataRow['major'] ?></option>
+                <?php } ?>
+
+            </select>
+        </div>
+
+    <?php } ?>
 
     <button class="search-icon">
         <?php include 'components/icon/page.php'; ?>

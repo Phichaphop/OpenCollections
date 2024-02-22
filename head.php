@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="resource/css/menu.css">
     <link rel="stylesheet" href="resource/css/nav.css">
     <link rel="stylesheet" href="resource/css/side.css">
+    <link rel="stylesheet" href="resource/css/search_page.css">
 
     <link rel="stylesheet" href="resource/css/alert.css">
     <link rel="stylesheet" href="resource/css/frm.css">

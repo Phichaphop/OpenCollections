@@ -8,76 +8,100 @@
 
     <?php require_once 'components/loading/loading.php'; ?>
 
-    <div class="container">
+    <!-- Content here -->
 
-        <?php include "components/layout/side.php" ?>
+    <div class="home">
 
-        <?php require_once 'components/layout/header.php'; ?>
+    <?php require_once 'components/layout/header.php'; ?>
+    <?php include "components/layout/side.php" ?>
+    <?php require_once 'components/layout/alert.php'; ?>
 
-        <section>
+        <div class="home-content">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+            <!--<img class="home-title" src="resource/img/logo/opc.png">-->
+            <h1 class="home-title">OpenCollections</h1>
 
-            <!-- Content here -->
+            <form class="search" action="gallery.php" method="get">
+                <button class="search-icon">
+                    <?php include 'components/icon/search.php'; ?>
+                </button>
+                <input name="name" class="search-input" type="text" placeholder="<?= $search_some_thing ?>">
+                <div class="search-icon">
+                    <?php include 'components/icon/search_type.php'; ?>
+                    <select name="type" class="search-select">
+                        <option value="">All</option>
 
-            <div class="gallery">
+                        <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") {
+                            $TypeData = GetProjectTypeData($conn);
+                            foreach ($TypeData  as $TypeDataRow) { ?>
+                                <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>
+                        <?php }
+                        } ?>
 
-                <?php
-                $name = $_GET['name'] ?? '';
-                $type = $_GET['type'] ?? '';
-                $data = SearchProjectApprove($name, $type, $conn);
-                include 'Backend/Other/GetPage.php';
-                ?>
+                        <?php if ($page == "dash_user") {
+                            $RoleData = GetRoleData($conn);
+                            foreach ($RoleData  as $RoleDataRow) { ?>
+                                <option value="<?= $RoleDataRow['id'] ?>"><?= $RoleDataRow['role'] ?></option>
+                        <?php }
+                        } ?>
 
-                <?php include 'components/input/search/search.php'; ?>
-                <?php include 'components/layout/aside.php'; ?>
+                        <?php if ($page == "dash_ins") { ?>
+                        <?php } ?>
 
-                <?php if (!$data) { ?>
-                    <div class="gallery-group">
-                        <div class="gallery-icon">
-                            <?php include 'components/icon/project.php'; ?>
-                            <h4><?= $no_data ?></h4>
-                        </div>
-                    </div>
-                    <?php } else {
+                        <?php if ($page == "dash_faculty") {
+                            $InsData = GetInsData($conn);
+                            foreach ($InsData  as $InsDataRow) { ?>
+                                <option value="<?= $InsDataRow['id'] ?>"><?= $InsDataRow['ins'] ?></option>
+                        <?php }
+                        } ?>
 
-                    foreach ($currentPageData as $row) { ?>
+                        <?php if ($page == "dash_dept") {
+                            $FacultyData = GetFacultyData($conn);
+                            foreach ($FacultyData  as $FacultyDataRow) { ?>
+                                <option value="<?= $FacultyDataRow['id'] ?>"><?= $FacultyDataRow['faculty'] ?></option>
+                                <?php }
+                        } ?>s
 
-                        <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['id'] ?>'">
-                            
-                            <?php if (!$row['cover']) { ?>
-                                <div class="gallery-cover">
-                                    <div class="gallery-cover-content">
-                                        <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
-                                        <p class="gallery-cover-text"><?= $row['type'] ?></p>
-                                    </div>
-                                    <div class="gallery-cover-content">
-                                        <p class="gallery-cover-text"><?= $row['ins'] ?></p>
-                                    </div>
-                                </div>
-                            <?php } else { ?>
-                                <img class="gallery-cover-pic" src="resource/img/project/<?= $row['cover'] ?>">
+                                <?php if ($page == "dash_major") {
+                                    $DeptData = GetDeptData($conn);
+                                    foreach ($DeptData  as $DeptDataRow) {  ?>
+                                        <option value="<?= $DeptDataRow['id'] ?>"><?= $DeptDataRow['dept'] ?></option>
+                                <?php }
+                                } ?>
+
+                                <?php if ($page == "dash_request") { ?>
+                                <?php } ?>
+
+                    </select>
+                </div>
+
+                <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") { ?>
+
+                    <div class="search-icon">
+                        <?php include 'components/icon/major.php'; ?>
+                        <select name="major" class="search-select">
+                            <option value="">All</option>
+
+                            <?php
+                            $MajorData = GetMajorData($conn);
+                            foreach ($MajorData  as $MajorDataRow) { ?>
+                                <option value="<?= $MajorDataRow['id'] ?>"><?= $MajorDataRow['major'] ?></option>
                             <?php } ?>
 
-                            <div class="gallery-content">
-                                <h4><?= $row['title'] ?></h4>
-                                <p><?= $author ?> : <a class="text-link"><?= GetNameAuthorByID($row['author'], $conn) ?></a></p>
-                                <p><?= $release ?> : <a class="text-link"><?= DateFormat($row['date']) ?></a></p>
-                            </div>
-                        </div>
+                        </select>
+                    </div>
 
-                <?php }
-                } ?>
-                <?php include 'components/layout/menu_page.php'; ?>
-            </div>
+                <?php } ?>
 
-            <!-- End Content here -->
+            </form>
 
-        </section>
-
-        <?php require_once 'components/layout/nav.php'; ?>
+        </div>
 
     </div>
+
+    <!-- End Content here -->
+
+    <?php require_once 'components/layout/nav.php'; ?>
 
 </body>
 

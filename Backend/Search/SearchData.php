@@ -78,26 +78,32 @@ function SearchProjectType($name, $conn)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function SearchFavorite($name, $MyID, $conn)
+function SearchFavorite($name, $type, $major, $MyID, $conn)
 {
     $query = "SELECT favorite.project, project.id, project.title, 
         project.author, project_type.type as type, project.major, project.date,
         ins.ins, ins.pic as ins_pic, project.pic as cover
         FROM favorite 
-        INNER JOIN project on favorite.project = project.id
-        INNER JOIN project_type on project.type = project_type.id
-        INNER JOIN major on project.major = major.id
-        INNER JOIN dept on major.dept = dept.id
-        INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN ins on faculty.ins = ins.id
-        WHERE favorite.user = $MyID
-        ORDER BY favorite.created_at DESC";
+        INNER JOIN project ON favorite.project = project.id
+        INNER JOIN project_type ON project.type = project_type.id
+        INNER JOIN major ON project.major = major.id
+        INNER JOIN dept ON major.dept = dept.id
+        INNER JOIN faculty ON dept.faculty = faculty.id
+        INNER JOIN ins ON faculty.ins = ins.id
+        WHERE favorite.user = $MyID";
+
     if (!empty($name)) {
         $query .= " AND (project.title LIKE '%" . $name . "%')";
     }
     if (!empty($type)) {
         $query .= " AND project.type = '" . $type . "'";
     }
+    if (!empty($major)) {
+        $query .= " AND project.major = '" . $major . "'";
+    }
+
+    $query .= " ORDER BY favorite.created_at DESC";
+
     $stmt = $conn->prepare($query);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -117,12 +123,14 @@ function SearchRequest($name, $user, $conn)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
+function SearchProject($name, $type, $major, $id, $approver, $status, $role, $conn)
 {
     $conditions = [];
 
     if ($role != '1') {
-        $conditions[] = "status = :status";
+        if (!empty($status)) {
+            $conditions[] = "(status = :status OR status = :status2)";
+        }
         if (!empty($id)) {
             $conditions[] = "$approver = :id";
         }
@@ -131,9 +139,11 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
     if (!empty($name)) {
         $conditions[] = "id LIKE :name OR title LIKE :name";
     }
-
     if (!empty($type)) {
         $conditions[] = "type = :type";
+    }
+    if (!empty($major)) {
+        $conditions[] = "major = :major";
     }
 
     $query = "SELECT * FROM project";
@@ -151,22 +161,30 @@ function SearchProject($name, $type, $id, $approver, $status, $role, $conn)
     }
 
     if ($role != '1') {
-        $stmt->bindValue(':status', $status, PDO::PARAM_INT);
+        if (!empty($status)) {
+            $stmt->bindValue(':status', $status, PDO::PARAM_INT);
+            if (isset($_SESSION['officer'])) {
+                $stmt->bindValue(':status2', 1, PDO::PARAM_INT);
+            } else {
+                $stmt->bindValue(':status2', $status, PDO::PARAM_INT);
+            }
+        }
         if (!empty($id)) {
             $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         }
     }
-
     if (!empty($type)) {
         $stmt->bindValue(':type', $type, PDO::PARAM_STR);
+    }
+    if (!empty($major)) {
+        $stmt->bindValue(':major', $major, PDO::PARAM_STR);
     }
 
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-function SearchMyProject($name, $type, $user, $conn)
+function SearchMyProject($name, $type, $major, $user, $conn)
 {
     $query = "SELECT * FROM project WHERE 1=1";
     if (!empty($name)) {
@@ -174,6 +192,9 @@ function SearchMyProject($name, $type, $user, $conn)
     }
     if (!empty($type)) {
         $query .= " AND type = '" . $type . "'";
+    }
+    if (!empty($major)) {
+        $query .= " AND major = '" . $major . "'";
     }
     if (!empty($user)) {
         $query .= " AND author = '" . $user . "'";
@@ -186,29 +207,45 @@ function SearchMyProject($name, $type, $user, $conn)
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function SearchProjectApprove($name, $type, $conn)
+function SearchProjectApprove($name, $type, $major, $conn)
 {
-    $query = "SELECT project.id, project.title, project.author,
-        project.advisor, project_type.type as type, project.major, project.abstract, project.date,
+    try {
+        $query = "SELECT project.id as project_id, project.title, project.author,
+        project.advisor, project_type.type as type, project.major, major.id, project.abstract, project.date,
         project.file, project.status, project.note, project.approver, project.created_at, project.updated_at,
         ins.ins, ins.pic as ins_pic, project.pic as cover
         FROM project 
-        INNER JOIN project_type on project.type = project_type.id
-        INNER JOIN major on project.major = major.id
-        INNER JOIN dept on major.dept = dept.id
-        INNER JOIN faculty on dept.faculty = faculty.id
-        INNER JOIN ins on faculty.ins = ins.id
-        WHERE 1=1 AND status = '4'
-        ORDER BY project.updated_at DESC";
-    if (!empty($name)) {
-        $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
+        INNER JOIN project_type ON project.type = project_type.id
+        INNER JOIN major ON project.major = major.id
+        INNER JOIN dept ON major.dept = dept.id
+        INNER JOIN faculty ON dept.faculty = faculty.id
+        INNER JOIN ins ON faculty.ins = ins.id
+        WHERE 1=1 AND project.status = '4'";
+
+        $params = array();
+
+        if (!empty($name)) {
+            $query .= " AND (project.id LIKE ? OR project.title LIKE ?)";
+            $params[] = "%" . $name . "%";
+            $params[] = "%" . $name . "%";
+        }
+        if (!empty($type)) {
+            $query .= " AND project.type = ?";
+            $params[] = $type;
+        }
+        if (!empty($major)) {
+            $query .= " AND major.id = ?";
+            $params[] = $major;
+        }
+
+        $query .= " ORDER BY project.updated_at DESC";
+
+        $stmt = $conn->prepare($query);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        return $e->getMessage();
     }
-    if (!empty($type)) {
-        $query .= " AND type = '" . $type . "'";
-    }
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function SearchManual($name, $user, $conn)
@@ -221,4 +258,3 @@ function SearchManual($name, $user, $conn)
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-?>
