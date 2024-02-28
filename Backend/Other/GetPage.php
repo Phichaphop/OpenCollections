@@ -15,6 +15,4 @@
     } else {
         $currentPageData = $chunks[$currentPage - 1];
     }
-    
-    
 ?>

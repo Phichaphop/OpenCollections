@@ -7,14 +7,13 @@
 <body>
 
     <?php require_once 'components/loading/loading.php'; ?>
+    <?php require_once 'components/layout/header.php'; ?>
+    <?php include "components/layout/side.php" ?>
+    <?php require_once 'components/layout/alert.php'; ?>
 
     <!-- Content here -->
 
     <div class="home">
-
-    <?php require_once 'components/layout/header.php'; ?>
-    <?php include "components/layout/side.php" ?>
-    <?php require_once 'components/layout/alert.php'; ?>
 
         <div class="home-content">
 
@@ -94,6 +93,68 @@
                 <?php } ?>
 
             </form>
+
+            <div class="menu-box">
+
+                <?php
+
+                $data = SearchMajor("", "", $conn);
+                $itemsPerPage = 4;
+                if (isset($_GET['page'])) {
+                    $currentPage = $_GET['page'];
+                    $page_no = $_GET['name'] ?? '';
+                } else {
+                    $currentPage = 1;
+                    $page_no = "1";
+                }
+
+                $chunks = array_chunk($data, $itemsPerPage);
+
+                if (!$data) {
+                } else {
+                    $currentPageData = $chunks[$currentPage - 1];
+                }
+
+
+                if (!$data) { ?>
+                    <div class="menu-box-group">
+                        <div class="menu-box-content">
+                            <div class="icon">
+                                <?php include 'components/icon/major.php'; ?>
+                            </div>
+                            <div class="menu-box-title">
+                                <h4><?= $no_data ?></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } else {
+
+                    foreach ($currentPageData as $row) { ?>
+
+                        <div class="menu-box-group" onclick="window.location='gallery.php?type=<?= $row['id'] ?>'">
+
+                            <div class="menu-box-content">
+                                <div class="icon on-off">
+                                    <?php include 'components/icon/major.php'; ?>
+                                </div>
+                                <div class="menu-box-title">
+                                    <h4><?= $row['major'] ?></h4>
+                                    <p class="menu-box-sub-title"><?= $row['degree'] ?></p>
+                                </div>
+                            </div>
+
+                            <div class="menu-box-content on-off">
+                                <div class="icon">
+                                    <?php include 'components/icon/next.php'; ?>
+                                </div>
+                            </div>
+                        </div>
+
+                <?php }
+                } ?>
+                <?php include 'components/layout/menu_page.php'; ?>
+
+            </div>
 
         </div>
 

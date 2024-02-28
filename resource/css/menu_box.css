@@ -1,0 +1,155 @@
+.menu-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+
+.menu-box-group {
+    flex-grow: 1;
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+    gap: 15px;
+    height: auto;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.menu-box-group:hover {
+    background: var(--body-l3--);
+}
+
+.menu-box-pic {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    align-content: center;
+    text-align: center;
+    height: 52px;
+    width: 52px;
+    min-width: 52px;
+    border-radius: 120px;
+    background: var(--main-l1--);
+    font-size: 60px;
+}
+
+.menu-box-content {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.menu-box-title {
+    margin: auto;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.menu-box-sub-title {
+    margin: auto;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.menu-box-content .icon .material-symbols-outlined {
+    color: var(--main-l1--);
+}
+
+.menu-box-page {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: auto;
+    min-width: 100%;
+    overflow-y: scroll;
+}
+
+.menu-box-page:-webkit-scrollbar {
+    display: none;
+}
+
+.menu-box-page {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.menu-box-page-no {
+    height: auto;
+    width: auto;
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.menu-box-page-no:hover {
+    background: var(--body-l3--);
+}
+
+.on-off {
+    display: none;
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 425px) {
+    .menu-box {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .menu-box-group {
+        flex-basis: 100%;
+        flex-direction: row;
+    }
+
+    .menu-box-title {
+        text-align: left;
+    }
+
+    .menu-box-sub-title {
+        text-align: left;
+    }
+
+    .on-off {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+}
+
+@media only screen and (max-width: 380px) {
+    .menu-box-group {
+        padding: 10px;
+    }
+    .menu-box-title {
+        font-size: 0.8rem;
+    }
+    .menu-box-sub-title {
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .menu-box-group {
+        padding: 5px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+}

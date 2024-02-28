@@ -1,7 +1,12 @@
 .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 60px;
     height: 100vh;
-    width: auto;
-    padding-top: 10%;
+    width: 100%;
   }
   
   .home-content {
@@ -9,10 +14,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     gap: 60px;
     height: auto;
     width: 30%;
-    margin: auto;
   }
   
   .home-title {
@@ -37,6 +42,7 @@
   
   @media only screen and (max-width: 430px) {
     .home {
+      justify-content: flex-start;
       padding: 30% 30px 30px 30px;
     }
     .home-content {
