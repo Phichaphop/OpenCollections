@@ -4,7 +4,7 @@
 <html lang="en">
 <?php require_once 'head.php'; ?>
 
-<body>
+<body onload="set()">
 
     <?php require_once 'components/loading/loading.php'; ?>
     <?php require_once 'components/layout/header.php'; ?>
@@ -99,7 +99,7 @@
                 <?php
 
                 $data = SearchMajor("", "", $conn);
-                $itemsPerPage = 4;
+                $itemsPerPage = 3;
                 if (isset($_GET['page'])) {
                     $currentPage = $_GET['page'];
                     $page_no = $_GET['name'] ?? '';

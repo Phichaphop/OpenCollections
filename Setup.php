@@ -3,7 +3,7 @@
 <html lang="en">
 <?php require_once 'head.php'; ?>
 
-<body>
+<body onload="set()">
 
     <?php require_once 'components/loading/loading.php'; ?>
 

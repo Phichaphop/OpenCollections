@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="resource/css/header.css">
     <link rel="stylesheet" href="resource/css/menu.css">
     <link rel="stylesheet" href="resource/css/menu_box.css">
+    <link rel="stylesheet" href="resource/css/menu_page.css">
     <link rel="stylesheet" href="resource/css/nav.css">
     <link rel="stylesheet" href="resource/css/side.css">
     <link rel="stylesheet" href="resource/css/search_page.css">
