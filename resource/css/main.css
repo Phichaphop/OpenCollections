@@ -21,16 +21,60 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  
+
   height: auto;
   min-height: 100%;
   max-width: 100%;
   width: 100%;
-  
+
   background: var(--body-l1--);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
 }
 
 .text-link {
   cursor: pointer;
   color: var(--main-l1--);
+}
+
+.done {
+  color: #ffffff;
+  background: var(--green-l1--);
+}
+
+.done:hover {
+  background: var(--green-l3--);
+}
+
+.warning {
+  color: #ffffff;
+  background: var(--orange-l1--);
+}
+
+.warning:hover {
+  background: var(--orange-l3--);
+}
+
+.error {
+  color: #ffffff;
+  background: var(--red-l1--);
+}
+
+.error:hover {
+  background: var(--red-l3--);
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

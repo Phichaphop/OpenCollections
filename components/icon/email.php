@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">mail</span>
+<span class="material-symbols-outlined icon">mail</span>

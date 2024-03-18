@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">contact_support</span>
+<span class="material-symbols-outlined icon">contact_support</span>

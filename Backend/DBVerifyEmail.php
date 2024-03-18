@@ -1,5 +1,5 @@
 <?php
-require_once 'DBSession.php';
+require_once 'config.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
 if (isset($_POST['signup'])) {

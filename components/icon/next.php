@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">navigate_next</span>
+<span class="material-symbols-outlined icon">navigate_next</span>

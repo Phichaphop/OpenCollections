@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/DBSession.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -24,7 +24,7 @@
 
                 <?php
                 if (isset($_GET['signup'])) {
-                    $action = "Backend/DBSign.php";
+                    $action = "backend/DBSign.php";
                     $submit = "signup";
                 }
                 if (isset($_GET['forget_pass'])) {
@@ -32,7 +32,7 @@
                     $submit = "reset_pass";
                 }
                 if (isset($_GET['update_email'])) {
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $submit = "update_email";
                 }
 

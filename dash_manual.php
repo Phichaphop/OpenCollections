@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -25,10 +25,10 @@
                 <?php
                 $name = $_GET['name'] ?? '';
                 $data = SearchManual($name, "", $conn);
-                include 'Backend/Other/GetPage.php';
+                include 'backend/Other/GetPage.php';
                 ?>
 
-                <?php include 'components/layout/aside.php'; ?>
+                <?php include 'components/layout/sub_menu.php'; ?>
 
                 <div class="menu">
                     <div class=" menu-title">
@@ -61,7 +61,7 @@
                                     </div>
                                 </div>
                                 <div class="menu-content">
-                                    <div class="icon" onclick="window.location='Backend/DBDownload.php?manual&file=<?= $row['file'] ?>'">
+                                    <div class="icon" onclick="window.location='backend/DBDownload.php?manual&file=<?= $row['file'] ?>'">
                                         <?php include 'components/icon/download.php'; ?>
                                     </div>
                                 

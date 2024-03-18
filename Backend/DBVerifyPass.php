@@ -1,5 +1,5 @@
 <?php
-    require_once 'DBSession.php';
+    require_once 'config.php';
 
     if (isset($_POST['update_role'])) {
         $user_id = $_SESSION['user_id'];

@@ -1,9 +1,9 @@
 <form class="search" method="get">
-    <button class="search-icon">
+    <button class="search-filter">
         <?php include 'components/icon/search.php'; ?>
     </button>
     <input name="name" class="search-input" type="text" placeholder="<?= $search_some_thing ?>">
-    <div class="search-icon">
+    <div class="search-filter">
         <?php include 'components/icon/search_type.php'; ?>
         <select name="type" class="search-select">
             <option value="">All</option>
@@ -54,7 +54,7 @@
 
     <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") { ?>
 
-        <div class="search-icon">
+        <div class="search-filter">
             <?php include 'components/icon/major.php'; ?>
             <select name="major" class="search-select">
                 <option value="">All</option>
@@ -70,7 +70,7 @@
 
     <?php } ?>
 
-    <button class="search-icon">
+    <button class="search-filter">
         <?php include 'components/icon/page.php'; ?>
         <select name="page" class="search-select">
             <?php for ($page_no = 1; $page_no <= count($chunks); $page_no++) {

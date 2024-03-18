@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">pending</span>
+<span class="material-symbols-outlined icon">pending</span>

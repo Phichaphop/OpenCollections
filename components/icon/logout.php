@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">logout</span>
+<span class="material-symbols-outlined icon">logout</span>

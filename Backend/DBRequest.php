@@ -1,5 +1,5 @@
 <?php
-    require_once 'DBSession.php';
+    require_once 'config.php';
 
     if (isset($_POST['insert_request'])) {
         $title = $_POST['title'];

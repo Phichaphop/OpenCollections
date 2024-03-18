@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">favorite</span>
+<span class="material-symbols-outlined icon">favorite</span>

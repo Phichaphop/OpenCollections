@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -25,7 +25,7 @@
                 <?php
                 if (isset($_GET['insert']) && isset($_GET['ins'])) {
                     $title = $create_institute;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Insert";
                     $btn_text = $insert;
                     $submit = "insert_ins";
@@ -35,7 +35,7 @@
                     $_SESSION['ins_id'] = $_GET['ins'];
 
                     $title = $update_institute;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_pic_ins";
@@ -45,14 +45,14 @@
                     $_SESSION['ins_id'] = $_GET['ins'];
 
                     $title = $update_institute;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Update";
                     $btn_text = $delete;
                     $submit = "update_detail_ins";
                 }
                 if (isset($_GET['delete']) && isset($_GET['ins'])) {
                     $title = $delete_institute;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Delete";
                     $btn_text = "";
                     $submit = "delete_ins";

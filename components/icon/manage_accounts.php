@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">manage_accounts</span>
+<span class="material-symbols-outlined icon">manage_accounts</span>

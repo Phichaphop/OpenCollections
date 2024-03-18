@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">confirmation_number</span>
+<span class="material-symbols-outlined icon">confirmation_number</span>

@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">bookmark_manager</span>
+<span class="material-symbols-outlined icon">bookmark_manager</span>

@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">edit</span>
+<span class="material-symbols-outlined icon">edit</span>

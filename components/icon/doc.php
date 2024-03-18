@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">note</span>
+<span class="material-symbols-outlined icon">note</span>

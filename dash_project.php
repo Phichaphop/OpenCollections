@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -58,11 +58,11 @@
                     $data = SearchMyProject($name, $type, $major, $_SESSION['login'], $conn);
                 } ?>
 
-                <?php include 'Backend/Other/GetPage.php'; ?>
+                <?php include 'backend/Other/GetPage.php'; ?>
 
 
                 <?php include 'components/input/search/search.php'; ?>
-                <?php include 'components/layout/aside.php'; ?>
+                <?php include 'components/layout/sub_menu.php'; ?>
 
                 <div class="dash">
                     <div class="dash-title">

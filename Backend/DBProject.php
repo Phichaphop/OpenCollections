@@ -1,5 +1,5 @@
 <?php
-require_once 'DBSession.php';
+require_once 'config.php';
 
 if (isset($_POST['insert_project_type'])) {
     $name = $_POST['name'];
@@ -203,7 +203,7 @@ if (isset($_POST['update_project_file'])) {
     $file_allow = array('pdf');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = '../resource/doc/' . $file_fileNew;
+    $file_filePath = '../resource/doc/project/' . $file_fileNew;
 
     UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn);
 }
@@ -216,8 +216,8 @@ function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_file
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($data && file_exists('../resource/doc/' . $data['file'])) {
-            unlink('../resource/doc/' . $data['file']);
+        if ($data && file_exists('../resource/doc/project/' . $data['file'])) {
+            unlink('../resource/doc/project/' . $data['file']);
         }
 
         if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
@@ -253,7 +253,7 @@ function DeleteProject($id, $conn)
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $old_file_path = '../resource/doc/' . $data['file'];
+        $old_file_path = '../resource/doc/project/' . $data['file'];
         file_exists($old_file_path);
         unlink($old_file_path);
         try {

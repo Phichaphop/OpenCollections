@@ -1,3 +1,3 @@
 <div class="icon">
-    <span class="material-symbols-outlined">add</span>
+    <span class="material-symbols-outlined icon">add</span>
 </div>

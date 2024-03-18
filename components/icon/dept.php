@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">more_down</span>
+<span class="material-symbols-outlined icon">more_down</span>

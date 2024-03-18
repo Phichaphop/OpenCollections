@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">account_circle</span>
+<span class="material-symbols-outlined icon">account_circle</span>

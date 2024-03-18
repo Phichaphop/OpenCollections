@@ -1,5 +1,5 @@
 <?php
-require_once 'DBSession.php';
+require_once 'config.php';
 
 if (isset($_POST['insert_manual'])) {
     $title = $_POST['title'];
@@ -7,7 +7,7 @@ if (isset($_POST['insert_manual'])) {
     $file_allow = array('pdf', 'doc', 'docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = '../resource/manual/' . $file_fileNew;
+    $file_filePath = '../resource/doc/manual/' . $file_fileNew;
     InsertManual($title, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn);
 }
 
@@ -73,7 +73,7 @@ if (isset($_POST['update_file_manual'])) {
     $file_allow = array('pdf', 'doc', 'docx');
     $file_fileActExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     $file_fileNew = rand() . "." . $file_fileActExt;
-    $file_filePath = '../resource/manual/' . $file_fileNew;
+    $file_filePath = '../resource/doc/manual/' . $file_fileNew;
 
     UpdateManualFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn);
 }
@@ -86,8 +86,8 @@ function UpdateManualFile($id, $file, $file_allow, $file_fileActExt, $file_fileN
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($data && file_exists('../resource/manual/' . $data['file'])) {
-            unlink('../resource/manual/' . $data['file']);
+        if ($data && file_exists('../resource/doc/manual/' . $data['file'])) {
+            unlink('../resource/doc/manual/' . $data['file']);
         }
 
         if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
@@ -123,7 +123,7 @@ function DeleteManual($id, $conn)
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $old_file_path = '../resource/manual/' . $data['file'];
+        $old_file_path = '../resource/doc/manual/' . $data['file'];
         file_exists($old_file_path);
         unlink($old_file_path);
         try {

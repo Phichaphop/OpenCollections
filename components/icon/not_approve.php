@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">unpublished</span>
+<span class="material-symbols-outlined icon">unpublished</span>

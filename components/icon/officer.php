@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">supervisor_account</span>
+<span class="material-symbols-outlined icon">supervisor_account</span>

@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">phone_iphone</span>
+<span class="material-symbols-outlined icon">phone_iphone</span>

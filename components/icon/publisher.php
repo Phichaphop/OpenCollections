@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">published_with_changes</span>
+<span class="material-symbols-outlined icon">published_with_changes</span>

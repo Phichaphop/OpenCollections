@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -28,7 +28,7 @@
                 }
                 if (isset($_GET['insert']) && isset($_GET['manual'])) {
                     $title = $create_manual;
-                    $action = "Backend/DBManual.php";
+                    $action = "backend/DBManual.php";
                     $btn_id = "Insert";
                     $btn_text = $insert;
                     $submit = "insert_manual";
@@ -37,14 +37,14 @@
                     $data = GetManualByID($_GET['manual'], $conn);
                     $_SESSION['manual_id'] = $_GET['manual'];
                     $title = $update_manual;
-                    $action = "Backend/DBManual.php";
+                    $action = "backend/DBManual.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_detail_manual";
                 }
                 if (isset($_GET['update']) && isset($_GET['file']) && isset($_GET['manual'])) {
                     $title = $update_manual;
-                    $action = "Backend/DBManual.php";
+                    $action = "backend/DBManual.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_file_manual";
@@ -52,7 +52,7 @@
                 }
                 if (isset($_GET['delete']) && isset($_GET['manual'])) {
                     $title = $delete_manual;
-                    $action = "Backend/DBManual.php";
+                    $action = "backend/DBManual.php";
                     $btn_id = "Delete";
                     $btn_text = "$delete";
                     $submit = "delete_manual";

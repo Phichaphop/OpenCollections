@@ -1,107 +1,34 @@
+.logo {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
 .icon {
   display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  max-height: 40px;
+  min-height: 40px;
+  width: 40px;
+  max-width: 40px;
+  min-width: 40px;
+
   border-radius: 360px;
+
+  color: var(--text-l1--);
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .icon:hover {
-  background: var(--body-l2--);
+  background: var(--body-l1--);
 }
 
 .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  color: var(--text-l1--);
   margin: auto;
-  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 500, "opsz" 100;
-}
-
-.icon-main {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 360px;
-  background: var(--main-l1--);
-}
-
-.icon-main:hover {
-  background: var(--main-l2--);
-}
-
-.icon-main .material-symbols-outlined {
-  color: var(--alway-white--);
-}
-
-.icon-green {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 360px;
-  background: var(--green-l1--);
-}
-
-.icon-green:hover {
-  background: var(--green-l2--);
-}
-
-.icon-green .material-symbols-outlined {
-  color: var(--alway-white--);
-}
-
-.icon-orange {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 360px;
-  background: var(--orange-l1--);
-}
-
-.icon-orange:hover {
-  background: var(--orange-l2--);
-}
-
-.icon-orange .material-symbols-outlined {
-  color: var(--alway-white--);
-}
-
-.icon-red {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 360px;
-  background: var(--red-l1--);
-}
-
-.icon-red:hover {
-  background: var(--red-l2--);
-}
-
-.icon-red .material-symbols-outlined {
-  color: var(--alway-white--);
-}
-
-.icon-body {
-  display: flex;
-  width: 48px;
-  height: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 360px;
-  background: var(--body-l2--);
-}
-
-.icon-body:hover {
-  background: var(--body-l3--);
-}
-
-.icon-body .material-symbols-outlined {
-  color: var(--main-l1--);
 }

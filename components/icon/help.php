@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">help</span>
+<span class="material-symbols-outlined icon">help</span>

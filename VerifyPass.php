@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/DBSession.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
     
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -40,7 +40,7 @@
 
                 ?>
 
-                <form class="form" action="Backend/DBVerifyPass.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                <form class="form" action="backend/DBVerifyPass.php" method="post" enctype="multipart/form-data" autocomplete="off">
                     <div class="form-head">
                         <h1><?= $confirm_password ?></h1>
                     </div>

@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">password</span>
+<span class="material-symbols-outlined icon">password</span>

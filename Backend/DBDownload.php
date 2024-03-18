@@ -1,7 +1,7 @@
 <?php 
 if(isset($_GET['file']) && isset($_GET['project'])){ 
     $fileName = basename($_GET['file']); 
-    $filePath = '../resource/doc/'.$fileName; 
+    $filePath = '../resource/doc/project/'.$fileName; 
     if(!empty($fileName) && file_exists($filePath)){ 
         header("Cache-Control: public"); 
         header("Content-Description: File Transfer"); 
@@ -16,7 +16,7 @@ if(isset($_GET['file']) && isset($_GET['project'])){
 }
 if(isset($_GET['file']) && isset($_GET['manual'])){ 
     $fileName = basename($_GET['file']); 
-    $filePath = '../resource/manual/'.$fileName; 
+    $filePath = '../resource/doc/manual/'.$fileName; 
     if(!empty($fileName) && file_exists($filePath)){ 
         header("Cache-Control: public"); 
         header("Content-Description: File Transfer"); 

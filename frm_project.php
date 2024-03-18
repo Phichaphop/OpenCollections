@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,21 +109,21 @@
 
                                     <?php if (isset($_SESSION['login'])) { ?>
 
-                                        <div class="btn-normal-pr" onclick="window.location='Backend/DBFavorite.php?project=<?= $data['id'] ?>&favorite'">
+                                        <div class="btn-normal-pr" onclick="window.location='backend/DBFavorite.php?project=<?= $data['id'] ?>&favorite'">
                                             <span class="material-symbols-outlined" style="<?= $favorite_icon ?>">favorite</span>
                                             <?= $favorite_text ?>
                                         </div>
 
                                     <?php } else { ?>
 
-                                        <div class="btn-normal-pr" onclick="window.location='signin.php'">
+                                        <div class="btn-normal-pr" onclick="window.location='sign.php?signin'">
                                             <span class="material-symbols-outlined" style="<?= $favorite_icon ?>">favorite</span>
                                             <?= $favorite_text ?>
                                         </div>
 
                                     <?php } ?>
 
-                                    <div class="btn-normal-se" onclick="window.location='Backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
+                                    <div class="btn-normal-se" onclick="window.location='backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
                                         <?php require_once 'components/icon/download.php'; ?>
                                         <?= $download ?>
                                     </div>
@@ -162,7 +162,7 @@
                             <?php if ((isset($_SESSION['admin']) || $data['author_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                                 <div class="frm-control">
                                     <div class="frm-control-group">
-                                        <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?draft&project=<?= $_GET['project'] ?>'"><?= $sent ?></div>
+                                        <div class="btn-pr" onclick="window.location='backend/DBApprove.php?draft&project=<?= $_GET['project'] ?>'"><?= $sent ?></div>
                                         <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
                                         <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
                                     </div>
@@ -178,7 +178,7 @@
                                 <div class="frm-control">
                                     <div class="frm-control-group">
                                         <a class="btn-del" href="frm_project.php?update&cancel&project=<?= $_GET['project'] ?>"><?= $not_approve ?></a>
-                                        <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
+                                        <div class="btn-pr" onclick="window.location='backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
                                         <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
                                     </div>
                                 </div>
@@ -188,7 +188,7 @@
                                 <div class="frm-control">
                                     <div class="frm-control-group">
                                         <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>&cancel'"><?= $not_approve ?></div>
-                                        <div class="btn-pr" onclick="window.location='Backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
+                                        <div class="btn-pr" onclick="window.location='backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
                                         <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
                                     </div>
                                 </div>
@@ -221,7 +221,7 @@
                     <?php
                     if (isset($_GET['insert']) && isset($_GET['project'])) {
                         $frm_title = $create_project;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Draft";
                         $btn_text = $draft;
                         $submit = "insert_project";
@@ -231,7 +231,7 @@
                         $_SESSION['project_id'] = $data['id'];
 
                         $frm_title = $update_project_cover;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Update";
                         $btn_text = $update;
                         $submit = "update_project_cover";
@@ -243,7 +243,7 @@
                         $_SESSION['project_id'] = $data['id'];
 
                         $frm_title = $update_project;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Update";
                         $btn_text = $update;
                         $submit = "update_project";
@@ -253,7 +253,7 @@
                         $_SESSION['project_id'] = $data['id'];
 
                         $frm_title = $update_project_file;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Update";
                         $btn_text = $update;
                         $submit = "update_project_file";
@@ -263,14 +263,14 @@
                         $_SESSION['project_id'] = $data['id'];
 
                         $frm_title = $not_approve_detail;
-                        $action = "Backend/DBApprove.php";
+                        $action = "backend/DBApprove.php";
                         $btn_id = "Update";
                         $btn_text = $update;
                         $submit = "cancel";
                     }
                     if (isset($_GET['insert']) && isset($_GET['project_type'])) {
                         $frm_title = $create_project_type;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Insert";
                         $btn_text = $insert;
                         $submit = "insert_project_type";
@@ -280,14 +280,14 @@
                         $_SESSION['project_type_id'] = $data['id'];
 
                         $frm_title = $update_project_type;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Update";
                         $btn_text = $update;
                         $submit = "update_project_type";
                     }
                     if (isset($_GET['delete']) && isset($_GET['project_type'])) {
                         $frm_title = $delete_project_type;
-                        $action = "Backend/DBProject.php";
+                        $action = "backend/DBProject.php";
                         $btn_id = "Delete";
                         $btn_text = $delete;
                         $submit = "delete_project_type";

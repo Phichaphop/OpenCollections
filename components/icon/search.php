@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">search</span>
+<span class="material-symbols-outlined icon">search</span>

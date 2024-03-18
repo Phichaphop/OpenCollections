@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">folder_managed</span>
+<span class="material-symbols-outlined icon">folder_managed</span>

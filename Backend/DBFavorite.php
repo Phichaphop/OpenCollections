@@ -1,5 +1,5 @@
 <?php
-    require_once 'DBSession.php';
+    require_once 'config.php';
 
     if(isset($_GET['project']) && isset($_GET['favorite'])) {
         $project = $_GET['project'];

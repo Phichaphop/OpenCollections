@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -24,7 +24,7 @@
 
                 <?php if (isset($_GET['signin'])) { ?>
 
-                    <form class="form" action="Backend/DBSign.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                    <form class="form" action="backend/DBSign.php" method="post" enctype="multipart/form-data" autocomplete="off">
                         <div class="form-head">
                             <h1><?= $welcome_back ?></h1>
                         </div>
@@ -50,7 +50,7 @@
 
                 <?php if (isset($_GET['signup'])) { ?>
 
-                    <form class="form" action="Backend/DBVerifyEmail.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                    <form class="form" action="backend/DBVerifyEmail.php" method="post" enctype="multipart/form-data" autocomplete="off">
                         <div class="form-head">
                             <h1><?= $create_account ?></h1>
                             <p><?= $create_account_detail ?></p>
@@ -80,7 +80,7 @@
 
                 <?php if (isset($_GET['forget_pass'])) { ?>
 
-                    <form class="form" action="Backend/DBVerifyEmail.php" method="post" enctype="multipart/form-data" autocomplete="off">
+                    <form class="form" action="backend/DBVerifyEmail.php" method="post" enctype="multipart/form-data" autocomplete="off">
                         <?php include 'components/layout/alert.php'; ?>
                         <div class="form-head">
                             <h1><?= $reset_your_password ?></h1>
@@ -101,7 +101,7 @@
 
                 <?php if (isset($_GET['reset_pass'])) { ?>
 
-                    <form class="form" action="Backend/DBSign.php" method="post" enctype="multipart/form-data">
+                    <form class="form" action="backend/DBSign.php" method="post" enctype="multipart/form-data">
                         <div class="form-head">
                             <h1><?= $reset_your_password ?></h1>
                         </div>
@@ -123,6 +123,41 @@
 
                 <?php } ?>
 
+                <?php if (isset($_GET['policy'])) { ?>
+                    <div class="form">
+                        <h1><?= $policy_title ?></h1>
+
+                        <p><?= $policy_sub ?></p>
+
+                        <h4><?= $policy_1 ?></h4>
+                        <p>
+                            <?= $policy_11 ?><br>
+                            <?= $policy_12 ?>
+                        </p>
+
+                        <h4><?= $policy_2 ?></h4>
+                        <p>
+                            <?= $policy_21 ?><br>
+                            <?= $policy_22 ?>
+                        </p>
+
+                        <h4><?= $policy_3 ?></h4>
+                        <p>
+                            <?= $policy_31 ?><br>
+                            <?= $policy_32 ?>
+                        </p>
+
+                        <h4><?= $policy_4 ?></h4>
+                        <p>
+                            <?= $policy_41 ?><br>
+                            <?= $policy_42 ?>
+                        </p>
+
+                        <p><?= $policy_end ?></p>
+
+                        <div class="btn-pr" onclick="window.location='sign.php?signup'"><?= $back_to_signup ?></div>
+                    </div>
+                <?php } ?>
                 <!-- End Content here -->
 
             </div>

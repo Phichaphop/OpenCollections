@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="resource/css/menu_box.css">
     <link rel="stylesheet" href="resource/css/menu_page.css">
     <link rel="stylesheet" href="resource/css/nav.css">
-    <link rel="stylesheet" href="resource/css/side.css">
+    <link rel="stylesheet" href="resource/css/aside.css">
     <link rel="stylesheet" href="resource/css/search_page.css">
 
     <link rel="stylesheet" href="resource/css/alert.css">
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="resource/css/search.css">
     <link rel="stylesheet" href="resource/css/profile.css">
     <link rel="stylesheet" href="resource/css/account.css">
-    <link rel="stylesheet" href="resource/css/aside.css">
+    <link rel="stylesheet" href="resource/css/sub_menu.css">
     <link rel="stylesheet" href="resource/css/gallery.css">
     <link rel="stylesheet" href="resource/css/read.css">
     <link rel="stylesheet" href="resource/css/dash.css">

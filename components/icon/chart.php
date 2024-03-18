@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">signal_cellular_alt</span>
+<span class="material-symbols-outlined icon">signal_cellular_alt</span>

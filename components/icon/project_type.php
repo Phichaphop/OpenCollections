@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">topic</span>
+<span class="material-symbols-outlined icon">topic</span>

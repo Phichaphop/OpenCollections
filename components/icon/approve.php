@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">task_alt</span>
+<span class="material-symbols-outlined icon">task_alt</span>

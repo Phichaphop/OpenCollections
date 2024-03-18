@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">cloud_download</span>
+<span class="material-symbols-outlined icon">cloud_download</span>

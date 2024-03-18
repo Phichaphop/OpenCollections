@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">person</span>
+<span class="material-symbols-outlined icon">person</span>

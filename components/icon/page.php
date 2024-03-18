@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">page_info</span>
+<span class="material-symbols-outlined icon">page_info</span>

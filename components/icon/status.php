@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">widgets</span>
+<span class="material-symbols-outlined icon">widgets</span>

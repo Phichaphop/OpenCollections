@@ -1,1 +1,1 @@
-<span id="theme-icon" class="material-symbols-outlined"></span>
+<span id="theme-icon" class="material-symbols-outlined icon"></span>

@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -30,7 +30,7 @@
 
                 if (isset($_GET['insert']) && isset($_GET['user'])) {
                     $title = $create_new_user;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Insert";
                     $btn_text = $insert;
                     $submit = "insert_user";
@@ -38,7 +38,7 @@
 
                 if (isset($_GET['update']) && isset($_GET['pic'])) {
                     $title = $profile_picture;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_user_pic";
@@ -46,7 +46,7 @@
 
                 if (isset($_GET['update']) && isset($_GET['username'])) {
                     $title = $update_username;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_username";
@@ -54,13 +54,13 @@
 
                 if (isset($_GET['update']) && isset($_GET['pass']) && isset($_SESSION['admin'])) {
                     $title = $update_password;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_pass_from_admin";
                 } else if (isset($_GET['update']) && isset($_GET['pass'])) {
                     $title = $update_password;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_pass";
@@ -68,13 +68,13 @@
 
                 if (isset($_GET['update']) && isset($_GET['email']) && isset($_SESSION['admin'])) {
                     $title = $update_email;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_email";
                 } else if (isset($_GET['update']) && isset($_GET['email'])) {
                     $title = $update_email;
-                    $action = "Backend/DBVerifyEmail.php";
+                    $action = "backend/DBVerifyEmail.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_email";
@@ -82,7 +82,7 @@
 
                 if (isset($_GET['update']) && isset($_GET['tel'])) {
                     $title = $update_tel;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_tel";
@@ -90,7 +90,7 @@
 
                 if (isset($_GET['update']) && isset($_GET['role']) && isset($_SESSION['admin'])) {
                     $title = $update_role;
-                    $action = "Backend/DBUser.php";
+                    $action = "backend/DBUser.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_role_from_admin";

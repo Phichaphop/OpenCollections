@@ -1,4 +1,4 @@
-<?php require_once 'Backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php include "components/layout/side.php" ?>
+        <?php include "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -25,7 +25,7 @@
                 <?php
                 if (isset($_GET['insert']) && isset($_GET['dept'])) {
                     $title = $create_department;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Insert";
                     $btn_text = $insert;
                     $submit = "insert_dept";
@@ -34,14 +34,14 @@
                     $data = GetDeptByID($_GET['dept'], $conn);
                     $_SESSION['dept_id'] = $_GET['dept'];
                     $title = $update_department;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Update";
                     $btn_text = $update;
                     $submit = "update_dept";
                 }
                 if (isset($_GET['delete']) && isset($_GET['dept'])) {
                     $title = $delete_department;
-                    $action = "Backend/DBMajor.php";
+                    $action = "backend/DBMajor.php";
                     $btn_id = "Delete";
                     $btn_text = $delete;
                     $submit = "delete_dept";

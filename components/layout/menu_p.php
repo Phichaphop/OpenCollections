@@ -71,7 +71,7 @@
         </div>
     </div>
 
-    <div class="menu-group" onclick="window.location='Backend/DBSign.php?signout'">
+    <div class="menu-group" onclick="window.location='backend/DBSign.php?signout'">
         <div class="menu-content">
             <div class="icon">
                 <?php include 'components/icon/logout.php'; ?>

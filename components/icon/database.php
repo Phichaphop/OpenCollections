@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">database</span>
+<span class="material-symbols-outlined icon">database</span>

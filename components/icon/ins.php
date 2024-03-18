@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">apartment</span>
+<span class="material-symbols-outlined icon">apartment</span>

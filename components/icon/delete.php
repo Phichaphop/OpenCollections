@@ -1,1 +1,1 @@
-<span class="material-symbols-outlined">delete</span>
+<span class="material-symbols-outlined icon">delete</span>
