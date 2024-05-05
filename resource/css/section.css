@@ -52,7 +52,7 @@ section {
 @media only screen and (max-width: 1400px) {
   .section-group {
     max-width: 100%;
-    width: 50%;
+    width: 60%;
   }
   .section-form {
     max-width: 100%;
@@ -64,7 +64,7 @@ section {
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 430px) {
   .section-group {
     max-width: 100%;
     width: 100%;
@@ -79,8 +79,8 @@ section {
   }
 }
 
-@media only screen and (max-width: 430px) {
-  
+@media only screen and (max-width: 425px) {
+
 }
 
 @media only screen and (max-width: 380px) {

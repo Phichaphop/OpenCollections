@@ -55,4 +55,6 @@
     <script src="resource/js/VisibilityChange.js"></script>
 
     <script src="resource/js/language/lang.js"></script>
+    <script src="resource/js/other/GenerateQRcode.js"></script>
+    <script src="resource/js/config.js"></script>
 </head>

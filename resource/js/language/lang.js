@@ -6,6 +6,11 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function setLanguage(lang) {
+  if (lang != "en") {
+    document.getElementById("lang").innerHTML = "language_us";
+  } else {
+    document.getElementById("lang").innerHTML = "translate";
+  }
   setCookie("lang", lang, 365); // บันทึกค่า 'lang' ในคุกกี้ ที่มีอายุ 365 วัน
   window.location.reload(); // รีโหลดหน้าเว็บเพื่อแสดงการเปลี่ยนแปลง
 }

@@ -5,6 +5,7 @@ header {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
+  text-align: center;
   height: auto;
   width: 100%;
   padding: 10px;
@@ -25,36 +26,14 @@ header {
   
 }
 
-.header-profile {
-  height: 40px;
-  width: 40px;
-  border-radius:  60px;
+@media only screen and (max-width: 1400px) {
 }
 
-.header-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-  gap: 10px;
-  height: 48px;
-  width: 48px;
-  margin: auto;
-  padding: auto;
-  border-radius: 120px;
-  
-  color: var(--main-l1--);
+@media only screen and (max-width: 1024px) {
 }
 
-.header-icon:hover {
-  background: var(--body-l2--);
+@media only screen and (max-width: 480px) {
 }
 
-.header-icon .material-symbols-outlined{
-  display: flex;
-  height: auto;
-  width: 24px;
-  margin: auto;
-  cursor: pointer;
+@media only screen and (max-width: 375px) {
 }

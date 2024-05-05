@@ -35,19 +35,23 @@ function CheckEmail($header, $email, $conn, $email_not_found_in_the_system, $thi
         $result = $stmt->fetchColumn();
 
         if (!$result) {
+
             if (isset($_POST['signup'])) {
                 VerifyEmail($header, $email);
             } else if (isset($_POST['forget_pass'])) {
                 $_SESSION['error'] = $email_not_found_in_the_system;
                 echo "<script>window.location.href='../sign.php?forget_pass';</script>";
             }
+
         } else {
+
             if (isset($_POST['signup'])) {
                 $_SESSION['error'] = $this_email_address_is_already;
                 echo "<script>window.location.href='../sign.php?signup';</script>";
             } else if (isset($_POST['forget_pass'])) {
                 VerifyEmail($header, $email);
             }
+
         }
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
@@ -62,13 +66,15 @@ function VerifyEmail($header, $email)
         $style = file_get_contents('../resource/css/tmp_email.css');
         $verify = sprintf("%06d", rand(0, 999999));
         $name = "Open Collections";
-        $email = $email;
+
         $replacements = array(
             "{style}" => $style,
             "{header}" => $header,
             "{verify}" => $verify
         );
+
         $detail = str_replace(array_keys($replacements), array_values($replacements), $template);
+
         require_once "PHPMailer/PHPMailer.php";
         require_once "PHPMailer/SMTP.php";
         require_once "PHPMailer/Exception.php";
@@ -76,21 +82,21 @@ function VerifyEmail($header, $email)
 
         // SMTP Settings
         $mail->isSMTP();
-        $mail->Host = "smtp-relay.brevo.com";
+        $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "phichaphop.b@gmail.com"; // opencollections.co@gmail.com
-        $mail->Password = "R8SM4Kbk7WIdsmvJ"; // YpMVaRg1TbPIN3Ac
-        //xsmtpsib-2bce834404c6c8c645bfe30eb31538a3b2c35db48e358ad5c03d6ed6dc042348-YpMVaRg1TbPIN3Ac
+        $mail->Username = "phichaphop.b@gmail.com";
+        $mail->Password = "";
         
-        $mail->Port = 465;
-        $mail->SMTPSecure = "ssl";
-        $smtp_debug = true;
+        $mail->Port = 25;
+        $mail->SMTPDebug = 2;
+
         // Email Settings
         $mail->isHTML(true);
-        $mail->setFrom($email, $name);
+        $mail->setFrom("opencollections.co@gmail.com", $name);
         $mail->addAddress($email);
         $mail->Subject = $header;
         $mail->Body = $detail;
+
         if ($mail->send()) {
             $status = "success";
             $response = "Email is sent";
@@ -113,3 +119,5 @@ function VerifyEmail($header, $email)
         echo "<script>window.location.href='../sign.php?signup';</script>";
     }
 }
+
+?>

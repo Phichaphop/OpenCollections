@@ -1,4 +1,4 @@
-<?php require_once 'backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,16 +39,23 @@
                 $email = $_SESSION['email'];
                 $VerifyCode = $_SESSION['VerifyCode'];
                 echo "<script>" . " var VerifyCode = '" . $VerifyCode . "' </script>";
-
                 ?>
 
                 <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data" autocomplete="off">
                     <?php include 'components/layout/alert.php'; ?>
                     <div class="form-head">
                         <h1><?= $verification ?></h1>
-                        <p><?= $verification_detail ?><br>
-                            <a class="text-link" target="_blank" href="https://mail.google.com/mail/u/0/#inbox"><?= $email ?></a>
-                        </p>
+                        <p><?= $verification_detail ?></p>
+                        <a class="text-link" target="_blank"><?= $email ?></a>
+
+                        <div class="form-banner">
+                            <a class="icon" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+                                <img class="logo" src="resource\img\logo\gmail.png">
+                            </a>
+                            <a class="icon" href="https://outlook.live.com/mail/0/" target="_blank">
+                                <img class="logo" src="resource\img\logo\outlook.png">
+                            </a>
+                        </div>
                     </div>
 
                     <?php include 'components/input/verify.php'; ?>

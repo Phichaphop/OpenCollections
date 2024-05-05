@@ -18,7 +18,7 @@
 
             <div class="section-group">
 
-            <?php require_once 'components/layout/alert.php'; ?>
+                <?php require_once 'components/layout/alert.php'; ?>
 
                 <!-- Content here -->
 
@@ -82,9 +82,11 @@
                         </script>
                     <?php } ?>
 
-                    <div class="form-group">
-                        <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
-                        <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                    <div class="frm-control">
+                        <div class="frm-control-group">
+                            <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                            <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                        </div>
                     </div>
 
                 </form>

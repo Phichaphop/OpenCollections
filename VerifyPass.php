@@ -1,4 +1,4 @@
-<?php require_once 'backend/DBSession.php'; ?>
+<?php require_once 'backend/config.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

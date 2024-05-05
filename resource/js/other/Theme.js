@@ -1,11 +1,3 @@
-function set() {
-  if (localStorage.getItem("theme") === "theme-dark") {
-    document.getElementById("theme-icon").innerHTML = "nightlight"
-  } else {
-    document.getElementById("theme-icon").innerHTML = "light_mode"
-  }
-}
-
 function setTheme(themeName) {
   localStorage.setItem("theme", themeName);
   document.documentElement.className = themeName;

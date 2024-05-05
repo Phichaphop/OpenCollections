@@ -21,7 +21,11 @@ function CheckUpdatePicIns() {
   } else {
     Update.disabled = true;
     Update.classList = "btn-se";
-    MsgPic.innerHTML = "Please select picture.";
+    if (lang == "en") {
+      MsgPic.innerHTML = "Please select picture.";
+    } else {
+      MMsgPic.innerHTML = "กรุณาเลือกรูปภาพ";
+    }
   }
 }
 
@@ -36,7 +40,12 @@ function CheckUpdateDetailIns() {
     } else {
       Update.disabled = true;
       Update.classList = "btn-se";
-      MsgName.innerHTML = "Same institute";
+      
+      if (lang == "en") {
+        MsgName.innerHTML = "Same institute";
+      } else {
+        MsgName.innerHTML = "มีชื่อสถาบันนี้แล้ว";
+      }
     }
   } else {
     Update.disabled = true;

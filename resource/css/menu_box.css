@@ -22,7 +22,8 @@
     padding: 15px;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px var(--base-shadow--);
+    background: var(--body-l2--);
 }
 
 .menu-box-group:hover {
@@ -89,7 +90,7 @@
     width: auto;
     padding: 10px 15px;
     border-radius: 15px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px var(--base-shadow--);
     cursor: pointer;
 }
 

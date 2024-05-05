@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
-  width: 60%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -28,19 +28,20 @@
   border-radius: 20px;
   background: linear-gradient(
     32deg,
-    rgba(0, 71, 102, 1) 0%,
-    rgba(0, 107, 153, 1) 50%,
-    rgba(0, 118, 168, 1) 100%
+    #0f6cbd,
+    #115ea3,
+    #0f6cbd
   );
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--base-shadow--);
 }
 
 .card-group {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-content: center;
   flex-wrap: wrap;
+  gap: 10px;
   height: 100%;
   width: auto;
   max-width: 100%;
@@ -54,7 +55,11 @@
 
 .card-content .material-symbols-outlined {
   font-size: 100px;
-  color: var(--alway-white--);
+  color: var(--base-white--);
+}
+
+.card-content p {
+  color: var(--base-white--);
 }
 
 .card-profile {
@@ -66,8 +71,14 @@
 .card-qrcode {
   padding: 10px;
   border-radius: 10px;
-  background: var(--alway-white--);
-  color: #ffffff00;
+  background: var(--base-white--);
+  color: #ffffff;
+  max-width: 100%;
+}
+
+.card-qrcode img {
+  width: 100%;
+  height: 100%;
 }
 
 .card-menu {
@@ -76,14 +87,18 @@
   gap: 10px;
 }
 
-@media only screen and (max-width: 1180px) {
+
+@media only screen and (max-width: 1400px) {
   .profile {
     flex-direction: row;
     width: 100%;
   }
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
     width: 100%;
@@ -101,5 +116,24 @@
   }
   .card-content {
     text-align: left;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .card {
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 20px;
+  }
+  .card-group {
+    width: 100%;
+    align-items: center;
+  }
+  .card-qrcode {
+    width: 100%;
+    height: auto;
   }
 }

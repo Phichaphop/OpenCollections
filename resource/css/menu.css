@@ -1,23 +1,11 @@
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   height: auto;
   width: 100%;
   max-width: 100%;
   margin: auto;
-}
-
-@media only screen and (max-width: 1180px) {
-  .menu-title {
-    text-align: left;
-  }
-}
-
-@media only screen and (max-width: 425px) {
-  .menu-title {
-    text-align: center;
-  }
 }
 
 .menu-group {
@@ -28,14 +16,15 @@
   gap: 15px;
   height: auto;
   width: 100%;
-  padding: 10px 15px;
+  padding: 15px 15px;
   border-radius: 15px;
   cursor: pointer;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 4px 30px var(--base-shadow--);*/
+  background: var(--body-l2--);
 }
 
 .menu-group:hover {
-  background: var(--body-l3--);
+  box-shadow: 0 4px 30px var(--base-shadow--);
 }
 
 .menu-pic {
@@ -55,6 +44,10 @@
 
 .menu-content {
   display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
   flex-direction: row;
   gap: 10px;
 }
@@ -62,14 +55,28 @@
 .menu-title {
   margin: auto;
   text-align: left;
+  font-size: 1.1rem;
 }
 
 .menu-sub-title {
   margin: auto;
   font-size: small;
   text-align: left;
+  font-size: 1rem;
 }
 
 .menu-content .icon .material-symbols-outlined {
   color: var(--main-l1--);
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

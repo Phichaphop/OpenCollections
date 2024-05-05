@@ -1,6 +1,6 @@
 <div class="menu">
     <div class="menu-title">
-        <h1>Project</h1>
+        <h1><?= $project ?></h1>
     </div>
 
     <?php if (isset($_SESSION['admin']) || isset($_SESSION['publisher']) || isset($_SESSION['officer'])) { ?>

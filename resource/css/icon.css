@@ -1,13 +1,21 @@
 .logo {
-  height: 20px;
-  width: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  cursor: pointer;
+}
+.band {
+  max-height: 20px;
+  max-width: 20px;
   cursor: pointer;
 }
 
 .icon {
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: center;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
 
   height: 40px;
   max-height: 40px;
@@ -19,12 +27,24 @@
   border-radius: 360px;
 
   color: var(--text-l1--);
-  font-size: 25px;
   cursor: pointer;
 }
 
+.icon span {
+  /*font-size: 1.2rem;*/
+}
+
+.icon img {
+  height: 28px;
+  width: 28px;
+}
+
+#headerProfile {
+  border-radius: 50%;
+}
+
 .icon:hover {
-  background: var(--body-l1--);
+  background: var(--body-l3--);
 }
 
 .material-symbols-outlined {

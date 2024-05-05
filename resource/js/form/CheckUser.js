@@ -46,7 +46,11 @@ function CheckUpdateUser() {
     } else {
       Update.disabled = true;
       Update.classList = "btn-se";
-      MsgUsername.innerHTML = "Same username";
+      if (lang == "en") {
+        MsgUsername.innerHTML = "Same username";
+      } else {
+        MsgUsername.innerHTML = "มีผู้ใช้ชื่อนี้แล้ว";
+      }
     }
   } else {
     Update.disabled = true;
@@ -126,23 +130,48 @@ function CheckNewPass() {
             if (Pass.value != NewPass.value) {
               MsgNewPass.innerHTML = "";
             } else {
-              MsgNewPass.innerHTML = "Password as before.";
+              if (lang == "en") {
+                MsgNewPass.innerHTML = "Password as before.";
+              } else {
+                MsgNewPass.innerHTML = "รหัสผ่านเหมือนเดิม";
+              }
             }
           } else {
-            MsgNewPass.innerHTML =
-              "Must be more than 9 characters and not more than 12 characters.";
+            if (lang == "en") {
+              MsgNewPass.innerHTML =
+                "Must be more than 9 characters and not more than 12 characters.";
+            } else {
+              MsgNewPass.innerHTML =
+                "ต้องมีความยาวมากกว่า 9 ตัวอักษรและไม่เกิน 12 ตัวอักษร";
+            }
           }
         } else {
-          MsgNewPass.innerHTML = "Must have numbers 0-9";
+          if (lang == "en") {
+            MsgNewPass.innerHTML = "Must have numbers 0-9";
+          } else {
+            MsgNewPass.innerHTML = "ต้องมีตัวเลข 0-9";
+          }
         }
       } else {
-        MsgNewPass.innerHTML = "Must contain letters a-z";
+        if (lang == "en") {
+          MsgNewPass.innerHTML = "Must contain letters a-z";
+        } else {
+          MsgNewPass.innerHTML = "ต้องมีตัวอักษร a-z";
+        }
       }
     } else {
-      MsgNewPass.innerHTML = "Must contain letters A-Z";
+      if (lang == "en") {
+        MsgNewPass.innerHTML = "Must contain letters A-Z";
+      } else {
+        MsgNewPass.innerHTML = "ต้องมีตัวอักษร A-Z";
+      }
     }
   } else {
-    MsgNewPass.innerHTML = "Please enter your password";
+    if (lang == "en") {
+      MsgNewPass.innerHTML = "Please enter your password";
+    } else {
+      MsgNewPass.innerHTML = "กรุณากรอกรหัสผ่าน";
+    }
   }
 }
 
@@ -157,10 +186,18 @@ function CheckConfirmPass() {
       MsgConfirmPass.style.color = "var(--green-l1--)";
       MsgConfirmPass.style.textAlign = "center";
     } else {
-      MsgConfirmPass.innerHTML = "Passwords do not match";
+      if (lang == "en") {
+        MsgConfirmPass.innerHTML = "Passwords do not match";
+      } else {
+        MsgConfirmPass.innerHTML = "รหัสผ่านไม่ตรงกัน";
+      }
     }
   } else {
-    MsgConfirmPass.innerHTML = "Please confirm your pass";
+    if (lang == "en") {
+      MsgConfirmPass.innerHTML = "Please confirm your pass";
+    } else {
+      MsgConfirmPass.innerHTML = "โปรดยืนยันรหัสผ่านของคุณ";
+    }
   }
 }
 
@@ -178,20 +215,41 @@ function CheckResetPass() {
           if (NewPass.value.length >= 9) {
             MsgNewPass.innerHTML = "";
           } else {
-            MsgNewPass.innerHTML =
-              "Must be more than 9 characters and not more than 12 characters.";
+            if (lang == "en") {
+              MsgNewPass.innerHTML =
+                "Must be more than 9 characters and not more than 12 characters.";
+            } else {
+              MsgNewPass.innerHTML =
+                "ต้องมีความยาวมากกว่า 9 ตัวอักษรและไม่เกิน 12 ตัวอักษร";
+            }
           }
         } else {
-          MsgNewPass.innerHTML = "Must have numbers 0-9";
+          if (lang == "en") {
+            MsgNewPass.innerHTML = "Must have numbers 0-9";
+          } else {
+            MsgNewPass.innerHTML = "ต้องมีตัวเลข 0-9";
+          }
         }
       } else {
-        MsgNewPass.innerHTML = "Must contain letters a-z";
+        if (lang == "en") {
+          MsgNewPass.innerHTML = "Must contain letters a-z";
+        } else {
+          MsgNewPass.innerHTML = "ต้องมีตัวอักษร a-z";
+        }
       }
     } else {
-      MsgNewPass.innerHTML = "Must contain letters A-Z";
+      if (lang == "en") {
+        MsgNewPass.innerHTML = "Must contain letters A-Z";
+      } else {
+        MsgNewPass.innerHTML = "ต้องมีตัวอักษร A-Z";
+      }
     }
   } else {
-    MsgNewPass.innerHTML = "Please enter your password";
+    if (lang == "en") {
+      MsgNewPass.innerHTML = "Please enter your password";
+    } else {
+      MsgNewPass.innerHTML = "กรุณากรอกรหัสผ่าน";
+    }
   }
 }
 
@@ -207,12 +265,20 @@ function CheckUpdateRole() {
     } else {
       Update.disabled = true;
       Update.classList = "btn-se";
-      MsgRole.innerHTML = "Role as before.";
+      if (lang == "en") {
+        MsgRole.innerHTML = "Role as before.";
+      } else {
+        MsgRole.innerHTML = "บทบาทเหมือนเดิม";
+      }
     }
   } else {
     Update.disabled = true;
     Update.classList = "btn-se";
-    MsgRole.innerHTML = "Please select role.";
+    if (lang == "en") {
+      MsgRole.innerHTML = "Please select role.";
+    } else {
+      MsgRole.innerHTML = "โปรดเลือกบทบาท";
+    }
   }
 }
 

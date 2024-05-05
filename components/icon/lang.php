@@ -1,0 +1,1 @@
+<span id="lang" class="material-symbols-outlined" class="icon"></span>

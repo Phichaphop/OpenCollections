@@ -7,6 +7,7 @@
             <div class="content"><a href="index.php"><?= $home ?></a></div>
         </div>
 
+
         <?php if (isset($_SESSION['admin']) || isset($_SESSION['publisher']) || isset($_SESSION['officer'])) { ?>
             <div class="aside-content">
                 <div class="content"><?php include 'components/icon/approve.php'; ?></div>

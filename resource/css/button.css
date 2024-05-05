@@ -1,12 +1,15 @@
 .btn-pr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   padding: 15px;
   border: 0px solid var(--body-l2--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: var(--main-l1--);
   cursor: pointer;
-  color: var(--alway-white--);
+  color: var(--base-white--);
   text-align: center;
   font-size: 15px;
 }
@@ -17,11 +20,14 @@
 }
 
 .btn-se {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   padding: 15px;
   border: 1px solid var(--main-l1--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: none;
   cursor: pointer;
   color: var(--main-l1--);
@@ -30,15 +36,19 @@
 }
 
 .btn-se:hover {
-  color: var(--main-l3--);
+  background: var(--main-l1--);
+  color: var(--base-white--);
 }
 
 .btn-te {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   padding: 15px;
   border: 0px solid var(--main-l1--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: var(--body-l1--);
   cursor: pointer;
   color: var(--main-l1--);
@@ -54,22 +64,23 @@
 .btn-normal-pr {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   height: auto;
   width: auto;
-  padding: 10px 15px;
+  padding: 15px 20px;
   border: 0px solid var(--body-l2--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: var(--main-l1--);
   cursor: pointer;
-  color: var(--alway-white--);
+  color: var(--base-white--);
   
   text-align: center;
   font-size: 15px;
 }
 
 .btn-normal-pr .material-symbols-outlined {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 .btn-normal-pr:hover {
@@ -80,12 +91,13 @@
 .btn-normal-se {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  align-items: center;
+  gap: 10px;
   height: auto;
   width: auto;
-  padding: 10px 15px;
+  padding: 15px 20px;
   border: 1px solid var(--main-l1--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: var(--body-l1--);
   cursor: pointer;
   color: var(--main-l1--);
@@ -98,24 +110,43 @@
   color: var(--main-l1--);
 }
 
+.btn-normal-se:hover .material-symbols-outlined {
+  color: var(--base-white--);
+}
+
 .btn-normal-se:hover {
-  color: var(--main-l3--);
+  color: var(--base-white--);
+  background: var(--main-l2--);
 }
 
 .btn-del {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: auto;
   width: 100%;
   padding: 15px;
   border: 0px solid var(--body-l2--);
-  border-radius: 120px;
+  border-radius: 15px;
   background: var(--red-l1--);
   cursor: pointer;
-  color: var(--alway-white--);
+  color: var(--base-white--);
   text-align: center;
   font-size: 15px;
 }
 
 .btn-del:hover {
-  box-shadow: rgba(0, 81, 161, 0.2) 0px 8px 24px;
-  background: var(--red-l2--);
+  background: var(--red-l3--);
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

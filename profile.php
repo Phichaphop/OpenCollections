@@ -4,7 +4,7 @@
 <html lang="en">
 <?php require_once 'head.php'; ?>
 
-<body onload="set()">
+<body onload="set(), GenerateQRcode()">
 
     <?php require_once 'components/loading/loading.php'; ?>
 
@@ -15,6 +15,8 @@
         <?php require_once 'components/layout/header.php'; ?>
 
         <section>
+
+            <div class="section-group">
 
                 <?php require_once 'components/layout/alert.php'; ?>
 
@@ -35,8 +37,8 @@
                                     <?php } ?>
                                 </div>
                                 <div class="card-content">
-                                    <p style="color: var(--alway-white--);"><?= $UserData['role']; ?> #<?php echo $UserData['id'] ?></p>
-                                    <p style="color: var(--alway-white--);"><?= $UserData['username']; ?></p>
+                                    <p><?= $UserData['role']; ?> #<?php echo $UserData['id'] ?></p>
+                                    <p><?= $UserData['username']; ?></p>
                                 </div>
                             </div>
                             <div class="card-group">
@@ -45,28 +47,16 @@
                         </div>
                         <div class="card-menu">
                             <!--<div class="btn-pr">Login QR</div>-->
-                            <div class="btn-se" onclick="window.location='account.php?update&user_id=<?= $UserData['id'] ?>'"><?= $view ?></div>
+                            <div class="btn-pr" onclick="window.location='account.php?update&user_id=<?= $UserData['id'] ?>'"><?= $view ?></div>
                         </div>
                     </div>
-
-                    <script>
-                        window.onload = function GenerateQRcode() {
-                            var CardQrCode = document.getElementById('Qrcode')
-                            var QRcode = new QRCode(CardQrCode, {
-                                text: `${MyID}`,
-                                height: 140,
-                                width: 140,
-                                colorDark: "#004766",
-                                colorLight: "#ffffff00",
-                                correctLevel: QRCode.CorrectLevel.H
-                            })
-                        }
-                    </script>
 
                     <?php include 'components/layout/menu_p.php'; ?>
                 </div>
 
                 <!-- End Content here -->
+
+            </div>
 
         </section>
 

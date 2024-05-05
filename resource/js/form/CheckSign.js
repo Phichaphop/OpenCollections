@@ -12,13 +12,25 @@ function CheckUsername() {
       if (Username.value.length >= 9) {
         MsgUsername.innerHTML = "";
       } else {
-        MsgUsername.innerHTML = "Must be more than 9 characters.";
+        if (lang == "en") {
+          MsgUsername.innerHTML = "Must be more than 9 characters.";
+        } else {
+          MsgUsername.innerHTML = "จะต้องมากกว่า 9 ตัวอักษร";
+        }
       }
     } else {
-      MsgUsername.innersTML = "Must contain letters A-Z or a-z.";
+      if (lang == "en") {
+        MsgUsername.innerHTML = "Must contain letters A-Z or a-z.";
+      } else {
+        MsgUsername.innerHTML = "ต้องมีตัวอักษร A-Z หรือ a-z";
+      }
     }
   } else {
-    MsgUsername.innerHTML = "Please enter your username.";
+    if (lang == "en") {
+      MsgUsername.innerHTML = "Please enter your username.";
+    } else {
+      MsgUsername.innerHTML = "กรุณากรอกชื่อผู้ใช้ของคุณ";
+    }
   }
 }
 
@@ -36,20 +48,41 @@ function CheckPass() {
           if (Pass.value.length >= 9) {
             MsgPass.innerHTML = "";
           } else {
-            MsgPass.innerHTML =
-              "Must be more than 9 characters and not more than 12 characters.";
+            if (lang == "en") {
+              MsgPass.innerHTML =
+                "Must be more than 9 characters and not more than 12 characters.";
+            } else {
+              MsgPass.innerHTML =
+                "ต้องมีความยาวมากกว่า 9 ตัวอักษรและไม่เกิน 12 ตัวอักษร";
+            }
           }
         } else {
-          MsgPass.innerHTML = "Must have numbers 0-9";
+          if (lang == "en") {
+            MsgPass.innerHTML = "Must have numbers 0-9";
+          } else {
+            MsgPass.innerHTML = "ต้องมีตัวเลข 0-9";
+          }
         }
       } else {
-        MsgPass.innerHTML = "Must contain letters a-z";
+        if (lang == "en") {
+          MsgPass.innerHTML = "Must contain letters a-z";
+        } else {
+          MsgPass.innerHTML = "ต้องมีตัวอักษร a-z";
+        }
       }
     } else {
-      MsgPass.innerHTML = "Must contain letters A-Z";
+      if (lang == "en") {
+        MsgPass.innerHTML = "Must contain letters A-Z";
+      } else {
+        MsgPass.innerHTML = "ต้องมีตัวอักษร A-Z";
+      }
     }
   } else {
-    MsgPass.innerHTML = "Please enter your password";
+    if (lang == "en") {
+      MsgPass.innerHTML = "Please enter your password";
+    } else {
+      MsgPass.innerHTML = "กรุณาใส่รหัสผ่านของคุณ";
+    }
   }
 }
 
@@ -59,7 +92,11 @@ function CheckEmail() {
   if (Email.value != "") {
     MsgEmail.innerHTML = "";
   } else {
-    MsgEmail.innerHTML = "Please Enter Your Email Address.";
+    if (lang == "en") {
+      MsgEmail.innerHTML = "Please Enter Your Email Address.";
+    } else {
+      MsgEmail.innerHTML = "กรุณากรอกที่อยู่อีเมลของคุณ";
+    }
   }
 }
 
@@ -72,13 +109,25 @@ function CheckTel() {
       if (Tel.value.length >= 10) {
         MsgTel.innerHTML = "";
       } else {
-        MsgTel.innerHTML = "Must be more than 10 characters.";
+        if (lang == "en") {
+          MsgTel.innerHTML = "Must be more than 10 characters.";
+        } else {
+          MsgTel.innerHTML = "จะต้องมากกว่า 10 ตัวอักษร";
+        }
       }
     } else {
-      MsgTel.innerHTML = "Must have numbers 0-9";
+      if (lang == "en") {
+        MsgTel.innerHTML = "Must have numbers 0-9";
+      } else {
+        MsgTel.innerHTML = "ต้องมีตัวเลข 0-9";
+      }
     }
   } else {
-    MsgTel.innerHTML = "Please Enter Your Tel.";
+    if (lang == "en") {
+      MsgTel.innerHTML = "Please Enter Your Tel.";
+    } else {
+      MsgTel.innerHTML = "กรุณากรอกหมายเลขโทรศัพท์ของคุณ";
+    }
   }
 }
 
@@ -88,7 +137,11 @@ function CheckIns() {
   if (Ins.value != "") {
     MsgIns.innerHTML = "";
   } else {
-    MsgIns.innerHTML = "Please select name.";
+    if (lang == "en") {
+      MsgIns.innerHTML = "Please select name.";
+    } else {
+      MsgIns.innerHTML = "กรุณาเลือกชื่อ";
+    }
   }
 }
 
@@ -96,7 +149,11 @@ function CheckAccessPolicy() {
   var AccessPolicy = document.getElementById("AccessPolicy");
   var MsgAccessPolicy = document.getElementById("MsgAccessPolicy");
   if (AccessPolicy.checked == false) {
-    MsgAccessPolicy.innerHTML = "Please Access Policy.";
+    if (lang == "en") {
+      MsgAccessPolicy.innerHTML = "Please Access Policy.";
+    } else {
+      MsgAccessPolicy.innerHTML = "กรุณายอมรับนโยบาย";
+    }
   } else {
     MsgAccessPolicy.innerHTML = "";
   }

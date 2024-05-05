@@ -23,7 +23,7 @@
   padding: 5px;
   border-radius: 60px;
   background: var(--main-l1--);
-  color: var(--alway-white--);
+  color: var(--base-white--);
   cursor: pointer;
   border: 1px solid var(--main-l1--);
 }
@@ -43,7 +43,7 @@
 }
 
 .sub-menu-content p {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 /*---------- ---------- ---------- sub-menu-group-act ---------- ---------- ----------*/
@@ -56,11 +56,11 @@
 }
 
 .act .sub-menu-content p {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 .act:hover .sub-menu-content p {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 /*---------- ---------- ---------- sub-menu-group-pass ---------- ---------- ----------*/
 .pass {
@@ -76,5 +76,17 @@
 }
 
 .pass:hover .sub-menu-content p {
-  color: var(--alway-white--);
+  color: var(--base-white--);
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

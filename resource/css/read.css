@@ -7,7 +7,7 @@
   max-width: 100%;
   width: 100%;
   background: var(--body-l1--);
-  /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+  /*box-shadow: 0 4px 30px var(--base-shadow--);*/
 }
 
 .frm-read-title-top {
@@ -20,7 +20,7 @@
   max-width: 100%;
   border-radius: 10px;
   background: var(--body-l1--);
-  /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+  /*box-shadow: 0 4px 30px var(--base-shadow--);*/
 }
 
 .frm-read-group {
@@ -40,13 +40,12 @@
   background: var(--body-l2--);
 }
 
-.read-content-pic .icon:hover{
+.read-content-pic .icon:hover {
   background: var(--main-l1--);
 }
 
-
 .read-content-pic .icon:hover .material-symbols-outlined {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 .read-pic {
@@ -59,7 +58,7 @@
   justify-content: center;
   gap: 5px;
   width: 100%;
-  border-bottom: 1px solid var(--body-l3--);
+  border-bottom: 1px solid var(--base-border--);
   word-break: break-all;
   cursor: pointer;
 }
@@ -92,11 +91,11 @@
   border-radius: 20px;
   background: linear-gradient(
     32deg,
-    rgba(0, 71, 102, 1) 0%,
-    rgba(0, 107, 153, 1) 50%,
-    rgba(0, 118, 168, 1) 100%
+    #0f6cbd,
+    #115ea3,
+    #0f6cbd
   );
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--base-shadow--);
 }
 
 .project-cover-pic {
@@ -112,7 +111,7 @@
   width: 40%;
   min-width: 330px;
   border-radius: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--base-shadow--);
 }
 
 .project-cover-content {
@@ -130,7 +129,7 @@
 
 .cover-text {
   font-size: large;
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 #title-top {
@@ -147,7 +146,7 @@
   max-width: 100%;
   border-radius: 20px;
   background: var(--body-l1--);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px var(--base-shadow--);
 }
 
 .frm-control-group {
@@ -177,7 +176,10 @@
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
   .frm-read {
     flex-direction: column;
     max-width: 100%;
@@ -200,4 +202,7 @@
   .frm-control-group {
     flex-direction: column;
   }
+}
+
+@media only screen and (max-width: 375px) {
 }

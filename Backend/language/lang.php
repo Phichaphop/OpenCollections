@@ -3,6 +3,7 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $print = "พิมพ์";
         $index = "หน้าหลัก";
         $policy = "ข้อตกลงการใช้งาน";
         $profile = "โปรไฟล์";
@@ -224,6 +225,7 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $print = "Print";
         $index = "Home";
         $policy = "Policy";
         $profile = "Profile";
@@ -238,16 +240,16 @@
         $frm_project = "Project";
         $frm_request = "Request";
         $frm_user = "User";
-        $dash_favorite = "Dash Favorite";
+        $dash_favorite = "Favorite";
         $setting = "Setting";
         $delete_manual = "Delete Manual";
         $edit_file = "Update File";
         $manual = "Manual";
-        $dash_manual = "Dash Manual";
+        $dash_manual = "Manual";
         $manual_list = "List Manual";
         $update_manual = "Update Manual";
         $this_email_address_is_already = "This email address is already.";
-        $dash_approve = "Dash Approve";
+        $dash_approve = "Approve";
         $pdf_only = "(PDF Only.)";
         $wait_verify = "Wait Verification";
         $at = "at";
@@ -289,14 +291,14 @@
         $create_project = "Create Project";
         $create_project_type = "Create Project Type";
         $create_request = "Create Request";
-        $dash_department = "Dash Department";
-        $dash_faculty = "Dash Faculty";
-        $dash_institute = "Dash Institute";
-        $dash_major = "Dash Major";
-        $dash_project = "Dash Project";
-        $dash_project_type = "Dash Project Type";
-        $dash_request = "Dash Request";
-        $dash_user = "Dash User";
+        $dash_department = "Department";
+        $dash_faculty = "Faculty";
+        $dash_institute = "Institute";
+        $dash_major = "Major";
+        $dash_project = "Project";
+        $dash_project_type = "Project Type";
+        $dash_request = "Request";
+        $dash_user = "User";
         $degree = "Degree";
         $delete = "Delete";
         $delete_account = "Delete account";

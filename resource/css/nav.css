@@ -107,7 +107,7 @@ nav {
 }
 
 .nav-icon-passive .material-symbols-outlined {
-  color: var(--alway-white--);
+  color: var(--base-white--);
 }
 
 .nav-profile-icon {
@@ -135,10 +135,22 @@ nav {
   width: 24px;
   margin: auto;
   cursor: pointer;
-  color: var(--alway-white--);
+  color: var(--base-white--);
   
 }
 
 .nav-text-passive {
   display: none;
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

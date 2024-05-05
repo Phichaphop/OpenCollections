@@ -1,13 +1,12 @@
 .input {
   padding: 15px;
-  border: 1px solid var(--body-l3--);
-  border-radius: 120px;
+  border: 1px solid var(--base-border--);
+  /*border-radius: 15px;*/
   background: var(--body-l1--);
 }
 
 .input:focus {
-  
-  border: 1.5px solid var(--main-l1--);
+  border-bottom: 4px solid var(--main-l1--);
 }
 
 .label {
@@ -90,5 +89,17 @@ input[type="file"]::file-selector-button {
 
 input[type="file"]::file-selector-button:hover {
   background: var(--main-l1--);
-  color: var(--alway-white--);
+  color: var(--base-white--);
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
 }

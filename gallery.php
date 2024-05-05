@@ -20,7 +20,7 @@
 
             <!-- Content here -->
 
-        
+
             <div class="gallery">
 
                 <?php
@@ -31,8 +31,10 @@
                 include 'backend/Other/GetPage.php';
                 ?>
 
-                <?php include 'components/input/search/search.php'; ?>
-                <?php include 'components/layout/sub_menu.php'; ?>
+                <div class="gallery-ctrl">
+                    <?php include 'components/input/search/search.php'; ?>
+                    <?php include 'components/layout/sub_menu.php'; ?>
+                </div>
 
                 <?php if (!$data) { ?>
                     <div class="gallery-group">
@@ -46,7 +48,7 @@
                     foreach ($currentPageData as $row) { ?>
 
                         <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['project_id'] ?>'">
-                            
+
                             <?php if (!$row['cover']) { ?>
                                 <div class="gallery-cover">
                                     <div class="gallery-cover-content">

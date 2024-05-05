@@ -4,7 +4,11 @@ function CheckRole() {
   if (Role.value != "") {
     MsgRole.innerHTML = "";
   } else {
-    MsgRole.innerHTML = "Please select role.";
+    if (lang == "en") {
+      MsgRole.innerHTML = "Please select role.";
+    } else {
+      MsgRole.innerHTML = "โปรดเลือกบทบาท";
+    }
   }
 }
 
@@ -14,7 +18,11 @@ function CheckName() {
   if (Name.value != "") {
     MsgName.innerHTML = "";
   } else {
-    MsgName.innerHTML = "Please enter name.";
+    if (lang == "en") {
+      MsgName.innerHTML = "Please enter name.";
+    } else {
+      MsgName.innerHTML = "กรุณากรอกชื่อ";
+    }
   }
 }
 
@@ -24,7 +32,11 @@ function CheckInputIns() {
   if (Ins.value != "") {
     MsgIns.innerHTML = "";
   } else {
-    MsgIns.innerHTML = "Please select name.";
+    if (lang == "en") {
+      MsgIns.innerHTML = "Please select name.";
+    } else {
+      MsgIns.innerHTML = "กรุณาเลือกชื่อ";
+    }
   }
 }
 
@@ -34,7 +46,11 @@ function CheckInputDept() {
   if (Dept.value != "") {
     MsgDept.innerHTML = "";
   } else {
-    MsgDept.innerHTML = "Please select department.";
+    if (lang == "en") {
+      MsgDept.innerHTML = "Please select department.";
+    } else {
+      MsgDept.innerHTML = "กรุณาเลือกแผนก";
+    }
   }
 }
 
@@ -44,7 +60,11 @@ function CheckInputMajor() {
   if (Major.value != "") {
     MsgMajor.innerHTML = "";
   } else {
-    MsgMajor.innerHTML = "Please select major.";
+    if (lang == "en") {
+      MsgMajor.innerHTML = "Please select major.";
+    } else {
+      MsgMajor.innerHTML = "กรุณาเลือกวิชาเอก";
+    }
   }
 }
 
@@ -54,7 +74,11 @@ function CheckInputDegree() {
   if (Degree.value != "") {
     MsgDegree.innerHTML = "";
   } else {
-    MsgDegree.innerHTML = "Please select degree.";
+    if (lang == "en") {
+      MsgDegree.innerHTML = "Please select degree.";
+    } else {
+      MsgDegree.innerHTML = "กรุณาเลือกปริญญา";
+    }
   }
 }
 
@@ -64,7 +88,11 @@ function CheckInputAbstract() {
   if (Abstract.value != "") {
     MsgAbstract.innerHTML = "";
   } else {
-    MsgAbstract.innerHTML = "Please enter abstract.";
+    if (lang == "en") {
+      MsgAbstract.innerHTML = "Please enter abstract.";
+    } else {
+      MsgAbstract.innerHTML = "กรุณากรอกบทคัดย่อ";
+    }
   }
 }
 
@@ -74,7 +102,11 @@ function CheckInputDate() {
   if (Date.value != "") {
     MsgDate.innerHTML = "";
   } else {
-    MsgDate.innerHTML = "Please enter date.";
+    if (lang == "en") {
+      MsgDate.innerHTML = "Please enter date.";
+    } else {
+      MsgDate.innerHTML = "กรุณาระบุวันที่";
+    }
   }
 }
 
@@ -120,7 +152,11 @@ function CheckInputNote() {
   if (Note.value != "") {
     MsgNote.innerHTML = "";
   } else {
-    MsgNote.innerHTML = "Please enter note.";
+    if (lang == "en") {
+      MsgNote.innerHTML = "Please enter note.";
+    } else {
+      MsgNote.innerHTML = "กรุณากรอกหมายเหตุ";
+    }
   }
 }
 
@@ -130,7 +166,11 @@ function CheckInputTitle() {
   if (Title.value != "") {
     MsgTitle.innerHTML = "";
   } else {
-    MsgTitle.innerHTML = "Please enter title.";
+    if (lang == "en") {
+      MsgTitle.innerHTML = "Please enter title.";
+    } else {
+      MsgTitle.innerHTML = "กรุณากรอกชื่อเรื่อง";
+    }
   }
 }
 
@@ -140,7 +180,11 @@ function CheckDetail() {
   if (Detail.value != "") {
     MsgDetail.innerHTML = "";
   } else {
-    MsgDetail.innerHTML = "Please enter detail.";
+    if (lang == "en") {
+      MsgDetail.innerHTML = "Please enter detail.";
+    } else {
+      MsgDetail.innerHTML = "กรุณากรอกรายละเอียด";
+    }
   }
 }
 
@@ -150,6 +194,10 @@ function CheckInputPic() {
   if (Pic.files.length > 0) {
     MsgPic.innerHTML = "";
   } else {
-    MsgPic.innerHTML = "Please select picture.";
+    if (lang == "en") {
+      MsgPic.innerHTML = "Please select picture.";
+    } else {
+      MsgPic.innerHTML = "โปรดเลือกรูปภาพ";
+    }
   }
 }

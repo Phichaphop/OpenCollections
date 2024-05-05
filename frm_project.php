@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <?php require_once "components/layout/side.php" ?>
+        <?php require_once "components/layout/aside.php" ?>
 
         <?php require_once 'components/layout/header.php'; ?>
 
@@ -95,13 +95,16 @@
                                     if (!$favorite) {
                                         $favorite_text = $addfavorite;
                                         $favorite_icon = "font-variation-settings:'FILL' 0;";
+                                        $favorite_btn = "btn-normal-se";
                                     } else {
                                         $favorite_text = $unfavorite;
                                         $favorite_icon = "font-variation-settings:'FILL' 1;";
+                                        $favorite_btn = "btn-normal-pr";
                                     }
                                 } else {
                                     $favorite_text = $favorite;
                                     $favorite_icon = "font-variation-settings:'FILL' 0;";
+                                    $favorite_btn = "btn-normal-se";
                                 }
                                 ?>
 
@@ -109,14 +112,14 @@
 
                                     <?php if (isset($_SESSION['login'])) { ?>
 
-                                        <div class="btn-normal-pr" onclick="window.location='backend/DBFavorite.php?project=<?= $data['id'] ?>&favorite'">
+                                        <div class="<?= $favorite_btn ?>" onclick="window.location='backend/DBFavorite.php?project=<?= $data['id'] ?>&favorite'">
                                             <span class="material-symbols-outlined" style="<?= $favorite_icon ?>">favorite</span>
                                             <?= $favorite_text ?>
                                         </div>
 
                                     <?php } else { ?>
 
-                                        <div class="btn-normal-pr" onclick="window.location='sign.php?signin'">
+                                        <div class="<?= $favorite_btn ?>" onclick="window.location='sign.php?signin'">
                                             <span class="material-symbols-outlined" style="<?= $favorite_icon ?>">favorite</span>
                                             <?= $favorite_text ?>
                                         </div>
@@ -124,13 +127,17 @@
                                     <?php } ?>
 
                                     <div class="btn-normal-se" onclick="window.location='backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
-                                        <?php require_once 'components/icon/download.php'; ?>
+                                        <span class="material-symbols-outlined">cloud_download</span>
                                         <?= $download ?>
                                     </div>
-                                    <a class="btn-normal-se" href="resource/doc/<?= $data['file'] ?>" target="_blank" ?>
-                                        <?php require_once 'components/icon/view.php'; ?>
+                                    <a class="btn-normal-se" href="resource/doc/project/<?= $data['file'] ?>" target="_blank" ?>
+                                        <span class="material-symbols-outlined">visibility</span>
                                         <?= $view ?>
                                     </a>
+                                    <div class="btn-normal-se" onclick="window.location='#'">
+                                        <span class="material-symbols-outlined">print</span>
+                                        <?= $print ?>
+                                    </div>
 
                                 </div>
 
@@ -140,24 +147,24 @@
 
                         <?php if (isset($_SESSION['login'])) { ?>
 
-                        <?php if (($data['author_id'] == $_SESSION['login'] || $data['advisor_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
-                            <div class="frm-read">
-                                <div class="frm-read-content">
-                                    <h4><?= $approver ?></h4>
-                                    <p><?= $data['approver'] ?></p>
+                            <?php if (($data['author_id'] == $_SESSION['login'] || $data['advisor_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
+                                <div class="frm-read">
+                                    <div class="frm-read-content">
+                                        <h4><?= $approver ?></h4>
+                                        <p><?= $data['approver'] ?></p>
+                                    </div>
+                                    <div class="frm-read-content">
+                                        <h4><?= $status ?></h4>
+                                        <p><?= GetNameProjectStatusByID($data['status'], $conn) ?></p>
+                                    </div>
                                 </div>
-                                <div class="frm-read-content">
-                                    <h4><?= $status ?></h4>
-                                    <p><?= GetNameProjectStatusByID($data['status'], $conn) ?></p>
+                                <div class="frm-read">
+                                    <div class="frm-read-content">
+                                        <h4><?= $note ?></h4>
+                                        <p><?= $data['note'] ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="frm-read">
-                                <div class="frm-read-content">
-                                    <h4><?= $note ?></h4>
-                                    <p><?= $data['note'] ?></p>
-                                </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
 
                             <?php if ((isset($_SESSION['admin']) || $data['author_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                                 <div class="frm-control">
@@ -198,6 +205,7 @@
                                 <div class="frm-control">
                                     <div class="frm-control-group">
                                         <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $update ?></div>
+                                        <div class="btn-se" onclick="window.location='frm_project.php?update&file&project=<?= $_GET['project'] ?>'"><?= $edit_project_file ?> <?= $pdf_only ?></div>
                                         <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
                                         <div class="btn-se" onclick="history.back()"><?= $cancel ?></div>
                                     </div>
@@ -391,9 +399,11 @@
                             </script>
                         <?php } ?>
 
-                        <div class="form-group">
-                            <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
-                            <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                        <div class="frm-control">
+                            <div class="frm-control-group">
+                                <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                                <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
+                            </div>
                         </div>
 
                     </form>
