@@ -134,7 +134,7 @@
                                         <span class="material-symbols-outlined">visibility</span>
                                         <?= $view ?>
                                     </a>
-                                    <div class="btn-normal-se" onclick="window.location='#'">
+                                    <div class="btn-normal-se" onclick="window.location='print.php?print=<?= $data['id'] ?>'">
                                         <span class="material-symbols-outlined">print</span>
                                         <?= $print ?>
                                     </div>
