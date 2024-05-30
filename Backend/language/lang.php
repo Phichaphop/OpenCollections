@@ -332,6 +332,7 @@
         $faculty_menu_detail = "Manage all faculty.";
         $favorite = "Favorite";
         $file = "File";
+        $create_manual = "Created manual";
         $forget_your_password = "Forget your password?";
         $home = 'Home';
         $insert = "Insert";

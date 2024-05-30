@@ -64,6 +64,10 @@
                                     <div class="icon" onclick="window.location='backend/DBDownload.php?manual&file=<?= $row['file'] ?>'">
                                         <?php include 'components/icon/download.php'; ?>
                                     </div>
+
+                                    <a class="icon" href="resource/doc/manual/<?= $row['file'] ?>" target="_blank">
+                                        <?php include 'components/icon/eye.php'; ?>
+                                    </a>
                                 
                                     <?php if(isset($_SESSION['admin'])) { ?>
                                         <div class="icon" onclick="window.location='frm_manual.php?read&manual=<?= $row['id'] ?>'">

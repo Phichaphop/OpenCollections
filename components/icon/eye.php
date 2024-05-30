@@ -1,0 +1,1 @@
+<span class="material-symbols-outlined icon">visibility</span>
