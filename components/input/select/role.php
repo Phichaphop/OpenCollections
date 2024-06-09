@@ -12,8 +12,9 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
-    <select id="Role" name="role" class="input">
+    <div class="form-set">
+
+    <select id="Role" name="role" class="input" onchange="CheckRole()">
             <?php if (isset($_GET['update']) && isset($_GET['role'])) { ?>
                 <option value="<?= $GetRoleByName['id']; ?>"><?= $GetRoleByName['role']; ?></option>
                 <?php
@@ -31,6 +32,11 @@ if (isset($_GET['insert'])) {
             }  ?>
         </select>
         <span class="label"><?= $role ?></span>
-        <p id="MsgRole" class="validation-message"></p>
+        <div id="MsgBoxRole" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconRole" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgRole"></p>
+        </div>
     </div>
 </div>

@@ -46,7 +46,7 @@
                     <div class="form-head">
                         <h1><?= $verification ?></h1>
                         <p><?= $verification_detail ?></p>
-                        <a class="text-link" target="_blank"><?= $email ?></a>
+                        <p><a class="text-link" target="_blank"><?= $email ?></a></p>
 
                         <div class="form-banner">
                             <a class="icon" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">

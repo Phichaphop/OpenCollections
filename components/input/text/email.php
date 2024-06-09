@@ -10,9 +10,15 @@
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <input id="Email" name="email" class="input" type="email" minlength="1" maxlength="100" required="required" value="<?= $value ?>" onkeyup="CheckEmail()">
         <span id="LabelEmail" class="label"><?= $email ?></span>
-        <p id="MsgEmail" class="validation-message"></p>
+        <div id="MsgBoxEmail" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconEmail" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgEmail" class="validation-message"></p>
+        </div>
+        
     </div>
 </div>

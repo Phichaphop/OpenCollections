@@ -45,7 +45,7 @@
                         <h1><?= $confirm_password ?></h1>
                     </div>
 
-                    <?php include 'components/input/user/pass.php'; ?>
+                    <?php include 'components/input/text/pass.php'; ?>
                     <script>
                         document.getElementById("Pass").addEventListener("keyup", CheckVerifyPass)
                     </script>

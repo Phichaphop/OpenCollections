@@ -178,77 +178,125 @@ function CheckNewPass() {
 function CheckConfirmPass() {
   var NewPass = document.getElementById("NewPass");
   var ConfirmPass = document.getElementById("ConfirmPass");
+  var MsgBoxConfirmPass = document.getElementById("MsgBoxConfirmPass");
   var MsgConfirmPass = document.getElementById("MsgConfirmPass");
+  var MsgIconConfirmPass = document.getElementById("MsgIconConfirmPass");
 
   if (ConfirmPass != "") {
+    MsgBoxConfirmPass.style.display = "flex";
     if (NewPass.value == ConfirmPass.value) {
-      MsgConfirmPass.innerHTML = "Passwords match";
-      MsgConfirmPass.style.color = "var(--green-l1--)";
-      MsgConfirmPass.style.textAlign = "center";
+      if (lang == "en") {
+        MsgConfirmPass.innerHTML = "Passwords match";
+        MsgBoxConfirmPass.className = "validation-msg done";
+        MsgIconConfirmPass.innerHTML = "done";
+      } else {
+        MsgConfirmPass.innerHTML = "รหัสผ่านตรงกัน";
+        MsgBoxConfirmPass.className = "validation-msg done";
+        MsgIconConfirmPass.innerHTML = "done";
+      }
     } else {
       if (lang == "en") {
         MsgConfirmPass.innerHTML = "Passwords do not match";
+        MsgBoxConfirmPass.className = "validation-msg error";
+        MsgIconConfirmPass.innerHTML = "error";
       } else {
         MsgConfirmPass.innerHTML = "รหัสผ่านไม่ตรงกัน";
+        MsgBoxConfirmPass.className = "validation-msg error";
+        MsgIconConfirmPass.innerHTML = "error";
       }
     }
   } else {
     if (lang == "en") {
       MsgConfirmPass.innerHTML = "Please confirm your pass";
+      MsgBoxConfirmPass.className = "validation-msg error";
+      MsgIconConfirmPass.innerHTML = "error";
     } else {
       MsgConfirmPass.innerHTML = "โปรดยืนยันรหัสผ่านของคุณ";
+      MsgBoxConfirmPass.className = "validation-msg error";
+      MsgIconConfirmPass.innerHTML = "error";
     }
   }
 }
 
 function CheckResetPass() {
   var NewPass = document.getElementById("NewPass");
+  var MsgBoxNewPass = document.getElementById("MsgBoxNewPass");
   var MsgNewPass = document.getElementById("MsgNewPass");
+  var MsgIconNewPass = document.getElementById("MsgIconNewPass");
   var upperCaseLetters = /[A-Z]/g;
   var lowerCaseLetters = /[a-z]/g;
   var numbers = /[0-9]/g;
 
   if (NewPass.value != "") {
+    MsgBoxNewPass.style.display = "flex";
     if (NewPass.value.match(upperCaseLetters)) {
       if (NewPass.value.match(lowerCaseLetters)) {
         if (NewPass.value.match(numbers)) {
           if (NewPass.value.length >= 9) {
-            MsgNewPass.innerHTML = "";
+            if (lang == "en") {
+              MsgNewPass.innerHTML = "The password format is correct.";
+              MsgBoxNewPass.className = "validation-msg done";
+              MsgIconNewPass.innerHTML = "done";
+            } else {
+              MsgNewPass.innerHTML = "รูปแบบรหัสผ่านถูกต้อง";
+              MsgBoxNewPass.className = "validation-msg done";
+              MsgIconNewPass.innerHTML = "done";
+            }
           } else {
             if (lang == "en") {
               MsgNewPass.innerHTML =
                 "Must be more than 9 characters and not more than 12 characters.";
+              MsgBoxNewPass.className = "validation-msg error";
+              MsgIconNewPass.innerHTML = "error";
             } else {
               MsgNewPass.innerHTML =
                 "ต้องมีความยาวมากกว่า 9 ตัวอักษรและไม่เกิน 12 ตัวอักษร";
+              MsgBoxNewPass.className = "validation-msg error";
+              MsgIconNewPass.innerHTML = "error";
             }
           }
         } else {
           if (lang == "en") {
             MsgNewPass.innerHTML = "Must have numbers 0-9";
+            MsgBoxNewPass.className = "validation-msg error";
+            MsgIconNewPass.innerHTML = "error";
           } else {
             MsgNewPass.innerHTML = "ต้องมีตัวเลข 0-9";
+            MsgBoxNewPass.className = "validation-msg error";
+            MsgIconNewPass.innerHTML = "error";
           }
         }
       } else {
         if (lang == "en") {
           MsgNewPass.innerHTML = "Must contain letters a-z";
+          MsgBoxNewPass.className = "validation-msg error";
+          MsgIconNewPass.innerHTML = "error";
         } else {
           MsgNewPass.innerHTML = "ต้องมีตัวอักษร a-z";
+          MsgBoxNewPass.className = "validation-msg error";
+          MsgIconNewPass.innerHTML = "error";
         }
       }
     } else {
       if (lang == "en") {
         MsgNewPass.innerHTML = "Must contain letters A-Z";
+        MsgBoxNewPass.className = "validation-msg error";
+        MsgIconNewPass.innerHTML = "error";
       } else {
         MsgNewPass.innerHTML = "ต้องมีตัวอักษร A-Z";
+        MsgBoxNewPass.className = "validation-msg error";
+        MsgIconNewPass.innerHTML = "error";
       }
     }
   } else {
     if (lang == "en") {
       MsgNewPass.innerHTML = "Please enter your password";
+      MsgBoxNewPass.className = "validation-msg error";
+      MsgIconNewPass.innerHTML = "error";
     } else {
       MsgNewPass.innerHTML = "กรุณากรอกรหัสผ่าน";
+      MsgBoxNewPass.className = "validation-msg error";
+      MsgIconNewPass.innerHTML = "error";
     }
   }
 }
@@ -256,19 +304,34 @@ function CheckResetPass() {
 function CheckUpdateRole() {
   var Role = document.getElementById("Role");
   var Update = document.getElementById("Update");
+  var MsgBoxRole = document.getElementById("MsgBoxRole");
   var MsgRole = document.getElementById("MsgRole");
+  var MsgIconRole = document.getElementById("MsgIconRole");
   if (Role.value != "") {
+    MsgBoxRole.style.display = "flex";
     if (Role.value != DataRole) {
       Update.disabled = false;
       Update.classList = "btn-pr";
-      MsgRole.innerHTML = "";
+      if (lang == "en") {
+        MsgRole.innerHTML = "Roles changed successfully.";
+        MsgBoxRole.className = "validation-msg done";
+        MsgIconRole.innerHTML = "done";
+      } else {
+        MsgRole.innerHTML = "เปลี่ยนบทบาทเรียบร้อย";
+        MsgBoxRole.className = "validation-msg done";
+        MsgIconRole.innerHTML = "done";
+      }
     } else {
       Update.disabled = true;
       Update.classList = "btn-se";
       if (lang == "en") {
         MsgRole.innerHTML = "Role as before.";
+        MsgBoxRole.className = "validation-msg error";
+        MsgIconRole.innerHTML = "error";
       } else {
         MsgRole.innerHTML = "บทบาทเหมือนเดิม";
+        MsgBoxRole.className = "validation-msg error";
+        MsgIconRole.innerHTML = "error";
       }
     }
   } else {

@@ -7,15 +7,9 @@ function VerifyEmail() {
     if (InputVerifyCode.value == VerifyCode) {
       BtnVerify.disabled = false;
       BtnVerify.classList = "btn-pr";
-      MsgVerify.innerHTML = "";
     } else {
       BtnVerify.disabled = true;
       BtnVerify.classList = "btn-se";
-      if (lang == "en") {
-        MsgVerify.innerHTML = "Please Enter Verify Code.";
-      } else {
-        MsgVerify.innerHTML = "กรุณากรอกรหัสยืนยัน";
-      }
     }
   }
 }

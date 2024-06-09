@@ -85,7 +85,7 @@ function VerifyEmail($header, $email)
         $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
         $mail->Username = "phichaphop.b@gmail.com";
-        $mail->Password = "";
+        $mail->Password = "mwme etlw zmsg xdnl";
         
         $mail->Port = 25;
         $mail->SMTPDebug = 2;

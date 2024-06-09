@@ -10,9 +10,14 @@
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <input id="Tel" name="tel" class="input" type="text" minlength="1" maxlength="10" required="required" value="<?= $value ?>" onkeyup="CheckTel()">
         <span class="label"><?= $tel ?></span>
-        <p id="MsgTel" class="validation-message"></p>
+        <div id="MsgBoxTel" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconTel" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgTel" class="validation-message"></p>
+        </div>
     </div>
 </div>

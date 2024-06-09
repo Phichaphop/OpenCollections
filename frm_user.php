@@ -119,26 +119,26 @@
                     </div>
 
                     <?php if (isset($_GET['update']) && isset($_GET['pic'])) { ?>
-                        <?php include 'components/input/user/pic.php'; ?>
+                        <?php include 'components/input/file/pic.php'; ?>
                         <script>
                             document.getElementById("Pic").addEventListener("change", CheckUpdatePicture)
                         </script>
                     <?php } ?>
 
                     <?php if (isset($_GET['update']) && isset($_GET['username'])) { ?>
-                        <?php include 'components/input/user/username.php'; ?>
+                        <?php include 'components/input/text/username.php'; ?>
                         <script>
                             document.getElementById("Username").addEventListener("keyup", CheckUpdateUser)
                         </script>
                     <?php } ?>
 
                     <?php if (isset($_GET['update']) && isset($_GET['pass']) && isset($_SESSION['admin'])) { ?>
-                        <?php include 'components/input/user/pass.php'; ?>
+                        <?php include 'components/input/text/pass.php'; ?>
                         <script>
                             document.getElementById("Pass").addEventListener("keyup", CheckUpdatePassFromAdmin)
                         </script>
                     <?php } else if (isset($_GET['update']) && isset($_GET['pass'])) { ?>
-                        <?php include 'components/input/user/pass.php'; ?>
+                        <?php include 'components/input/text/pass.php'; ?>
                         <?php include 'components/input/user/new_pass.php'; ?>
                         <?php include 'components/input/user/confirm_pass.php'; ?>
                         <script>
@@ -149,32 +149,32 @@
                     <?php } ?>
 
                     <?php if (isset($_GET['update']) && isset($_GET['tel'])) { ?>
-                        <?php include 'components/input/user/tel.php'; ?>
+                        <?php include 'components/input/text/tel.php'; ?>
                         <script>
                             document.getElementById("Tel").addEventListener("keyup", CheckUpdateTel)
                         </script>
                     <?php } ?>
 
                     <?php if (isset($_GET['update']) && isset($_GET['role'])) { ?>
-                        <?php include 'components/input/user/role.php'; ?>
+                        <?php include 'components/input/select/role.php'; ?>
                         <script>
                             document.getElementById("Role").addEventListener("change", CheckUpdateRole)
                         </script>
                     <?php } ?>
 
                     <?php if (isset($_GET['update']) && isset($_GET['email'])) { ?>
-                        <?php include 'components/input/user/email.php'; ?>
+                        <?php include 'components/input/text/email.php'; ?>
                         <script>
                             document.getElementById("Email").addEventListener("keyup", CheckUpdateEmail)
                         </script>
                     <?php } ?>
 
                     <?php if (isset($_GET['insert']) && isset($_GET['user'])) { ?>
-                        <?php include 'components/input/user/username.php'; ?>
-                        <?php include 'components/input/user/pass.php'; ?>
-                        <?php include 'components/input/user/email.php'; ?>
-                        <?php include 'components/input/user/tel.php'; ?>
-                        <?php include 'components/input/user/role.php'; ?>
+                        <?php include 'components/input/text/username.php'; ?>
+                        <?php include 'components/input/text/pass.php'; ?>
+                        <?php include 'components/input/text/email.php'; ?>
+                        <?php include 'components/input/text/tel.php'; ?>
+                        <?php include 'components/input/select/role.php'; ?>
                         <script>
                             document.getElementById("Username").addEventListener("keyup", CheckInsertUser)
                             document.getElementById("Pass").addEventListener("keyup", CheckInsertUser)

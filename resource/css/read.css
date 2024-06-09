@@ -196,11 +196,13 @@
     min-width: 100%;
   }
   .frm-control {
-    background: none;
+    /*background: none;
     box-shadow: none;
+    padding:  0px;*/
   }
   .frm-control-group {
     flex-direction: column;
+    padding: 20px;
   }
 }
 

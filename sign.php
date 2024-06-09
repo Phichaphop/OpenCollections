@@ -28,8 +28,8 @@
                         <div class="form-head">
                             <h1><?= $welcome_back ?></h1>
                         </div>
-                        <?php include 'components/input/user/username_email.php'; ?>
-                        <?php include 'components/input/user/pass.php'; ?>
+                        <?php include 'components/input/text/username_email.php'; ?>
+                        <?php include 'components/input/text/pass.php'; ?>
                         <div class="form-group">
                             <a class="text-link" href="sign.php?forget_pass"><?= $forget_your_password ?></a>
                         </div>
@@ -55,11 +55,11 @@
                             <h1><?= $create_account ?></h1>
                             <p><?= $create_account_detail ?></p>
                         </div>
-                        <?php include 'components/input/user/username.php'; ?>
-                        <?php include 'components/input/user/pass.php'; ?>
-                        <?php include 'components/input/user/email.php'; ?>
-                        <?php include 'components/input/user/tel.php'; ?>
-                        <?php include 'components/input/user/access_policy.php'; ?>
+                        <?php include 'components/input/text/username.php'; ?>
+                        <?php include 'components/input/text/pass.php'; ?>
+                        <?php include 'components/input/text/email.php'; ?>
+                        <?php include 'components/input/text/tel.php'; ?>
+                        <?php include 'components/input/text/policy.php'; ?>
                         <div class="form-group">
                             <button id="SignUp" name="signup" class="btn-se" type="submit" disabled><?= $sign_up ?></button>
                         </div>
@@ -73,7 +73,7 @@
                         Pass.addEventListener("keyup", SignUp)
                         Tel.addEventListener("keyup", SignUp)
                         Email.addEventListener("keyup", SignUp)
-                        AccessPolicy.addEventListener("change", SignUp)
+                        Policy.addEventListener("change", SignUp)
                     </script>
 
                 <?php } ?>
@@ -86,7 +86,7 @@
                             <h1><?= $reset_your_password ?></h1>
                             <p><?= $reset_your_password_detail ?></p>
                         </div>
-                        <?php include 'components/input/user/email.php'; ?>
+                        <?php include 'components/input/text/email.php'; ?>
                         <div class="form-group">
                             <button id="ForgetPass" class="btn-se" name="forget_pass" type="submit" disabled><?= $continue ?></button>
                             <div class="btn-se" onclick="window.location='sign.php?signin'"><?= $back_to_sign_in ?></div>
@@ -105,8 +105,8 @@
                         <div class="form-head">
                             <h1><?= $reset_your_password ?></h1>
                         </div>
-                        <?php include 'components/input/user/reset_pass.php'; ?>
-                        <?php include 'components/input/user/confirm_pass.php'; ?>
+                        <?php include 'components/input/text/reset_pass.php'; ?>
+                        <?php include 'components/input/text/confirm_pass.php'; ?>
                         <div class="form-group">
                             <button id="ResetPass" class="btn-se" name="reset_pass" type="submit" disabled><?= $reset_your_password ?></button>
                         </div>

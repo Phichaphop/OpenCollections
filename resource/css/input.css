@@ -55,8 +55,26 @@
   background: var(--body-l2--);
 }
 
-.validation-message {
-  color: var(--red-l1--);
+.validation-msg {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  max-width: 100%;
+  border-radius: 10px;
+  word-break: break-all;
+}
+
+.validation-msg p {
+  color: var(--base-white--);
+}
+
+.MsgContent {
+  color: #ffffff;
+}
+
+.MsgContent .icon {
+  color: #ffffff;
 }
 
 #PreviewPic {
