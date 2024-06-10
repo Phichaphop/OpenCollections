@@ -16,10 +16,10 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <?php if ($value != "") { ?>
-        <img id="PreviewPic" src="<?= $path ?><?= $value ?>">
-    <?php } else { ?>
+    <?php if (!$value) { ?>
         <img id="PreviewPic">
+    <?php } else { ?>
+        <img id="PreviewPic" src="<?= $path ?><?= $value ?>">
     <?php } ?>
 </div>
 

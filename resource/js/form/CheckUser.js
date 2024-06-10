@@ -369,16 +369,6 @@ function CheckUpdatePicture() {
   }
 }
 
-function PreviewPicture() {
-  let Pic = document.getElementById("Pic");
-  let PreviewPic = document.getElementById("PreviewPic");
-
-  const [file] = Pic.files;
-  if (file) {
-    PreviewPic.src = URL.createObjectURL(file);
-  }
-}
-
 function CheckDeleteUser() {
   var Pass = document.getElementById("Pass");
   var Delete = document.getElementById("Delete");

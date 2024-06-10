@@ -317,3 +317,16 @@ function CheckVerifyCode() {
     }
   }
 }
+
+function PreviewPicture() {
+  let Pic = document.getElementById("Pic");
+  let PreviewPic = document.getElementById("PreviewPic");
+  const [file] = Pic.files;
+
+  if (file) {
+    PreviewPic.style.display = "flex"
+    PreviewPic.src = URL.createObjectURL(file);
+  } else {
+    PreviewPic.style.display = "none"
+  }
+}

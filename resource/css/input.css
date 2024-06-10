@@ -78,6 +78,7 @@
 }
 
 #PreviewPic {
+  display: none;
   max-height: 200px;
   height: auto;
   min-height: 200px;
