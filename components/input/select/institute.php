@@ -11,8 +11,8 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
-        <select id="Ins" name="ins" class="input" onchange="CheckInputIns()">
+    <div class="form-set">
+        <select id="Ins" name="ins" class="input" onchange="CheckSelectIns()">
             <?php if (isset($_GET['update'])) { ?>
                 <option value="<?= $GetInsByID['id']; ?>"><?= $GetInsByID['ins']; ?></option>
                 <?php
@@ -31,6 +31,11 @@ if (isset($_GET['insert'])) {
             }  ?>
         </select>
         <span class="label"><?= $institute ?></span>
-        <p id="MsgIns" class="validation-message"></p>
+        <div id="MsgBoxIns" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconIns" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgIns" class="validation-message"></p>
+        </div>
     </div>
 </div>

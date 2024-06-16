@@ -149,7 +149,7 @@
 
                         foreach ($currentPageData as $row) { ?>
 
-                            <div class="menu-group" onclick="window.location='frm_project.php?read&project=<?= $row['id'] ?>'">
+                            <div class="menu-group">
                                 <div class="menu-content">
 
                                     <?php if ($row['status'] == "1") { ?>
@@ -185,8 +185,8 @@
                                 </div>
 
                                 <div class="menu-content">
-                                    <div class="icon" onclick="window.location='frm_project.php?update&project=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_project.php?detail&project=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/next.php'; ?>
                                     </div>
                                 </div>
                             </div>

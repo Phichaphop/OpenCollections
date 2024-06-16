@@ -14,7 +14,7 @@
     }
 
     function GetFacultyByID($id, $conn) {
-        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins, ins.id AS ins_id FROM faculty INNER JOIN ins on faculty.ins=ins.id WHERE faculty.id = $id");
+        $stmt = $conn->query("SELECT faculty.id, faculty.faculty, ins.ins, ins.id AS ins_id, faculty.created_at, faculty.updated_at FROM faculty INNER JOIN ins on faculty.ins=ins.id WHERE faculty.id = $id");
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;

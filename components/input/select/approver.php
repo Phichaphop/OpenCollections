@@ -10,7 +10,7 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <select id="Approver" name="approver" class="input" onchange="CheckSelectApprover()">
             <?php if (isset($_GET['update']) && isset($_GET['project'])) { ?>
                 <option value="<?= $value['id']; ?>"><?= $value['username']; ?></option>
@@ -26,9 +26,13 @@ if (isset($_GET['insert'])) {
                     <option value="<?= $ApproverRow['id']; ?>"><?= $ApproverRow['username']; ?></option>
             <?php }
             }  ?>
-
         </select>
         <span class="label"><?= $approver ?></span>
-        <p id="MsgApprover" class="validation-message"></p>
+        <div id="MsgBoxApprover" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconApprover" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgApprover" class="validation-message"></p>
+        </div>
     </div>
 </div>

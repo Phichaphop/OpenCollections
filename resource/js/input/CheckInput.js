@@ -29,70 +29,88 @@ function CheckRole() {
 
 function CheckName() {
   var Name = document.getElementById("Name");
+  var MsgBoxName = document.getElementById("MsgBoxName");
   var MsgName = document.getElementById("MsgName");
+  var MsgIconName = document.getElementById("MsgIconName");
   if (Name.value != "") {
-    MsgName.innerHTML = "";
+    MsgBoxName.style.display = "flex";
+    if (lang == "en") {
+      MsgName.innerHTML = "The name format is correct.";
+      MsgBoxName.className = "validation-msg done";
+      MsgIconName.innerHTML = "done";
+    } else {
+      MsgName.innerHTML = "รูปแบบชื่อถูกต้อง";
+      MsgBoxName.className = "validation-msg done";
+      MsgIconName.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
       MsgName.innerHTML = "Please enter name.";
+      MsgBoxName.className = "validation-msg error";
+      MsgIconName.innerHTML = "error";
     } else {
       MsgName.innerHTML = "กรุณากรอกชื่อ";
-    }
-  }
-}
-
-function CheckInputIns() {
-  var Ins = document.getElementById("Ins");
-  var MsgIns = document.getElementById("MsgIns");
-  if (Ins.value != "") {
-    MsgIns.innerHTML = "";
-  } else {
-    if (lang == "en") {
-      MsgIns.innerHTML = "Please select name.";
-    } else {
-      MsgIns.innerHTML = "กรุณาเลือกชื่อ";
+      MsgBoxName.className = "validation-msg error";
+      MsgIconName.innerHTML = "error";
     }
   }
 }
 
 function CheckInputDept() {
   var Dept = document.getElementById("Dept");
+  var MsgBoxDept = document.getElementById("MsgBoxDept");
   var MsgDept = document.getElementById("MsgDept");
+  var MsgIconDept = document.getElementById("MsgIconDept");
   if (Dept.value != "") {
-    MsgDept.innerHTML = "";
+    MsgBoxDept.style.display = "flex";
+    if (lang == "en") {
+      MsgDept.innerHTML = "Selected department.";
+      MsgBoxDept.className = "validation-msg done";
+      MsgIconDept.innerHTML = "done";
+    } else {
+      MsgDept.innerHTML = "เลือกแผนกเรียบร้อย";
+      MsgBoxDept.className = "validation-msg done";
+      MsgIconDept.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
       MsgDept.innerHTML = "Please select department.";
+      MsgBoxDept.className = "validation-msg error";
+      MsgIconDept.innerHTML = "error";
     } else {
       MsgDept.innerHTML = "กรุณาเลือกแผนก";
-    }
-  }
-}
-
-function CheckInputMajor() {
-  var Major = document.getElementById("Major");
-  var MsgMajor = document.getElementById("MsgMajor");
-  if (Major.value != "") {
-    MsgMajor.innerHTML = "";
-  } else {
-    if (lang == "en") {
-      MsgMajor.innerHTML = "Please select major.";
-    } else {
-      MsgMajor.innerHTML = "กรุณาเลือกวิชาเอก";
+      MsgBoxDept.className = "validation-msg error";
+      MsgIconDept.innerHTML = "error";
     }
   }
 }
 
 function CheckInputDegree() {
   var Degree = document.getElementById("Degree");
+  var MsgBoxDegree = document.getElementById("MsgBoxDegree");
   var MsgDegree = document.getElementById("MsgDegree");
+  var MsgIconDegree = document.getElementById("MsgIconDegree");
   if (Degree.value != "") {
-    MsgDegree.innerHTML = "";
+    MsgBoxDegree.style.display = "flex";
+    if (lang == "en") {
+      MsgDegree.innerHTML = "Complete the name of educational qualification.";
+      MsgBoxDegree.className = "validation-msg done";
+      MsgIconDegree.innerHTML = "done";
+    } else {
+      MsgDegree.innerHTML = "กรอกชื่อวุฒิการศึกษาเรียบร้อย";
+      MsgBoxDegree.className = "validation-msg done";
+      MsgIconDegree.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
-      MsgDegree.innerHTML = "Please select degree.";
+      MsgDegree.innerHTML =
+        "Please enter the name of your educational background.";
+      MsgBoxDegree.className = "validation-msg error";
+      MsgIconDegree.innerHTML = "error";
     } else {
-      MsgDegree.innerHTML = "กรุณาเลือกปริญญา";
+      MsgDegree.innerHTML = "กรุณากรอกชื่อวุฒิการศึกษา";
+      MsgBoxDegree.className = "validation-msg error";
+      MsgIconDegree.innerHTML = "error";
     }
   }
 }
@@ -100,77 +118,116 @@ function CheckInputDegree() {
 function CheckInputAbstract() {
   var Abstract = document.getElementById("Abstract");
   var MsgAbstract = document.getElementById("MsgAbstract");
+  var MsgBoxAbstract = document.getElementById("MsgBoxAbstract");
+  var MsgAbstract = document.getElementById("MsgAbstract");
+  var MsgIconAbstract = document.getElementById("MsgIconAbstract");
   if (Abstract.value != "") {
-    MsgAbstract.innerHTML = "";
+    MsgBoxAbstract.style.display = "flex";
+    if (lang == "en") {
+      MsgAbstract.innerHTML = "Completed abstract.";
+      MsgBoxAbstract.className = "validation-msg done";
+      MsgIconAbstract.innerHTML = "done";
+    } else {
+      MsgAbstract.innerHTML = "กรุณากรอกบทคัดย่อ";
+      MsgBoxAbstract.className = "validation-msg done";
+      MsgIconAbstract.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
       MsgAbstract.innerHTML = "Please enter abstract.";
+      MsgBoxAbstract.className = "validation-msg error";
+      MsgIconAbstract.innerHTML = "error";
     } else {
       MsgAbstract.innerHTML = "กรุณากรอกบทคัดย่อ";
+      MsgBoxAbstract.className = "validation-msg error";
+      MsgIconAbstract.innerHTML = "error";
     }
   }
 }
 
 function CheckInputDate() {
   var Date = document.getElementById("Date");
+  var MsgBoxDate = document.getElementById("MsgBoxDate");
   var MsgDate = document.getElementById("MsgDate");
+  var MsgIconDate = document.getElementById("MsgIconDate");
   if (Date.value != "") {
-    MsgDate.innerHTML = "";
+    MsgBoxDate.style.display = "flex";
+    if (lang == "en") {
+      MsgDate.innerHTML = "Please enter date.";
+      MsgBoxDate.className = "validation-msg done";
+      MsgIconDate.innerHTML = "done";
+    } else {
+      MsgDate.innerHTML = "กรุณาระบุวันที่";
+      MsgBoxDate.className = "validation-msg done";
+      MsgIconDate.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
       MsgDate.innerHTML = "Please enter date.";
+      MsgBoxDate.className = "validation-msg error";
+      MsgIconDate.innerHTML = "error";
     } else {
       MsgDate.innerHTML = "กรุณาระบุวันที่";
+      MsgBoxDate.className = "validation-msg error";
+      MsgIconDate.innerHTML = "error";
     }
-  }
-}
-
-function CheckInputProjectFile() {
-  var ProjectFile = document.getElementById("ProjectFile");
-  var Insert = document.getElementById("Insert");
-  if (ProjectFile.files.length > 0) {
-    Insert.disabled = false;
-    Insert.classList = "btn-pr";
-  } else {
-    Insert.disabled = true;
-    Insert.classList = "btn-se";
   }
 }
 
 function CheckInputFile() {
   var File = document.getElementById("File");
-  var Insert = document.getElementById("Insert");
+  var MsgBoxFile = document.getElementById("MsgBoxFile");
+  var MsgFile = document.getElementById("MsgFile");
+  var MsgIconFile = document.getElementById("MsgIconFile");
   if (File.files.length > 0) {
-    Insert.disabled = false;
-    Insert.classList = "btn-pr";
+    MsgBoxFile.style.display = "flex";
+    if (lang == "en") {
+      MsgFile.innerHTML = "The File has been selected.";
+      MsgBoxFile.className = "validation-msg done";
+      MsgIconFile.innerHTML = "done";
+    } else {
+      MsgFile.innerHTML = "เลือกไฟล์เรียบร้อย";
+      MsgBoxFile.className = "validation-msg done";
+      MsgIconFile.innerHTML = "done";
+    }
   } else {
-    Insert.disabled = true;
-    Insert.classList = "btn-se";
-  }
-}
-
-function CheckInputProjectPicture() {
-  var ProjectPicture = document.getElementById("ProjectPicture");
-  var Insert = document.getElementById("Insert");
-  if (ProjectPicture.files.length > 0) {
-    Insert.disabled = false;
-    Insert.classList = "btn-pr";
-  } else {
-    Insert.disabled = true;
-    Insert.classList = "btn-se";
+    if (lang == "en") {
+      MsgFile.innerHTML = "Please select File.";
+      MsgBoxFile.className = "validation-msg error";
+      MsgIconFile.innerHTML = "error";
+    } else {
+      MsgFile.innerHTML = "โปรดเลือกไฟล์";
+      MsgBoxFile.className = "validation-msg error";
+      MsgIconFile.innerHTML = "error";
+    }
   }
 }
 
 function CheckInputNote() {
   var Note = document.getElementById("Note");
+  var MsgBoxNote = document.getElementById("MsgBoxNote");
   var MsgNote = document.getElementById("MsgNote");
+  var MsgIconNote = document.getElementById("MsgIconNote");
   if (Note.value != "") {
-    MsgNote.innerHTML = "";
+    MsgBoxNote.style.display = "flex";
+    if (lang == "en") {
+      MsgNote.innerHTML = "Fill in the notes.";
+      MsgBoxNote.className = "validation-msg done";
+      MsgIconNote.innerHTML = "done";
+    } else {
+      MsgNote.innerHTML = "กรอกหมายเหตุเรียบร้อย";
+      MsgBoxNote.className = "validation-msg done";
+      MsgIconNote.innerHTML = "done";
+    }
   } else {
     if (lang == "en") {
       MsgNote.innerHTML = "Please enter note.";
+      MsgBoxNote.className = "validation-msg error";
+      MsgIconNote.innerHTML = "error";
     } else {
       MsgNote.innerHTML = "กรุณากรอกหมายเหตุ";
+      MsgBoxNote.className = "validation-msg error";
+      MsgIconNote.innerHTML = "error";
     }
   }
 }
@@ -262,20 +319,6 @@ function CheckInputPic() {
   }
 }
 
-function CheckIns() {
-  var Ins = document.getElementById("Ins");
-  var MsgIns = document.getElementById("MsgIns");
-  if (Ins.value != "") {
-    MsgIns.innerHTML = "";
-  } else {
-    if (lang == "en") {
-      MsgIns.innerHTML = "Please select name.";
-    } else {
-      MsgIns.innerHTML = "กรุณาเลือกชื่อ";
-    }
-  }
-}
-
 function CheckVerifyCode() {
   var InputVerifyCode = document.getElementById("InputVerifyCode");
   var MsgBoxVerify = document.getElementById("MsgBoxVerify");
@@ -324,9 +367,9 @@ function PreviewPicture() {
   const [file] = Pic.files;
 
   if (file) {
-    PreviewPic.style.display = "flex"
+    PreviewPic.style.display = "flex";
     PreviewPic.src = URL.createObjectURL(file);
   } else {
-    PreviewPic.style.display = "none"
+    PreviewPic.style.display = "none";
   }
 }

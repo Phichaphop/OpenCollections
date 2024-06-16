@@ -7,7 +7,7 @@
     }
 
     function GetProjectTypeByID($id, $conn) {
-        $stmt = $conn->query("SELECT id, type FROM project_type WHERE id = $id");
+        $stmt = $conn->query("SELECT id, type, created_at, updated_at FROM project_type WHERE id = $id");
         $stmt->execute();
         $GetProjectTypeByName = $stmt->fetch(PDO::FETCH_ASSOC);
         return $GetProjectTypeByName;

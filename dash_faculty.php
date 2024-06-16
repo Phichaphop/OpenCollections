@@ -67,7 +67,7 @@
 
                         foreach ($currentPageData as $row) { ?>
 
-                            <div class="menu-group">
+                            <div class="menu-group" onclick="window.location='frm_faculty.php?detail&faculty=<?= $row['id'] ?>'">
                                 <div class="menu-content">
                                     <div class="icon">
                                         <?php include 'components/icon/faculty.php'; ?>
@@ -79,11 +79,8 @@
                                     </div>
                                 </div>
                                 <div class="menu-content">
-                                    <div class="icon" onclick="window.location='frm_faculty.php?delete&faculty=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/delete.php'; ?>
-                                    </div>
-                                    <div class="icon" onclick="window.location='frm_faculty.php?update&faculty=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon">
+                                        <?php include 'components/icon/next.php'; ?>
                                     </div>
                                 </div>
                             </div>

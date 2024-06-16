@@ -11,15 +11,15 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <select id="Major" name="major" class="input" onchange="CheckSelectMajor()">
 
             <?php if (isset($_GET['update']) && isset($_GET['project'])) { ?>
 
-                <option value="<?= $value['id'] ?>"><?= $row['major'] ?> / <?= $value['degree'] ?> in <?= $value['dept'] ?> / <?= $value['faculty'] ?> at <?= $value['ins'] ?></option>
+                <option value="<?= $value['id'] ?>"><?= $value['major'] ?> / <?= $value['degree'] ?> in <?= $value['dept'] ?> / <?= $value['faculty'] ?> at <?= $value['ins'] ?></option>
 
                 <?php foreach ($valueEx as $valueExRow) { ?>
-                    <option value="<?= $valueExRow['id'] ?>"><?= $row['major'] ?> / <?= $valueExRow['degree'] ?> in <?= $valueExRow['dept'] ?> / <?= $valueExRow['faculty'] ?> at <?= $valueExRow['ins'] ?></option>
+                    <option value="<?= $valueExRow['id'] ?>"><?= $valueExRow['major'] ?> / <?= $valueExRow['degree'] ?> in <?= $valueExRow['dept'] ?> / <?= $valueExRow['faculty'] ?> at <?= $valueExRow['ins'] ?></option>
                 <?php }
             } else { ?>
                 <option value=""><?= $please_select_major ?></option>
@@ -30,6 +30,11 @@ if (isset($_GET['insert'])) {
 
         </select>
         <span class="label"><?= $major ?></span>
-        <p id="MsgMajor" class="validation-message"></p>
+        <div id="MsgBoxMajor" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconMajor" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgMajor" class="validation-message"></p>
+        </div>
     </div>
 </div>

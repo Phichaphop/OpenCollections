@@ -1,12 +1,9 @@
 <?php
-    if (isset($_GET['CreFavoriteTable'])) {
-        $table = "favorite";
-        CreFavoriteTable($dbname, $table, $conn);
-    }
-    function CreFavoriteTable($dbname, $table, $conn) {
-        try {
-            $conn->exec("USE $dbname");
-            $sql = "CREATE TABLE $table (
+function CreFavoriteTable($dbname, $table, $conn)
+{
+    try {
+        $conn->exec("USE $dbname");
+        $sql = "CREATE TABLE $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     project INT(11) UNSIGNED NOT NULL,
                     user INT(11) UNSIGNED NOT NULL,
@@ -15,29 +12,25 @@
                     FOREIGN KEY (project) REFERENCES project(id),
                     FOREIGN KEY (user) REFERENCES user(id)
                 )";
-            $conn->exec($sql);
-            $_SESSION['success'] = "Setup favorite success!.";
-            header("location: ../../Setup.php");
-        } catch (PDOException $e) {
-            $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../Setup.php");
-        }
+        $conn->exec($sql);
+        $_SESSION['success'] = "Setup favorite success!.";
+        header("location: ../../Setup.php");
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        header("location: ../../Setup.php");
     }
+}
 
-    if (isset($_GET['DelFavoriteTable'])) {
-        $table = "favorite";
-        DelFavoriteTable($table, $conn);
+function DelFavoriteTable($table, $conn)
+{
+    try {
+        $sql = "DROP TABLE $table";
+        $conn->exec($sql);
+        $_SESSION['success'] = "Delete table success!.";
+        header("location: ../../Setup.php");
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        header("location: ../../Setup.php");
     }
-
-    function DelFavoriteTable($table, $conn) {
-        try {
-            $sql = "DROP TABLE $table";
-            $conn->exec($sql);
-            $_SESSION['success'] = "Delete table success!.";
-            header("location: ../../Setup.php");
-        } catch (PDOException $e) {
-            $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-            header("location: ../../Setup.php");
-        }
-    }
+}
 ?>

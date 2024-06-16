@@ -47,7 +47,7 @@
 
                     foreach ($currentPageData as $row) { ?>
 
-                        <div class="gallery-group" onclick="window.location='frm_project.php?read&project=<?= $row['project_id'] ?>'">
+                        <div class="gallery-group" onclick="window.location='frm_project.php?detail&project=<?= $row['project_id'] ?>'">
 
                             <?php if (!$row['cover']) { ?>
                                 <div class="gallery-cover">

@@ -26,6 +26,7 @@ if (isset($_GET['insert'])) {
 <div class="form-group">
     <div class="form-set">
         <input id="Pic" name="pic" class="input" type="file" minlength="1" required="required" onchange="PreviewPicture(); CheckInputPic();">
+        <span class="label-fix"><?= $pic ?></span>
         <div id="MsgBoxPic" class="validation-msg">
             <div class="MsgContent">
                 <span id="MsgIconPic" class="material-symbols-outlined icon"></span>

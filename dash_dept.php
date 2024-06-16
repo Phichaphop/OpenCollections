@@ -67,7 +67,7 @@
 
                         foreach ($data as $row) { ?>
 
-                            <div class="menu-group">
+                            <div class="menu-group" onclick="window.location='frm_dept.php?detail&dept=<?= $row['id'] ?>'">
                                 <div class="menu-content">
                                     <div class="icon">
                                         <?php include 'components/icon/dept.php'; ?>
@@ -79,11 +79,8 @@
                                     </div>
                                 </div>
                                 <div class="menu-content">
-                                    <div class="icon" onclick="window.location='frm_dept.php?delete&dept=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/delete.php'; ?>
-                                    </div>
-                                    <div class="icon" onclick="window.location='frm_dept.php?update&dept=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon">
+                                        <?php include 'components/icon/next.php'; ?>
                                     </div>
                                 </div>
                             </div>

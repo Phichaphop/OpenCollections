@@ -40,10 +40,10 @@ function CheckUpdateProjectCover() {
   }
 }
 function CheckUpdateProjectFile() {
-  var ProjectFile = document.getElementById("ProjectFile");
+  var File = document.getElementById("File");
   var Update = document.getElementById("Update");
 
-  if (ProjectFile.files.length > 0) {
+  if (File.files.length > 0) {
     Update.disabled = false;
     Update.classList = "btn-pr";
   } else {

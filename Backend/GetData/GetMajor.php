@@ -16,7 +16,7 @@ function GetMajorData($conn)
 
 function GetMajorByID($major, $conn)
 {
-    $stmt = $conn->query("SELECT major.id, major.major, major.degree, dept.dept, faculty.faculty, ins.ins FROM major 
+    $stmt = $conn->query("SELECT major.id, major.major, major.degree, dept.dept, faculty.faculty, ins.ins, major.created_at, major.updated_at FROM major 
         INNER JOIN dept  ON major.dept = dept.id 
         INNER JOIN faculty ON dept.faculty = faculty.id 
         INNER JOIN ins ON faculty.ins = ins.id 

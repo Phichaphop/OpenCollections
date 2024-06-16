@@ -12,7 +12,7 @@
         return GetDeptByID($data['dept'], $conn);
     }
     function GetDeptByID($dept, $conn) {
-        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, ins.ins FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id WHERE dept.id = $dept");
+        $stmt = $conn->query("SELECT dept.id, dept.dept, faculty.faculty, ins.ins, dept.created_at, dept.updated_at FROM dept INNER JOIN faculty ON dept.faculty = faculty.id INNER JOIN ins ON faculty.ins = ins.id WHERE dept.id = $dept");
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row;

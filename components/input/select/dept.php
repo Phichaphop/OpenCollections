@@ -11,8 +11,8 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
-        <select id="Dept" name="dept" class="input" onchange="CheckInputDept()">
+    <div class="form-set">
+        <select id="Dept" name="dept" class="input" onchange="CheckSelectDept()">
 
             <?php if (isset($_GET['update'])) { ?>
                 <option value="<?= $dept_list['id'] ?>"><?= $dept_list['dept'] ?> / <?= $dept_list['faculty'] ?> as <?= $dept_list['ins'] ?></option>
@@ -29,6 +29,12 @@ if (isset($_GET['insert'])) {
         </select>
 
         <span class="label"><?= $dept ?></span>
-        <p id="MsgDept" class="validation-message"></p>
+        
+        <div id="MsgBoxDept" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconDept" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgDept" class="validation-message"></p>
+        </div>
     </div>
 </div>

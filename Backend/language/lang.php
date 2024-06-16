@@ -3,6 +3,7 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $pic = "รูปภาพ";
         $print = "พิมพ์";
         $index = "หน้าหลัก";
         $policy = "ข้อตกลงการใช้งาน";
@@ -109,7 +110,7 @@
         $faculty_list = "รายชื่อคณะ";
         $faculty_menu_detail = "จัดการรายการคณะทั้งหมด";
         $favorite = "รายการโปรด";
-        $file = "ไฟล์โครงงาน";
+        $file = "ไฟล์";
         $forget_your_password = "ลืมรหัสผ่าน?";
         $home = "หน้าหลัก";
         $insert = "สร้าง";
@@ -225,6 +226,7 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $pic = "Pictute";
         $print = "Print";
         $index = "Home";
         $policy = "Policy";

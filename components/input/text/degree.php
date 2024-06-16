@@ -10,9 +10,14 @@
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <input id="Degree" name="degree" class="input" type="text" minlength="1" maxlength="50" value="<?= $degree_text ?>" required="required" onkeyup="CheckInputDegree()">
         <span class="label"><?= $degree ?></span>
-        <p id="MsgDegree" class="validation-message"></p>
+        <div id="MsgBoxDegree" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconDegree" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgDegree" class="validation-message"></p>
+        </div>
     </div>
 </div>

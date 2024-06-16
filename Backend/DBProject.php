@@ -157,7 +157,7 @@ function UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath,
         $_SESSION['error'] = "Can't upload file (only png, jpg, jpeg).";
     }
 
-    echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
+    echo "<script>window.location.href='../frm_project.php?detail&project=$id';</script>";
     exit;
 }
 
@@ -190,10 +190,10 @@ function UpdateProjectDetail($id, $title, $author, $advisor, $approver, $project
         $stmt->execute();
         unset($_SESSION['project_id']);
         $_SESSION['success'] = "Project updated complete.";
-        echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
+        echo "<script>window.location.href='../frm_project.php?detail&project=$id';</script>";
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
-        echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
+        echo "<script>window.location.href='../frm_project.php?detail&project=$id';</script>";
     }
 }
 
@@ -237,7 +237,7 @@ function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_file
         $_SESSION['error'] = "Can't upload file (only pdf).";
     }
 
-    echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
+    echo "<script>window.location.href='../frm_project.php?detail&project=$id';</script>";
     exit;
 }
 

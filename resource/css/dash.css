@@ -89,6 +89,22 @@
   color: var(--text-l1--);
 }
 
+.icon-body .material-symbols-outlined {
+  color: var(--text-l1--);
+}
+.icon-main .material-symbols-outlined {
+  color: var(--main-l1--);
+}
+.icon-orange .material-symbols-outlined {
+  color: var(--orange-l1--);
+}
+.icon-green .material-symbols-outlined {
+  color: var(--green-l1--);
+}
+.icon-red .material-symbols-outlined {
+  color: var(--red-l1--);
+}
+
 @media only screen and (max-width: 1400px) {
   .dash-title {
     text-align: left;

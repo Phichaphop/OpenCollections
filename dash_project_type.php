@@ -80,8 +80,8 @@
                                     <div class="icon" onclick="window.location='frm_project.php?delete&project_type=<?= $row['id'] ?>'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
-                                    <div class="icon" onclick="window.location='frm_project.php?update&project_type=<?= $row['id'] ?>'">
-                                        <?php include 'components/icon/edit.php'; ?>
+                                    <div class="icon" onclick="window.location='frm_project.php?detail&project_type=<?= $row['id'] ?>'">
+                                        <?php include 'components/icon/next.php'; ?>
                                     </div>
                                 </div>
                             </div>

@@ -47,24 +47,24 @@
                     $title = $update_institute;
                     $action = "backend/DBMajor.php";
                     $btn_id = "Update";
-                    $btn_text = $delete;
+                    $btn_text = $update;
                     $submit = "update_detail_ins";
                 }
                 if (isset($_GET['delete']) && isset($_GET['ins'])) {
                     $title = $delete_institute;
                     $action = "backend/DBMajor.php";
                     $btn_id = "Delete";
-                    $btn_text = "";
+                    $btn_text = $delete;
                     $submit = "delete_ins";
                     $_SESSION['ins_id'] = $_GET['ins'];
                 }
-                if (isset($_GET['read']) && isset($_GET['ins'])) {
+                if (isset($_GET['detail']) && isset($_GET['ins'])) {
                     $data = GetInsByID($_GET['ins'], $conn);
                     $ins_path = "ins_logo";
                 }
                 ?>
 
-                <?php if (isset($_GET['read'])) { ?>
+                <?php if (isset($_GET['detail']) && !isset($_GET['update'])) { ?>
 
                     <div class="frm-read">
                         <div class="frm-read-content">

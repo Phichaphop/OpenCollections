@@ -11,7 +11,7 @@ if (isset($_GET['insert'])) {
 ?>
 
 <div class="form-group">
-    <div class="form-input">
+    <div class="form-set">
         <select id="Faculty" name="faculty" class="input" onchange="CheckSelectFaculty()">
 
             <?php if (isset($_GET['update'])) { ?>
@@ -29,6 +29,12 @@ if (isset($_GET['insert'])) {
         </select>
 
         <span class="label"><?= $faculty_label ?></span>
-        <p id="MsgFaculty" class="validation-message"></p>
+        
+        <div id="MsgBoxFaculty" class="validation-msg">
+            <div class="MsgContent">
+                <span id="MsgIconFaculty" class="material-symbols-outlined icon"></span>
+            </div>
+            <p id="MsgFaculty" class="validation-message"></p>
+        </div>
     </div>
 </div>
