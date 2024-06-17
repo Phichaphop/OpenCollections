@@ -100,11 +100,13 @@
             <?php include 'components/icon/theme.php' ?>
         </div>
 
-        <?php if (isset($_SESSION['login'])) { ?>
+        <?php if (isset($_SESSION['login'])) { 
+            $UserPic = UserPic($_SESSION['login'], $conn);
+        ?>
 
-            <?php if (UserPic($_SESSION['login']) != "") { ?>
+            <?php if ($UserPic != "") { ?>
                 <div class="icon" onclick="window.location='profile.php'">
-                    <img id="headerProfile" class="profile" src="resource/img/profile/<?= UserPic($_SESSION['login']); ?>">
+                    <img id="headerProfile" class="profile" src="resource/img/profile/<?= $UserPic ?>">
                 </div>
             <?php } else { ?>
                 <div class="icon" onclick="window.location='profile.php'">

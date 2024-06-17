@@ -15,7 +15,7 @@ function CreDB($dbname, $servername, $username, $password)
     }
 }
 
-function DelDatabase($dbname, $conn)
+function DeleteDB($dbname, $conn)
 {
     try {
         $sql = "DROP DATABASE $dbname";
@@ -25,6 +25,37 @@ function DelDatabase($dbname, $conn)
     } catch (PDOException $e) {
         $_SESSION['error'] = $sql . "\n" . $e->getMessage();
         header("location: ../../Setup.php");
+    }
+}
+
+function CheckTable($table, $conn)
+{
+    try {
+        $stmt = $conn->prepare("SHOW TABLES LIKE :table");
+        $stmt->bindParam(':table', $table, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        } else {
+            return "error";
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $e->getMessage();
+        return "error";
+    }
+}
+
+function DeleteTable($table, $conn)
+{
+    try {
+        $sql = "DROP TABLE IF EXISTS $table";
+        $conn->exec($sql);
+        $_SESSION['done'] = "Delete table done!";
+    } catch (PDOException $e) {
+        $_SESSION['error'] = $e->getMessage();
+    } finally {
+        header("location: ../../setup.php");
     }
 }
 ?>

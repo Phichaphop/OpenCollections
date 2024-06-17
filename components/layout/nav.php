@@ -79,9 +79,11 @@ if ($page == "index") {
 
         <div class="<?= $profile_content ?>" onclick="window.location='profile.php'">
 
-            <?php if (UserPic($_SESSION['login']) != "") { ?>
+            <?php $UserPic = UserPic($_SESSION['login'], $conn); ?>
+
+            <?php if ($UserPic != "") { ?>
                 <div class="nav-profile-icon">
-                    <img class="nav-profile" src="resource/img/profile/<?= UserPic($_SESSION['login']); ?>" onclick="window.location='profile.php'">
+                    <img class="nav-profile" src="resource/img/profile/<?= $UserPic ?>" onclick="window.location='profile.php'">
                 </div>
             <?php } else { ?>
                 <div class="<?= $profile_icon ?>">

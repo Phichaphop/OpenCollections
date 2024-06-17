@@ -17,11 +17,11 @@ function CreMajorTable($dbname, $conn)
         SetupMajor($conn, "เทคโนโลยีธุรกิจดิจิทัล", "เทคโนโลยีบัณฑิต", 1);
         SetupMajor($conn, "การบัญชี", "ประกาศนียบัตรวิชาชีพการขั้นสูง", 2);
         $_SESSION['success'] = "Setup success!.";
-        /*header("location: ../../Setup.php");*/
+        header("location: ../../Setup.php");
         exit();
     } catch (PDOException $e) {
         $_SESSION['error'] =  $sql . "\n" . $e->getMessage();
-        /*header("location: ../../Setup.php");*/
+        header("location: ../../Setup.php");
         exit();
     }
 }

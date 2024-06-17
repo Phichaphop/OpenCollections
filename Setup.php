@@ -32,7 +32,7 @@
                         </div>
                         <div class="menu-content">
                             <?php if ($conn != "error") { ?>
-                                <div class="icon" onclick="window.location='backend/Database/config.php?DelDatabase'">
+                                <div class="icon" onclick="window.location='backend/Database/config.php?DeleteDB'">
                                     <?php include 'components/icon/delete.php'; ?>
                                 </div>
                             <?php } ?>

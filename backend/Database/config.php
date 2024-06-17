@@ -1,6 +1,6 @@
 <?php
-require_once "DBConnect.php";
-require_once "DB.php";
+require_once "Connect.php";
+require_once "DBM.php";
 require_once "UserRole.php";
 require_once "User.php";
 require_once "Ins.php";
@@ -17,7 +17,7 @@ require_once "Approve.php";
 require_once "Counter.php";
 require_once "Manual.php";
 
-$conn = DBConnect();
+$conn = DBConnect($servername, $username, $password, $dbname);
 
 if ($conn != "error") {
     $check_user_role = CheckTable("user_role", $conn);
@@ -34,24 +34,6 @@ if ($conn != "error") {
     $check_request = CheckTable("request", $conn);
     $check_counter = CheckTable("counter", $conn);
     $check_manual = CheckTable("manual", $conn);
-}
-
-function CheckTable($table, $conn)
-{
-    try {
-        $stmt = $conn->prepare("SHOW TABLES LIKE :table");
-        $stmt->bindParam(':table', $table, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($result) {
-            return $result;
-        } else {
-            return "error";
-        }
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        return "error";
-    }
 }
 
 if (isset($_GET['CreDB'])) {
@@ -103,64 +85,62 @@ if (isset($_GET['CreManualTable'])) {
     CreManualTable($dbname, $conn);
 }
 
-
-if (isset($_GET['DelDatabase'])) {
-    DelDatabase($dbname, $conn);
+if (isset($_GET['DeleteDB'])) {
+    DeleteDB($dbname, $conn);
 }
 if (isset($_GET['DelUserRoleTable'])) {
     $table = "user_role";
-    DelUserRoleTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelUserTable'])) {
     $table = "user";
-    DelUserTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelInsTable'])) {
     $table = "ins";
-    DelInsTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelFacultyTable'])) {
     $table = "faculty";
-    DelFacultyTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelDeptTable'])) {
     $table = "dept";
-    DelDeptTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelMajorTable'])) {
     $table = "major";
-    DelMajorTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelProjectTypeTable'])) {
     $table = "project_type";
-    DelProjectTypeTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelProjectStatusTable'])) {
     $table = "project_status";
-    DelProjectStatusTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelProjectTable'])) {
     $table = "project";
-    DelProjectTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelFavoriteTable'])) {
     $table = "favorite";
-    DelFavoriteTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelRequestStatusTable'])) {
     $table = "request_status";
-    DelRequestStatusTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelRequestTable'])) {
     $table = "request";
-    DelRequestTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelCounterTable'])) {
     $table = "counter";
-    DelCounterTable($table, $conn);
+    DeleteTable($table, $conn);
 }
 if (isset($_GET['DelManualTable'])) {
     $table = "manual";
-    DelManualTable($table, $conn);
+    DeleteTable($table, $conn);
 }
-?>
