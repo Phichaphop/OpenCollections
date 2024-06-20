@@ -14,7 +14,7 @@
 
     function InsertIns($name, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT ins FROM ins WHERE ins = :ins");
+            $stmt = $conn->prepare("SELECT ins FROM opc_ins WHERE ins = :ins");
             $stmt->bindParam(":ins", $name);
             $stmt->execute();
             if ($stmt->rowCount() > 0) {
@@ -24,7 +24,7 @@
                 if (in_array($fileActExt, $allow)) {
                     if ($pic['size'] > 0 && $pic['error'] == 0) {
                         if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                                $stmt = $conn->prepare("INSERT INTO ins (id, ins, pic)
+                                $stmt = $conn->prepare("INSERT INTO opc_ins (id, ins, pic)
                                                         VALUES(NULL, :ins, :pic)");
                                 $stmt->bindParam(":ins", $name);
                                 $stmt->bindParam("pic", $fileNew);
@@ -64,7 +64,7 @@
 
     function CheckDelPicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT pic FROM ins WHERE id = :id");
+            $stmt = $conn->prepare("SELECT pic FROM opc_ins WHERE id = :id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -91,7 +91,7 @@
             if (in_array($fileActExt, $allow)) {
                 if ($pic['size'] > 0 && $pic['error'] == 0) {
                     if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                            $stmt = $conn->prepare("UPDATE ins SET pic=:pic WHERE id=:id");
+                            $stmt = $conn->prepare("UPDATE opc_ins SET pic=:pic WHERE id=:id");
                             $stmt->bindParam("id", $id);
                             $stmt->bindParam("pic", $fileNew);
                             $stmt->execute();
@@ -124,7 +124,7 @@
 
     function UpdateDetailIns($id, $name, $conn) {
         try {
-            $stmt = $conn->prepare("UPDATE ins SET ins=:ins WHERE id=:id");
+            $stmt = $conn->prepare("UPDATE opc_ins SET ins=:ins WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->bindParam(":ins", $name);
             $stmt->execute();
@@ -145,7 +145,7 @@
     
     function DelPicIns($id, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT pic FROM ins WHERE id = :id");
+            $stmt = $conn->prepare("SELECT pic FROM opc_ins WHERE id = :id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -169,7 +169,7 @@
 
     function DelIns($id, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM ins WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_ins WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             $_SESSION['success'] = "Delete ins successfully.";
@@ -188,7 +188,7 @@
 
     function InsertFaculty($name, $ins, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT faculty FROM faculty WHERE faculty = :faculty AND ins = :ins");
+            $stmt = $conn->prepare("SELECT faculty FROM opc_faculty WHERE faculty = :faculty AND ins = :ins");
             $stmt->bindParam(":faculty", $name);
             $stmt->bindParam(":ins", $ins);
             $stmt->execute();
@@ -196,7 +196,7 @@
                 $_SESSION['error'] = "This Faculty is already in the system.";
                 echo "<script>window.location.href='../dash_faculty.php';</script>";
             } else {
-                $stmt = $conn->prepare("INSERT INTO faculty (id, faculty, ins)
+                $stmt = $conn->prepare("INSERT INTO opc_faculty (id, faculty, ins)
                                         VALUES(NULL, :faculty, :ins)");
                 $stmt->bindParam(":faculty", $name);
                 $stmt->bindParam(":ins", $ins);
@@ -219,7 +219,7 @@
 
     function UpdateFaculty($id, $name, $ins, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT faculty FROM faculty WHERE faculty = :faculty AND ins = :ins");
+            $stmt = $conn->prepare("SELECT faculty FROM opc_faculty WHERE faculty = :faculty AND ins = :ins");
             $stmt->bindParam(":faculty", $name);
             $stmt->bindParam(":ins", $ins);
             $stmt->execute();
@@ -227,7 +227,7 @@
                 $_SESSION['error'] = "This Faculty is already in the system.";
                 echo "<script>window.location.href='../dash_faculty.php';</script>";
             } else {
-                $stmt = $conn->prepare("UPDATE faculty SET faculty=:faculty, ins=:ins WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_faculty SET faculty=:faculty, ins=:ins WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->bindParam(":faculty", $name);
                 $stmt->bindParam(":ins", $ins);
@@ -249,7 +249,7 @@
     
     function DeleteFaculty($faculty_id, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM faculty WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_faculty WHERE id=:id");
             $stmt->bindParam(":id", $faculty_id);
             $stmt->execute();
             unset($_SESSION['faculty_id']);
@@ -269,7 +269,7 @@
 
     function InsertDept($name, $faculty, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT dept FROM dept WHERE dept = :dept AND faculty = :faculty");
+            $stmt = $conn->prepare("SELECT dept FROM opc_dept WHERE dept = :dept AND faculty = :faculty");
             $stmt->bindParam(":dept", $name);
             $stmt->bindParam(":faculty", $faculty);
             $stmt->execute();
@@ -277,7 +277,7 @@
                 $_SESSION['error'] = "This Department is already in the system.";
                 echo "<script>window.location.href='../dash_dept.php';</script>";
             } else {
-                $stmt = $conn->prepare("INSERT INTO dept (id, dept, faculty)
+                $stmt = $conn->prepare("INSERT INTO opc_dept (id, dept, faculty)
                                         VALUES(NULL, :dept, :faculty)");
                 $stmt->bindParam(":dept", $name);
                 $stmt->bindParam(":faculty", $faculty);
@@ -300,7 +300,7 @@
 
     function UpdateDept($id, $name, $faculty, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT dept FROM dept WHERE dept = :dept AND faculty = :faculty");
+            $stmt = $conn->prepare("SELECT dept FROM opc_dept WHERE dept = :dept AND faculty = :faculty");
             $stmt->bindParam(":dept", $name);
             $stmt->bindParam(":faculty", $faculty);
             $stmt->execute();
@@ -308,7 +308,7 @@
                 $_SESSION['error'] = "This Department is already in the system.";
                 echo "<script>window.location.href='../dash_dept.php';</script>";
             } else {
-                $stmt = $conn->prepare("UPDATE dept SET dept=:dept, faculty=:faculty WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_dept SET dept=:dept, faculty=:faculty WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->bindParam(":dept", $name);
                 $stmt->bindParam(":faculty", $faculty);
@@ -330,7 +330,7 @@
     
     function DeleteDept($dept_id, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM dept WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_dept WHERE id=:id");
             $stmt->bindParam(":id", $dept_id);
             $stmt->execute();
             unset($_SESSION['dept_id']);
@@ -351,7 +351,7 @@
 
     function InsertMajor($name, $degree, $dept, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT major FROM major WHERE major = :major AND degree = :degree AND dept = :dept");
+            $stmt = $conn->prepare("SELECT major FROM opc_major WHERE major = :major AND degree = :degree AND dept = :dept");
             $stmt->bindParam(":major", $name);
             $stmt->bindParam(":degree", $degree);
             $stmt->bindParam(":dept", $dept);
@@ -360,7 +360,7 @@
                 $_SESSION['error'] = "This Major is already in the system.";
                 echo "<script>window.location.href='../dash_major.php';</script>";
             } else {
-                $stmt = $conn->prepare("INSERT INTO major (id, major, degree, dept)
+                $stmt = $conn->prepare("INSERT INTO opc_major (id, major, degree, dept)
                                         VALUES(NULL, :major, :degree ,:dept)");
                 $stmt->bindParam(":major", $name);
                 $stmt->bindParam(":degree", $degree);
@@ -385,7 +385,7 @@
 
     function UpdateMajor($id, $name, $degree, $dept, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT major FROM major WHERE major = :major AND degree = :degree AND dept = :dept");
+            $stmt = $conn->prepare("SELECT major FROM opc_major WHERE major = :major AND degree = :degree AND dept = :dept");
             $stmt->bindParam(":major", $name);
             $stmt->bindParam(":degree", $degree);
             $stmt->bindParam(":dept", $dept);
@@ -394,7 +394,7 @@
                 $_SESSION['error'] = "This Major is already in the system.";
                 echo "<script>window.location.href='../dash_major.php';</script>";
             } else {
-            $stmt = $conn->prepare("UPDATE major SET major=:major, degree=:degree, dept=:dept WHERE id=:id");
+            $stmt = $conn->prepare("UPDATE opc_major SET major=:major, degree=:degree, dept=:dept WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->bindParam(":major", $name);
             $stmt->bindParam(":degree", $degree);
@@ -417,7 +417,7 @@
     
     function DeleteMajor($major_id, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM major WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_major WHERE id=:id");
             $stmt->bindParam(":id", $major_id);
             $stmt->execute();
             unset($_SESSION['major_id']);

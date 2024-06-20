@@ -9,7 +9,7 @@
     
     function VerifyPassUpdateRole($MyID, $user_id, $Pass, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT password FROM user WHERE id = :id");
+            $stmt = $conn->prepare("SELECT password FROM opc_user WHERE id = :id");
             $stmt->bindParam(":id", $MyID);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@
     
     function VerifyPassDeleteUser($MyID, $user_id, $Pass, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT password FROM user WHERE id = :id");
+            $stmt = $conn->prepare("SELECT password FROM opc_user WHERE id = :id");
             $stmt->bindParam(":id", $MyID);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,7 +57,7 @@
     
     function VerifyPassDeleteProject($MyID, $id, $Pass, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT password FROM user WHERE id = :id");
+            $stmt = $conn->prepare("SELECT password FROM opc_user WHERE id = :id");
             $stmt->bindParam(":id", $MyID);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -8,7 +8,7 @@
     
         function CheckFavoriteData($project, $user, $conn) {
             try {
-                $stmt = $conn->prepare("SELECT * FROM favorite WHERE project = :project AND user = :user");
+                $stmt = $conn->prepare("SELECT * FROM opc_favorite WHERE project = :project AND user = :user");
                 $stmt->bindParam(":project", $project);
                 $stmt->bindParam(":user", $user);
                 $stmt->execute();
@@ -26,7 +26,7 @@
 
         function AddFavorite($project, $user, $conn) {
             try {
-                $stmt = $conn->prepare("INSERT INTO favorite (project, user) VALUES (:project, :user)");
+                $stmt = $conn->prepare("INSERT INTO opc_favorite (project, user) VALUES (:project, :user)");
                 $stmt->bindParam(":project", $project);
                 $stmt->bindParam(":user", $user);
                 $stmt->execute();
@@ -40,7 +40,7 @@
 
         function UnFavorite($id, $conn) {
             try {
-                $stmt = $conn->prepare("DELETE FROM favorite WHERE id=:id");
+                $stmt = $conn->prepare("DELETE FROM opc_favorite WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
                 $_SESSION['warning'] = "Unfavorite complete.";

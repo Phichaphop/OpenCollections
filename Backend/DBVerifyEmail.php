@@ -29,7 +29,7 @@ if (isset($_POST['update_email'])) {
 function CheckEmail($header, $email, $conn, $email_not_found_in_the_system, $this_email_address_is_already)
 {
     try {
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $stmt = $conn->prepare("SELECT email FROM opc_user WHERE email = :email");
         $stmt->bindParam(":email", $email, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchColumn();

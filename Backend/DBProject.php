@@ -9,14 +9,14 @@ if (isset($_POST['insert_project_type'])) {
 function InsertProjectType($name, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT type FROM project_type WHERE type = :type");
+        $stmt = $conn->prepare("SELECT type FROM opc_project_type WHERE type = :type");
         $stmt->bindParam(":type", $name);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $_SESSION['error'] = "This Project type is already in the system.";
             echo "<script>window.location.href='../dash_project_type.php';</script>";
         } else {
-            $stmt = $conn->prepare("INSERT INTO project_type (type)
+            $stmt = $conn->prepare("INSERT INTO opc_project_type (type)
                                         VALUES(:type)");
             $stmt->bindParam(":type", $name);
             $stmt->execute();
@@ -38,7 +38,7 @@ if (isset($_POST['update_project_type'])) {
 function UpdateProjectType($id, $name, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE project_type SET type=:type WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_project_type SET type=:type WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":type", $name);
         $stmt->execute();
@@ -59,7 +59,7 @@ if (isset($_POST['delete_project_type'])) {
 function DeleteProjectType($id, $conn)
 {
     try {
-        $stmt = $conn->prepare("DELETE FROM project_type WHERE id=:id");
+        $stmt = $conn->prepare("DELETE FROM opc_project_type WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         unset($_SESSION['project_type_id']);
@@ -88,7 +88,7 @@ if (isset($_POST['insert_project'])) {
 function InsertProject($title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $status, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT title FROM project WHERE title = :title");
+        $stmt = $conn->prepare("SELECT title FROM opc_project WHERE title = :title");
         $stmt->bindParam(":title", $title);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -96,7 +96,7 @@ function InsertProject($title, $author, $advisor, $approver, $project_type, $maj
             echo "<script>window.location.href='../dash_project.php';</script>";
         } else {
 
-            $stmt = $conn->prepare("INSERT INTO project (id, title, author, advisor, type, major, abstract, date, approver, status)
+            $stmt = $conn->prepare("INSERT INTO opc_project (id, title, author, advisor, type, major, abstract, date, approver, status)
                                         VALUES(NULL, :title, :author, :advisor, :type, :major, :abstract, :date, :approver, :status)");
             $stmt->bindParam(":title", $title);
             $stmt->bindParam(":author", $author);
@@ -131,7 +131,7 @@ if (isset($_POST['update_project_cover'])) {
 function UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn)
 {
     if (in_array($fileActExt, $allow) && $pic['size'] > 0 && $pic['error'] == 0) {
-        $stmt = $conn->prepare("SELECT pic FROM project WHERE id = :id");
+        $stmt = $conn->prepare("SELECT pic FROM opc_project WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -142,7 +142,7 @@ function UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath,
 
         if (move_uploaded_file($pic['tmp_name'], $filePath)) {
             try {
-                $stmt = $conn->prepare("UPDATE project SET pic=:pic WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_project SET pic=:pic WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->bindParam(":pic", $fileNew);
                 $stmt->execute();
@@ -177,7 +177,7 @@ if (isset($_POST['update_project'])) {
 function UpdateProjectDetail($id, $title, $author, $advisor, $approver, $project_type, $major, $abstract, $date, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE project SET title=:title, author=:author, advisor=:advisor, approver=:approver, type=:type, major=:major, abstract=:abstract, date=:date WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_project SET title=:title, author=:author, advisor=:advisor, approver=:approver, type=:type, major=:major, abstract=:abstract, date=:date WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":title", $title);
         $stmt->bindParam(":author", $author);
@@ -211,7 +211,7 @@ if (isset($_POST['update_project_file'])) {
 function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn)
 {
     if (in_array($file_fileActExt, $file_allow) && $file['size'] > 0 && $file['error'] == 0) {
-        $stmt = $conn->prepare("SELECT file FROM project WHERE id = :id");
+        $stmt = $conn->prepare("SELECT file FROM opc_project WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -222,7 +222,7 @@ function UpdateProjectFile($id, $file, $file_allow, $file_fileActExt, $file_file
 
         if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
             try {
-                $stmt = $conn->prepare("UPDATE project SET file=:file WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_project SET file=:file WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->bindParam(":file", $file_fileNew);
                 $stmt->execute();
@@ -249,7 +249,7 @@ if (isset($_GET['DeleteProject'])) {
 function DeleteProject($id, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT file FROM project WHERE id = :id");
+        $stmt = $conn->prepare("SELECT file FROM opc_project WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -257,7 +257,7 @@ function DeleteProject($id, $conn)
         file_exists($old_file_path);
         unlink($old_file_path);
         try {
-            $stmt = $conn->prepare("DELETE FROM project WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_project WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             unset($_SESSION['project_id']);

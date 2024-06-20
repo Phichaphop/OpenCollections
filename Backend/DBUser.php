@@ -9,7 +9,7 @@ if (isset($_POST['update_username'])) {
 function UpdateUsername($id, $username, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET username=:username WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET username=:username WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":username", $username);
         $stmt->execute();
@@ -31,7 +31,7 @@ if (isset($_POST['update_tel'])) {
 function UpdateTel($id, $tel, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET tel=:tel WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET tel=:tel WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":tel", $tel);
         $stmt->execute();
@@ -52,7 +52,7 @@ if (isset($_POST['update_ins'])) {
 function UpdateIns($id, $ins, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET ins=:ins WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET ins=:ins WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":ins", $ins);
         $stmt->execute();
@@ -75,13 +75,13 @@ if (isset($_POST['update_pass'])) {
 function UpdatePass($id, $Pass, $NewPass, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT password FROM user WHERE id = :id");
+        $stmt = $conn->prepare("SELECT password FROM opc_user WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         if (password_verify($Pass, $data['password'])) {
             $passwordHash = password_hash($NewPass, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("UPDATE user SET password=:pass WHERE id=:id");
+            $stmt = $conn->prepare("UPDATE opc_user SET password=:pass WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->bindParam(":pass", $passwordHash);
             $stmt->execute();
@@ -108,7 +108,7 @@ function UpdatePassAdmin($id, $NewPass, $conn)
 {
     try {
         $passwordHash = password_hash($NewPass, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("UPDATE user SET password=:pass WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET password=:pass WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":pass", $passwordHash);
         $stmt->execute();
@@ -130,7 +130,7 @@ if (isset($_GET['update_role'])) {
 function UpdateRole($MyID, $id, $role, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET role=:role WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET role=:role WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":role", $role);
         $stmt->execute();
@@ -158,7 +158,7 @@ if (isset($_POST['update_role_from_admin'])) {
 function UpdateRoleFormAdmin($MyID, $id, $role, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET role=:role WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET role=:role WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":role", $role);
         $stmt->execute();
@@ -189,7 +189,7 @@ if (isset($_POST['update_email'])) {
 function UpdateEmail($id, $email, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE user SET email=:email WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_user SET email=:email WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
@@ -211,7 +211,7 @@ if (isset($_POST['update_user_pic'])) {
     $filePath = '../resource/img/profile/' . $fileNew;
 
     try {
-        $stmt = $conn->prepare("SELECT pic FROM user WHERE id = :id");
+        $stmt = $conn->prepare("SELECT pic FROM opc_user WHERE id = :id");
         $stmt->execute([":id" => $id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -221,7 +221,7 @@ if (isset($_POST['update_user_pic'])) {
 
         if (in_array($fileActExt, $allow) && $pic['size'] > 0 && $pic['error'] == 0) {
             if (move_uploaded_file($pic['tmp_name'], $filePath)) {
-                $stmt = $conn->prepare("UPDATE user SET pic=:pic WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_user SET pic=:pic WHERE id=:id");
                 $stmt->execute([":id" => $id, ":pic" => $fileNew]);
                 $_SESSION['success'] = "Profile picture updated successfully.";
             } else {
@@ -252,7 +252,7 @@ if (isset($_POST['insert_user'])) {
 function InsertUser($username, $pass, $email, $tel, $role, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $stmt = $conn->prepare("SELECT email FROM opc_user WHERE email = :email");
         $stmt->bindParam(":email", $email);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -285,12 +285,12 @@ if (isset($_GET['delete_user'])) {
 function DeleteFavorites($MyID, $id, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT id FROM favorite WHERE user=:user");
+        $stmt = $conn->prepare("SELECT id FROM opc_ favorite WHERE user=:user");
         $stmt->bindParam(":user", $id, PDO::PARAM_INT);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            $stmt = $conn->prepare("DELETE FROM favorite WHERE user=:user");
+            $stmt = $conn->prepare("DELETE FROM opc_ favorite WHERE user=:user");
             $stmt->bindParam(":user", $id, PDO::PARAM_INT);
             $stmt->execute();
             DeleteUser($MyID, $id, $conn);
@@ -306,7 +306,7 @@ function DeleteFavorites($MyID, $id, $conn)
 function DeleteUser($MyID, $id, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT pic FROM user WHERE id = :id");
+        $stmt = $conn->prepare("SELECT pic FROM opc_user WHERE id = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -321,7 +321,7 @@ function DeleteUser($MyID, $id, $conn)
     }
 
     try {
-        $stmt = $conn->prepare("DELETE FROM user WHERE id=:id");
+        $stmt = $conn->prepare("DELETE FROM opc_user WHERE id=:id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
 

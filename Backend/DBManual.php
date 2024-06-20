@@ -14,7 +14,7 @@ if (isset($_POST['insert_manual'])) {
 function InsertManual($title, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT title FROM manual WHERE title = :title");
+        $stmt = $conn->prepare("SELECT title FROM opc_manual WHERE title = :title");
         $stmt->bindParam(":title", $title);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -23,7 +23,7 @@ function InsertManual($title, $file, $file_allow, $file_fileActExt, $file_fileNe
         } else {
             if (in_array($file_fileActExt, $file_allow) && $file['size'] > 0 && $file['error'] == 0) {
                 if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
-                    $stmt = $conn->prepare("INSERT INTO manual (id, title, file)
+                    $stmt = $conn->prepare("INSERT INTO opc_manual (id, title, file)
                     VALUES(NULL, :title, :file)");
                     $stmt->bindParam(":title", $title);
                     $stmt->bindParam(":file", $file_fileNew);
@@ -54,7 +54,7 @@ if (isset($_POST['update_detail_manual'])) {
 function UpdateManualDetail($id, $title, $conn)
 {
     try {
-        $stmt = $conn->prepare("UPDATE manual SET title=:title WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_manual SET title=:title WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":title", $title);
         $stmt->execute();
@@ -81,7 +81,7 @@ if (isset($_POST['update_file_manual'])) {
 function UpdateManualFile($id, $file, $file_allow, $file_fileActExt, $file_fileNew, $file_filePath, $conn)
 {
     if (in_array($file_fileActExt, $file_allow) && $file['size'] > 0 && $file['error'] == 0) {
-        $stmt = $conn->prepare("SELECT file FROM manual WHERE id = :id");
+        $stmt = $conn->prepare("SELECT file FROM opc_manual WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -92,7 +92,7 @@ function UpdateManualFile($id, $file, $file_allow, $file_fileActExt, $file_fileN
 
         if (move_uploaded_file($file['tmp_name'], $file_filePath)) {
             try {
-                $stmt = $conn->prepare("UPDATE manual SET file=:file WHERE id=:id");
+                $stmt = $conn->prepare("UPDATE opc_manual SET file=:file WHERE id=:id");
                 $stmt->bindParam(":id", $id);
                 $stmt->bindParam(":file", $file_fileNew);
                 $stmt->execute();
@@ -119,7 +119,7 @@ if (isset($_POST['delete_manual'])) {
 function DeleteManual($id, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT file FROM manual WHERE id = :id");
+        $stmt = $conn->prepare("SELECT file FROM opc_manual WHERE id = :id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -127,7 +127,7 @@ function DeleteManual($id, $conn)
         file_exists($old_file_path);
         unlink($old_file_path);
         try {
-            $stmt = $conn->prepare("DELETE FROM manual WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_manual WHERE id=:id");
             $stmt->bindParam(":id", $id);
             $stmt->execute();
             unset($_SESSION['manual_id']);

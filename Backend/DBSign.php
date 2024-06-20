@@ -9,11 +9,25 @@ if (isset($_POST['signup'])) {
     $role = 4;
     SignUp($username, $pass, $email, $tel, $role, $conn);
 }
+if (isset($_POST['signin'])) {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+    SignIn($username, $pass, $conn);
+}
+if (isset($_POST['reset_pass'])) {
+    $email = $_SESSION['email'];
+    $NewPass = $_POST['pass'];
+    ResetPass($email, $NewPass, $conn);
+}
+if (isset($_GET['signout'])) {
+    session_destroy();
+    echo "<script>window.location.href='../index.php';</script>";
+}
 
 function SignUp($username, $pass, $email, $tel, $role, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $stmt = $conn->prepare("SELECT email FROM opc_user WHERE email = :email");
         $stmt->bindParam(":email", $email);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -21,7 +35,7 @@ function SignUp($username, $pass, $email, $tel, $role, $conn)
             echo "<script>window.location.href='../sign.php?signin';</script>";
         } else if (!isset($_SESSION['error'])) {
             $passHash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT INTO user (id, username, password, email, tel, role)
+            $stmt = $conn->prepare("INSERT INTO opc_user (id, username, password, email, tel, role)
                                     VALUES(NULL, :username, :password, :email, :tel, :role)");
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $passHash);
@@ -46,17 +60,10 @@ function SignUp($username, $pass, $email, $tel, $role, $conn)
         echo "<script>window.location.href='../sign.php?signup';</script>";
     }
 }
-
-if (isset($_POST['signin'])) {
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
-    SignIn($username, $pass, $conn);
-}
-
 function SignIn($username, $pass, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT id, username, email, role, password FROM user WHERE username = :username or email = :username");
+        $stmt = $conn->prepare("SELECT id, username, email, role, password FROM opc_user WHERE username = :username or email = :username");
         $stmt->bindParam(":username", $username);
         $stmt->execute();
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -98,17 +105,10 @@ function SignIn($username, $pass, $conn)
         echo "<script>window.location.href='../sign.php?signin';</script>";
     }
 }
-
-if (isset($_POST['reset_pass'])) {
-    $email = $_SESSION['email'];
-    $NewPass = $_POST['pass'];
-    ResetPass($email, $NewPass, $conn);
-}
-
 function ResetPass($email, $NewPass, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT email FROM user WHERE email = :email");
+        $stmt = $conn->prepare("SELECT email FROM opc_user WHERE email = :email");
         $stmt->bindParam(":email", $email);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
@@ -129,9 +129,3 @@ function ResetPass($email, $NewPass, $conn)
         echo "<script>window.location.href='../sign.php?signin';</script>";
     }
 }
-
-if (isset($_GET['signout'])) {
-    session_destroy();
-    echo "<script>window.location.href='../index.php';</script>";
-}
-?>

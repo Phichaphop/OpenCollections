@@ -14,7 +14,7 @@
 
     function InsertRequest($title, $detail, $user, $conn) {
         try {
-            $stmt = $conn->prepare("INSERT INTO request (title, detail, user)
+            $stmt = $conn->prepare("INSERT INTO opc_request (title, detail, user)
                                     VALUES(:title, :detail, :user)");
             $stmt->bindParam(":title", $title);
             $stmt->bindParam(":detail", $detail);
@@ -30,7 +30,7 @@
 
     function DeleteRequest($request, $conn) {
         try {
-            $stmt = $conn->prepare("DELETE FROM request WHERE id=:id");
+            $stmt = $conn->prepare("DELETE FROM opc_request WHERE id=:id");
             $stmt->bindParam(":id", $request);
             $stmt->execute();
             unset($_SESSION['request_id']);

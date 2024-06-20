@@ -9,7 +9,7 @@ if (isset($_GET['draft'])) {
 
 function SentDraftProject($id, $status, $conn) {
     try {
-        $fileStmt = $conn->prepare("SELECT file FROM project WHERE id=:id");
+        $fileStmt = $conn->prepare("SELECT file FROM opc_project WHERE id=:id");
         $fileStmt->bindParam(":id", $id);
         $fileStmt->execute();
         $data = $fileStmt->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +19,7 @@ function SentDraftProject($id, $status, $conn) {
             echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
             exit;
         } else {
-            $updateStmt = $conn->prepare("UPDATE project SET status=:status WHERE id=:id");
+            $updateStmt = $conn->prepare("UPDATE opc_project SET status=:status WHERE id=:id");
             $updateStmt->bindParam(":id", $id);
             $updateStmt->bindParam(":status", $status);
             $updateStmt->execute();
@@ -48,7 +48,7 @@ if (isset($_GET['verify'])) {
 
 function VerifyProject($id, $note, $status, $conn) {
     try {
-        $stmt = $conn->prepare("UPDATE project SET status=:status, note=:note WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_project SET status=:status, note=:note WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":note", $note);
         $stmt->bindParam(":status", $status);
@@ -70,7 +70,7 @@ if (isset($_GET['approve'])) {
 
 function ApproveProject($id, $note, $status, $conn) {
     try {
-        $stmt = $conn->prepare("UPDATE project SET status=:status, note=:note WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_project SET status=:status, note=:note WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":note", $note);
         $stmt->bindParam(":status", $status);
@@ -92,7 +92,7 @@ if (isset($_POST['cancel'])) {
 
 function NotApproveProject($id, $note, $status, $conn) {
     try {
-        $stmt = $conn->prepare("UPDATE project SET status=:status, note=:note WHERE id=:id");
+        $stmt = $conn->prepare("UPDATE opc_project SET status=:status, note=:note WHERE id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":note", $note);
         $stmt->bindParam(":status", $status);
