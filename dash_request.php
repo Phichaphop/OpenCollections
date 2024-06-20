@@ -28,7 +28,7 @@
                 } else {
                     $id = $MyID;
                 }
-                $name = $_GET['name'] ?? '';
+                $name = isset($_GET['name']) ? $_GET['name'] : '';
                 $data = SearchRequest($name, $id, $conn);
                 include 'backend/Other/GetPage.php';
                 ?>

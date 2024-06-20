@@ -23,9 +23,9 @@
                 <!-- Content here -->
                 
                 <?php
-                $name = $_GET['name'] ?? '';
-                $type = $_GET['type'] ?? '';
-                $major = $_GET['major'] ?? '';
+                $name = isset($_GET['name']) ? $_GET['name'] : '';
+                $type = isset($_GET['type']) ? $_GET['type'] : '';
+                $major = isset($_GET['major']) ? $_GET['major'] : '';
                 ?>
                 <?php
                 if (isset($_SESSION['admin'])) {

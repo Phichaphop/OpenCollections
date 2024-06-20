@@ -23,8 +23,8 @@
                 <!-- Content here -->
 
                 <?php
-                $name = $_GET['name'] ?? '';
-                $type = $_GET['type'] ?? '';
+                $name = isset($_GET['name']) ? $_GET['name'] : '';
+                $type = isset($_GET['type']) ? $_GET['type'] : '';
                 $data = SearchUser($name, $type, $conn);
                 include 'backend/Other/GetPage.php';
                 ?>

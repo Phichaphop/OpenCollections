@@ -20,8 +20,8 @@ function CreateProjectTable($dbname, $table, $ref_project_type, $ref_major, $ref
                     approver INT(11) UNSIGNED NOT NULL,
                     status INT(11) UNSIGNED NULL,
                     note VARCHAR(100) NULL,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                    created_at TIMESTAMP CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                     FOREIGN KEY (type) REFERENCES $ref_project_type(id),
                     FOREIGN KEY (major) REFERENCES $ref_major(id),
                     FOREIGN KEY (status) REFERENCES $ref_project_status(id)

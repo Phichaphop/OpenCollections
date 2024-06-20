@@ -23,7 +23,7 @@
                 <!-- Content here -->
 
                 <?php
-                $name = $_GET['name'] ?? '';
+                $name = isset($_GET['name']) ? $_GET['name'] : '';
                 $data = SearchIns($name, $conn);
                 include 'backend/Other/GetPage.php';
                 ?>

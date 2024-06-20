@@ -60,8 +60,8 @@
                 $data = SearchMajor("", "", $conn);
                 $itemsPerPage = 3;
                 if (isset($_GET['page'])) {
-                    $currentPage = $_GET['page'];
-                    $page_no = $_GET['name'] ?? '';
+                    $currentPage = isset($_GET['page']) ? $_GET['page'] : '';
+                    $page_no = isset($_GET['name']) ? $_GET['name'] : '';
                 } else {
                     $currentPage = 1;
                     $page_no = "1";
