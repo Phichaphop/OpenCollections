@@ -1,60 +1,40 @@
 <?php
-function GetMajorData($conn)
+function GetMajorByID($opc_major, $conn)
 {
     try {
-        $stmt = $conn->query("SELECT major.id, major.major, major.degree, dept.dept, faculty.faculty, ins.ins 
-        FROM major INNER JOIN dept  ON major.dept = dept.id 
-        INNER JOIN faculty ON dept.faculty = faculty.id 
-        INNER JOIN ins ON faculty.ins = ins.id");
+        $stmt = $conn->prepare("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins, opc_major.created_at, opc_major.updated_at 
+                               FROM opc_major 
+                               INNER JOIN opc_dept  ON opc_major.dept = opc_dept.id 
+                               INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 
+                               INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id 
+                               WHERE opc_major.id = :opc_major");
+        $stmt->bindParam(':opc_major', $opc_major, PDO::PARAM_INT);
         $stmt->execute();
-        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return $data;
     } catch (PDOException $e) {
-        return $e->getMessage();
+        // Log or handle the error appropriately
+        error_log("Error in GetMajorByID: " . $e->getMessage());
+        return false; // Or handle the error in another way
     }
 }
 
-function GetMajorByID($major, $conn)
-{
-    $stmt = $conn->query("SELECT major.id, major.major, major.degree, dept.dept, faculty.faculty, ins.ins, major.created_at, major.updated_at FROM major 
-        INNER JOIN dept  ON major.dept = dept.id 
-        INNER JOIN faculty ON dept.faculty = faculty.id 
-        INNER JOIN ins ON faculty.ins = ins.id 
-        WHERE major.id = '$major'");
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $data;
-}
-
-function GetNameMajorByID($id, $conn)
-{
-    $stmt = $conn->query("SELECT major FROM major WHERE id = $id");
-    $stmt->execute();
-    $GetNameMajorByID = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $GetNameMajorByID['major'];
-}
-
-function GetDegreeByMajorID($id, $conn)
-{
-    $stmt = $conn->query("SELECT degree FROM major WHERE id = $id");
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $data['degree'];
-}
-
-function GetMajorEx($major, $conn)
+function GetMajorEx($opc_major, $conn)
 {
     try {
-        $stmt = $conn->query("SELECT major.id, major.major, major.degree, dept.dept, faculty.faculty, ins.ins 
-        FROM major 
-        INNER JOIN dept  ON major.dept = dept.id 
-        INNER JOIN faculty ON dept.faculty = faculty.id 
-        INNER JOIN ins ON faculty.ins = ins.id 
-        WHERE dept.id <> '$major'");
+        $stmt = $conn->prepare("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins 
+                               FROM opc_major 
+                               INNER JOIN opc_dept  ON opc_major.dept = opc_dept.id 
+                               INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 
+                               INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id 
+                               WHERE opc_dept.id <> :opc_major");
+        $stmt->bindParam(':opc_major', $opc_major, PDO::PARAM_INT);
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     } catch (PDOException $e) {
-        return $e->getMessage();
+        // Log or handle the error appropriately
+        error_log("Error in GetMajorEx: " . $e->getMessage());
+        return false; // Or handle the error in another way
     }
 }

@@ -17,130 +17,129 @@ require_once "Approve.php";
 require_once "Counter.php";
 require_once "Manual.php";
 
+$table_name_user_role = "opc_user_role";
+$table_name_user = "opc_user";
+$table_name_ins = "opc_ins";
+$table_name_faculty = "opc_faculty";
+$table_name_dept = "opc_dept";
+$table_name_major = "opc_major";
+$table_name_project_type = "opc_project_type";
+$table_name_project_status = "opc_project_status";
+$table_name_project = "opc_project";
+$table_name_favorite = "opc_favorite";
+$table_name_request_status = "opc_request_status";
+$table_name_request = "opc_request";
+$table_name_counter = "opc_counter";
+$table_name_manual = "opc_manual";
+
 $conn = DBConnect($servername, $username, $password, $dbname);
 
-if ($conn != "error") {
-    $check_user_role = CheckTable("user_role", $conn);
-    $check_user = CheckTable("user", $conn);
-    $check_ins = CheckTable("ins", $conn);
-    $check_faculty = CheckTable("faculty", $conn);
-    $check_dept = CheckTable("dept", $conn);
-    $check_major = CheckTable("major", $conn);
-    $check_project_type = CheckTable("project_type", $conn);
-    $check_project_status = CheckTable("project_status", $conn);
-    $check_project = CheckTable("project", $conn);
-    $check_favorite = CheckTable("favorite", $conn);
-    $check_request_status = CheckTable("request_status", $conn);
-    $check_request = CheckTable("request", $conn);
-    $check_counter = CheckTable("counter", $conn);
-    $check_manual = CheckTable("manual", $conn);
+if ($conn != false) {
+    $check_user_role = CheckTable($table_name_user_role, $conn);
+    $check_user = CheckTable($table_name_user, $conn);
+    $check_ins = CheckTable($table_name_ins, $conn);
+    $check_faculty = CheckTable($table_name_faculty, $conn);
+    $check_dept = CheckTable($table_name_dept, $conn);
+    $check_major = CheckTable($table_name_major, $conn);
+    $check_project_type = CheckTable($table_name_project_type, $conn);
+    $check_project_status = CheckTable($table_name_project_status, $conn);
+    $check_project = CheckTable($table_name_project, $conn);
+    $check_favorite = CheckTable($table_name_favorite, $conn);
+    $check_request_status = CheckTable($table_name_request_status, $conn);
+    $check_request = CheckTable($table_name_request, $conn);
+    $check_counter = CheckTable($table_name_counter, $conn);
+    $check_manual = CheckTable($table_name_manual, $conn);
 }
 
 if (isset($_GET['CreDB'])) {
     CreDB($dbname, $servername, $username, $password);
 }
 if (isset($_GET['CreUserRoleTable'])) {
-    CreUserRoleTable($dbname, $conn);
+    CreUserRoleTable($dbname, $table_name_user_role, $conn);
 }
 if (isset($_GET['CreUserTable'])) {
-    CreUserTable($dbname, $conn);
+    CreUserTable($dbname, $table_name_user, $table_name_user_role, $conn);
 }
 if (isset($_GET['CreInsTable'])) {
-    CreInsTable($dbname, $conn);
+    CreInsTable($dbname, $table_name_ins, $conn);
 }
 if (isset($_GET['CreFacultyTable'])) {
-    CreFacultyTable($dbname, $conn);
+    CreFacultyTable($dbname, $table_name_faculty, $table_name_ins, $conn);
 }
 if (isset($_GET['CreDeptTable'])) {
-    CreDeptTable($dbname, $conn);
+    CreDeptTable($dbname, $table_name_dept, $table_name_faculty, $conn);
 }
 if (isset($_GET['CreMajorTable'])) {
-    CreMajorTable($dbname, $conn);
+    CreMajorTable($dbname, $table_name_major, $table_name_dept, $conn);
 }
 if (isset($_GET['CreProjectTypeTable'])) {
-    CreProjectTypeTable($dbname, $conn);
+    CreProjectTypeTable($dbname, $table_name_project_type, $conn);
 }
 if (isset($_GET['CreProjectStatusTable'])) {
-    $table = "project_status";
-    CreProjectStatusTable($dbname, $table, $conn);
+    CreProjectStatusTable($dbname, $table_name_project_status, $conn);
 }
 if (isset($_GET['CreateProjectTable'])) {
-    $table = "project";
-    CreateProjectTable($dbname, $table, $conn);
+    CreateProjectTable($dbname, $table_name_project, $table_name_project_type, $table_name_major, $table_name_project_status, $conn);
 }
 if (isset($_GET['CreFavoriteTable'])) {
-    $table = "favorite";
-    CreFavoriteTable($dbname, $table, $conn);
+    CreFavoriteTable($dbname, $table_name_favorite, $table_name_project, $table_name_user, $conn);
 }
 if (isset($_GET['CreRequestStatusTable'])) {
-    CreRequestStatusTable($dbname, $conn);
+    CreRequestStatusTable($dbname, $table_name_request_status, $conn);
 }
 if (isset($_GET['CreRequestTable'])) {
-    CreRequestTable($dbname, $conn);
+    CreRequestTable($dbname, $table_name_request, $conn);
 }
 if (isset($_GET['CreCounterTable'])) {
-    CreCounterTable($dbname, $conn);
+    CreCounterTable($dbname, $table_name_counter, $table_name_user, $conn);
 }
 if (isset($_GET['CreManualTable'])) {
-    CreManualTable($dbname, $conn);
+    CreManualTable($dbname, $table_name_manual, $conn);
 }
 
 if (isset($_GET['DeleteDB'])) {
     DeleteDB($dbname, $conn);
 }
 if (isset($_GET['DelUserRoleTable'])) {
-    $table = "user_role";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_user_role, $conn);
 }
 if (isset($_GET['DelUserTable'])) {
-    $table = "user";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_user, $conn);
 }
 if (isset($_GET['DelInsTable'])) {
-    $table = "ins";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_ins, $conn);
 }
 if (isset($_GET['DelFacultyTable'])) {
-    $table = "faculty";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_faculty, $conn);
 }
 if (isset($_GET['DelDeptTable'])) {
-    $table = "dept";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_dept, $conn);
 }
 if (isset($_GET['DelMajorTable'])) {
-    $table = "major";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_major, $conn);
 }
 if (isset($_GET['DelProjectTypeTable'])) {
-    $table = "project_type";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_project_type, $conn);
 }
 if (isset($_GET['DelProjectStatusTable'])) {
-    $table = "project_status";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_project_status, $conn);
 }
 if (isset($_GET['DelProjectTable'])) {
-    $table = "project";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_project, $conn);
 }
 if (isset($_GET['DelFavoriteTable'])) {
-    $table = "favorite";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_favorite, $conn);
 }
 if (isset($_GET['DelRequestStatusTable'])) {
-    $table = "request_status";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_request_status, $conn);
 }
 if (isset($_GET['DelRequestTable'])) {
-    $table = "request";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_request, $conn);
 }
 if (isset($_GET['DelCounterTable'])) {
-    $table = "counter";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_counter, $conn);
 }
 if (isset($_GET['DelManualTable'])) {
-    $table = "manual";
-    DeleteTable($table, $conn);
+    DeleteTable($table_name_manual, $conn);
 }
+?>

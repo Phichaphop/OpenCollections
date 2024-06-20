@@ -4,13 +4,12 @@ function CreDB($dbname, $servername, $username, $password)
     try {
         $conn = new PDO("mysql:host=$servername", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
         $sql = "CREATE DATABASE $dbname";
         $conn->exec($sql);
-        $_SESSION['success'] = "Setup database success!.";
-        header("location: ../../Setup.php");
+        $_SESSION['success'] = "Database setup successfully.";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        $_SESSION['error'] = "Error creating database: " . $sql . "\n" . $e->getMessage();
+    } finally {
         header("location: ../../Setup.php");
     }
 }
@@ -18,12 +17,12 @@ function CreDB($dbname, $servername, $username, $password)
 function DeleteDB($dbname, $conn)
 {
     try {
-        $sql = "DROP DATABASE $dbname";
+        $sql = "DROP DATABASE IF EXISTS $dbname";
         $conn->exec($sql);
-        $_SESSION['success'] = "Delete database success!.";
-        header("location: ../../Setup.php");
+        $_SESSION['success'] = "Database deleted successfully.";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        $_SESSION['error'] = "Error deleting database: " . $sql . "\n" . $e->getMessage();
+    } finally {
         header("location: ../../Setup.php");
     }
 }
@@ -38,11 +37,11 @@ function CheckTable($table, $conn)
         if ($result) {
             return $result;
         } else {
-            return "error";
+            return false; // Return false instead of "error"
         }
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        return "error";
+        $_SESSION['error'] = "Error checking table: " . $e->getMessage();
+        return false; // Return false instead of "error"
     }
 }
 
@@ -51,11 +50,11 @@ function DeleteTable($table, $conn)
     try {
         $sql = "DROP TABLE IF EXISTS $table";
         $conn->exec($sql);
-        $_SESSION['done'] = "Delete table done!";
+        $_SESSION['done'] = "Table deleted successfully.";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
+        $_SESSION['error'] = "Error deleting table: " . $sql . "\n" . $e->getMessage();
     } finally {
-        header("location: ../../setup.php");
+        header("location: ../../Setup.php");
     }
 }
 ?>

@@ -1,52 +1,46 @@
 <?php
-function CreRequestStatusTable($dbname, $conn)
+function CreRequestStatusTable($dbname, $table, $conn)
 {
     try {
+        // ใช้ฐานข้อมูลที่กำหนด
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE request_status (
+
+        // สร้างตารางหากยังไม่มี
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     status VARCHAR(50) NOT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                 )";
         $conn->exec($sql);
-        SetupRStatus($conn, "ร่าง"); /*Draft*/
-        SetupRStatus($conn, "รอตรวจสอบ"); /*Wait*/
-        SetupRStatus($conn, "กำลังตรวจสอบ"); /*Inproces*/
-        SetupRStatus($conn, "ต้องแก้ไข"); /*Fixed*/
-        SetupRStatus($conn, "ไม่ผ่าน"); /*Cancel*/
-        $_SESSION['success'] = "Create table complete!.";
-        header("location: ../../Setup.php");
+
+        // เพิ่มข้อมูลเริ่มต้นในตาราง
+        SetupRStatus($conn, $table, "ร่าง"); // Draft
+        SetupRStatus($conn, $table, "รอตรวจสอบ"); // Wait
+        SetupRStatus($conn, $table, "กำลังตรวจสอบ"); // Inprocess
+        SetupRStatus($conn, $table, "ต้องแก้ไข"); // Fixed
+        SetupRStatus($conn, $table, "ไม่ผ่าน"); // Cancel
+        
+        // แสดงข้อความสำเร็จ
+        $_SESSION['success'] = "Setup success!";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        // แสดงข้อความ error
+        $_SESSION['error'] = "Error creating table: " . $e->getMessage();
+    } finally {
+        // เปลี่ยนที่อยู่ไปยังหน้า Setup.php
         header("location: ../../Setup.php");
+        exit(); // Ensure script terminates after redirection
     }
 }
 
-function SetupRStatus($conn, $status)
+function SetupRStatus($conn, $table, $status)
 {
     try {
-        $stmt = $conn->prepare("INSERT INTO request_status (status)
-                                            VALUES(:status)");
+        $stmt = $conn->prepare("INSERT INTO $table (status) VALUES (:status)");
         $stmt->bindParam(":status", $status);
         $stmt->execute();
-        $_SESSION['success'] = "Insert complete!.";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
-
-function DelRequestStatusTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete table complete!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
+        $_SESSION['warning'] = "Error inserting status: " . $e->getMessage();
     }
 }
 ?>

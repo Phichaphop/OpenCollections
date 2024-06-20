@@ -1,55 +1,43 @@
 <?php
-function CreInsTable($dbname, $conn)
+function CreInsTable($dbname, $table, $conn)
 {
     try {
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE ins (
-                        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                        ins VARCHAR(100) NOT NULL,
-                        pic LONGTEXT NULL,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-                    )";
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
+                    id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    ins VARCHAR(100) NOT NULL,
+                    pic LONGTEXT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+                )";
         $conn->exec($sql);
-        SetupIns($conn, "สถาบันการศึกษาอาชีวศึกษา : ภาคตะวันออกเฉียงเหนือ 4"); /*Institute of Vocational education : Northeastern Region 4*/
-        SetupIns($conn, "วิทยาลัยเทคนิคอุบลราชธานี"); /*Ubon Ratchathani Technical College*/
-        SetupIns($conn, "วิทยาลัยอาชีวศึกษาอุบลราชธานี"); /*Ubon Ratchathani Vocational College*/
-        SetupIns($conn, "วิทยาลัยเทคนิคเดชอุดม"); /*Det Udom Technical College*/
-        SetupIns($conn, "วิทยาลัยเทคนิคอำนาจเจริญ"); /*Amnat Charoen Technical College*/
-        SetupIns($conn, "วิทยาลัยเทคนิคยโสธร"); /*Yasothon Technical College*/
-        SetupIns($conn, "วิทยาลัยเทคนิคศรีสะเกษ"); /*Sisaket Technical College*/
-        SetupIns($conn, "วิทยาลัยอาชีวศึกษาศรีสะเกษ"); /*Sisaket Vocational College*/
+
+        SetupIns($conn, $table, "สถาบันการศึกษาอาชีวศึกษา : ภาคตะวันออกเฉียงเหนือ 4");
+        SetupIns($conn, $table, "วิทยาลัยเทคนิคอุบลราชธานี");
+        SetupIns($conn, $table, "วิทยาลัยอาชีวศึกษาอุบลราชธานี");
+        SetupIns($conn, $table, "วิทยาลัยเทคนิคเดชอุดม");
+        SetupIns($conn, $table, "วิทยาลัยเทคนิคอำนาจเจริญ");
+        SetupIns($conn, $table, "วิทยาลัยเทคนิคยโสธร");
+        SetupIns($conn, $table, "วิทยาลัยเทคนิคศรีสะเกษ");
+        SetupIns($conn, $table, "วิทยาลัยอาชีวศึกษาศรีสะเกษ");
+
         $_SESSION['success'] = "Setup success!.";
-        header("location: ../../Setup.php");
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        $_SESSION['error'] = "Error creating institution table: " . $e->getMessage();
+    } finally {
         header("location: ../../Setup.php");
+        exit(); // Ensure script terminates after redirection
     }
 }
 
-function SetupIns($conn, $ins)
+function SetupIns($conn, $table, $ins)
 {
     try {
-        $stmt = $conn->prepare("INSERT INTO ins (ins)
-                                            VALUES(:ins)");
-        $stmt->bindParam(":ins", $ins);
+        $stmt = $conn->prepare("INSERT INTO $table (ins) VALUES (:ins)");
+        $stmt->bindValue(":ins", $ins, PDO::PARAM_STR);
         $stmt->execute();
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
-
-function DelInsTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete table success!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
+        $_SESSION['warning'] = "Warning: " . $e->getMessage();
     }
 }
 ?>

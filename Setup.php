@@ -31,12 +31,12 @@
                             </div>
                         </div>
                         <div class="menu-content">
-                            <?php if ($conn != "error") { ?>
+                            <?php if ($conn != false) { ?>
                                 <div class="icon" onclick="window.location='backend/Database/config.php?DeleteDB'">
                                     <?php include 'components/icon/delete.php'; ?>
                                 </div>
                             <?php } ?>
-                            <?php if ($conn == "error") { ?>
+                            <?php if ($conn == false) { ?>
                                 <div class="icon" onclick="window.location='backend/Database/config.php?CreDB'">
                                     <?php include 'components/icon/next.php'; ?>
                                 </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
 
-                    <?php if ($conn != "error") { ?>
+                    <?php if ($conn != false) { ?>
 
                         <h1 class="menu-title">User</h1>
 
@@ -58,12 +58,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_user_role != "error") { ?>
+                                <?php if ($check_user_role != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelUserRoleTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_user_role == "error") { ?>
+                                <?php if ($check_user_role == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreUserRoleTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -81,12 +81,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_user != "error") { ?>
+                                <?php if ($check_user != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelUserTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_user == "error") { ?>
+                                <?php if ($check_user == false) { ?>
                                     <div class="icon">
                                         <div class="icon" onclick="window.location='backend/Database/config.php?CreUserTable'">
                                             <?php include 'components/icon/next.php'; ?>
@@ -108,12 +108,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_ins != "error") { ?>
+                                <?php if ($check_ins != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelInsTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_ins == "error") { ?>
+                                <?php if ($check_ins == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreInsTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -131,12 +131,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_faculty != "error") { ?>
+                                <?php if ($check_faculty != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelFacultyTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_faculty == "error") { ?>
+                                <?php if ($check_faculty == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreFacultyTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -154,12 +154,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_dept != "error") { ?>
+                                <?php if ($check_dept != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelDeptTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_dept == "error") { ?>
+                                <?php if ($check_dept == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreDeptTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -177,12 +177,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_major != "error") { ?>
+                                <?php if ($check_major != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelMajorTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_major == "error") { ?>
+                                <?php if ($check_major == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreMajorTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -202,12 +202,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_project_type != "error") { ?>
+                                <?php if ($check_project_type != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelProjectTypeTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_project_type == "error") { ?>
+                                <?php if ($check_project_type == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreProjectTypeTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -225,12 +225,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_project_status != "error") { ?>
+                                <?php if ($check_project_status != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelProjectStatusTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_project_status == "error") { ?>
+                                <?php if ($check_project_status == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreProjectStatusTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -248,12 +248,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_project != "error") { ?>
+                                <?php if ($check_project != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelProjectTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_project == "error") { ?>
+                                <?php if ($check_project == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreateProjectTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -273,12 +273,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_favorite != "error") { ?>
+                                <?php if ($check_favorite != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelFavoriteTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_favorite == "error") { ?>
+                                <?php if ($check_favorite == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreFavoriteTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -296,12 +296,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_request_status != "error") { ?>
+                                <?php if ($check_request_status != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelRequestStatusTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_request_status == "error") { ?>
+                                <?php if ($check_request_status == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreRequestStatusTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -319,12 +319,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_request != "error") { ?>
+                                <?php if ($check_request != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelRequestTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_request == "error") { ?>
+                                <?php if ($check_request == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreRequestTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -342,12 +342,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_counter != "error") { ?>
+                                <?php if ($check_counter != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelCounterTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_counter == "error") { ?>
+                                <?php if ($check_counter == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreCounterTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
@@ -365,12 +365,12 @@
                                 </div>
                             </div>
                             <div class="menu-content">
-                                <?php if ($check_manual != "error") { ?>
+                                <?php if ($check_manual != false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?DelManualTable'">
                                         <?php include 'components/icon/delete.php'; ?>
                                     </div>
                                 <?php } ?>
-                                <?php if ($check_manual == "error") { ?>
+                                <?php if ($check_manual == false) { ?>
                                     <div class="icon" onclick="window.location='backend/Database/config.php?CreManualTable'">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>

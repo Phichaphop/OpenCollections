@@ -1,37 +1,30 @@
 <?php
-function CreRequestTable($dbname, $conn)
+function CreRequestTable($dbname, $table, $conn)
 {
     try {
+        // ใช้ฐานข้อมูลที่กำหนด
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE request (
+
+        // สร้างตารางหากยังไม่มี
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     title VARCHAR(100) NOT NULL,
                     detail LONGTEXT NOT NULL,
                     user INT(11) UNSIGNED NOT NULL,
-                    /*status INT(11) UNSIGNED NOT NULL,*/
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP/*,
-                    FOREIGN KEY (status) REFERENCES request_status(id)*/
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                 )";
         $conn->exec($sql);
-        $_SESSION['success'] = "Create request table success!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
 
-function DelRequestTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete request table complete!.";
-        header("location: ../../Setup.php");
+        // แสดงข้อความสำเร็จ
+        $_SESSION['success'] = "Create request table success!";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        // แสดงข้อความ error
+        $_SESSION['error'] = "Error creating table: " . $e->getMessage();
+    } finally {
+        // เปลี่ยนที่อยู่ไปยังหน้า Setup.php
         header("location: ../../Setup.php");
+        exit(); // Ensure script terminates after redirection
     }
 }
 ?>

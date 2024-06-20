@@ -1,52 +1,47 @@
 <?php
-function CreFacultyTable($dbname, $conn)
+
+function CreFacultyTable($dbname, $table, $ref_ins, $conn)
 {
     try {
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE faculty (
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     faculty VARCHAR(50) NOT NULL,
                     ins INT(11) UNSIGNED NOT NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                    FOREIGN KEY (ins) REFERENCES ins(id)
+                    FOREIGN KEY (ins) REFERENCES $ref_ins(id)
                 )";
         $conn->exec($sql);
-        SetupFaculty($conn, "พาณิชยกรรม", "8");
-        SetupFaculty($conn, "อุสหกรรม", "8");
-        SetupFaculty($conn, "คหกรรม", "8");
+
+        // เพิ่มข้อมูลคณะ
+        SetupFaculty($conn, $table, "พาณิชยกรรม", 8);
+        SetupFaculty($conn, $table, "อุสหกรรม", 8);
+        SetupFaculty($conn, $table, "คหกรรม", 8);
+
         $_SESSION['success'] = "Setup success!.";
-        header("location: ../../Setup.php");
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        $_SESSION['error'] = "Error creating faculty table: " . $e->getMessage();
+    } finally {
+        // Redirect to setup page (assuming this is the intended behavior)
         header("location: ../../Setup.php");
+        exit(); // Ensure script terminates after redirection
     }
 }
 
-function SetupFaculty($conn, $faculty, $ins)
+function SetupFaculty($conn, $table, $faculty, $ins)
 {
     try {
-        $stmt = $conn->prepare("INSERT INTO faculty (faculty, ins)
-                                            VALUES(:faculty, :ins)");
-        $stmt->bindParam(":faculty", $faculty);
-        $stmt->bindParam(":ins", $ins);
+        // Prepare SQL statement
+        $stmt = $conn->prepare("INSERT INTO $table (faculty, ins) VALUES (:faculty, :ins)");
+
+        // Bind parameters and execute
+        $stmt->bindParam(":faculty", $faculty, PDO::PARAM_STR);
+        $stmt->bindParam(":ins", $ins, PDO::PARAM_INT);
         $stmt->execute();
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        header("location: ../../Setup.php");
+        $_SESSION['warning'] = "Warning: " . $e->getMessage();
     }
 }
 
-function DelFacultyTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete table success!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
 ?>

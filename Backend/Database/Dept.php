@@ -1,54 +1,45 @@
 <?php
-function CreDeptTable($dbname, $conn)
+function CreDeptTable($dbname, $table, $ref_faculty, $conn)
 {
     try {
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE dept (
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
                 id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 dept VARCHAR(50) NOT NULL,
                 faculty INT(11) UNSIGNED NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                FOREIGN KEY (faculty) REFERENCES faculty(id)
+                FOREIGN KEY (faculty) REFERENCES $ref_faculty(id)
             )";
         $conn->exec($sql);
-        SetupDept($conn, "ตอมพิวเตอร์ธุรกิจและเทคโนโลยีธุรกิจดิจิทัล", "1");
-        SetupDept($conn, "การบัญชี", "1");
-        SetupDept($conn, "การตลาด", "1");
-        SetupDept($conn, "ไฟฟ้ากำลัง", "2");
-        SetupDept($conn, "แฟชั่นและสิ่งทอ", "3");
+
+        // เพิ่มการสร้างแถวต่างๆในตาราง
+        SetupDept($conn, $table, "ตอมพิวเตอร์ธุรกิจและเทคโนโลยีธุรกิจดิจิทัล", 1);
+        SetupDept($conn, $table, "การบัญชี", 1);
+        SetupDept($conn, $table, "การตลาด", 1);
+        SetupDept($conn, $table, "ไฟฟ้ากำลัง", 2);
+        SetupDept($conn, $table, "แฟชั่นและสิ่งทอ", 3);
+
         $_SESSION['success'] = "Setup success!.";
-        header("location: ../../Setup.php");
     } catch (PDOException $e) {
         $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+    } finally {
+        // แนะนำให้ใช้หน้าจอเพื่อแสดงข้อความ
         header("location: ../../Setup.php");
+        exit();
     }
 }
 
-function SetupDept($conn, $dept, $faculty)
+function SetupDept($conn, $table, $dept, $faculty)
 {
     try {
-        $stmt = $conn->prepare("INSERT INTO dept (dept, faculty)
-                                            VALUES(:dept, :faculty)");
-        $stmt->bindParam(":dept", $dept);
-        $stmt->bindParam(":faculty", $faculty);
+        $sql = "INSERT INTO $table (dept, faculty) VALUES (:dept, :faculty)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":dept", $dept, PDO::PARAM_STR);
+        $stmt->bindParam(":faculty", $faculty, PDO::PARAM_INT);
         $stmt->execute();
     } catch (PDOException $e) {
-        $_SESSION['error'] = $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
-
-function DelDeptTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete table success!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
+        $_SESSION['warning'] = $e->getMessage();
     }
 }
 ?>

@@ -1,9 +1,12 @@
 <?php
-function CreateProjectTable($dbname, $table, $conn)
+function CreateProjectTable($dbname, $table, $ref_project_type, $ref_major, $ref_project_status, $conn)
 {
     try {
+        // ใช้ฐานข้อมูลที่กำหนด
         $conn->exec("USE $dbname");
-        $sql = "CREATE TABLE $table (
+
+        // สร้างตารางหากยังไม่มี
+        $sql = "CREATE TABLE IF NOT EXISTS $table (
                     id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                     title VARCHAR(100) NOT NULL,
                     author INT(11) UNSIGNED NOT NULL,
@@ -19,29 +22,21 @@ function CreateProjectTable($dbname, $table, $conn)
                     note VARCHAR(100) NULL,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                    FOREIGN KEY (type) REFERENCES project_type(id),
-                    FOREIGN KEY (major) REFERENCES major(id),
-                    FOREIGN KEY (status) REFERENCES project_status(id)
+                    FOREIGN KEY (type) REFERENCES $ref_project_type(id),
+                    FOREIGN KEY (major) REFERENCES $ref_major(id),
+                    FOREIGN KEY (status) REFERENCES $ref_project_status(id)
                 )";
         $conn->exec($sql);
-        $_SESSION['success'] = "Setup success!.";
-        header("location: ../../Setup.php");
-    } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
-        header("location: ../../Setup.php");
-    }
-}
 
-function DelProjectTable($table, $conn)
-{
-    try {
-        $sql = "DROP TABLE $table";
-        $conn->exec($sql);
-        $_SESSION['success'] = "Delete table success!.";
-        header("location: ../../Setup.php");
+        // แสดงข้อความสำเร็จ
+        $_SESSION['success'] = "Setup success!";
     } catch (PDOException $e) {
-        $_SESSION['error'] = $sql . "\n" . $e->getMessage();
+        // แสดงข้อความ error
+        $_SESSION['error'] = "Error creating table: " . $e->getMessage();
+    } finally {
+        // เปลี่ยนที่อยู่ไปยังหน้า Setup.php
         header("location: ../../Setup.php");
+        exit(); // Ensure script terminates after redirection
     }
 }
 ?>
