@@ -1,4 +1,20 @@
 <?php
+
+function GetMajorData($conn)
+{
+    try {
+        $stmt = $conn->query("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins 
+        FROM major INNER JOIN dept  ON opc_major.dept = opc_dept.id 
+        INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 
+        INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id");
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    } catch (PDOException $e) {
+        return $e->getMessage();
+    }
+}
+
 function GetMajorByID($opc_major, $conn)
 {
     try {

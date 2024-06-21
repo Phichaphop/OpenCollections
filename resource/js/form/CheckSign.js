@@ -393,3 +393,62 @@ function CheckForGetResetPass() {
     ResetPass.classList = "btn-se";
   }
 }
+
+function CheckUsernameEmail() {
+  var Username = document.getElementById("Username");
+  var MsgBoxUsername = document.getElementById("MsgBoxUsername");
+  var MsgUsername = document.getElementById("MsgUsername");
+  var MsgIconUsername = document.getElementById("MsgIconUsername");
+  var upperCaseLetters = /[A-Z]/g;
+  var lowerCaseLetters = /[a-z]/g;
+
+  if (Username.value != "") {
+    MsgBoxUsername.style.display = "flex";
+    if (
+      Username.value.match(upperCaseLetters) ||
+      Username.value.match(lowerCaseLetters)
+    ) {
+      if (Username.value.length >= 9) {
+        if (lang == "en") {
+          MsgUsername.innerHTML = "The username format is correct.";
+          MsgBoxUsername.className = "validation-msg done";
+          MsgIconUsername.innerHTML = "done";
+        } else {
+          MsgUsername.innerHTML = "รูปแบบชื่อผู้ใช้ถูกต้อง";
+          MsgBoxUsername.className = "validation-msg done";
+          MsgIconUsername.innerHTML = "done";
+        }
+      } else {
+        if (lang == "en") {
+          MsgUsername.innerHTML = "Must be more than 9 characters.";
+          MsgBoxUsername.className = "validation-msg error";
+          MsgIconUsername.innerHTML = "error";
+        } else {
+          MsgUsername.innerHTML = "ต้องมีตัวอักษรอย่างน้อย 9 ตัวอักษร";
+          MsgBoxUsername.className = "validation-msg error";
+          MsgIconUsername.innerHTML = "error";
+        }
+      }
+    } else {
+      if (lang == "en") {
+        MsgUsername.innerHTML = "Must contain letters A-Z or a-z.";
+        MsgBoxUsername.className = "validation-msg error";
+        MsgIconUsername.innerHTML = "error";
+      } else {
+        MsgUsername.innerHTML = "ต้องมีตัวอักษร A-Z หรือ a-z";
+        MsgBoxUsername.className = "validation-msg error";
+        MsgIconUsername.innerHTML = "error";
+      }
+    }
+  } else {
+    if (lang == "en") {
+      MsgUsername.innerHTML = "Please enter your username.";
+      MsgBoxUsername.className = "validation-msg error";
+      MsgIconUsername.innerHTML = "error";
+    } else {
+      MsgUsername.innerHTML = "กรุณากรอกชื่อผู้ใช้";
+      MsgBoxUsername.className = "validation-msg error";
+      MsgIconUsername.innerHTML = "error";
+    }
+  }
+}
