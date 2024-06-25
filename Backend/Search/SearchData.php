@@ -112,16 +112,22 @@ function SearchFavorite($name, $type, $major, $MyID, $conn)
 function SearchRequest($name, $user, $conn)
 {
     $query = "SELECT * FROM opc_request WHERE 1=1";
+    $params = array();
+
     if (!empty($name)) {
-        $query .= " AND (id LIKE '%" . $name . "%' OR title LIKE '%" . $name . "%')";
+        $query .= " AND (id LIKE :name OR title LIKE :name)";
+        $params[':name'] = '%' . $name . '%';
     }
     if (!empty($user)) {
-        $query .= " AND user = '" . $user . "'";
+        $query .= " AND user = :user";
+        $params[':user'] = $user;
     }
+
     $stmt = $conn->prepare($query);
-    $stmt->execute();
+    $stmt->execute($params);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 function SearchProject($name, $type, $major, $id, $approver, $status, $role, $conn)
 {

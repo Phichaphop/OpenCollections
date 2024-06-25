@@ -29,7 +29,7 @@
                     $id = $MyID;
                 }
                 $name = isset($_GET['name']) ? $_GET['name'] : '';
-                $data = SearchRequest($name, $id, $conn);
+                $data = SearchRequest($name, $id, $conn );
                 include 'backend/Other/GetPage.php';
                 ?>
 
