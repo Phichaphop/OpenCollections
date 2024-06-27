@@ -3,22 +3,27 @@
 function GetMajorData($conn)
 {
     try {
-        $stmt = $conn->query("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins 
-        FROM major INNER JOIN dept  ON opc_major.dept = opc_dept.id 
-        INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 
-        INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id");
+        $sql = "SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins 
+                FROM opc_major
+                INNER JOIN opc_dept ON opc_major.dept = opc_dept.id 
+                INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 
+                INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id";
+        $stmt = $conn->prepare($sql);
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     } catch (PDOException $e) {
-        return $e->getMessage();
+        // Log error message and return an empty array
+        error_log("Error: " . $e->getMessage());
+        return [];
     }
 }
 
 function GetMajorByID($opc_major, $conn)
 {
     try {
-        $stmt = $conn->prepare("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept, opc_faculty.faculty, opc_ins.ins, opc_major.created_at, opc_major.updated_at 
+        $stmt = $conn->prepare("SELECT opc_major.id, opc_major.major, opc_major.degree, opc_dept.dept,
+                                opc_faculty.faculty, opc_ins.ins, opc_major.created_at, opc_major.updated_at 
                                FROM opc_major 
                                INNER JOIN opc_dept  ON opc_major.dept = opc_dept.id 
                                INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id 

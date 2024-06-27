@@ -72,6 +72,10 @@
                                 <p><?= $data['faculty'] ?></p>
                             </div>
                             <div class="frm-read-content">
+                                <h4><?= $institute ?></h4>
+                                <p><?= $data['ins'] ?></p>
+                            </div>
+                            <div class="frm-read-content">
                                 <h4><?= $created_at ?></h4>
                                 <p><?= DateFormat($data['created_at']) ?></p>
                             </div>

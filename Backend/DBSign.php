@@ -113,7 +113,7 @@ function ResetPass($email, $NewPass, $conn)
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             $passHash = password_hash($NewPass, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("UPDATE user SET password=:pass WHERE email=:email");
+            $stmt = $conn->prepare("UPDATE opc_user SET password=:pass WHERE email=:email");
             $stmt->bindParam(":email", $email);
             $stmt->bindParam("pass", $passHash);
             $stmt->execute();

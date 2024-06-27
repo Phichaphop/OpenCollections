@@ -81,7 +81,7 @@
                                         <?php include 'components/icon/add_pic.php'; ?>
                                     </div>
                                 <?php } else { ?>
-                                    <img class="read-pic" id="PreviewPic" src="resource/img/<?= $ins_path ?>/<?= $data['pic'] ?>">
+                                    <img class="read-pic" src="resource/img/<?= $ins_path ?>/<?= $data['pic'] ?>">
                                 <?php } ?>
                             </div>
                         </div>

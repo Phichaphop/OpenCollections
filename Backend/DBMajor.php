@@ -75,14 +75,14 @@
                     UpdatePicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
                 } else {
                     $_SESSION['error'] = "Can't delete old picture.";
-                    echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                    echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
                 }
             } else {
                 UpdatePicIns($id, $pic, $allow, $fileActExt, $fileNew, $filePath, $conn);
             }
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
         }
     }
 
@@ -96,22 +96,22 @@
                             $stmt->bindParam("pic", $fileNew);
                             $stmt->execute();
                             $_SESSION['success'] = "Update ins success!.";
-                            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
                     } else {
                         $_SESSION['warning'] = "This path not found.";
-                        echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                        echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
                     }
                 } else {
                     $_SESSION['warning'] = "Please upload file.";
-                    echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                    echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
                 }
             } else {
                 $_SESSION['warning'] = "This file type is not supported.";
-                echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
             }
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
         }
     }
 
@@ -130,10 +130,10 @@
             $stmt->execute();
             unset($_SESSION['ins_id']);
             $_SESSION['success'] = "ins updated successfully.";
-            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
         }
     }
 
@@ -156,14 +156,14 @@
                     DelIns($id, $conn);
                 } else {
                     $_SESSION['error'] = "Can't delete old picture.";
-                    echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+                    echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
                 }
             } else {
                 DelIns($id, $conn);
             }
         } catch (PDOException $e) {
             $_SESSION['error'] = $e->getMessage();
-            echo "<script>window.location.href='../frm_ins.php?read&ins=$id';</script>";
+            echo "<script>window.location.href='../frm_ins.php?detail&ins=$id';</script>";
         }
     }
 

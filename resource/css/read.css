@@ -50,6 +50,8 @@
 
 .read-pic {
   margin: auto;
+  max-width: 100%;
+  max-height: 300px;
 }
 
 .frm-read-content {

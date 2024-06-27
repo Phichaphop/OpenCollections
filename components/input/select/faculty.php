@@ -3,7 +3,7 @@ if (isset($_GET['insert'])) {
     $faculty_list = GetFacultyData($conn);
 } else if (isset($_GET['update'])) {
     $faculty_list = GetFacultyByDeptID($data['id'], $conn);
-    $faculty_listEx = SelectFacultyEx($faculty_list['id'], $faculty_list['ins_id'],$conn);
+    $faculty_listEx = SelectFacultyEx($faculty_list['id'], $conn);
     echo "<script>" . " var DataDept = '" . $faculty_list['id'] . "'" . "</script>";
 } else {
     $faculty_list = "";

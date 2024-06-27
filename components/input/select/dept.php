@@ -3,7 +3,7 @@ if (isset($_GET['insert'])) {
     $dept_list = GetDeptData($conn);
 } else if (isset($_GET['update']) && isset($_GET['major'])) {
     $dept_list = GetDeptByMajorID($data['id'], $conn);
-    $dept_listEx = SelectDeptEx($dept_list['id'], $dept_list['faculty'], $conn);
+    $dept_listEx = SelectDeptEx($dept_list['id'], $conn);
     echo "<script>" . " var DataDept = '" . $dept_list['id'] . "'" . "</script>";
 } else {
     $dept_list = "";

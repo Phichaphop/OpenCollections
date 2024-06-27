@@ -333,7 +333,7 @@
                     <div class="frm-control">
                         <div class="frm-control-group">
                             <div class="btn-se" onclick="window.location='frm_project.php?update&project_type=<?= $_GET['project_type'] ?>'"><?= $update ?></div>
-                            <div class="btn-del" onclick="window.location='frm_project.php?delete&=<?= $_GET['project_type'] ?>'"><?= $delete ?></div>
+                            <div class="btn-del" onclick="window.location='frm_project.php?delete&&project_type=<?= $_GET['project_type'] ?>'"><?= $delete ?></div>
                             <div class="btn-pr" onclick="history.back()"><?= $cancel ?></div>
                         </div>
                     </div>

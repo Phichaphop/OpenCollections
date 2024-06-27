@@ -8,12 +8,12 @@ function GetFacultyData($conn) {
     return $GetFacultyData;
 }
 
-function GetFacultyByDeptID($opc_dept, $conn) {
-    $stmt = $conn->prepare("SELECT opc_faculty FROM opc_dept WHERE id = :opc_dept");
-    $stmt->bindParam(':opc_dept', $opc_dept, PDO::PARAM_INT);
+function GetFacultyByDeptID($dept, $conn) {
+    $stmt = $conn->prepare("SELECT faculty FROM opc_dept WHERE id = :dept");
+    $stmt->bindParam(':dept', $dept, PDO::PARAM_INT);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    return GetFacultyByID($data['opc_faculty'], $conn);
+    return GetFacultyByID($data['faculty'], $conn);
 }
 
 function GetFacultyByID($id, $conn) {
@@ -46,13 +46,12 @@ function GetNameFacultyByID($id, $conn) {
     return $data['faculty'];
 }
 
-function SelectFacultyEx($id, $opc_ins, $conn) {
+function SelectFacultyEx($id, $conn) {
     $stmt = $conn->prepare("SELECT opc_faculty.id, opc_faculty.faculty, opc_ins.ins 
                             FROM opc_faculty 
                             INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id 
-                            WHERE opc_faculty.id <> :id AND opc_faculty.ins = :opc_ins");
+                            WHERE opc_faculty.id <> :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->bindParam(':opc_ins', $opc_ins, PDO::PARAM_INT);
     $stmt->execute();
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $data;

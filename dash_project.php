@@ -59,8 +59,7 @@
                 } ?>
 
                 <?php include 'backend/Other/GetPage.php'; ?>
-
-
+                
                 <?php include 'components/input/search/search.php'; ?>
                 <?php include 'components/layout/sub_menu.php'; ?>
 

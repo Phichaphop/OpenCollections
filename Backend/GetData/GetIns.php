@@ -51,9 +51,8 @@ function GetNameInsByDeptID($id, $conn) {
 }
 
 function GetInsByFacultyID($faculty, $conn) {
-    $stmt = $conn->prepare("SELECT i.ins FROM opc_faculty f
-                            INNER JOIN opc_ins i ON f.ins = i.id
-                            WHERE f.id = :faculty");
+    $stmt = $conn->prepare("SELECT ins FROM opc_faculty
+                            WHERE id = :faculty");
     $stmt->bindParam(':faculty', $faculty, PDO::PARAM_INT);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -15,9 +15,9 @@ function CreFacultyTable($dbname, $table, $ref_ins, $conn)
         $conn->exec($sql);
 
         // เพิ่มข้อมูลคณะ
-        SetupFaculty($conn, $table, "พาณิชยกรรม", 8);
-        SetupFaculty($conn, $table, "อุสหกรรม", 8);
-        SetupFaculty($conn, $table, "คหกรรม", 8);
+        SetupFaculty($conn, $table, "พาณิชยกรรม", 7);
+        SetupFaculty($conn, $table, "อุสหกรรม", 7);
+        SetupFaculty($conn, $table, "คหกรรม", 7);
 
         $_SESSION['success'] = "Setup success!.";
     } catch (PDOException $e) {
