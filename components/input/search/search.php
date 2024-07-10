@@ -8,7 +8,7 @@
         <select name="type" class="search-select">
             <option value="">All</option>
 
-            <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve") {
+            <?php if ($page == "index" || $page == "dash_favorite" || $page == "dash_project" || $page == "dash_approve" || $page == "gallery") {
                 $TypeData = GetProjectTypeData($conn);
                 foreach ($TypeData  as $TypeDataRow) { ?>
                     <option value="<?= $TypeDataRow['id'] ?>"><?= $TypeDataRow['type'] ?></option>

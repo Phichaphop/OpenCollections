@@ -80,26 +80,26 @@ function SearchProjectType($name, $conn)
 
 function SearchFavorite($name, $type, $major, $MyID, $conn)
 {
-    $query = "SELECT opc_favorite.project, opc_opc_project.id, opc_opc_project.title, 
-        opc_opc_project.author, opc_opc_project_type.type as type, opc_opc_project.major, opc_opc_project.date,
-        opc_opc_ins.ins, opc_opc_ins.pic as ins_pic, opc_opc_project.pic as cover
+    $query = "SELECT opc_favorite.project, opc_project.id, opc_project.title, 
+        opc_project.author, opc_project_type.type as type, opc_project.major, opc_project.date,
+        opc_ins.ins, opc_ins.pic as ins_pic, opc_project.pic as cover
         FROM opc_favorite 
-        INNER JOIN opc_project ON opc_favorite.project = opc_opc_project.id
-        INNER JOIN opc_project_type ON opc_opc_project.type = opc_opc_project_type.id
-        INNER JOIN opc_major ON opc_opc_project.major = opc_opc_major.id
-        INNER JOIN opc_dept ON opc_opc_major.dept = opc_opc_dept.id
-        INNER JOIN opc_faculty ON opc_opc_dept.faculty = opc_opc_faculty.id
-        INNER JOIN opc_ins ON opc_opc_faculty.ins = opc_opc_ins.id
+        INNER JOIN opc_project ON opc_favorite.project = opc_project.id
+        INNER JOIN opc_project_type ON opc_project.type = opc_project_type.id
+        INNER JOIN opc_major ON opc_project.major = opc_major.id
+        INNER JOIN opc_dept ON opc_major.dept = opc_dept.id
+        INNER JOIN opc_faculty ON opc_dept.faculty = opc_faculty.id
+        INNER JOIN opc_ins ON opc_faculty.ins = opc_ins.id
         WHERE opc_favorite.user = $MyID";
 
     if (!empty($name)) {
-        $query .= " AND (opc_opc_project.title LIKE '%" . $name . "%')";
+        $query .= " AND (opc_project.title LIKE '%" . $name . "%')";
     }
     if (!empty($type)) {
-        $query .= " AND opc_opc_project.type = '" . $type . "'";
+        $query .= " AND opc_project.type = '" . $type . "'";
     }
     if (!empty($major)) {
-        $query .= " AND opc_opc_project.major = '" . $major . "'";
+        $query .= " AND opc_project.major = '" . $major . "'";
     }
 
     $query .= " ORDER BY opc_favorite.created_at DESC";

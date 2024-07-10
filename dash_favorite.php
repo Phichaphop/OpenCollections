@@ -20,7 +20,7 @@
 
             <!-- Content here -->
 
-            <div class="gallery">
+            <div class="gallery full">
 
 
                 <?php
@@ -46,23 +46,25 @@
                     foreach ($currentPageData as $row) { ?>
 
                         <div class="gallery-group" onclick="window.location='frm_project.php?detail&project=<?= $row['id'] ?>'">
-                            
+
                             <?php if (!$row['cover']) { ?>
-
                                 <div class="gallery-cover">
-                                <div class="gallery-cover-content">
-                                    <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
-                                    <p class="gallery-cover-text"><?= $row['type'] ?></p>
+                                    <div class="gallery-cover-content">
+                                        <?php if (!$row['ins_pic']) { ?>
+                                            <img class="gallery-pic" src="resource/img/logo/opc.png">
+                                        <?php } else { ?>
+                                            <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
+                                        <?php } ?>
+                                        <p class="gallery-cover-text"><?= $row['type'] ?></p>
+                                    </div>
+                                    <div class="gallery-cover-content">
+                                        <p class="gallery-cover-text"><?= $row['ins'] ?></p>
+                                    </div>
                                 </div>
-                                <div class="gallery-cover-content">
-                                    <p class="gallery-cover-text"><?= $row['ins'] ?></p>
-                                </div>
-                            </div>
-
                             <?php } else { ?>
                                 <img class="gallery-cover-pic" src="resource/img/project/<?= $row['cover'] ?>">
                             <?php } ?>
-                            
+
 
                             <div class="gallery-content">
                                 <h4><?= $row['title'] ?></h4>
@@ -81,6 +83,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

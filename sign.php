@@ -16,7 +16,7 @@
 
         <section>
 
-            <div class="section-group">
+            <div class="section-group full">
 
                 <?php require_once 'components/layout/alert.php'; ?>
 
@@ -165,6 +165,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

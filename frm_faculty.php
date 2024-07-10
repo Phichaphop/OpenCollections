@@ -147,6 +147,8 @@
 
         <?php require_once 'components/layout/nav.php'; ?>
 
+        <?php require_once 'components/layout/footer.php'; ?>
+
     </div>
 
 </body>

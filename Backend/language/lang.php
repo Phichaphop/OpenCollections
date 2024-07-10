@@ -3,6 +3,7 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $btn_delete_pic = "ลบรูปภาพ";
         $pic = "รูปภาพ";
         $print = "พิมพ์";
         $index = "หน้าหลัก";
@@ -226,6 +227,7 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $btn_delete_pic = "Delete Pictute";
         $pic = "Pictute";
         $print = "Print";
         $index = "Home";

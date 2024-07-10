@@ -85,22 +85,25 @@
 
     function GetProjectByID($id, $conn) {
         try {
-            $stmt = $conn->prepare("SELECT opc_project.id, opc_project.title, opc_project.author as author_id, 
-            author.username as author, advisor.username as advisor, advisor.id as advisor_id, approver.username as approver,
-            project_type.type as type, opc_major.major, opc_project.abstract, opc_project.pic as cover,
-            opc_project.date, opc_project.file, opc_project.status as status, opc_project.note, opc_project.created_at, opc_project.updated_at,
+            $stmt = $conn->prepare("SELECT p.id, p.title, p.author as author_id, 
+            author.username as author, advisor.username as advisor, advisor.id as advisor_id,
+            approver.username as approver,
+            pt.type as type, opc_major.major, p.abstract,
+            p.pic as cover, p.file,
+            p.status as status, p.note,
+            p.date, p.created_at, p.updated_at,
             opc_ins.ins, opc_ins.pic as ins_pic
-            FROM opc_project 
-            INNER JOIN opc_user as author on opc_project.author = author.id
-            INNER JOIN opc_user as advisor on opc_project.advisor = advisor.id
-            INNER JOIN opc_user as approver on opc_project.approver = approver.id
-            INNER JOIN opc_project_type on opc_project.type = project_type.id
-            INNER JOIN opc_project_status on opc_project.status = project_status.id
-            INNER JOIN opc_major on opc_project.major = opc_major.id
+            FROM opc_project as p
+            INNER JOIN opc_user as author on p.author = author.id
+            INNER JOIN opc_user as advisor on p.advisor = advisor.id
+            INNER JOIN opc_user as approver on p.approver = approver.id
+            INNER JOIN opc_project_type as pt on p.type = pt.id
+            INNER JOIN opc_project_status as ps on p.status = ps.id
+            INNER JOIN opc_major on p.major = opc_major.id
             INNER JOIN opc_dept on opc_major.dept = opc_dept.id
             INNER JOIN opc_faculty on opc_dept.faculty = opc_faculty.id
             INNER JOIN opc_ins on opc_faculty.ins = opc_ins.id
-            WHERE opc_project.id = :id");
+            WHERE p.id = :id");
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -113,6 +116,7 @@
             return $e->getMessage();
         }
     }
+    
 
     function GetProjectPicByID($id, $conn) {
         $stmt = $conn->prepare("SELECT id, pic FROM opc_project WHERE id = :id");

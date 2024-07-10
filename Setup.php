@@ -390,6 +390,8 @@
 
     </div>
 
+    <?php require_once 'components/layout/footer.php'; ?>
+
 </body>
 
 </html>

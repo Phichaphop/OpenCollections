@@ -230,7 +230,6 @@ if (isset($_POST['update_user_pic'])) {
         } else {
             $_SESSION['error'] = ($pic['size'] <= 0) ? "Please select a file." : "File format not supported. Please upload a PDF file.";
         }
-
     } catch (PDOException $e) {
         $_SESSION['error'] = $e->getMessage();
     }
@@ -260,7 +259,7 @@ function InsertUser($username, $pass, $email, $tel, $role, $conn)
             echo "<script>window.location.href='../dash_user.php';</script>";
         } else {
             $passHash = password_hash($pass, PASSWORD_DEFAULT);
-            $stmt = $conn->prepare("INSERT INTO user (id, username, password, email, role, tel, pic)
+            $stmt = $conn->prepare("INSERT INTO opc_user (id, username, password, email, role, tel, pic)
                                         VALUES(NULL, :username, :password, :email, :role, :tel, NULL)");
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":password", $passHash);
@@ -340,4 +339,53 @@ function DeleteUser($MyID, $id, $conn)
         echo "<script>window.location.href='../account.php?user_id=$id';</script>";
     }
 }
-?>
+
+if (isset($_GET['delete']) && isset($_GET['pic']) && isset($_GET['user'])) {
+    $id = $_GET['user'];
+    $filePath = '../resource/img/profile/';
+    DeleteUserProfile($id, $filePath, $conn);
+}
+
+function DeleteUserProfile($id, $filePath, $conn)
+{
+    try {
+        // Fetch the current cover picture
+        $stmt = $conn->prepare("SELECT pic FROM opc_user WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data) {
+            $picPath = $filePath . $data['pic'];
+
+            // Check if the file exists and delete it
+            if (file_exists($picPath)) {
+                if (unlink($picPath)) {
+                    try {
+                        // Update the database to remove the picture reference
+                        $stmt = $conn->prepare("UPDATE opc_user SET pic = :pic WHERE id = :id");
+                        $emptyPic = "";
+                        $stmt->bindParam(":pic", $emptyPic);
+                        $stmt->bindParam(":id", $id);
+                        $stmt->execute();
+                        $_SESSION['success'] = "updated successfully.";
+                    } catch (PDOException $e) {
+                        $_SESSION['error'] = "Database update error: " . $e->getMessage();
+                    }
+                } else {
+                    $_SESSION['error'] = "Failed to delete the file.";
+                }
+            } else {
+                $_SESSION['error'] = "File does not exist.";
+            }
+        } else {
+            $_SESSION['error'] = "not found.";
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = "Database error: " . $e->getMessage();
+    }
+
+    // Redirect to the project details page
+    echo "<script>window.location.href='../account.php?update&user_id=" . urlencode($id) . "';</script>";
+    exit;
+}

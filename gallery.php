@@ -21,12 +21,12 @@
             <!-- Content here -->
 
 
-            <div class="gallery">
+            <div class="gallery full">
 
                 <?php
-                $name = $_GET['name'] ?? '';
-                $type = $_GET['type'] ?? '';
-                $major = $_GET['major'] ?? '';
+                $name = isset($_GET['name']) ? $_GET['name'] : '';
+                $type = isset($_GET['type']) ? $_GET['type'] : '';
+                $major = isset($_GET['major']) ? $_GET['major'] : '';
                 $data = SearchProjectApprove($name, $type, $major, $conn);
                 include 'backend/Other/GetPage.php';
                 ?>
@@ -52,7 +52,11 @@
                             <?php if (!$row['cover']) { ?>
                                 <div class="gallery-cover">
                                     <div class="gallery-cover-content">
-                                        <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
+                                        <?php if (!$row['ins_pic']) { ?>
+                                            <img class="gallery-pic" src="resource/img/logo/opc.png">
+                                        <?php } else { ?>
+                                            <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
+                                        <?php } ?>
                                         <p class="gallery-cover-text"><?= $row['type'] ?></p>
                                     </div>
                                     <div class="gallery-cover-content">
@@ -80,6 +84,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

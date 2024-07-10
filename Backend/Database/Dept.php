@@ -14,7 +14,7 @@ function CreDeptTable($dbname, $table, $ref_faculty, $conn)
         $conn->exec($sql);
 
         // เพิ่มการสร้างแถวต่างๆในตาราง
-        SetupDept($conn, $table, "ตอมพิวเตอร์ธุรกิจและเทคโนโลยีธุรกิจดิจิทัล", 1);
+        SetupDept($conn, $table, "คอมพิวเตอร์ธุรกิจและเทคโนโลยีธุรกิจดิจิทัล", 1);
         SetupDept($conn, $table, "การบัญชี", 1);
         SetupDept($conn, $table, "การตลาด", 1);
         SetupDept($conn, $table, "ไฟฟ้ากำลัง", 2);

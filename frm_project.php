@@ -39,8 +39,6 @@
                 $btn_id = "Update";
                 $btn_text = $update;
                 $submit = "update_project_cover";
-
-                echo $data['pic'];
             }
             if (isset($_GET['update']) && isset($_GET['detail']) && isset($_GET['project'])) {
                 $data = GetProjectDataByID($_GET['project'], $conn);
@@ -209,18 +207,20 @@
 
                                 <?php } ?>
 
-                                <div class="btn-normal-se" onclick="window.location='backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
-                                    <span class="material-symbols-outlined">cloud_download</span>
-                                    <?= $download ?>
-                                </div>
-                                <a class="btn-normal-se" href="resource/doc/project/<?= $data['file'] ?>" target="_blank" ?>
-                                    <span class="material-symbols-outlined">visibility</span>
-                                    <?= $view ?>
-                                </a>
-                                <div class="btn-normal-se" onclick="window.location='print.php?print=<?= $data['id'] ?>'">
-                                    <span class="material-symbols-outlined">print</span>
-                                    <?= $print ?>
-                                </div>
+                                <?php if ($data['file']) { ?>
+                                    <div class="btn-normal-se" onclick="window.location='backend/DBDownload.php?project&file=<?= $data['file'] ?>'">
+                                        <span class="material-symbols-outlined">cloud_download</span>
+                                        <?= $download ?>
+                                    </div>
+                                    <a class="btn-normal-se" href="resource/doc/project/<?= $data['file'] ?>" target="_blank" ?>
+                                        <span class="material-symbols-outlined">visibility</span>
+                                        <?= $view ?>
+                                    </a>
+                                    <div class="btn-normal-se" onclick="window.location='print.php?print=<?= $data['id'] ?>'">
+                                        <span class="material-symbols-outlined">print</span>
+                                        <?= $print ?>
+                                    </div>
+                                <?php } ?>
 
                             </div>
 
@@ -232,6 +232,10 @@
 
                         <?php if (($data['author_id'] == $_SESSION['login'] || $data['advisor_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
                             <div class="frm-read">
+                                <div class="frm-read-content">
+                                    <h4><?= $advisor ?></h4>
+                                    <p><?= $data['advisor'] ?></p>
+                                </div>
                                 <div class="frm-read-content">
                                     <h4><?= $approver ?></h4>
                                     <p><?= $data['approver'] ?></p>
@@ -444,6 +448,11 @@
                         <div class="frm-control">
                             <div class="frm-control-group">
                                 <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                                
+                                <?php if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['project'])) { ?>
+                                    <div name="<?= $submit ?>" class="btn-se" onclick="window.location='backend/DBProject.php?delete&pic&project=<?= $_GET['project'] ?>'"><?= $btn_delete_pic ?></div>
+                                <?php } ?>
+
                                 <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
                             </div>
                         </div>
@@ -459,6 +468,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

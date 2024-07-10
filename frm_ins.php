@@ -158,6 +158,11 @@
                         <div class="frm-control">
                             <div class="frm-control-group">
                                 <button id="<?= $btn_id ?>" name="<?= $submit ?>" class="btn-se" type="submit" disabled><?= $btn_text ?></button>
+                                
+                                <?php if (isset($_GET['update']) && isset($_GET['pic']) && isset($_GET['ins'])) { ?>
+                                    <div name="<?= $submit ?>" class="btn-se" onclick="window.location='backend/DBMajor.php?delete&pic&ins=<?= $_GET['ins'] ?>'"><?= $btn_delete_pic ?></div>
+                                <?php } ?>
+                                
                                 <div class="btn-te" onclick="history.back()"><?= $cancel ?></div>
                             </div>
                         </div>
@@ -173,6 +178,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

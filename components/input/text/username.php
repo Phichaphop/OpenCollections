@@ -11,7 +11,7 @@
 
 <div class="form-group">
     <div class="form-set">
-        <input id="Username" name="username" class="input" type="text" minlength="1" maxlength="50" required="required" onkeyup="CheckUsername()">
+        <input id="Username" name="username" class="input" type="text" minlength="1" maxlength="50" required="required" value="<?= $value ?>" onkeyup="CheckUsername()">
         <span class="label"><?= $username ?></span>
         <div id="MsgBoxUsername" class="validation-msg">
             <div class="MsgContent">

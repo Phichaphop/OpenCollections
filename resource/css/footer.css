@@ -1,0 +1,32 @@
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 200px;
+}
+
+.footer-group {
+    text-align: center;
+}
+
+.footer-group h1 {
+    color: var(--main-l1--);
+}
+
+@media only screen and (max-width: 1400px) {
+    footer {
+        padding: 100px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    footer {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
+}

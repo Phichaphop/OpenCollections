@@ -148,7 +148,7 @@
 
                         foreach ($currentPageData as $row) { ?>
 
-                            <div class="menu-group">
+                            <div class="menu-group" onclick="window.location='frm_project.php?detail&project=<?= $row['id'] ?>'">
                                 <div class="menu-content">
 
                                     <?php if ($row['status'] == "1") { ?>
@@ -184,7 +184,7 @@
                                 </div>
 
                                 <div class="menu-content">
-                                    <div class="icon" onclick="window.location='frm_project.php?detail&project=<?= $row['id'] ?>'">
+                                    <div class="icon">
                                         <?php include 'components/icon/next.php'; ?>
                                     </div>
                                 </div>
@@ -202,6 +202,8 @@
         </section>
 
         <?php require_once 'components/layout/nav.php'; ?>
+
+        <?php require_once 'components/layout/footer.php'; ?>
 
     </div>
 

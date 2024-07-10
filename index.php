@@ -90,7 +90,7 @@
 
                     foreach ($currentPageData as $row) { ?>
 
-                        <div class="menu-box-group" onclick="window.location='gallery.php?type=<?= $row['id'] ?>'">
+                        <div class="menu-box-group" onclick="window.location='gallery.php?major=<?= $row['id'] ?>'">
 
                             <div class="menu-box-content">
                                 <div class="icon on-off">
@@ -122,6 +122,8 @@
     <!-- End Content here -->
 
     <?php require_once 'components/layout/nav.php'; ?>
+
+    <?php require_once 'components/layout/footer.php'; ?>
 
 </body>
 

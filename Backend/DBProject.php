@@ -161,6 +161,57 @@ function UpdateProjectCover($id, $pic, $allow, $fileActExt, $fileNew, $filePath,
     exit;
 }
 
+if (isset($_GET['delete']) && isset($_GET['pic']) && isset($_GET['project'])) {
+    $id = $_GET['project'];
+    $filePath = '../resource/img/project/';
+    DeleteProjectCover($id, $filePath, $conn);
+}
+
+function DeleteProjectCover($id, $filePath, $conn)
+{
+    try {
+        // Fetch the current cover picture
+        $stmt = $conn->prepare("SELECT pic FROM opc_project WHERE id = :id");
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($data) {
+            $picPath = $filePath . $data['pic'];
+
+            // Check if the file exists and delete it
+            if (file_exists($picPath)) {
+                if (unlink($picPath)) {
+                    try {
+                        // Update the database to remove the picture reference
+                        $stmt = $conn->prepare("UPDATE opc_project SET pic = :pic WHERE id = :id");
+                        $emptyPic = "";
+                        $stmt->bindParam(":pic", $emptyPic);
+                        $stmt->bindParam(":id", $id);
+                        $stmt->execute();
+                        $_SESSION['success'] = "updated successfully.";
+                    } catch (PDOException $e) {
+                        $_SESSION['error'] = "Database update error: " . $e->getMessage();
+                    }
+                } else {
+                    $_SESSION['error'] = "Failed to delete the file.";
+                }
+            } else {
+                $_SESSION['error'] = "File does not exist.";
+            }
+        } else {
+            $_SESSION['error'] = "not found.";
+        }
+    } catch (PDOException $e) {
+        $_SESSION['error'] = "Database error: " . $e->getMessage();
+    }
+
+    // Redirect to the project details page
+    echo "<script>window.location.href='../frm_project.php?detail&project=" . urlencode($id) . "';</script>";
+    exit;
+}
+
+
 if (isset($_POST['update_project'])) {
     $id = $_SESSION['project_id'];
     $title = $_POST['title'];

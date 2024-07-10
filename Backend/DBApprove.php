@@ -16,7 +16,7 @@ function SentDraftProject($id, $status, $conn) {
 
         if (empty($data['file'])) {
             $_SESSION['error'] = "Please upload a file.";
-            echo "<script>window.location.href='../frm_project.php?read&project=$id';</script>";
+            echo "<script>window.location.href='../frm_project.php?detail&project=$id';</script>";
             exit;
         } else {
             $updateStmt = $conn->prepare("UPDATE opc_project SET status=:status WHERE id=:id");

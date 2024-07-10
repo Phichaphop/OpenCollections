@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="resource/css/read.css">
     <link rel="stylesheet" href="resource/css/dash.css">
 
+    <link rel="stylesheet" href="resource/css/footer.css">
+
     <script src="resource/js/form/CheckIns.js"></script>
     <script src="resource/js/form/CheckFaculty.js"></script>
     <script src="resource/js/form/CheckDept.js"></script>
