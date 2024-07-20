@@ -30,8 +30,8 @@
     <link rel="stylesheet" href="resource/css/gallery.css">
     <link rel="stylesheet" href="resource/css/read.css">
     <link rel="stylesheet" href="resource/css/dash.css">
-
     <link rel="stylesheet" href="resource/css/footer.css">
+    <link rel="stylesheet" href="resource/css/print.css">
 
     <script src="resource/js/form/CheckIns.js"></script>
     <script src="resource/js/form/CheckFaculty.js"></script>

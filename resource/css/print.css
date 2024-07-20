@@ -1,0 +1,42 @@
+@media print {
+    section {
+        margin: 0;
+    }
+
+  body, .container, section, .section-read {
+    background: white;
+  }
+
+  header,
+  nav,
+  footer {
+    display: none;
+  }
+  #ph,
+  #phc,
+  #cover {
+    display: none;
+  }
+  .section-read {
+    width: 100%;
+  }
+
+  .frm-read {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    /*box-shadow: none;*/
+  }
+
+  #title-top {
+    display: block;
+  }
+  #title-detail {
+    display: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 30;
+  }
+}

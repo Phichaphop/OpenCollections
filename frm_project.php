@@ -116,7 +116,7 @@
 
                     <div class="frm-read">
 
-                        <div class="frm-read-group">
+                        <div id="cover" class="frm-read-group">
 
                             <?php if (!$data['cover']) { ?>
                                 <div class="project-cover">
@@ -189,7 +189,7 @@
                             }
                             ?>
 
-                            <div class="frm-read-content row">
+                            <div id="ph" class="frm-read-content row">
 
                                 <?php if (isset($_SESSION['login'])) { ?>
 
@@ -216,7 +216,7 @@
                                         <span class="material-symbols-outlined">visibility</span>
                                         <?= $view ?>
                                     </a>
-                                    <div class="btn-normal-se" onclick="window.location='print.php?print=<?= $data['id'] ?>'">
+                                    <div class="btn-normal-se" onclick="window.print()">
                                         <span class="material-symbols-outlined">print</span>
                                         <?= $print ?>
                                     </div>
@@ -231,7 +231,7 @@
                     <?php if (isset($_SESSION['login'])) { ?>
 
                         <?php if (($data['author_id'] == $_SESSION['login'] || $data['advisor_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
-                            <div class="frm-read">
+                            <div id="phc" class="frm-read">
                                 <div class="frm-read-content">
                                     <h4><?= $advisor ?></h4>
                                     <p><?= $data['advisor'] ?></p>
@@ -254,7 +254,7 @@
                         <?php } ?>
 
                         <?php if ((isset($_SESSION['admin']) || $data['author_id'] == $_SESSION['login']) && ($data['status'] == "1" || $data['status'] == "5")) { ?>
-                            <div class="frm-control">
+                            <div id="phc" class="frm-control">
                                 <div class="frm-control-group">
                                     <div class="btn-pr" onclick="window.location='backend/DBApprove.php?draft&project=<?= $_GET['project'] ?>'"><?= $sent ?></div>
                                     <div class="btn-del" onclick="window.location='VerifyPass.php?project=<?= $_GET['project'] ?>'"><?= $delete ?></div>
@@ -269,7 +269,7 @@
                         <?php } ?>
 
                         <?php if ((isset($_SESSION['admin']) || isset($_SESSION['officer']) == $data['advisor']) && $data['status'] == "2") { ?>
-                            <div class="frm-control">
+                            <div id="phc" class="frm-control">
                                 <div class="frm-control-group">
                                     <a class="btn-del" href="frm_project.php?update&cancel&project=<?= $_GET['project'] ?>"><?= $not_approve ?></a>
                                     <div class="btn-pr" onclick="window.location='backend/DBApprove.php?verify&project=<?= $_GET['project'] ?>'"><?= $approve ?></div>
@@ -279,7 +279,7 @@
                         <?php } ?>
 
                         <?php if ((isset($_SESSION['admin']) || isset($_SESSION['publisher']) == $data['approver']) && $data['status'] == "3") { ?>
-                            <div class="frm-control">
+                            <div id="phc" class="frm-control">
                                 <div class="frm-control-group">
                                     <div class="btn-del" onclick="window.location='frm_project.php?update&cancel&project=<?= $_GET['project'] ?>&cancel'"><?= $not_approve ?></div>
                                     <div class="btn-pr" onclick="window.location='backend/DBApprove.php?project=<?= $_GET['project'] ?>&approve'"><?= $approve ?></div>
@@ -289,7 +289,7 @@
                         <?php } ?>
 
                         <?php if (isset($_SESSION['admin']) && $data['status'] == "4") { ?>
-                            <div class="frm-control">
+                            <div id="phc" class="frm-control">
                                 <div class="frm-control-group">
                                     <div class="btn-se" onclick="window.location='frm_project.php?update&detail&project=<?= $_GET['project'] ?>'"><?= $update ?></div>
                                     <div class="btn-se" onclick="window.location='frm_project.php?update&file&project=<?= $_GET['project'] ?>'"><?= $edit_project_file ?> <?= $pdf_only ?></div>

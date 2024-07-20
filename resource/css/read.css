@@ -6,7 +6,7 @@
   padding: 10px; /*old 20px*/
   max-width: 100%;
   width: 100%;
-  background: var(--body-l1--);
+  /*background: var(--body-l1--);*/
   /*box-shadow: 0 4px 30px var(--base-shadow--);*/
 }
 
@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 100%;
   border-radius: 10px;
-  background: var(--body-l1--);
+  /*background: var(--body-l1--);*/
   /*box-shadow: 0 4px 30px var(--base-shadow--);*/
 }
 
