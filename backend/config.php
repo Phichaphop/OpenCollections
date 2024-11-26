@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'Database/config.php';
 require_once 'Other/ChangeDate.php';
 require_once 'Other/CutText.php';

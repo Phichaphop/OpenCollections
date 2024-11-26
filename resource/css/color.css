@@ -1,13 +1,13 @@
 .theme-light {
-  --body-l1--: #f8fafd;
-  --body-l2--: #ffffff;
-  --body-l3--: #e9eef6;
+  --body-l1--: #f0f3f9;
+  --body-l2--: #fbfbfd;
+  --body-l3--: #f5f6f9;
 
   --text-l1--: #101010;
   --text-l2--: #1c1f26;
   --text-l3--: #16181d;
 
-  --main-l1--: #0f6cbd;
+  --main-l1--: #0078d4;
   --main-l2--: #115ea3;
   --main-l3--: #0c3b5e;
 
@@ -31,15 +31,15 @@
 }
 
 .theme-dark {
-  --body-l1--: #1b1b1b;
-  --body-l2--: #131314;
-  --body-l3--: #282a2c;
+  --body-l1--: #202020;
+  --body-l2--: #2b2b2b;
+  --body-l3--: #323232;
 
   --text-l1--: #FFFFFF;
   --text-l2--: #e0e4eb;
   --text-l3--: #c2c9d6;
 
-  --main-l1--: #479ef5;
+  --main-l1--: #0078d4;
   --main-l2--: #115ea3;
   --main-l3--: #0c3b5e;
 
