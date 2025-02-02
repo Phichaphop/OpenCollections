@@ -23,7 +23,7 @@ if (isset($_GET['insert'])) {
 
 <div class="form-group">
     <div class="form-set">
-        <input id="Name" name="name" class="input" type="text" minlength="1" maxlength="50" value="<?= $name_text ?>" required="required" onkeyup="CheckName()">
+        <input id="Name" name="name" class="input" type="text" minlength="1" maxlength="100" value="<?= $name_text ?>" required="required" onkeyup="CheckName()">
         <span class="label"><?= $name ?></span>
         <div id="MsgBoxName" class="validation-msg">
             <div class="MsgContent">
