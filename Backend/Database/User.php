@@ -5,7 +5,7 @@ function CreUserTable($dbname, $table, $ref_user_role, $conn)
         $conn->exec("USE $dbname");
         $sql = "CREATE TABLE IF NOT EXISTS $table (
             id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            username VARCHAR(50) NOT NULL,
+            username VARCHAR(100) NOT NULL,
             password LONGTEXT NOT NULL,
             email VARCHAR(50) NOT NULL,
             tel VARCHAR(10) NOT NULL,

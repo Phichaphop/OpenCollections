@@ -139,8 +139,8 @@
                         </script>
                     <?php } else if (isset($_GET['update']) && isset($_GET['pass'])) { ?>
                         <?php include 'components/input/text/pass.php'; ?>
-                        <?php include 'components/input/user/new_pass.php'; ?>
-                        <?php include 'components/input/user/confirm_pass.php'; ?>
+                        <?php include 'components/input/text/new_pass.php'; ?>
+                        <?php include 'components/input/text/confirm_pass.php'; ?>
                         <script>
                             document.getElementById("Pass").addEventListener("keyup", CheckUpdatePass)
                             document.getElementById("NewPass").addEventListener("keyup", CheckUpdatePass)
