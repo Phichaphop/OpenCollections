@@ -98,8 +98,8 @@
 .icon-orange .material-symbols-outlined {
   color: var(--orange-l1--);
 }
-.icon-green .material-symbols-outlined {
-  color: var(--green-l1--);
+.icon-success .material-symbols-outlined {
+  color: var(--success-l1--);
 }
 .icon-red .material-symbols-outlined {
   color: var(--red-l1--);

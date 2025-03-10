@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 
@@ -68,7 +68,7 @@
                         </div>
                     </form>
 
-                    <script>
+                    <script></script>
                         Username.addEventListener("keyup", SignUp)
                         Pass.addEventListener("keyup", SignUp)
                         Tel.addEventListener("keyup", SignUp)

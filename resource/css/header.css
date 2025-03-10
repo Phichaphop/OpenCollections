@@ -10,6 +10,8 @@ header {
   width: 100%;
   padding: 10px;
   background: var(--body-l1--);
+  border-bottom: 1px solid var(--base-border--);
+
 }
 
 .header-group {

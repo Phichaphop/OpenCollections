@@ -1,7 +1,7 @@
 <?php include 'backend/Database/config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 

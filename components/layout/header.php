@@ -3,6 +3,12 @@
     <div class="header-group">
         <div class="header-content" onclick="toggleSide()">
             <div class="icon">
+                <?php include 'components/icon/menu.php' ?>
+            </div>
+        </div>
+
+        <div class="header-content" onclick="window.location='index.php'">
+            <div class="icon">
                 <?php include 'components/icon/logo.php' ?>
             </div>
         </div>
@@ -66,6 +72,8 @@
             $header_title = $VerifyEmail;
         } else if ($page == "VerifyPass") {
             $header_title = $VerifyPass;
+        } else if ($page == "dash_report") {
+            $header_title = $report;
         } else {
             $header_title = "";
         }
@@ -100,7 +108,7 @@
             <?php include 'components/icon/theme.php' ?>
         </div>
 
-        <?php if (isset($_SESSION['login'])) { 
+        <?php if (isset($_SESSION['login'])) {
             $UserPic = UserPic($_SESSION['login'], $conn);
         ?>
 

@@ -28,9 +28,9 @@
   border-radius: 20px;
   background: linear-gradient(
     32deg,
-    #0f6cbd,
-    #115ea3,
-    #0f6cbd
+    var(--main-l1--),
+    var(--main-l2--),
+    var(--main-l3--)
   );
   box-shadow: 0 4px 30px var(--base-shadow--);
 }

@@ -87,7 +87,7 @@
   /*text-align: left;*/
   height: auto;
   width: 100%;
-  /*background: var(--green-l1--);*/
+  /*background: var(--success-l1--);*/
 }
 
 @media only screen and (max-width: 1400px) {

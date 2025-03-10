@@ -4,7 +4,7 @@ function GenerateQRcode() {
         text: `${MyID}`,
         height: 140,
         width: 140,
-        colorDark: "#0f6cbd",
+        colorDark: "#7d1518",
         colorLight: "#ffffff",
         correctLevel: QRCode.CorrectLevel.H
     })

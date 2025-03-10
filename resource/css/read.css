@@ -92,7 +92,7 @@
   width: 40%;
   min-width: 330px;
   border-radius: 20px;
-  background: linear-gradient(32deg, #0f6cbd, #115ea3, #0f6cbd);
+  background: linear-gradient(32deg, var(--main-l1--), var(--main-l2--), var(--main-l3--));
   box-shadow: 0 4px 30px var(--base-shadow--);
 }
 

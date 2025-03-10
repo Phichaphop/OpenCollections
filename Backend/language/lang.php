@@ -3,6 +3,12 @@
     $lang = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'en';
 
     if ($lang == "th") {
+        $excel = "Excel";
+        $export = "ส่งออก";
+        $id = "ID";
+        $project_summary = "สรุปโครงการ";
+        $report = "รายงาน";
+        $Hello_index = "สวัสดี คุณกำลังมองหาอะไรอยู่?";
         $btn_delete_pic = "ลบรูปภาพ";
         $pic = "รูปภาพ";
         $print = "พิมพ์";
@@ -227,6 +233,12 @@
         $you_ll_lose_your_information = "ข้อมูลทั้งหมดของคุณจะถูกลบ";
         $your_account = "บัญชี";
     } else if ($lang == "en") {
+        $excel = "Excel";
+        $export = "Export";
+        $id = "ID";
+        $project_summary = "Project Summary";
+        $report = "Report";
+        $Hello_index = "Hello, What are you looking for";
         $btn_delete_pic = "Delete Pictute";
         $pic = "Pictute";
         $print = "Print";

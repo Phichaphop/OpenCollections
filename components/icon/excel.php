@@ -1,0 +1,1 @@
+<img class="material-symbols-outlined icon" src="resource/img/logo/excel.svg" style="border-radius: 0px;">

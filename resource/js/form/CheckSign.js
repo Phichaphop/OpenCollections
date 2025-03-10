@@ -3,14 +3,14 @@ function CheckUsername() {
   var MsgBoxUsername = document.getElementById("MsgBoxUsername");
   var MsgUsername = document.getElementById("MsgUsername");
   var MsgIconUsername = document.getElementById("MsgIconUsername");
-  var upperCaseLetters = /[A-Z]/g;
-  var lowerCaseLetters = /[a-z]/g;
+  //var upperCaseLetters = /[A-Z]/g;
+  //var lowerCaseLetters = /[a-z]/g;
 
   if (Username.value != "") {
     MsgBoxUsername.style.display = "flex";
-    if (
-      Username.value.match(upperCaseLetters) ||
-      Username.value.match(lowerCaseLetters)
+    if ( Username.value != "" && Username.value.length >= 9
+      //Username.value.match(upperCaseLetters) ||
+      //Username.value.match(lowerCaseLetters)
     ) {
       if (lang == "en") {
         MsgUsername.innerHTML = "The username format is correct.";
@@ -23,11 +23,11 @@ function CheckUsername() {
       }
     } else {
       if (lang == "en") {
-        MsgUsername.innerHTML = "Must contain letters A-Z or a-z.";
+        MsgUsername.innerHTML = "Must contain more than 9 characters."; //Must contain letters A-Z or a-z.
         MsgBoxUsername.className = "validation-msg error";
         MsgIconUsername.innerHTML = "error";
       } else {
-        MsgUsername.innerHTML = "ต้องมีตัวอักษร A-Z หรือ a-z";
+        MsgUsername.innerHTML = "ต้องมีตัวอักษรมากกว่า 9 ตัวอักษร"; //ต้องมีตัวอักษร A-Z หรือ a-z
         MsgBoxUsername.className = "validation-msg error";
         MsgIconUsername.innerHTML = "error";
       }
@@ -392,9 +392,9 @@ function CheckUsernameEmail() {
 
   if (Username.value != "") {
     MsgBoxUsername.style.display = "flex";
-    if (
-      Username.value.match(upperCaseLetters) ||
-      Username.value.match(lowerCaseLetters)
+    if ( Username.value != "" && Username.value.length >= 9
+      //Username.value.match(upperCaseLetters) ||
+      //Username.value.match(lowerCaseLetters)
     ) {
       if (Username.value.length >= 9) {
         if (lang == "en") {
@@ -419,11 +419,11 @@ function CheckUsernameEmail() {
       }
     } else {
       if (lang == "en") {
-        MsgUsername.innerHTML = "Must contain letters A-Z or a-z.";
+        MsgUsername.innerHTML = "Must contain more than 9 characters."; //Must contain letters A-Z or a-z.
         MsgBoxUsername.className = "validation-msg error";
         MsgIconUsername.innerHTML = "error";
       } else {
-        MsgUsername.innerHTML = "ต้องมีตัวอักษร A-Z หรือ a-z";
+        MsgUsername.innerHTML = "ต้องมีตัวอักษรมากกว่า 9 ตัวอักษร"; //ต้องมีตัวอักษร A-Z หรือ a-z
         MsgBoxUsername.className = "validation-msg error";
         MsgIconUsername.innerHTML = "error";
       }

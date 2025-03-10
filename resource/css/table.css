@@ -1,0 +1,129 @@
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content-header h1 {
+  font-size: 2rem;
+  color: var(--text-l1--);
+}
+
+.btn-success {
+  display: flex;
+  align-items: center; /* จัดตำแหน่งรูปและข้อความให้อยู่กลางในแนวตั้ง */
+  justify-content: start; /* จัดตำแหน่งในแนวนอนให้อยู่กลาง */
+  gap: 8px; /* ระยะห่างระหว่างรูปและข้อความ */
+  padding: 8px 15px;
+  background-color: var(--success-l1--);
+  color: var(--base-white--);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: var(--success-l1--);
+}
+
+.btn-success .icon {
+  margin: 0;
+}
+
+/* สไตล์กราฟ */
+.charts-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.chart {
+  flex: 1;
+  min-width: 300px;
+  max-width: 48%;
+  background: var(--base-white--);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--base-shadow--);
+}
+
+/* สไตล์ตาราง */
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--base-white--);
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px var(--base-shadow--);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+  color: #555;
+  white-space: nowrap;
+}
+
+thead {
+  background-color: #f1f1f1;
+}
+
+thead th {
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+@media only screen and (max-width: 1400px) {
+}
+
+@media only screen and (max-width: 1024px) {
+  .charts-container {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .table-container {
+    margin-top: 15px;
+  }
+
+  .btn-success {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .charts-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .table th,
+  .table td {
+    font-size: 14px;
+  }
+
+  .chart {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+}

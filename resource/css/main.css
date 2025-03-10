@@ -46,11 +46,11 @@ body {
 
 .done {
   color: #ffffff;
-  background: var(--green-l1--);
+  background: var(--success-l1--);
 }
 
 .done:hover {
-  background: var(--green-l3--);
+  background: var(--success-l3--);
 }
 
 .warning {

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 
@@ -24,6 +24,27 @@
 
                 <?php if (isset($_GET['setting'])) { ?>
                     <div class="menu">
+
+                    <div class="menu-title">
+                            <h1><?= $report ?></h1>
+                        </div>
+
+                        <div class="menu-group" onclick="window.location='dash_report.php'">
+                            <div class="menu-content">
+                                <div class="icon">
+                                    <?php include 'components/icon/report.php'; ?>
+                                </div>
+                                <div class="menu-title">
+                                    <h4><?= $report ?></ย>
+                                        <p class="menu-sub-title"><?= $approve_menu_detail ?></p>
+                                </div>
+                            </div>
+                            <div class="menu-content">
+                                <div class="icon">
+                                    <?php include 'components/icon/next.php'; ?>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="menu-title">
                             <h1><?= $approve ?></h1>

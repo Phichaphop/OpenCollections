@@ -23,6 +23,7 @@ require_once 'DashBoard/CountMajor.php';
 require_once 'DashBoard/CountProjectType.php';
 require_once 'DashBoard/CountProject.php';
 require_once 'DashBoard/CountApprove.php';
+require_once 'DashBoard/Report.php';
 require_once 'language/lang.php';
 
 $page = basename($_SERVER['PHP_SELF'], ".php");

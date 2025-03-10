@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="dash-group">
-                        <div class="icon-green">
+                        <div class="icon-success">
                             <?php include 'components/icon/approve.php'; ?>
                         </div>
                         <div class="dash-content">
@@ -167,7 +167,7 @@
                                         </div>
                                     <?php } ?>
                                     <?php if ($row['status'] == "4") { ?>
-                                        <div class="icon-green">
+                                        <div class="icon-success">
                                             <?php include 'components/icon/approve.php'; ?>
                                         </div>
                                     <?php } ?>

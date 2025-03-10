@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 
@@ -18,7 +18,7 @@
         <div class="home-content">
 
             <!--<img class="home-title" src="resource/img/logo/opc.png">-->
-            <h1 class="home-title">OpenCollections</h1>
+            <h1 class="home-title">Open Collections</h1>
 
             <form class="search" action="gallery.php" method="get">
                 <button class="search-filter">

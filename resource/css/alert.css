@@ -29,7 +29,7 @@
   padding: 12px;
   border-radius: 120px;
   
-  background: var(--green-l1--);
+  background: var(--success-l1--);
 }
 
 .alert-logo {
@@ -74,7 +74,7 @@
   right: 0;
   height: 100%;
   width: 100%;
-  background: var(--green-l1--);
+  background: var(--success-l1--);
 }
 
 .progress-success:after {

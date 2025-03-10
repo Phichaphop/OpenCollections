@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once 'head.php'; ?>
+<?php include "components/layout/head.php" ?>
 
 <body onload="set()">
 
@@ -122,7 +122,7 @@
                                 <div class="project-cover">
                                     <div class="project-cover-content">
                                         <?php if (!$data['ins_pic']) { ?>
-                                            <img class="cover-pic" src="resource/img/logo/opc.png">
+                                            <img class="cover-pic" src="resource/img/logo/logo.png">
                                         <?php } else { ?>
                                             <img class="cover-pic" src="resource/img/ins_logo/<?= $data['ins_pic'] ?>">
                                         <?php } ?>

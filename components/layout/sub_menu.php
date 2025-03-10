@@ -253,4 +253,9 @@
 
     <?php } ?>
 
+    <?php if ($page == "dash_report"){ ?>
+        
+
+    <?php } ?>
+
 </div>
