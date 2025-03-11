@@ -124,11 +124,11 @@ function CheckInputAbstract() {
   if (Abstract.value != "") {
     MsgBoxAbstract.style.display = "flex";
     if (lang == "en") {
-      MsgAbstract.innerHTML = "Completed abstract.";
+      MsgAbstract.innerHTML = "The abstract is correct.";
       MsgBoxAbstract.className = "validation-msg done";
       MsgIconAbstract.innerHTML = "done";
     } else {
-      MsgAbstract.innerHTML = "กรุณากรอกบทคัดย่อ";
+      MsgAbstract.innerHTML = "บทคัดย่อถูกต้อง";
       MsgBoxAbstract.className = "validation-msg done";
       MsgIconAbstract.innerHTML = "done";
     }
@@ -153,11 +153,11 @@ function CheckInputDate() {
   if (Date.value != "") {
     MsgBoxDate.style.display = "flex";
     if (lang == "en") {
-      MsgDate.innerHTML = "Please enter date.";
+      MsgDate.innerHTML = "The date is correct.";
       MsgBoxDate.className = "validation-msg done";
       MsgIconDate.innerHTML = "done";
     } else {
-      MsgDate.innerHTML = "กรุณาระบุวันที่";
+      MsgDate.innerHTML = "เลือกวันที่สำเรียบร้อย";
       MsgBoxDate.className = "validation-msg done";
       MsgIconDate.innerHTML = "done";
     }

@@ -53,7 +53,7 @@
                                 <div class="gallery-cover">
                                     <div class="gallery-cover-content">
                                         <?php if (!$row['ins_pic']) { ?>
-                                            <img class="gallery-pic" src="resource/img/logo/opc.png">
+                                            <img class="gallery-pic" src="resource/img/logo/logo.png">
                                         <?php } else { ?>
                                             <img class="gallery-pic" src="resource/img/ins_logo/<?= $row['ins_pic'] ?>">
                                         <?php } ?>

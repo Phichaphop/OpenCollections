@@ -65,9 +65,9 @@
   border-radius: 15px;
   background: linear-gradient(
     32deg,
-    #0f6cbd,
-    #115ea3,
-    #0f6cbd
+    var(--main-l1--),
+    var(--main-l2--),
+    var(--main-l3--)
   );
 }
 
