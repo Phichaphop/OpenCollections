@@ -6,7 +6,7 @@
   gap: 10px;
   height: auto;
   min-width: 100%;
-  margin: auto;
+  margin: 0px auto;
   padding: 20px;
   border-radius: 12px;
   background: var(--body-l2--);
@@ -100,7 +100,7 @@
   gap: 10px;
   height: auto;
   min-width: 100%;
-  margin: auto;
+  margin: 0px auto;
   padding: 20px;
   border-radius: 12px;
   background: var(--body-l2--);
@@ -163,7 +163,7 @@
   gap: 10px;
   height: auto;
   min-width: 100%;
-  margin: auto;
+  margin: 0px auto;
   padding: 20px;
   border-radius: 12px;
   background: var(--body-l2--);

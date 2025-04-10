@@ -18,6 +18,8 @@ function CreFacultyTable($dbname, $table, $ref_ins, $conn)
         SetupFaculty($conn, $table, "พาณิชยกรรม", 7);
         SetupFaculty($conn, $table, "อุสหกรรม", 7);
         SetupFaculty($conn, $table, "คหกรรม", 7);
+        SetupFaculty($conn, $table, "สามัญสัมพันธ์", 7);
+        SetupFaculty($conn, $table, "เทคโนโลยีสารสนเทศและการสื่อสาร", 7);
 
         $_SESSION['success'] = "Setup success!.";
     } catch (PDOException $e) {

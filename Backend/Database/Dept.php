@@ -19,6 +19,20 @@ function CreDeptTable($dbname, $table, $ref_faculty, $conn)
         SetupDept($conn, $table, "การตลาด", 1);
         SetupDept($conn, $table, "ไฟฟ้ากำลัง", 2);
         SetupDept($conn, $table, "แฟชั่นและสิ่งทอ", 3);
+        SetupDept($conn, $table, "โลจิสติก", 1);
+        SetupDept($conn, $table, "สามัญสัมพันธ์", 4);
+        SetupDept($conn, $table, "อาหารและโภชนาการ", 3);
+        SetupDept($conn, $table, "การโรงเเรมเเละการท่องเที่ยว", 3);
+        SetupDept($conn, $table, "เทคโนโลยีคอมพิวเตอร์", 5);
+        SetupDept($conn, $table, "เทคโนโลยีสารสนเทศ", 5);
+        SetupDept($conn, $table, "ช่างเชื่อมโลหะ", 2);
+        SetupDept($conn, $table, "ช่างโยธา", 2);
+        SetupDept($conn, $table, "ช่างยนต์", 2);
+        SetupDept($conn, $table, "ช่างกลโรงงาน", 2);
+        SetupDept($conn, $table, "ช่างก่อสร้าง", 2);
+        SetupDept($conn, $table, "ช่างอิเล็กทรอนิกส์", 2);
+        SetupDept($conn, $table, "เทคนิคการผลิต", 2);
+        SetupDept($conn, $table, "สถาปัตยกรรม", 2);
 
         $_SESSION['success'] = "Setup success!.";
     } catch (PDOException $e) {

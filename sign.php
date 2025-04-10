@@ -19,7 +19,7 @@
             <div class="section-group full">
 
                 <?php require_once 'components/layout/alert.php'; ?>
-
+                
                 <!-- Content here -->
 
                 <?php if (isset($_GET['signin'])) { ?>
@@ -69,11 +69,11 @@
                     </form>
 
                     <script></script>
-                        Username.addEventListener("keyup", SignUp)
-                        Pass.addEventListener("keyup", SignUp)
-                        Tel.addEventListener("keyup", SignUp)
-                        Email.addEventListener("keyup", SignUp)
-                        Policy.addEventListener("change", SignUp)
+                    Username.addEventListener("keyup", SignUp)
+                    Pass.addEventListener("keyup", SignUp)
+                    Tel.addEventListener("keyup", SignUp)
+                    Email.addEventListener("keyup", SignUp)
+                    Policy.addEventListener("change", SignUp)
                     </script>
 
                 <?php } ?>

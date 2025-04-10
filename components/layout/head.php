@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="resource/css/footer.css">
     <link rel="stylesheet" href="resource/css/print.css">
     <link rel="stylesheet" href="resource/css/table.css">
+    <link rel="stylesheet" href="resource/css/app_box.css">
 
     <script src="resource/js/form/CheckIns.js"></script>
     <script src="resource/js/form/CheckFaculty.js"></script>
